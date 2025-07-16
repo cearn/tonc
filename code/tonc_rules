@@ -3,7 +3,7 @@
 # DKP's base_rules and gba_rules
 #
 
-export PATH	:=	$(DEVKITARM)/bin:$(PATH)
+export PATH	:=	$(DEVKITARM)/bin:$(DEVKITPRO)/tools/bin:$(PATH)
 
 LIBGBA		?=	$(DEVKITPRO)/libgba
 

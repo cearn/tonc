@@ -96,7 +96,7 @@ BEGIN_FUNC_ARM(chr4c_drawg_b1cts_fast, CSEC_IWRAM)
 			orr		r3, r3, r4, lsl #3
 
 			rsb		r5, r3, r3, lsl #4
-			mul		r4, r3, r7		
+			mul		r4, r3, r7
 
 			@ Render to left tile
 			ldr		r3, [r0]

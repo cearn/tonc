@@ -4,6 +4,8 @@
 *.a
 *.map
 *.chm
+*.elf
+*.gba
 
 # Folders
 **/.svn

@@ -48,7 +48,7 @@ BEGIN_FUNC_ARM(clr_blend_fast, CSEC_IWRAM)
 #if(CLR_ROUND==1)
 		add		r4, r4, lr, lsl #4		@ round
 #endif
-		and		r10, r7, r4, lsr #5		@ blend(-g-|b-r)			
+		and		r10, r7, r4, lsr #5		@ blend(-g-|b-r)
 		@ --- b-r|-g- (rotated by 16 for great awesome)
 		and		r4, r6, r8, ror #11		@ x/32: -g-|b-r (ror16)
 		and		r5, r7, r9, ror #16		@ y: -g-|b-r (ror16)

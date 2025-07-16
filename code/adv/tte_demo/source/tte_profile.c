@@ -156,7 +156,6 @@ void chr4c_drawg_b1cts_base(uint gid)
 			for(ix=0; raw>0; raw>>=1, ix++)
 				if(raw&1)
 					schr4c_plot(&tc->dst, x0+ix, y0+iy, ink);
-
 		}
 		srcL += srcP;
 		x0 += 8;
@@ -443,3 +442,5 @@ void test_speeds()
 }
 
 // EOF
+
+
