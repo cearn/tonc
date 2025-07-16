@@ -184,10 +184,7 @@ typedef struct { u32 data[8];  } TILE, TILE4;
 typedef struct { u32 data[16]; } TILE8;
 
 
-#ifndef __cplusplus
-//! Boolean type
-typedef enum { false, true } bool;
-#endif
+#include <stdbool.h>
 
 #ifndef BOOL
 typedef u8 BOOL;	// C++ bool == u8 too, that's why

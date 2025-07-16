@@ -174,7 +174,7 @@
 	- Translate from ascii-character to glyph offset.
 	- Get the glyph (and glyph-cell) dimensions.
 	- Get the source and destination pointers and positions.
-	These macros will make declarint and defining that easier.
+	These macros will make declaring and defining that easier.
 */
 //\{
 
@@ -338,13 +338,13 @@ extern TTC *gp_tte_context;
 // --- Main Font data ---
 extern const TFont sys8Font;		//!< System font ' '-127. FWF  8x 8\@1.
 
-extern const TFont verdana9Font;	//!< Verdana 9 ' '-'ÿ'. VWF  8x12\@1.
-extern const TFont verdana9bFont;	//!< Verdana 9 bold ' '-'ÿ'. VWF  8x12\@1.
-extern const TFont verdana9iFont;	//!< Verdana 9 italic ' '-'ÿ'. VWF  8x12\@1.
+extern const TFont verdana9Font;	//!< Verdana 9 ' '-'ï¿½'. VWF  8x12\@1.
+extern const TFont verdana9bFont;	//!< Verdana 9 bold ' '-'ï¿½'. VWF  8x12\@1.
+extern const TFont verdana9iFont;	//!< Verdana 9 italic ' '-'ï¿½'. VWF  8x12\@1.
 
-extern const TFont verdana10Font;	//!< Verdana 10 ' '-'ÿ'. VWF 16x14\@1.
+extern const TFont verdana10Font;	//!< Verdana 10 ' '-'ï¿½'. VWF 16x14\@1.
 		
-extern const TFont verdana9_b4Font;	//!< Verdana 9 ' '-'ÿ'. VWF  8x12\@4.
+extern const TFont verdana9_b4Font;	//!< Verdana 9 ' '-'ï¿½'. VWF  8x12\@4.
 
 
 // --- Extra font data ---
@@ -463,8 +463,8 @@ void tte_set_margins(int left, int top, int right, int bottom);
 void tte_init_con(void);
 int tte_cmd_vt100(const char *text);
 
-ssize_t tte_con_write(struct _reent *r, int fd, const char *text, size_t len);
-ssize_t tte_con_nocash(struct _reent *r, int fd, const char *text, size_t len);
+ssize_t tte_con_write(struct _reent *r, void* fd, const char *text, size_t len);
+ssize_t tte_con_nocash(struct _reent *r, void* fd, const char *text, size_t len);
 
 /*! Wrapper 'function' to hide that we're making iprintf do
 	things it doesn't usually do.
