@@ -28,7 +28,12 @@
 // GLOBALS 
 // --------------------------------------------------------------------
 
-extern EWRAM_DATA char nocash_buffer[80];
+#define NOCASH_BUFFER_LEN 80
+
+/// Buffer for no$gba messages. 
+/// Defined in tonc_nocash.s; 
+/// @note	The actual size of the buffer is 82, but we allow for 80 chars.
+extern EWRAM_DATA char nocash_buffer[NOCASH_BUFFER_LEN+2];
 
 // --------------------------------------------------------------------
 // PROTOTYPES 
