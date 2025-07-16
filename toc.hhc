@@ -1,0 +1,1985 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta name="GENERATOR" content="Me!">
+<!-- Sitemap 1.0 -->
+</head>
+<body>
+<ul>
+  <li> <object type="text/sitemap">
+      <param name="Name" value="T O N C v1.4">
+      <param name="Local" value="text/portal.htm">
+    </object>
+  <li> <object type="text/sitemap">
+      <param name="Name" value="i.   Tonc v1.4 : Table of Contents">
+      <param name="Local" value="text/toc.htm#ch-">
+    </object>
+  <ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="i.1.   Preface">
+        <param name="Local" value="text/toc.htm#sec-preface">
+      </object>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="i.2.   GBA Basics">
+        <param name="Local" value="text/toc.htm#sec-basics">
+      </object>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="i.3.   GBA Extended">
+        <param name="Local" value="text/toc.htm#sec-extend">
+      </object>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="i.4.   Advanced / Applications">
+        <param name="Local" value="text/toc.htm#sec-apps">
+      </object>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="i.5.   Appendixes">
+        <param name="Local" value="text/toc.htm#sec-app">
+      </object>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="i.6.   On revisions">
+        <param name="Local" value="text/toc.htm#sec-revis">
+      </object>
+  </ul>
+  <li> <object type="text/sitemap">
+      <param name="Name" value="ii.   Introduction to Tonc">
+      <param name="Local" value="text/intro.htm#ch-">
+    </object>
+  <ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="ii.1.   Organisation">
+        <param name="Local" value="text/intro.htm#sec-org">
+      </object>
+    <ul>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="ii.1.1.   Tonc text">
+          <param name="Local" value="text/intro.htm#ssec-org-text">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="ii.1.2.   Tonc code">
+          <param name="Local" value="text/intro.htm#ssec-org-code">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="ii.1.3.   Tonc binaries">
+          <param name="Local" value="text/intro.htm#ssec-org-bin">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="ii.1.4.   Statement of Purpose">
+          <param name="Local" value="text/intro.htm#ssec-org-sop">
+        </object>
+    </ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="ii.2.   Terminology and Notation">
+        <param name="Local" value="text/intro.htm#sec-nota">
+      </object>
+    <ul>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="ii.2.1.   Register names and descriptions">
+          <param name="Local" value="text/intro.htm#ssec-note-reg">
+        </object>
+    </ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="ii.3.   Prerequisites">
+        <param name="Local" value="text/intro.htm#sec-cnd">
+      </object>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="ii.4.   On errors, suggestions">
+        <param name="Local" value="text/intro.htm#sec-feedback">
+      </object>
+  </ul>
+  <li> <object type="text/sitemap">
+      <param name="Name" value="1.   GBA Hardware">
+      <param name="Local" value="text/hardware.htm#ch-">
+    </object>
+  <ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="1.1.   Meet the GBA">
+        <param name="Local" value="text/hardware.htm#sec-intro">
+      </object>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="1.2.   GBA specs and capabilities">
+        <param name="Local" value="text/hardware.htm#sec-specs">
+      </object>
+    <ul>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="1.2.1.   CPU">
+          <param name="Local" value="text/hardware.htm#ssec-cpu">
+        </object>
+    </ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="1.3.   Memory Sections">
+        <param name="Local" value="text/hardware.htm#sec-memory">
+      </object>
+  </ul>
+  <li> <object type="text/sitemap">
+      <param name="Name" value="2.   Setting up a development environment">
+      <param name="Local" value="text/setup.htm#ch-">
+    </object>
+  <ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="2.1.   Introduction">
+        <param name="Local" value="text/setup.htm#sec-intro">
+      </object>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="2.2.   devkitPro and devkitARM">
+        <param name="Local" value="text/setup.htm#sec-dkp">
+      </object>
+    <ul>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="2.2.1.   Installation">
+          <param name="Local" value="text/setup.htm#ssec-dkp-install">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="2.2.2.   Building projects with DevkitARM">
+          <param name="Local" value="text/setup.htm#ssec-dkp-use">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="2.2.3.   DKP's makefile">
+          <param name="Local" value="text/setup.htm#ssec-dkp-makefile">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="2.2.4.   When compilers attack">
+          <param name="Local" value="text/setup.htm#ssec-dkp-error">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="2.2.5.   Building Tonc's examples with devkitARM">
+          <param name="Local" value="text/setup.htm#ssec-dkp-tonc">
+        </object>
+    </ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="2.3.  Alternative development environments">
+        <param name="Local" value="text/setup.htm#sec-env">
+      </object>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="2.4.   Command line details and legacy topics">
+        <param name="Local" value="text/setup.htm#sec-cli">
+      </object>
+    <ul>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="2.4.1.   Working with command-line tools.">
+          <param name="Local" value="text/setup.htm#ssec-cli-basic">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="2.4.2.   Basic Makefilese">
+          <param name="Local" value="text/setup.htm#ssec-cli-make">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="2.4.3.Legacy: on Tonc's structure">
+          <param name="Local" value="text/setup.htm#ssec-cli-tonc">
+        </object>
+    </ul>
+  </ul>
+  <li> <object type="text/sitemap">
+      <param name="Name" value="3.   My first GBA demo">
+      <param name="Local" value="text/first.htm#ch-">
+    </object>
+  <ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="3.1.   Finally, your first GBA program">
+        <param name="Local" value="text/first.htm#sec-first">
+      </object>
+    <ul>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="3.1.1.   Huh?">
+          <param name="Local" value="text/first.htm#ssec-first-huh">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="3.1.2.   Explanation of the code">
+          <param name="Local" value="text/first.htm#ssec-first-expl">
+        </object>
+    </ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="3.2.   Your second first GBA program">
+        <param name="Local" value="text/first.htm#sec-second">
+      </object>
+    <ul>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="3.2.1.   The toolbox">
+          <param name="Local" value="text/first.htm#ssec-2nd-toolbox">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="3.2.2.   The working code">
+          <param name="Local" value="text/first.htm#ssec-2nd-src">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="3.2.3.   First demo v3?">
+          <param name="Local" value="text/first.htm#ssec-2nd-v3">
+        </object>
+    </ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="3.3.   General notes on GBA programming">
+        <param name="Local" value="text/first.htm#sec-notes">
+      </object>
+    <ul>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="3.3.1.   GBA Good/bad practices">
+          <param name="Local" value="text/first.htm#ssec-notes-bad">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="3.3.2.   A few examples of good/bad practices">
+          <param name="Local" value="text/first.htm#ssec-bad-example">
+        </object>
+    </ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="3.4.   Testing your code on a real GBA">
+        <param name="Local" value="text/first.htm#sec-testing">
+      </object>
+    <ul>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="3.4.1.   Multiboot &amp; linkers">
+          <param name="Local" value="text/first.htm#ssec-testing-hw">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="3.4.2.   Compiling for real hardware">
+          <param name="Local" value="text/first.htm#ssec-testing-hwbuild">
+        </object>
+    </ul>
+  </ul>
+  <li> <object type="text/sitemap">
+      <param name="Name" value="4.   Introduction to GBA Graphics">
+      <param name="Local" value="text/video.htm#ch-">
+    </object>
+  <ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="4.1.   General introduction">
+        <param name="Local" value="text/video.htm#sec-intro">
+      </object>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="4.2.   Draw and blank periods">
+        <param name="Local" value="text/video.htm#sec-blanks">
+      </object>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="4.3.   Colors and palettes">
+        <param name="Local" value="text/video.htm#sec-colors">
+      </object>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="4.4.   Bitmaps, backgrounds and sprites">
+        <param name="Local" value="text/video.htm#sec-vid-types">
+      </object>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="4.5.   Display registers: REG_DISPCNT, REG_DISPSTAT and REG_VCOUNT">
+        <param name="Local" value="text/video.htm#sec-vid-regs">
+      </object>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="4.6.   Vsyncing part I, the busy-wait loop">
+        <param name="Local" value="text/video.htm#sec-vsync1">
+      </object>
+  </ul>
+  <li> <object type="text/sitemap">
+      <param name="Name" value="5.   The Bitmap modes (mode 3, 4, 5)">
+      <param name="Local" value="text/bitmaps.htm#ch-">
+    </object>
+  <ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="5.1.   Introduction">
+        <param name="Local" value="text/bitmaps.htm#sec-intro">
+      </object>
+    <ul>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="5.1.1.   Bitmap 101">
+          <param name="Local" value="text/bitmaps.htm#ssec-intro-101">
+        </object>
+    </ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="5.2.   The GBA bitmap modes">
+        <param name="Local" value="text/bitmaps.htm#sec-modes">
+      </object>
+    <ul>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="5.2.1.   Drawing primitives in mode 3">
+          <param name="Local" value="text/bitmaps.htm#ssec-modes-m3">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="A dash of mode 4">
+          <param name="Local" value="text/bitmaps.htm#ssec-modes-m4">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="5.2.3.   Complications of bitmap modes">
+          <param name="Local" value="text/bitmaps.htm#ssec-modes-details">
+        </object>
+    </ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="5.3.   Page flipping">
+        <param name="Local" value="text/bitmaps.htm#sec-page">
+      </object>
+    <ul>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="5.3.1.   GBA page flipping">
+          <param name="Local" value="text/bitmaps.htm#ssec-page-gba">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="5.3.2.   Page flipping demo">
+          <param name="Local" value="text/bitmaps.htm#ssec-page-demo">
+        </object>
+    </ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="5.4.   On data and how to use it">
+        <param name="Local" value="text/bitmaps.htm#sec-data">
+      </object>
+    <ul>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="5.4.1.   Yes, we have no files">
+          <param name="Local" value="text/bitmaps.htm#ssec-data-files">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="5.4.2.   Data conversion">
+          <param name="Local" value="text/bitmaps.htm#ssec-data-format">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="5.4.3.   #including code or data considered harmful">
+          <param name="Local" value="text/bitmaps.htm#ssec-data-hdr">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="5.4.4.   Proper build procedure">
+          <param name="Local" value="text/bitmaps.htm#ssec-data-proc">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="5.4.5.   Data alignment">
+          <param name="Local" value="text/bitmaps.htm#ssec-data-align">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="5.4.6.   Copying, memcpy() and sizeof">
+          <param name="Local" value="text/bitmaps.htm#ssec-data-memcpy">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="5.4.7.   Data interpretation demo">
+          <param name="Local" value="text/bitmaps.htm#ssec-data-demo">
+        </object>
+    </ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="Conclusions">
+        <param name="Local" value="text/bitmaps.htm#sec-conc">
+      </object>
+  </ul>
+  <li> <object type="text/sitemap">
+      <param name="Name" value="6.   The GBA buttons (a.k.a. keys)">
+      <param name="Local" value="text/keys.htm#ch-">
+    </object>
+  <ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="6.1.   Introduction">
+        <param name="Local" value="text/keys.htm#sec-intro">
+      </object>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="6.2.   Keypad registers">
+        <param name="Local" value="text/keys.htm#sec-regs">
+      </object>
+    <ul>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="6.2.1.   The keypad register, REG_KEYINPUT">
+          <param name="Local" value="text/keys.htm#ssec-reg-keys">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="6.2.2.   The key control register, REG_KEYCNT">
+          <param name="Local" value="text/keys.htm#ssec-reg-keycnt">
+        </object>
+    </ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="6.3.   Beyond basic button states">
+        <param name="Local" value="text/keys.htm#sec-adv-keys">
+      </object>
+    <ul>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="6.3.1.   Synchronous and transitional key states">
+          <param name="Local" value="text/keys.htm#ssec-adv-sync">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="6.3.2.   Transitional states">
+          <param name="Local" value="text/keys.htm#ssec-adv-trans">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="6.3.3.   Key tribool states">
+          <param name="Local" value="text/keys.htm#ssec-adv-tri">
+        </object>
+    </ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="6.4.   A simple key demo">
+        <param name="Local" value="text/keys.htm#sec-demo">
+      </object>
+  </ul>
+  <li> <object type="text/sitemap">
+      <param name="Name" value="7.   Sprite and background overview">
+      <param name="Local" value="text/objbg.htm#ch-">
+    </object>
+  <ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="7.1.   Sprites and backgrounds introduction">
+        <param name="Local" value="text/objbg.htm#sec-intro">
+      </object>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="7.2.   Sprite and background control">
+        <param name="Local" value="text/objbg.htm#sec-ctrl">
+      </object>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="7.3.   Sprite and background mapping">
+        <param name="Local" value="text/objbg.htm#sec-map">
+      </object>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="7.4.   Sprite and background image data">
+        <param name="Local" value="text/objbg.htm#sec-img">
+      </object>
+    <ul>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="7.4.1.   Tiles">
+          <param name="Local" value="text/objbg.htm#ssec-img-tiles">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="7.4.2.   Tile blocks (aka charblocks)">
+          <param name="Local" value="text/objbg.htm#ssec-img-cbb">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="7.4.3.   Palettes and tile colors">
+          <param name="Local" value="text/objbg.htm#ssec-img-clr">
+        </object>
+    </ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="7.5.   Summary">
+        <param name="Local" value="text/objbg.htm#sec-summary">
+      </object>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="7.6.   What's in a name?">
+        <param name="Local" value="text/objbg.htm#sec-name">
+      </object>
+  </ul>
+  <li> <object type="text/sitemap">
+      <param name="Name" value="8.   Regular sprites">
+      <param name="Local" value="text/regobj.htm#ch-">
+    </object>
+  <ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="8.1.   Sprite introduction">
+        <param name="Local" value="text/regobj.htm#sec-intro">
+      </object>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="8.2.   Sprite image data and mapping mode">
+        <param name="Local" value="text/regobj.htm#sec-tiles">
+      </object>
+    <ul>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="8.2.1.   The sprite mapping mode">
+          <param name="Local" value="text/regobj.htm#ssec-map">
+        </object>
+    </ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="8.3.   Sprite control: Object Attribute Memory">
+        <param name="Local" value="text/regobj.htm#sec-oam">
+      </object>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="8.4.   Object attributes: OBJ_ATTR">
+        <param name="Local" value="text/regobj.htm#sec-oam-entry">
+      </object>
+    <ul>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="8.4.1.   Attribute 0">
+          <param name="Local" value="text/regobj.htm#ssec-obj-attr0">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="8.4.2.   Attribute 1">
+          <param name="Local" value="text/regobj.htm#ssec-obj-attr1">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="8.4.3.   Attribute 2">
+          <param name="Local" value="text/regobj.htm#ssec-obj-attr2">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="8.4.4.   Attribute 3">
+          <param name="Local" value="text/regobj.htm#ssec-obj-attr3">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="8.4.5.   OAM double buffering">
+          <param name="Local" value="text/regobj.htm#ssec-oam-buffer">
+        </object>
+    </ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="8.5.   Bitfield macros (OAM or otherwise)">
+        <param name="Local" value="text/regobj.htm#sec-macro">
+      </object>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="8.6.   Demo time">
+        <param name="Local" value="text/regobj.htm#sec-obj-demo">
+      </object>
+    <ul>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="8.6.1.   Setting up sprites">
+          <param name="Local" value="text/regobj.htm#ssec-demo-init">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="8.6.2.   Sprite positioning">
+          <param name="Local" value="text/regobj.htm#ssec-demo-pos">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="8.6.3.   Other attrs">
+          <param name="Local" value="text/regobj.htm#ssec-demo-attr">
+        </object>
+    </ul>
+  </ul>
+  <li> <object type="text/sitemap">
+      <param name="Name" value="9.   Regular tiled backgrounds">
+      <param name="Local" value="text/regbg.htm#ch-">
+    </object>
+  <ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="9.1.   Tilemap introduction">
+        <param name="Local" value="text/regbg.htm#sec-intro">
+      </object>
+    <ul>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="[[ref:ssec-intro-gba]   Tilemaps for the GBA">
+          <param name="Local" value="text/regbg.htm#ssec-intro-gba">
+        </object>
+    </ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="9.2.   Background control">
+        <param name="Local" value="text/regbg.htm#sec-ctrl">
+      </object>
+    <ul>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="9.2.1.   Background types">
+          <param name="Local" value="text/regbg.htm#ssec-ctrl-bgs">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="9.2.2.   Control registers">
+          <param name="Local" value="text/regbg.htm#ssec-ctrl-regs">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="9.2.3.   Useful types and #defines">
+          <param name="Local" value="text/regbg.htm#ssec-ctrl-types">
+        </object>
+    </ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="9.3.   Regular background tile-maps">
+        <param name="Local" value="text/regbg.htm#sec-map">
+      </object>
+    <ul>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="9.3.1.   Map layout">
+          <param name="Local" value="text/regbg.htm#ssec-map-layout">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="9.3.2.   Background tile subtleties">
+          <param name="Local" value="text/regbg.htm#ssec-map-subtle">
+        </object>
+    </ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="9.4.   Tilemap demos">
+        <param name="Local" value="text/regbg.htm#sec-demo">
+      </object>
+    <ul>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="9.4.1.   Essential tilemap steps: brin_demo">
+          <param name="Local" value="text/regbg.htm#ssec-demo-brin">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="9.4.2.   A screenblock demo">
+          <param name="Local" value="text/regbg.htm#ssec-demo-sbb">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="9.4.3.   The charblock demo">
+          <param name="Local" value="text/regbg.htm#ssec-demo-cbb">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="9.4.4.   Bonus demo: the 'text' in text bg and    introducing tonclib">
+          <param name="Local" value="text/regbg.htm#ssec-demo-hello">
+        </object>
+    </ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="9.5.   In conclusion">
+        <param name="Local" value="text/regbg.htm#sec-conc">
+      </object>
+  </ul>
+  <li> <object type="text/sitemap">
+      <param name="Name" value="10.   The Affine Transformation Matrix (a.k.a. P)">
+      <param name="Local" value="text/affine.htm#ch-">
+    </object>
+  <ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="10.1.   About this page">
+        <param name="Local" value="text/affine.htm#sec-intro">
+      </object>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="10.2.   Texture mapping and affine transformations.">
+        <param name="Local" value="text/affine.htm#sec-texmap">
+      </object>
+    <ul>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="10.2.1.   General 2D texture mapping">
+          <param name="Local" value="text/affine.htm#ssec-tex-gen">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="10.2.2.   Affine transformations">
+          <param name="Local" value="text/affine.htm#ssec-tex-aff">
+        </object>
+    </ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="10.3.   &ldquo;Many of the truths we cling to depend  greatly upon our own point of view.&rdquo;">
+        <param name="Local" value="text/affine.htm#sec-pov">
+      </object>
+    <ul>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="10.3.1.   Human point of view">
+          <param name="Local" value="text/affine.htm#ssec-pov-human">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="10.3.2.   Computer point of view">
+          <param name="Local" value="text/affine.htm#ssec-pov-comp">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="10.3.3.   Resolution">
+          <param name="Local" value="text/affine.htm#ssec-pov-res">
+        </object>
+    </ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="10.4.   Finishing up">
+        <param name="Local" value="text/affine.htm#sec-finish">
+      </object>
+    <ul>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="10.4.1.   Data types of affine elements">
+          <param name="Local" value="text/affine.htm#ssec-fin-type">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="10.4.2.   LUTs">
+          <param name="Local" value="text/affine.htm#ssec-fin-lut">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="10.4.3.   Initialization">
+          <param name="Local" value="text/affine.htm#ssec-fin-init">
+        </object>
+    </ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="10.5.   Tonc's affine functions">
+        <param name="Local" value="text/affine.htm#sec-aff-fun">
+      </object>
+    <ul>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="10.5.1.   Sample rot/scale function">
+          <param name="Local" value="text/affine.htm#ssec-fin-rs">
+        </object>
+    </ul>
+  </ul>
+  <li> <object type="text/sitemap">
+      <param name="Name" value="11.   Affine sprites">
+      <param name="Local" value="text/affobj.htm#ch-">
+    </object>
+  <ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="11.1.   Affine sprite introduction">
+        <param name="Local" value="text/affobj.htm#sec-intro">
+      </object>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="11.2.   Affine sprite initialization">
+        <param name="Local" value="text/affobj.htm#sec-init">
+      </object>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="11.3.   Graphical artifacts">
+        <param name="Local" value="text/affobj.htm#sec-artifact">
+      </object>
+    <ul>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="11.3.1.   The clipping and discretization artifacts">
+          <param name="Local" value="text/affobj.htm#ssec-clip">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="11.3.2.   The wrapping artifact">
+          <param name="Local" value="text/affobj.htm#ssec-wrap">
+        </object>
+    </ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="11.4.   A very (af)fine demo">
+        <param name="Local" value="text/affobj.htm#sec-demo">
+      </object>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="11.5.   Off-center reference points and object combos">
+        <param name="Local" value="text/affobj.htm#sec-combo">
+      </object>
+    <ul>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="11.5.1.   Affine object combo demo">
+          <param name="Local" value="text/affobj.htm#ssec-combo-demo">
+        </object>
+    </ul>
+  </ul>
+  <li> <object type="text/sitemap">
+      <param name="Name" value="12.   Affine backgrounds">
+      <param name="Local" value="text/affbg.htm#ch-">
+    </object>
+  <ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="12.1.   Introduction">
+        <param name="Local" value="text/affbg.htm#sec-intro">
+      </object>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="12.2.   Affine background registers">
+        <param name="Local" value="text/affbg.htm#sec-regs">
+      </object>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="12.3.   Positioning and transforming affine backgrounds">
+        <param name="Local" value="text/affbg.htm#sec-aff-ofs">
+      </object>
+    <ul>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="12.3.1.   Internal reference point registers">
+          <param name="Local" value="text/affbg.htm#ssec-bga-refpts">
+        </object>
+    </ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="12.4.   Mapping format">
+        <param name="Local" value="text/affbg.htm#sec-map">
+      </object>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="12.5.   sbb_aff demo">
+        <param name="Local" value="text/affbg.htm#sec-demo">
+      </object>
+  </ul>
+  <li> <object type="text/sitemap">
+      <param name="Name" value="13.   Graphic Effects">
+      <param name="Local" value="text/gfx.htm#ch-">
+    </object>
+  <ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="13.1.   Mosaic">
+        <param name="Local" value="text/gfx.htm#sec-mos">
+      </object>
+    <ul>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="13.1.1.   Using mosaic: sprite/bg flags and REG_MOSAIC">
+          <param name="Local" value="text/gfx.htm#ssec-mos-use">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="13.1.2.   A small mosaic demo">
+          <param name="Local" value="text/gfx.htm#ssec-mos-demo">
+        </object>
+    </ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="13.2.   Blending">
+        <param name="Local" value="text/gfx.htm#sec-blend">
+      </object>
+    <ul>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="13.2.1.   GBA Blending">
+          <param name="Local" value="text/gfx.htm#ssec-bld-gba">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="13.2.2.   Blending caveats">
+          <param name="Local" value="text/gfx.htm#ssec-bld-cav">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="13.2.3.   The obligatory demo">
+          <param name="Local" value="text/gfx.htm#ssec-bld-demo">
+        </object>
+    </ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="13.3.   Windowing">
+        <param name="Local" value="text/gfx.htm#sec-win">
+      </object>
+    <ul>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="13.3.1.   Window boundaries">
+          <param name="Local" value="text/gfx.htm#ssec-win-bound">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="13.3.2.   Window content">
+          <param name="Local" value="text/gfx.htm#ssec-win-content">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="13.3.3.   Caveats">
+          <param name="Local" value="text/gfx.htm#ssec-win-caveat">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="13.3.4.   Demo: there's a rocket in my pocket">
+          <param name="Local" value="text/gfx.htm#ssec-win-demo">
+        </object>
+    </ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="13.4.   Conclusions">
+        <param name="Local" value="text/gfx.htm#sec-conc">
+      </object>
+  </ul>
+  <li> <object type="text/sitemap">
+      <param name="Name" value="14.   Direct Memory Access">
+      <param name="Local" value="text/dma.htm#ch-">
+    </object>
+  <ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="14.1.   DMA &hellip; que?">
+        <param name="Local" value="text/dma.htm#sec-intro">
+      </object>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="14.2.   DMA registers">
+        <param name="Local" value="text/dma.htm#sec-regs">
+      </object>
+    <ul>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="14.2.1.   DMA controls">
+          <param name="Local" value="text/dma.htm#ssec-reg-cnt">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="14.2.2.   Source and destination addresses">
+          <param name="Local" value="text/dma.htm#ssec-reg-adr">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="14.2.3.   DMA flags">
+          <param name="Local" value="text/dma.htm#ssec-reg-flags">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="14.2.4.   More on DMA timing">
+          <param name="Local" value="text/dma.htm#ssec-reg-timing">
+        </object>
+    </ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="14.3.   Some DMA routines">
+        <param name="Local" value="text/dma.htm#sec-func">
+      </object>
+    <ul>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="14.3.1.   On DMA fills">
+          <param name="Local" value="text/dma.htm#ssec-func-fill">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="14.3.2.   DMA; don't wear it out">
+          <param name="Local" value="text/dma.htm#ssec-func-use">
+        </object>
+    </ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="14.4.   DMA demo : circular windows">
+        <param name="Local" value="text/dma.htm#sec-demo">
+      </object>
+  </ul>
+  <li> <object type="text/sitemap">
+      <param name="Name" value="15.   Timers">
+      <param name="Local" value="text/timers.htm#ch-">
+    </object>
+  <ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="15.1.   Timing is everything">
+        <param name="Local" value="text/timers.htm#sec-intro">
+      </object>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="15.2.   GBA Timers">
+        <param name="Local" value="text/timers.htm#sec-tmr">
+      </object>
+    <ul>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="15.2.1.   Timer registers">
+          <param name="Local" value="text/timers.htm#ssec-tmr-regs">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="15.2.2.   REG_TMxCNT">
+          <param name="Local" value="text/timers.htm#ssec-reg-tmxcnt">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="15.2.3.   REG_TMxD">
+          <param name="Local" value="text/timers.htm#ssec-reg-tmxd">
+        </object>
+    </ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="15.3.   Timer demo : like clockwork">
+        <param name="Local" value="text/timers.htm#sec-demo">
+      </object>
+  </ul>
+  <li> <object type="text/sitemap">
+      <param name="Name" value="16.   Interrupts">
+      <param name="Local" value="text/interrupts.htm#ch-">
+    </object>
+  <ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="16.1.   Introduction">
+        <param name="Local" value="text/interrupts.htm#sec-intro">
+      </object>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="16.2.   Interrupts registers">
+        <param name="Local" value="text/interrupts.htm#sec-regs">
+      </object>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="16.3.   Interrupt Service Routines">
+        <param name="Local" value="text/interrupts.htm#sec-isr">
+      </object>
+    <ul>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="16.3.1.   The interrupt process">
+          <param name="Local" value="text/interrupts.htm#ssec-isr-proc">
+        </object>
+    </ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="16.4.   Creating an interrupt switchboard">
+        <param name="Local" value="text/interrupts.htm#sec-switch">
+      </object>
+    <ul>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="16.4.1.   Design and interface considerations">
+          <param name="Local" value="text/interrupts.htm#ssec-switch-design">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="16.4.2.   The master interrupt service routine">
+          <param name="Local" value="text/interrupts.htm#ssec-switch-master">
+        </object>
+    </ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="16.5.   Nested interrupt demo">
+        <param name="Local" value="text/interrupts.htm#sec-demo">
+      </object>
+    <ul>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="16.5.1.   Using ARM + IWRAM code">
+          <param name="Local" value="text/interrupts.htm#ssec-demo-iwram">
+        </object>
+    </ul>
+  </ul>
+  <li> <object type="text/sitemap">
+      <param name="Name" value="17.   BIOS Calls">
+      <param name="Local" value="text/swi.htm#ch-">
+    </object>
+  <ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="17.1.   Introduction">
+        <param name="Local" value="text/swi.htm#sec-intro">
+      </object>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="17.2.   The BIOS functions">
+        <param name="Local" value="text/swi.htm#sec-funs">
+      </object>
+    <ul>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="17.2.1.   Full list">
+          <param name="Local" value="text/swi.htm#ssec-funs-list">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="17.2.2.   Div, Sqrt, Arctan2 and  ObjAffineSet descriptions">
+          <param name="Local" value="text/swi.htm#ssec-funs-smpl">
+        </object>
+    </ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="17.3.   Using BIOS calls">
+        <param name="Local" value="text/swi.htm#sec-usage">
+      </object>
+    <ul>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="17.3.1.   Assembly for BIOS calls">
+          <param name="Local" value="text/swi.htm#ssec-use-swi-asm">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="17.3.2.   The Arm Architecture Procedure Call Standard">
+          <param name="Local" value="text/swi.htm#ssec-use-aapcs">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="17.3.3.   Inline assembly">
+          <param name="Local" value="text/swi.htm#ssec-use-inl-asm">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="17.3.4.   The swi_call macro">
+          <param name="Local" value="text/swi.htm#ssec-use-swi-call">
+        </object>
+    </ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="17.4.   Demo graphs">
+        <param name="Local" value="text/swi.htm#sec-demo">
+      </object>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="17.5.   Vsyncing part II, VBlankIntrWait">
+        <param name="Local" value="text/swi.htm#sec-vsync2">
+      </object>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="17.6.   Final thoughts">
+        <param name="Local" value="text/swi.htm#sec-concs">
+      </object>
+  </ul>
+  <li> <object type="text/sitemap">
+      <param name="Name" value="18.   Beep! GBA sound introduction">
+      <param name="Local" value="text/sndsqr.htm#ch-">
+    </object>
+  <ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="18.1.   Introduction to GBA sound">
+        <param name="Local" value="text/sndsqr.htm#sec-intro">
+      </object>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="18.2.   Sound and Waves">
+        <param name="Local" value="text/sndsqr.htm#sec-sndwav">
+      </object>
+    <ul>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="18.2.1.   Waves">
+          <param name="Local" value="text/sndsqr.htm#ssec-harmonic">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="18.2.2.   Sound waves">
+          <param name="Local" value="text/sndsqr.htm#ssec-wave-sound">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="18.2.3.   Musical scale">
+          <param name="Local" value="text/sndsqr.htm#ssec-notes">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="18.2.4.   Fourier transforms and the square wave">
+          <param name="Local" value="text/sndsqr.htm#ssec-fourier">
+        </object>
+    </ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="18.3.   GBA sound">
+        <param name="Local" value="text/sndsqr.htm#sec-gbasnd">
+      </object>
+    <ul>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="18.3.1.   Sound registers">
+          <param name="Local" value="text/sndsqr.htm#ssec-snd-regs">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="18.3.2.   Master sound registers">
+          <param name="Local" value="text/sndsqr.htm#ssec-snd-mstr">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="18.3.3.   GBA Square wave generators">
+          <param name="Local" value="text/sndsqr.htm#ssec-snd-sqr">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="18.3.4.   Square sound registers">
+          <param name="Local" value="text/sndsqr.htm#ssec-snd-sqrreg">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="18.3.5.   Playing notes">
+          <param name="Local" value="text/sndsqr.htm#ssec-snd-notes">
+        </object>
+    </ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="18.4.   Demo time">
+        <param name="Local" value="text/sndsqr.htm#sec-demo">
+      </object>
+    <ul>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="18.4.1.   Playing a little ditty">
+          <param name="Local" value="text/sndsqr.htm#ssec-demo-ditty">
+        </object>
+    </ul>
+  </ul>
+  <li> <object type="text/sitemap">
+      <param name="Name" value="19.   Text systems">
+      <param name="Local" value="text/text.htm#ch-">
+    </object>
+  <ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="19.1.   Introduction">
+        <param name="Local" value="text/text.htm#sec-intro">
+      </object>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="19.2.   Text system internals">
+        <param name="Local" value="text/text.htm#sec-in">
+      </object>
+    <ul>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="19.2.1.   Variables">
+          <param name="Local" value="text/text.htm#ssec-in-tb">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="19.2.2.   The font">
+          <param name="Local" value="text/text.htm#ssec-in-font">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="19.2.3.   Character map">
+          <param name="Local" value="text/text.htm#ssec-in-charmap">
+        </object>
+    </ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="19.3.   Bitmap text">
+        <param name="Local" value="text/text.htm#sec-bm">
+      </object>
+    <ul>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="19.3.1.   Internal routines">
+          <param name="Local" value="text/text.htm#ssec-bm-intl">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="19.3.2.   Interface functions">
+          <param name="Local" value="text/text.htm#ssec-bm-iface">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="19.3.3.   Clearing text">
+          <param name="Local" value="text/text.htm#ssec-bm-clrs">
+        </object>
+    </ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="19.4.   Tilemap text">
+        <param name="Local" value="text/text.htm#sec-tile">
+      </object>
+    <ul>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="19.4.1.   Tile initialisation">
+          <param name="Local" value="text/text.htm#ssec-tile-init">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="19.4.2.   Screen entry writer">
+          <param name="Local" value="text/text.htm#ssec-tile-puts">
+        </object>
+    </ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="19.5.   Sprite text">
+        <param name="Local" value="text/text.htm#sec-obj">
+      </object>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="19.6.   Some demos">
+        <param name="Local" value="text/text.htm#sec-demo">
+      </object>
+    <ul>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="19.6.1.   Bitmap text demo">
+          <param name="Local" value="text/text.htm#ssec-demo-bm">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="19.6.2.   Sprite text; Hello world!">
+          <param name="Local" value="text/text.htm#ssec-demo-obj">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="19.6.3.   Map text : colors and borders">
+          <param name="Local" value="text/text.htm#ssec-demo-se1">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="19.6.4.   Map text : profiling">
+          <param name="Local" value="text/text.htm#ssec-demo-se2">
+        </object>
+    </ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="19.7.   Other considerations">
+        <param name="Local" value="text/text.htm#sec-misc">
+      </object>
+  </ul>
+  <li> <object type="text/sitemap">
+      <param name="Name" value="20.   Mode 7 Part 1">
+      <param name="Local" value="text/mode7.htm#ch-">
+    </object>
+  <ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="20.1.   Introduction">
+        <param name="Local" value="text/mode7.htm#sec-intro">
+      </object>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="20.2.   Getting a sense of perspective">
+        <param name="Local" value="text/mode7.htm#sec-persp">
+      </object>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="20.3.   Enter Mode 7">
+        <param name="Local" value="text/mode7.htm#sec-m7-math">
+      </object>
+    <ul>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="20.3.1.   The math">
+          <param name="Local" value="text/mode7.htm#ssec-math-math">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="20.3.2.   Putting it all together">
+          <param name="Local" value="text/mode7.htm#ssec-math-combine">
+        </object>
+    </ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="20.4.   Threefold demo">
+        <param name="Local" value="text/mode7.htm#sec-demo">
+      </object>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="20.5.   Order, order!">
+        <param name="Local" value="text/mode7.htm#sec-order">
+      </object>
+    <ul>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="20.5.1.   The code">
+          <param name="Local" value="text/mode7.htm#ssec-order-code">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="20.5.2.   The discussion (technical)">
+          <param name="Local" value="text/mode7.htm#ssec-order-disc">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="20.5.3.   The verdict">
+          <param name="Local" value="text/mode7.htm#ssec-order-verdict">
+        </object>
+    </ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="20.6.   Final Thoughts">
+        <param name="Local" value="text/mode7.htm#sec-final">
+      </object>
+  </ul>
+  <li> <object type="text/sitemap">
+      <param name="Name" value="21.   Mode 7 Part 2">
+      <param name="Local" value="text/mode7ex.htm#ch-">
+    </object>
+  <ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="21.1.   Introduction">
+        <param name="Local" value="text/mode7ex.htm#sec-intro">
+      </object>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="21.2.   Basic mode 7 theory">
+        <param name="Local" value="text/mode7ex.htm#sec-theory">
+      </object>
+    <ul>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="21.2.1.   Definitions">
+          <param name="Local" value="text/mode7ex.htm#ssec-try-defs">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="21.2.2.   World system">
+          <param name="Local" value="text/mode7ex.htm#ssec-try-world">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="21.2.3.   The camera frame">
+          <param name="Local" value="text/mode7ex.htm#ssec-try-cam">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="21.2.4.   The projection plane">
+          <param name="Local" value="text/mode7ex.htm#ssec-try-proj">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="21.2.5.   Viewport and viewing volume">
+          <param name="Local" value="text/mode7ex.htm#ssec-try-view">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="21.2.6.   The screen">
+          <param name="Local" value="text/mode7ex.htm#ssec-try-scr">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="21.2.7.   Theory summary">
+          <param name="Local" value="text/mode7ex.htm#ssec-try-sum">
+        </object>
+    </ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="21.3.   Horizon and backdrop">
+        <param name="Local" value="text/mode7ex.htm#sec-horz">
+      </object>
+    <ul>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="21.4.   Finding the horizon">
+          <param name="Local" value="text/mode7ex.htm#sec-horz-find">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="21.4.1.   Using the horizon">
+          <param name="Local" value="text/mode7ex.htm#ssec-horz-use">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="21.4.2.   Making and placing the backdrop">
+          <param name="Local" value="text/mode7ex.htm#ssec-horz-backdrop">
+        </object>
+    </ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="21.5.   The floor">
+        <param name="Local" value="text/mode7ex.htm#sec-flr">
+      </object>
+    <ul>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="21.5.1.   Affine parameters for the floor">
+          <param name="Local" value="text/mode7ex.htm#ssec-flr-parms">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="21.5.2.   Distance fogging">
+          <param name="Local" value="text/mode7ex.htm#ssec-flr-fog">
+        </object>
+    </ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="21.6.   Sprites">
+        <param name="Local" value="text/mode7ex.htm#sec-objs">
+      </object>
+    <ul>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="21.6.1.   Positioning and anchoring">
+          <param name="Local" value="text/mode7ex.htm#ssec-obj-pos">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="21.6.2.   Sprite culling">
+          <param name="Local" value="text/mode7ex.htm#ssec-obj-cull">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="21.6.3.   Animation">
+          <param name="Local" value="text/mode7ex.htm#ssec-obj-ani">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="21.6.4.   Sprite sorting">
+          <param name="Local" value="text/mode7ex.htm#ssec-obj-sort">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="21.6.5.   Renormalization">
+          <param name="Local" value="text/mode7ex.htm#ssec-obj-norm">
+        </object>
+    </ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="21.7.   Implementation">
+        <param name="Local" value="text/mode7ex.htm#sec-code">
+      </object>
+    <ul>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="21.7.1.   Design considerations.">
+          <param name="Local" value="text/mode7ex.htm#ssec-code-design">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="21.7.3.   Background functions">
+          <param name="Local" value="text/mode7ex.htm#ssec-code-bg">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="21.7.4.   Sprites and objects">
+          <param name="Local" value="text/mode7ex.htm#ssec-code-spr">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="21.7.5.   Rounding up: the main loop and other fluff">
+          <param name="Local" value="text/mode7ex.htm#ssec-code-misc">
+        </object>
+    </ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="21.8.   Concluding remarks">
+        <param name="Local" value="text/mode7ex.htm#sec-conc">
+      </object>
+  </ul>
+  <li> <object type="text/sitemap">
+      <param name="Name" value="22.   Tonc's Text Engine">
+      <param name="Local" value="text/tte.htm#ch-">
+    </object>
+  <ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="22.1.   Introduction">
+        <param name="Local" value="text/tte.htm#sec-intro">
+      </object>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="22.2.   Basic design">
+        <param name="Local" value="text/tte.htm#sec-design">
+      </object>
+    <ul>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="22.2.1.   TTE Goals">
+          <param name="Local" value="text/tte.htm#ssec-design-goals">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="22.2.2.   Structures and main components">
+          <param name="Local" value="text/tte.htm#ssec-design-items">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="22.2.3.   Main TTE variables and functions.">
+          <param name="Local" value="text/tte.htm#ssec-design-writer">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="22.2.4.   On nomenclature">
+          <param name="Local" value="text/tte.htm#ssec-design-names">
+        </object>
+    </ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="22.3.   Tilemapped text">
+        <param name="Local" value="text/tte.htm#sec-map">
+      </object>
+    <ul>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="22.3.1.   Regular tilemap text">
+          <param name="Local" value="text/tte.htm#ssec-map-reg">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="22.3.2.   Regular tilemap example">
+          <param name="Local" value="text/tte.htm#ssec-test-se4">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="22.3.3.   Affine tilemap text">
+          <param name="Local" value="text/tte.htm#ssec-map-affine">
+        </object>
+    </ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="22.4.   Bitmapped text">
+        <param name="Local" value="text/tte.htm#sec-bmp">
+      </object>
+    <ul>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="22.4.1.   Basic bmp16 to bmp16 glyph printer">
+          <param name="Local" value="text/tte.htm#ssec-bmp16-base">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="22.4.2.   Glyph and surface formats">
+          <param name="Local" value="text/tte.htm#ssec-srf-format">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="22.4.3.   bmp16_drawg_b1cts : 1- to 16-bpp with transparency and coloring">
+          <param name="Local" value="text/tte.htm#ssec-bmp16-std">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="22.4.4.   bmp8_drawg_b1cts : 1 to 8 bpp with transparency and coloring">
+          <param name="Local" value="text/tte.htm#ssec-bmp8-std">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="22.4.5.   Example : sub-pixel rendering">
+          <param name="Local" value="text/tte.htm#ssec-bmp-demo">
+        </object>
+    </ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="22.5.   Object text">
+        <param name="Local" value="text/tte.htm#sec-obj">
+      </object>
+    <ul>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="22.5.1.   Example: letters. Onna path">
+          <param name="Local" value="text/tte.htm#ssec-obj-demo">
+        </object>
+    </ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="22.6.   Rendering to tiles">
+        <param name="Local" value="text/tte.htm#sec-chr">
+      </object>
+    <ul>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="22.6.1.   Basic tile rendering">
+          <param name="Local" value="text/tte.htm#ssec-chr-base">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="22.6.2.   Text rendering on tiles">
+          <param name="Local" value="text/tte.htm#ssec-chr-drawg">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="22.6.3.   Multi-color and shaded fonts.">
+          <param name="Local" value="text/tte.htm#ssec-chr4-drawg-b4">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="22.6.4.   Tips for fast tile rendering">
+          <param name="Local" value="text/tte.htm#ssec-chr4-tips">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="22.6.5.   Colored text on a dialog window.">
+          <param name="Local" value="text/tte.htm#ssec-chr4-demo">
+        </object>
+    </ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="22.7.   Scripting, console IO and other niceties">
+        <param name="Local" value="text/tte.htm#sec-misc">
+      </object>
+    <ul>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="22.7.1.   TTE formatting commands">
+          <param name="Local" value="text/tte.htm#ssec-misc-tags">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="22.7.2.   Using console I/O">
+          <param name="Local" value="text/tte.htm#ssec-misc-conio">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="22.7.3.   VT100 escape sequences">
+          <param name="Local" value="text/tte.htm#ssec-misc-vt100">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="22.7.4.   UTF-8">
+          <param name="Local" value="text/tte.htm#ssec-misc-utf">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="22.7.5.   Profiling the renderers">
+          <param name="Local" value="text/tte.htm#ssec-misc-profile">
+        </object>
+    </ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="22.8.   Conclusions">
+        <param name="Local" value="text/tte.htm#sec-conc">
+      </object>
+  </ul>
+  <li> <object type="text/sitemap">
+      <param name="Name" value="23.   Whirlwind Tour of ARM Assembly">
+      <param name="Local" value="text/asm.htm#ch-">
+    </object>
+  <ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="23.1.   Introduction">
+        <param name="Local" value="text/asm.htm#sec-intro">
+      </object>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="23.2.   General assembly">
+        <param name="Local" value="text/asm.htm#sec-asm">
+      </object>
+    <ul>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="23.2.1.   Basic operations">
+          <param name="Local" value="text/asm.htm#ssec-asm-ops">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="23.2.2.   Variables: registers, memory and the stack">
+          <param name="Local" value="text/asm.htm#ssec-asm-var">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="23.2.3.   Branching and condition codes">
+          <param name="Local" value="text/asm.htm#ssec-asm-jmp">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="23.2.4.   An example: GCC generated ARM assembly">
+          <param name="Local" value="text/asm.htm#ssec-asm-gcc">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="Assembling assembly">
+          <param name="Local" value="text/asm.htm#ssec-gen-as">
+        </object>
+    </ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="23.3.   The ARM instruction set">
+        <param name="Local" value="text/asm.htm#sec-arm">
+      </object>
+    <ul>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="23.3.1.   Basic features">
+          <param name="Local" value="text/asm.htm#ssec-arm-base">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="23.3.2.   Data instructions">
+          <param name="Local" value="text/asm.htm#ssec-arm-data-ins">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="23.3.3.   Memory instructions: load and store">
+          <param name="Local" value="text/asm.htm#ssec-arm-mem">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="23.3.4.   Conditionals and branches">
+          <param name="Local" value="text/asm.htm#ssec-arm-cnd">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="Cycle counting">
+          <param name="Local" value="text/asm.htm#ssec-misc-cycles">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="23.3.6.   Anatomy of an addition">
+          <param name="Local" value="text/asm.htm#ssec-arm-add">
+        </object>
+    </ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="23.4.   THUMB assembly">
+        <param name="Local" value="text/asm.htm#sec-thumb">
+      </object>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="23.5.   GAS: the GNU assembler">
+        <param name="Local" value="text/asm.htm#sec-gas">
+      </object>
+    <ul>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="23.5.1.   Symbols">
+          <param name="Local" value="text/asm.htm#ssec-gas-sym">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="23.5.2.   Definition of variables">
+          <param name="Local" value="text/asm.htm#ssec-gas-data">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="23.5.3.   Data sections">
+          <param name="Local" value="text/asm.htm#ssec-gas-dsec">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="23.5.4.   Code sections">
+          <param name="Local" value="text/asm.htm#ssec-gas-csec">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="Other useful GAS directives">
+          <param name="Local" value="text/asm.htm">
+        </object>
+    </ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="23.6.   A real world example: fast 16/32-bit copiers">
+        <param name="Local" value="text/asm.htm#sec-cpy">
+      </object>
+    <ul>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="23.6.1.   memcpy32()">
+          <param name="Local" value="text/asm.htm#ssec-cpy-32">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="23.6.2.   memcpy16()">
+          <param name="Local" value="text/asm.htm#ssec-cpy-16">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="Using memcpy32() and memcpy16() in C">
+          <param name="Local" value="text/asm.htm#ssec-cpy-c">
+        </object>
+    </ul>
+  </ul>
+  <li> <object type="text/sitemap">
+      <param name="Name" value="24.   The Lab">
+      <param name="Local" value="text/lab.htm#ch-">
+    </object>
+  <ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="24.1.   Lab introduction">
+        <param name="Local" value="text/lab.htm#sec-intro">
+      </object>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="24.2.   Priority and drawing order">
+        <param name="Local" value="text/lab.htm#sec-prio">
+      </object>
+    <ul>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="24.2.1.   The object-priority bug and object sorting">
+          <param name="Local" value="text/lab.htm#ssec-prio-objsort">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="24.2.2.   Caged DNA">
+          <param name="Local" value="text/lab.htm#ssec-prio-demo">
+        </object>
+    </ul>
+  </ul>
+  <li> <object type="text/sitemap">
+      <param name="Name" value="A.   Numbers, bits and bit operations">
+      <param name="Local" value="text/numbers.htm#ch-">
+    </object>
+  <ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="A.1.   Numbers">
+        <param name="Local" value="text/numbers.htm#sec-num">
+      </object>
+    <ul>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="A.1.1.   The true meaning of symbols">
+          <param name="Local" value="text/numbers.htm#ssec-num-intro">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="A.1.2.   The Base-N Positional System">
+          <param name="Local" value="text/numbers.htm#ssec-num-basen">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="A.1.3.   base-2: binary">
+          <param name="Local" value="text/numbers.htm#ssec-num-bin">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="A.1.4.   base-16, hexadecimal">
+          <param name="Local" value="text/numbers.htm#ssec-num-hex">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="A.1.5.   Using the positional system">
+          <param name="Local" value="text/numbers.htm#ssec-num-base-use">
+        </object>
+    </ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="A.2.   Of bits and bytes">
+        <param name="Local" value="text/numbers.htm#sec-bits">
+      </object>
+    <ul>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="A.2.1.   Integer number representations">
+          <param name="Local" value="text/numbers.htm#ssec-bits-int">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="A.2.2.   Characters">
+          <param name="Local" value="text/numbers.htm#ssec-bits-char">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="A.2.3.   IEEE(k)! Floating points">
+          <param name="Local" value="text/numbers.htm#ssec-bits-float">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="A.2.4.   AAaagghhh! The endians are coming!">
+          <param name="Local" value="text/numbers.htm#ssec-bits-endian">
+        </object>
+    </ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="A.3.   Bit operations">
+        <param name="Local" value="text/numbers.htm#sec-bitops">
+      </object>
+    <ul>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="A.3.1.   True bitwise bit operations">
+          <param name="Local" value="text/numbers.htm#ssec-bitops-true">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="A.3.2.   Non-bitwise bit operations">
+          <param name="Local" value="text/numbers.htm#ssec-bitops-false">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="A.3.3.   Arithmetic with bit operations">
+          <param name="Local" value="text/numbers.htm#ssec-bitops-arith">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="A.3.4.   Beware of bit operations">
+          <param name="Local" value="text/numbers.htm#ssec-bitops-caveat">
+        </object>
+    </ul>
+  </ul>
+  <li> <object type="text/sitemap">
+      <param name="Name" value="B.   Fixed-Point Numbers and LUTs">
+      <param name="Local" value="text/fixed.htm#ch-">
+    </object>
+  <ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="B.1.   What are fixed-point numbers">
+        <param name="Local" value="text/fixed.htm#sec-intro">
+      </object>
+    <ul>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="B.1.1.   General fixed-point numbers">
+          <param name="Local" value="text/fixed.htm#ssec-fix-gen">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="B.1.2.   GBA fixed-point usage">
+          <param name="Local" value="text/fixed.htm#ssec-fix-gba">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="B.1.3.   Fixed-point and signs">
+          <param name="Local" value="text/fixed.htm#ssec-fix-sign">
+        </object>
+    </ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="B.2.   Fixed-point math">
+        <param name="Local" value="text/fixed.htm#sec-fmath">
+      </object>
+    <ul>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="B.2.1.   Converting to and from fixed-points">
+          <param name="Local" value="text/fixed.htm#ssec-fmath-conv">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="B.2.2.   Arithmetical operations">
+          <param name="Local" value="text/fixed.htm#ssec-fmath-ops">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="B.2.3.   Over- and underflow">
+          <param name="Local" value="text/fixed.htm#ssec-fmath-flow">
+        </object>
+    </ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="B.3.   Faking division (optional)">
+        <param name="Local" value="text/fixed.htm#sec-rmdiv">
+      </object>
+    <ul>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="B.3.1.   Theory">
+          <param name="Local" value="text/fixed.htm#ssec-rmdiv-try">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="B.3.2.   Summary">
+          <param name="Local" value="text/fixed.htm#ssec-rmdiv-sum">
+        </object>
+    </ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="B.4.   Look-up Tables">
+        <param name="Local" value="text/fixed.htm#sec-lut">
+      </object>
+    <ul>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="B.4.1.   Example: sine/cosine luts">
+          <param name="Local" value="text/fixed.htm#ssec-lut-sin">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="B.4.2.   Linear interpolation of LUTs">
+          <param name="Local" value="text/fixed.htm#ssec-lut-lerp">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="B.4.3.   Non mathematical LUTs">
+          <param name="Local" value="text/fixed.htm#ssec-lut-nomath">
+        </object>
+    </ul>
+  </ul>
+  <li> <object type="text/sitemap">
+      <param name="Name" value="C.   Vectors and Matrices">
+      <param name="Local" value="text/matrix.htm#ch-">
+    </object>
+  <ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="C.1.   Vectors">
+        <param name="Local" value="text/matrix.htm#sec-vec">
+      </object>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="C.2.   Vector operations">
+        <param name="Local" value="text/matrix.htm#sec-vec-ops">
+      </object>
+    <ul>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="C.2.1.   Vector-vector addition and subtraction">
+          <param name="Local" value="text/matrix.htm#ssec-vec-add">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="C.2.2.   Scalar-vector multiplication">
+          <param name="Local" value="text/matrix.htm#ssec-vec-scale">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="C.2.3.   The dot-product (aka scalar product)">
+          <param name="Local" value="text/matrix.htm#ssec-vec-dot">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="C.2.4.   The cross-product (aka vector-product)">
+          <param name="Local" value="text/matrix.htm#ssec-vec-cross">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="C.2.5.   The norm (or length)">
+          <param name="Local" value="text/matrix.htm#ssec-vec-norm">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="C.2.6.   Algebraic properties of vectors">
+          <param name="Local" value="text/matrix.htm#ssec-vec-props">
+        </object>
+    </ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="C.3.   Matrices">
+        <param name="Local" value="text/matrix.htm#sec-mat">
+      </object>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="C.4.   Matrix operations">
+        <param name="Local" value="text/matrix.htm#sec-mat-ops">
+      </object>
+    <ul>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="C.4.1.   Transpose">
+          <param name="Local" value="text/matrix.htm#ssec-mat-transpose">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="C.4.2.   Matrix addition">
+          <param name="Local" value="text/matrix.htm#ssec-mat-add">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="C.4.3.   Matrix multiplication">
+          <param name="Local" value="text/matrix.htm#ssec-mat-mul">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="C.4.4.   Determinant">
+          <param name="Local" value="text/matrix.htm#ssec-mat-det">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="C.4.5.   Matrix inversion">
+          <param name="Local" value="text/matrix.htm#ssec-mat-inv">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="C.4.6.   Algebraic properties of matrices">
+          <param name="Local" value="text/matrix.htm#ssec-mat-props">
+        </object>
+    </ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="C.5.   Spaces, bases, coordinate transformations">
+        <param name="Local" value="text/matrix.htm#sec-space">
+      </object>
+    <ul>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="C.5.1.   Coordinate systems">
+          <param name="Local" value="text/matrix.htm#ssec-space-sys">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="C.5.2.   Building a coordinate base">
+          <param name="Local" value="text/matrix.htm#ssec-space-build">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="C.5.3.   Last notes">
+          <param name="Local" value="text/matrix.htm#ssec-space-notes">
+        </object>
+    </ul>
+  </ul>
+  <li> <object type="text/sitemap">
+      <param name="Name" value="D.   More on makefiles and compiler options.">
+      <param name="Local" value="text/makefile.htm#ch-">
+    </object>
+  <ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="D.1.   Introduction">
+        <param name="Local" value="text/makefile.htm#sec-intro">
+      </object>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="D.2.   My standard makefile">
+        <param name="Local" value="text/makefile.htm#sec-make">
+      </object>
+    <ul>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="D.2.1.   1: Project details">
+          <param name="Local" value="text/makefile.htm#ssec-make-proj">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="D.2.2.   2: Tools settings">
+          <param name="Local" value="text/makefile.htm#ssec-make-tool">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="D.2.3.   3: The build commands">
+          <param name="Local" value="text/makefile.htm#ssec-make-cmd">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="D.2.4.   4: cleaning up">
+          <param name="Local" value="text/makefile.htm#ssec-make-clean">
+        </object>
+    </ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="D.3.   Common compiler flags">
+        <param name="Local" value="text/makefile.htm#sec-flags">
+      </object>
+  </ul>
+  <li> <object type="text/sitemap">
+      <param name="Name" value="E.   Make via editors">
+      <param name="Local" value="text/edmake.htm#ch-">
+    </object>
+  <ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="E.1.   Introduction">
+        <param name="Local" value="text/edmake.htm#sec-intro">
+      </object>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="E.2.   Make via Context">
+        <param name="Local" value="text/edmake.htm#sec-context">
+      </object>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="E.3.   Make via Programmer's Notepad 2">
+        <param name="Local" value="text/edmake.htm#sec-pn2">
+      </object>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="E.4.   Make via MS Visual C++ 6">
+        <param name="Local" value="text/edmake.htm#sec-msvc6">
+      </object>
+    <ul>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="E.4.1.   VC and makefile projects">
+          <param name="Local" value="text/edmake.htm#ssec-msvc-make">
+        </object>
+    </ul>
+  </ul>
+  <li> <object type="text/sitemap">
+      <param name="Name" value="F.   References and links">
+      <param name="Local" value="text/refs.htm#ch-">
+    </object>
+  <ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="F.1.   General sites">
+        <param name="Local" value="text/refs.htm#sec-gen">
+      </object>
+    <ul>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="F.1.1.   Essentials">
+          <param name="Local" value="text/refs.htm#ssec-essential">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="F.1.2.   Alternative dev environments">
+          <param name="Local" value="text/refs.htm#ssec-altdev">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="F.1.3.   Personal sites">
+          <param name="Local" value="text/refs.htm#ssec-personal">
+        </object>
+    </ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="F.2.   Documents">
+        <param name="Local" value="text/refs.htm#sec-doc">
+      </object>
+    <ul>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="F.2.1.   Tutorials">
+          <param name="Local" value="text/refs.htm#ssec-tut">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="F.2.2.   Reference documents">
+          <param name="Local" value="text/refs.htm#ssec-ref">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="F.2.3.   ARM docs">
+          <param name="Local" value="text/refs.htm#ssec-arm">
+        </object>
+    </ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="F.3.   Tools">
+        <param name="Local" value="text/refs.htm#sec-tools">
+      </object>
+    <ul>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="F.3.1.   Source code tools">
+          <param name="Local" value="text/refs.htm#ssec-tools-text">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="F.3.2.   Graphics tools">
+          <param name="Local" value="text/refs.htm#ssec-tools-gfx">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="F.3.3.   Map Editors">
+          <param name="Local" value="text/refs.htm#ssec-tools-map">
+        </object>
+      <li> <object type="text/sitemap">
+          <param name="Name" value="F.3.4.   Misc tools">
+          <param name="Local" value="text/refs.htm#ssec-tools-misc">
+        </object>
+    </ul>
+    <li> <object type="text/sitemap">
+        <param name="Name" value="F.4.   Books">
+        <param name="Local" value="text/refs.htm#sec-books">
+      </object>
+  </ul>
+  <li> <object type="text/sitemap">
+      <param name="Name" value="G.   Change Log">
+      <param name="Local" value="text/log.htm#ch-">
+    </object>
+</body>
+</html>
+</ul>

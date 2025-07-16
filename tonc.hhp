@@ -1,0 +1,54 @@
+[OPTIONS]
+Auto Index=Yes
+Compatibility=1.1 or later
+Compiled file=tonc.chm
+Contents file=toc.hhc
+Default Window=TONC
+Default topic=text\toc.htm
+Display compile progress=No
+Full-text search=Yes
+Language=0x409 English (United States)
+Title=TONC: GameBoy Advance Programming
+
+[WINDOWS]
+TONC="TONC: GameBoy Advance Programming","toc.hhc",,"text\toc.htm",,,,,,0x62560,,0x300e,,,,,,,,0
+
+
+[FILES]
+text\affbg.htm
+text\affine.htm
+text\affobj.htm
+text\asm.htm
+text\bitmaps.htm
+text\dma.htm
+text\edmake.htm
+text\first.htm
+text\fixed.htm
+text\gfx.htm
+text\hardware.htm
+text\interrupts.htm
+text\intro.htm
+text\keys.htm
+text\lab.htm
+text\log.htm
+text\makefile.htm
+text\matrix.htm
+text\mode7.htm
+text\mode7ex.htm
+text\numbers.htm
+text\objbg.htm
+text\portal.htm
+text\refs.htm
+text\regbg.htm
+text\regobj.htm
+text\setup.htm
+text\swi.htm
+text\sndsqr.htm
+text\text.htm
+text\timers.htm
+text\toc.htm
+text\tte.htm
+text\video.htm
+
+[INFOTYPES]
+
