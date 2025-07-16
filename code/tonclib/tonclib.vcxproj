@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Build|Win32">
+      <Configuration>Build</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Clean|Win32">
+      <Configuration>Clean</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{1F11FFF7-7BCD-42D3-A581-9C4C0A4885C7}</ProjectGuid>
+    <Keyword>MakeFileProj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Build|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Clean|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Build|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Clean|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>12.0.30501.0</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Clean|Win32'">
+    <OutDir>.\</OutDir>
+    <IntDir>.\</IntDir>
+    <NMakeBuildCommandLine>make clean</NMakeBuildCommandLine>
+    <NMakeReBuildCommandLine>make clean /a</NMakeReBuildCommandLine>
+    <NMakeCleanCommandLine />
+    <NMakeOutput>libtonc.a</NMakeOutput>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Build|Win32'">
+    <OutDir>.\</OutDir>
+    <IntDir>.\</IntDir>
+    <NMakeBuildCommandLine>make 2&gt;&amp;1 | sed -e %27s/\(\w\+\):\([0-9]\+\):/\1(\2):/%27</NMakeBuildCommandLine>
+    <NMakeReBuildCommandLine>make 2&gt;&amp;1 | sed -e %27s/\(\w\+\):\([0-9]\+\):/\1(\2):/%27 /a</NMakeReBuildCommandLine>
+    <NMakeCleanCommandLine>make 2&gt;&amp;1 clean | sed -e %27s/\(\w\+\):\([0-9]\+\):/\1(\2):/%27</NMakeCleanCommandLine>
+    <NMakeOutput>libtonc.a</NMakeOutput>
+    <NMakeIncludeSearchPath>$(ProjectDir)..\tonclib\include;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="base.c" />
+    <ClCompile Include="src\pre1.3\tonc_bitmap.c" />
+    <ClCompile Include="src\pre1.3\tonc_text.c" />
+    <ClCompile Include="src\pre1.3\tonc_text_bm.c" />
+    <ClCompile Include="src\pre1.3\tonc_text_map.c" />
+    <ClCompile Include="src\pre1.3\tonc_text_oam.c" />
+    <ClCompile Include="src\tonc_bg.c" />
+    <ClCompile Include="src\tonc_bg_affine.c" />
+    <ClCompile Include="src\tonc_bmp16.c" />
+    <ClCompile Include="src\tonc_bmp8.c" />
+    <ClCompile Include="src\tonc_color.c" />
+    <ClCompile Include="src\tonc_core.c" />
+    <ClCompile Include="src\tonc_input.c" />
+    <ClCompile Include="src\tonc_irq.c" />
+    <ClCompile Include="src\tonc_math.c" />
+    <ClCompile Include="src\tonc_oam.c" />
+    <ClCompile Include="src\tonc_obj_affine.c" />
+    <ClCompile Include="src\tonc_sbmp16.c" />
+    <ClCompile Include="src\tonc_sbmp8.c" />
+    <ClCompile Include="src\tonc_schr4c.c" />
+    <ClCompile Include="src\tonc_schr4r.c" />
+    <ClCompile Include="src\tonc_surface.c" />
+    <ClCompile Include="src\tonc_video.c" />
+    <ClCompile Include="src\tte\ase_drawg.c" />
+    <ClCompile Include="src\tte\bmp16_drawg.c" />
+    <ClCompile Include="src\tte\bmp16_drawg_b1cs.c" />
+    <ClCompile Include="src\tte\bmp8_drawg.c" />
+    <ClCompile Include="src\tte\bmp8_drawg_b1cs.c" />
+    <ClCompile Include="src\tte\chr4c_drawg_b1cts.c" />
+    <ClCompile Include="src\tte\chr4c_drawg_b4cts.c" />
+    <ClCompile Include="src\tte\obj_drawg.c" />
+    <ClCompile Include="src\tte\se_drawg.c" />
+    <ClCompile Include="src\tte\tte_init_ase.c" />
+    <ClCompile Include="src\tte\tte_init_bmp.c" />
+    <ClCompile Include="src\tte\tte_init_chr4c.c" />
+    <ClCompile Include="src\tte\tte_init_obj.c" />
+    <ClCompile Include="src\tte\tte_init_se.c" />
+    <ClCompile Include="src\tte\tte_iohook.c" />
+    <ClCompile Include="src\tte\tte_main.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="asm\clr_blend_fast.s" />
+    <None Include="asm\clr_fade_fast.s" />
+    <None Include="asm\div_lut.s" />
+    <None Include="asm\sin_lut.s" />
+    <None Include="asm\tonc_bios.s" />
+    <None Include="asm\tonc_bios_ex.s" />
+    <None Include="asm\tonc_isr_master.s" />
+    <None Include="asm\tonc_isr_nest.s" />
+    <None Include="asm\tonc_memcpy.s" />
+    <None Include="asm\tonc_memset.s" />
+    <None Include="asm\tonc_nocash.s" />
+    <None Include="build\libtonc.map" />
+    <None Include="libtonc.chm" />
+    <None Include="libtonc.dox" />
+    <None Include="Makefile" />
+    <None Include="src\font\sys8.s" />
+    <None Include="src\font\verdana10.s" />
+    <None Include="src\font\verdana9.s" />
+    <None Include="src\pre1.3\toncfont.s" />
+    <None Include="src\tte\bmp8_drawg_b1cts_fast.s" />
+    <None Include="src\tte\chr4c_drawg_b1cts_fast.s" />
+    <None Include="src\tte\chr4c_drawg_b4cts_fast.s" />
+    <None Include="src\tte\tte_types.s" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="src\font\sys8.png" />
+    <Image Include="src\font\verdana10.png" />
+    <Image Include="src\font\verdana9.png" />
+    <Image Include="src\font\verdana9_b4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="base.h" />
+    <ClInclude Include="include\tonc.h" />
+    <ClInclude Include="include\tonc_asminc.h" />
+    <ClInclude Include="include\tonc_bios.h" />
+    <ClInclude Include="include\tonc_core.h" />
+    <ClInclude Include="include\tonc_input.h" />
+    <ClInclude Include="include\tonc_irq.h" />
+    <ClInclude Include="include\tonc_legacy.h" />
+    <ClInclude Include="include\tonc_libgba.h" />
+    <ClInclude Include="include\tonc_math.h" />
+    <ClInclude Include="include\tonc_memdef.h" />
+    <ClInclude Include="include\tonc_memmap.h" />
+    <ClInclude Include="include\tonc_nocash.h" />
+    <ClInclude Include="include\tonc_oam.h" />
+    <ClInclude Include="include\tonc_surface.h" />
+    <ClInclude Include="include\tonc_text.h" />
+    <ClInclude Include="include\tonc_tte.h" />
+    <ClInclude Include="include\tonc_types.h" />
+    <ClInclude Include="include\tonc_video.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="todo.txt" />
+    <Text Include="tonclib.txt" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,339 @@
+
+tonc_bg.o:
+00000001 000000e2 T se_window
+
+tonc_bg_affine.o:
+00000001 00000034 T bg_aff_rotate
+00000035 00000044 T bg_aff_rotscale
+00000151 00000050 T bg_aff_rotscale2
+000000e5 0000006a T bg_aff_postmul
+00000079 0000006a T bg_aff_premul
+000001a1 0000007c T bg_rotscale_ex
+
+tonc_bmp16.o:
+00000001 00000012 T bmp16_plot
+00000235 00000030 T bmp16_hline
+00000015 00000042 T bmp16_vline
+000001d9 0000005a T bmp16_rect
+0000015d 0000007c T bmp16_frame
+00000059 00000102 T bmp16_line
+
+tonc_bmp8.o:
+00000001 00000034 T bmp8_plot
+000001ad 0000006e T bmp8_hline
+00000035 0000006e T bmp8_vline
+0000021d 00000078 T bmp8_frame
+000000a5 00000106 T bmp8_rect
+00000295 00000148 T bmp8_line
+
+tonc_color.o:
+0000034d 0000001c T pal_gradient_ex
+00000369 0000006e T clr_adj_brightness
+0000012d 0000006e T clr_grayscale
+00000469 00000078 T clr_adj_intensity
+000003d9 0000008e T clr_adj_contrast
+00000001 00000094 T clr_blend
+00000095 00000098 T clr_fade
+000004e1 000000c8 T clr_rotate
+0000019d 000000d0 T clr_rgbscale
+0000026d 000000e0 T pal_gradient
+
+tonc_core.o:
+00000000 00000004 D __qran_seed
+00000004 00000004 D vid_page
+00000018 00000010 R bg_aff_default
+00000169 00000010 T sqran
+00000000 00000018 R oam_sizes
+00000179 0000002a T octant
+00000028 00000030 R __snd_rates
+000001a5 00000056 T octant_rot
+000000c9 000000a0 T __toncset
+00000001 000000c8 T tonccpy
+
+tonc_input.o:
+00000000 00000002 B __key_curr
+00000002 00000002 B __key_prev
+00000000 00000008 D __key_rpt
+00000065 0000000c T key_repeat
+00000085 00000014 T key_repeat_limits
+00000071 00000014 T key_repeat_mask
+00000099 00000028 T key_wait_till_hit
+00000001 00000064 T key_poll
+
+tonc_irq.o:
+00000001 00000034 T irq_set_master
+00000000 00000038 r __irq_senders
+0000030d 00000040 T irq_disable
+000002c9 00000044 T irq_enable
+0000034d 00000044 T irq_init
+00000078 00000078 C __isr_table
+00000195 00000078 T irq_add
+0000020d 000000bc T irq_delete
+00000035 00000160 T irq_set
+
+tonc_math.o:
+0000005d 0000001e T rc_normalize
+00000001 00000026 T pt_in_rect
+00000029 00000032 T vec_cross
+
+tonc_oam.o:
+00000031 00000028 T obj_hide_multi
+00000059 00000028 T obj_unhide_multi
+00000001 00000030 T obj_copy
+00000081 00000048 T oam_init
+
+tonc_obj_affine.o:
+00000001 00000026 T obj_aff_copy
+00000029 00000034 T obj_aff_rotate
+0000005d 00000044 T obj_aff_rotscale
+00000179 00000050 T obj_aff_rotscale2
+0000010d 0000006a T obj_aff_postmul
+000000a1 0000006a T obj_aff_premul
+000001c9 0000013c T obj_rotscale_ex
+
+tonc_sbmp16.o:
+00000001 0000000e T sbmp16_get_pixel
+00000000 00000014 R m3_surface
+00000000 00000014 D m5_surface
+00000011 00000014 T sbmp16_plot
+00000014 00000028 R bmp16_tab
+00000289 00000032 T sbmp16_floodfill
+000003ad 00000034 T sbmp16_hline
+00000025 00000040 T sbmp16_vline
+00000349 00000062 T sbmp16_rect
+000002bd 0000008a T sbmp16_frame
+00000065 000000f6 T sbmp16_line
+0000015d 0000012a T sbmp16_floodfill_internal
+000003e1 00000140 T sbmp16_blit
+
+tonc_sbmp8.o:
+00000001 0000000c T sbmp8_get_pixel
+00000000 00000014 D m4_surface
+00000000 00000028 R bmp8_tab
+000001ed 00000030 T sbmp8_floodfill
+0000000d 00000034 T sbmp8_plot
+00000341 00000036 T sbmp8_hline
+000002d9 00000066 T sbmp8_rect
+00000041 00000072 T sbmp8_vline
+0000021d 000000ba T sbmp8_frame
+000004d9 00000126 T sbmp8_blit
+000000b5 00000138 T sbmp8_floodfill_internal
+00000379 00000160 T sbmp8_line
+
+tonc_schr4c.o:
+00000051 00000010 T schr4c_get_ptr
+00000061 00000022 T schr4c_get_pixel
+00000000 00000028 R chr4c_tab
+00000085 0000002e T schr4c_plot
+000004f9 0000003c T schr4c_floodfill
+00000001 0000004e T schr4c_prep_map
+00000181 00000052 T schr4c_vline
+0000032d 00000092 T schr4c_frame
+000000b5 000000cc T schr4c_hline
+0000085d 00000128 T schr4c_rect
+000003c1 00000138 T schr4c_floodfill_internal
+000001d5 00000158 T schr4c_line
+00000535 00000328 T schr4c_blit
+
+tonc_schr4r.o:
+00000051 00000020 T schr4r_get_ptr
+00000071 0000002c T schr4r_get_pixel
+0000009d 00000036 T schr4r_plot
+00000001 00000050 T schr4r_prep_map
+00000189 00000060 T schr4r_vline
+000001e9 00000092 T schr4r_frame
+000000d5 000000b4 T schr4r_hline
+000004c1 0000016a T schr4r_line
+0000027d 00000244 T schr4r_rect
+
+tonc_surface.o:
+00000075 00000020 T srf_pal_copy
+00000001 00000072 T srf_get_ptr
+00000095 000000c4 T srf_init
+
+tonc_video.o:
+00000001 00000020 T vid_flip
+
+ase_drawg.o:
+000002cd 00000030 T ase_erase
+00000001 00000058 T ase_drawg_w8h8
+00000059 00000094 T ase_drawg_w8h16
+000001e1 000000ec T ase_drawg_s
+000000ed 000000f4 T ase_drawg
+
+bmp16_drawg.o:
+00000001 00000098 T bmp16_drawg
+00000099 000000a4 T bmp16_drawg_t
+
+bmp16_drawg_b1cs.o:
+00000001 000000b0 T bmp16_drawg_b1cts
+000000b1 000000cc T bmp16_drawg_b1cos
+
+bmp8_drawg.o:
+0000009d 00000094 T bmp8_drawg
+00000001 0000009c T bmp8_drawg_t
+
+bmp8_drawg_b1cs.o:
+00000001 000000ec T bmp8_drawg_b1cts
+000000ed 00000100 T bmp8_drawg_b1cos
+
+chr4c_drawg_b1cts.o:
+00000001 00000138 T chr4c_drawg_b1cts
+
+chr4c_drawg_b4cts.o:
+00000001 00000140 T chr4c_drawg_b4cts
+
+chr4r_drawg_b1cts.o:
+00000001 00000140 T chr4r_drawg_b1cts
+
+obj_drawg.o:
+00000001 0000003c T obj_erase
+0000003d 00000054 T obj_drawg
+
+se_drawg.o:
+00000001 0000002c T se_drawg_w8h8
+00000189 00000030 T se_erase
+0000002d 0000003c T se_drawg_w8h16
+00000069 00000090 T se_drawg
+000000f9 00000090 T se_drawg_s
+
+tte_init_ase.o:
+00000001 0000013c T tte_init_ase
+
+tte_init_bmp.o:
+00000001 0000002c T bmp16_erase
+0000002d 0000002c T bmp8_erase
+00000059 000000ec T tte_init_bmp
+
+tte_init_chr4c.o:
+00000001 0000002c T chr4c_erase
+0000002d 000000d8 T tte_init_chr4c
+
+tte_init_chr4r.o:
+00000001 0000002c T chr4r_erase
+0000002d 000000e0 T tte_init_chr4r
+
+tte_init_obj.o:
+00000001 00000108 T tte_init_obj
+
+tte_init_se.o:
+00000001 0000017c T tte_init_se
+
+tte_iohook.o:
+0000030d 0000004c T tte_init_con
+00000124 00000050 R tte_dotab_nocash
+000000d4 00000050 R tte_dotab_stdout
+00000001 00000078 T tte_con_nocash
+000001e1 0000012c T tte_con_write
+00000079 00000168 T tte_cmd_vt100
+
+tte_main.o:
+00000001 00000002 T dummy_drawg
+00000005 00000002 T dummy_erase
+00000000 00000004 D gp_tte_context
+00000025 00000010 T tte_set_color_attr
+00000195 00000012 T tte_cmd_skip
+000001dc 00000014 r srf.6664
+00000371 00000018 T tte_set_margins
+00000035 0000001c T tte_set_color_attrs
+00000009 0000001c T tte_set_context
+00000239 00000024 T tte_erase_rect
+0000025d 00000024 T tte_erase_screen
+00000281 00000028 T tte_erase_line
+00000051 00000030 T tte_set_color
+000001a9 00000034 T tte_cmd_next
+000008c5 00000038 T tte_write_ex
+00000081 00000040 T tte_set_colors
+00000048 00000048 C __tte_main_context
+000001dd 0000005c T tte_putc
+000008fd 0000009c T tte_init_base
+000002a9 000000c8 T tte_get_text_size
+000000c1 000000d4 T utf8_decode_char
+000007d9 000000ec T tte_write
+00000389 00000450 T tte_cmd_default
+
+tonc_bitmap.o:
+000001d9 00000014 T bm16_hline
+0000004d 00000016 T bm16_vline
+000002fd 00000048 T bm8_hline
+00000001 0000004c T bm8_vline
+00000185 00000052 T bm16_rect
+000001ed 00000060 T bm8_frame
+00000115 00000070 T bm16_frame
+00000065 000000ae T bm16_line
+0000024d 000000b0 T bm8_rect
+
+tonc_text.o:
+00000000 00000004 D gptxt
+00000020 00000020 C __txt_base
+00000001 00000048 T txt_init_std
+00000049 000000a4 T txt_bup_1toX
+00000100 00000100 C txt_lut
+
+tonc_text_bm.o:
+00000001 00000048 T bm16_putc
+000000cd 00000080 T bm_putc
+000002c9 00000080 T bm_puts
+00000049 00000084 T bm8_putc
+000003f1 000000a0 T bm_clrs
+0000014d 000000a4 T bm16_puts
+00000349 000000a8 T bm16_clrs
+000001f1 000000d8 T bm8_puts
+
+tonc_text_map.o:
+00000001 00000030 T se_putc
+0000008d 0000004c T se_clrs
+00000031 0000005c T se_puts
+000000d9 000000a0 T txt_init_se
+
+tonc_text_oam.o:
+00000001 00000038 T obj_putc
+000000ad 00000048 T obj_clrs
+000000f5 00000060 T txt_init_obj
+00000039 00000074 T obj_puts
+
+clr_blend_fast.o:
+
+clr_fade_fast.o:
+
+div_lut.o:
+
+sin_lut.o:
+
+tonc_bios.o:
+
+tonc_bios_ex.o:
+
+tonc_isr_master.o:
+
+tonc_isr_nest.o:
+
+tonc_memcpy.o:
+
+tonc_memset.o:
+
+tonc_nocash.o:
+
+sys8.o:
+
+verdana10.o:
+
+verdana9.o:
+
+verdana9_b4.o:
+
+verdana9b.o:
+
+verdana9i.o:
+
+bmp8_drawg_b1cts_fast.o:
+
+chr4c_drawg_b1cts_fast.o:
+
+chr4c_drawg_b4cts_fast.o:
+
+chr4r_drawg_b1cts_fast.o:
+
+tte_types.o:
+
+toncfont.o:
