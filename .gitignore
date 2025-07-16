@@ -1,0 +1,13 @@
+﻿# filetypes
+*.d
+*.o
+*.a
+*.map
+
+
+
+# Folders
+**/.svn
+**/build
+bak/**
+extra/**
