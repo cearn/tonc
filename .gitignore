@@ -3,11 +3,12 @@
 *.o
 *.a
 *.map
-
-
+*.chm
 
 # Folders
 **/.svn
 **/build
-bak/**
-extra/**
+code/tonclib/doc/
+bak/
+bin/
+extra/
