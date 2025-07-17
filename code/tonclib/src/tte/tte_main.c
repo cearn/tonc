@@ -61,7 +61,9 @@ TTC	*gp_tte_context= &__tte_main_context;
 
 INLINE char *eatwhite(const char *str)
 {
-	while(isspace((int)*str))
+	// Do _not_ cast to int here. That'd preserve the sign, which ctype 
+	// functions frown on.
+	while(isspace((uchar)*str))
 		str++;
 
 	return (char*)str;
