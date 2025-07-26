@@ -186,14 +186,14 @@
 
 //! Declare and define basic source drawg variables
 #define TTE_CHAR_VARS(font, gid, src_t, _sD, _sL, _chW, _chH)			\
-	src_t *_sD= (src_t*)(font->data+gid*font->cellSize), *_sL= _sD;		\
+	src_t *_sD= (src_t*)((u8*)font->data+gid*font->cellSize), *_sL= _sD;		\
 	uint _chW= font->widths ? font->widths[gid] : font->charW;			\
 	uint _chH= font->charH;
 
 //! Declare and define basic destination drawg variables
 #define TTE_DST_VARS(tc, dst_t, _dD, _dL, _dP, _x, _y)					\
 	uint _x= tc->cursorX, _y= tc->cursorY, _dP= tc->dst.pitch;			\
-	dst_t *_dD= (dst_t*)(tc->dst.data+_y*_dP), *_dL;
+	dst_t *_dD= (dst_t*)((u8*)tc->dst.data+_y*_dP), *_dL;
 
 //\}
 

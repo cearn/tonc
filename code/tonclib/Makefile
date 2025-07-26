@@ -21,7 +21,7 @@ DATADIRS	:=	data
 
 DATESTRING	:=	$(shell date +%Y)$(shell date +%m)$(shell date +%d)
 
-ARCH		:=	-mthumb -mthumb-interwork
+ARCH		:= -mthumb -mthumb-interwork
 RARCH		:= -mthumb-interwork -mthumb
 IARCH		:= -mthumb-interwork -marm
 
