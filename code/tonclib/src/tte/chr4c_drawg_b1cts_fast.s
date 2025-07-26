@@ -7,6 +7,8 @@
 @
 @ === NOTES ===
 
+#define FEATURE_MASK_TEST() 1
+
 #include "tonc_asminc.h"
 #include "tte_types.s"
 
@@ -41,9 +43,14 @@ BEGIN_FUNC_ARM(chr4c_drawg_b1cts_fast, CSEC_IWRAM)
 	mla		r0, ip, r3, r0
 
 	and		r6, r6, #7				@ x%7
-	add		lr, r11, r6				@ right= width + x%8
 	mov		r8, r6, lsl #2			@ lsl = x%8*4
-	rsb		r9, r8, #32				@ lsr = 32-x%8*4			
+	rsb		r9, r8, #32				@ lsr = 32-x%8*4
+#if FEATURE_MASK_TEST() == 1
+	mov		lr, #1
+	rsb		lr, lr, lr, lsl r9		@ lr = (1<<rshift)-1 : bits that stay in ltile
+#else
+	add		lr, r11, r6				@ right= width + x%8
+#endif
 
 	ldr		r6,=0x01010101
 	ldrh	r7, [r5, #TTC_ink]
@@ -62,7 +69,11 @@ BEGIN_FUNC_ARM(chr4c_drawg_b1cts_fast, CSEC_IWRAM)
 	@ r10	dstD		@# TODO: unnecessary; remove later
 	@ r11	charW
 	@ ip	dstP
-	@ lr	split indicator (right edge)
+#if FEATURE_MASK_TEST() == 1
+	@ lr	ltile mask
+#else
+	@ lr	right edge
+#endif
 	@ sp00	charH
 	@ sp04	deltaS = cellH-charH	 (delta srcL)
 
@@ -82,7 +93,9 @@ BEGIN_FUNC_ARM(chr4c_drawg_b1cts_fast, CSEC_IWRAM)
 		add		r10, r10, ip		@ (Re)set dstD/dstL
 		mov		r0, r10
 		add		r1, r1, r3
+#if FEATURE_MASK_TEST() != 1
 		sub		lr, lr, #8
+#endif
 
 		@ --- Render loop ---
 .Lyloop:
@@ -99,17 +112,35 @@ BEGIN_FUNC_ARM(chr4c_drawg_b1cts_fast, CSEC_IWRAM)
 			mul		r4, r3, r7
 
 			@ Render to left tile
+#if FEATURE_MASK_TEST() == 1
+			@ Don't do this. Glyphs are usually left-aligned, so you'll almost always have 
+			@ left-tile pixels anyway.
+			ands	r3, r4, lr
+			ldrne	r3, [r0]
+			bicne	r3, r3, r5, lsl r8
+			orrne	r3, r3, r4, lsl r8
+			strne	r3, [r0]
+#else
 			ldr		r3, [r0]
 			bic		r3, r3, r5, lsl r8
 			orr		r3, r3, r4, lsl r8
 			str		r3, [r0]
-
-			@ Render to right tile
+#endif
+			@ Render to right tile 
+#if FEATURE_MASK_TEST() == 1
+			bics	r3, r4, lr
+			ldrne	r3, [r0, ip]
+			bicne	r3, r3, r5, lsr r9
+			orrne	r3, r3, r4, lsr r9
+			strne	r3, [r0, ip]
+#else
 			cmp		lr, #8
 			ldrgt	r3, [r0, ip]
 			bicgt	r3, r3, r5, lsr r9
 			orrgt	r3, r3, r4, lsr r9
 			strgt	r3, [r0, ip]
+#endif
+
 .Lnopx:
 			add		r0, r0, #4
 			subs	r2, r2, #1

@@ -16,6 +16,8 @@
 
 #include "fonts.h"
 
+#define FEATURE_CHR4C_TESTS() 1
+
 
 /* Testing for:				
 
@@ -107,23 +109,68 @@ void prof_bmp16_drawg_b1cts(TProfiler *prof, const char *str);
 void prof_obj_drawg(TProfiler *prof, const char *str);
 
 
+#if FEATURE_CHR4C_TESTS()
+
+void prof_chr4c_base(TProfiler *prof, const char *str, fnDrawg proc);
+
+#define GEN_DEF_TESTER(codesec, affix)											\
+	codesec void chr4c_drawg_b1cts_##affix (uint gid);							\
+	void prof_chr4c_drawg_b1cts_##affix (TProfiler* prof, const char* str) {	\
+		prof_chr4c_base(prof, str, chr4c_drawg_b1cts_##affix);						\
+	}
+
+
+GEN_DEF_TESTER( , c_base_thumb_rom);
+GEN_DEF_TESTER( , c_fast_thumb_rom);
+
+GEN_DEF_TESTER( , c_base_arm_rom);
+GEN_DEF_TESTER( , c_fast_arm_rom);
+
+GEN_DEF_TESTER(IWRAM_CODE, c_base_thumb_iwram);
+GEN_DEF_TESTER(IWRAM_CODE , c_fast_thumb_iwram);
+
+GEN_DEF_TESTER(IWRAM_CODE, c_base_arm_iwram);
+GEN_DEF_TESTER(IWRAM_CODE , c_fast_arm_iwram);
+
+GEN_DEF_TESTER(IWRAM_CODE , asm_base_arm_iwram);
+
+#endif
+
+
 TProfiler gProfs[]= 
 {
 	{	"null",				prof_null_drawg, 			0 }, 
-	{	"se",				prof_se_drawg, 				0 }, 
-	{	"se_w8h16",			prof_se_drawg_w8h16, 		0 }, 
-	{	"ase",				prof_ase_drawg, 			0 }, 
-	{	"ase_w8h16",		prof_ase_drawg_w8h16, 		0 }, 
+#if FEATURE_CHR4C_TESTS() != 1
+//	{	"se",				prof_se_drawg, 				0 }, 
+//	{	"se_w8h16",			prof_se_drawg_w8h16, 		0 }, 
+//	{	"ase",				prof_ase_drawg, 			0 }, 
+//	{	"ase_w8h16",		prof_ase_drawg_w8h16, 		0 }, 
 	{	"chr4c_b1cts_base",	prof_chr4c_drawg_b1cts_base,	0 }, 
 	{	"chr4c_b1cts",		prof_chr4c_drawg_b1cts	, 	0 }, 
 	{	"chr4c_b1cts_fast",	prof_chr4c_drawg_b1cts_fast, 0 }, 
-	{	"bmp8_b1cts_base",	prof_bmp8_drawg_b1cts_base, 0 }, 
-	{	"bmp8_b1cts",		prof_bmp8_drawg_b1cts, 		0 }, 
-	{	"bmp8_b1cts_fast",	prof_bmp8_drawg_b1cts_fast, 0 }, 
-	{	"bmp16_b1cts_base",	prof_bmp16_drawg_b1cts_base,0 }, 
-	{	"bmp16_b1cts",		prof_bmp16_drawg_b1cts, 	0 }, 
+
+//	{	"bmp8_b1cts_base",	prof_bmp8_drawg_b1cts_base, 0 }, 
+//	{	"bmp8_b1cts",		prof_bmp8_drawg_b1cts, 		0 }, 
+//	{	"bmp8_b1cts_fast",	prof_bmp8_drawg_b1cts_fast, 0 }, 
+//	{	"bmp16_b1cts_base",	prof_bmp16_drawg_b1cts_base,0 }, 
+//	{	"bmp16_b1cts",		prof_bmp16_drawg_b1cts, 	0 }, 
 	//{	"bmp16",			prof_bmp16_drawg, 			0 }, 
-	{	"obj",				prof_obj_drawg, 			0 }, 
+//	{	"obj",				prof_obj_drawg, 			0 }, 
+#else
+	// chr4c specific
+	{	"c_base_th_rom",	prof_chr4c_drawg_b1cts_c_base_thumb_rom, 0 }, 
+	{	"c_fast_th_rom",	prof_chr4c_drawg_b1cts_c_fast_thumb_rom, 0 }, 
+	{	"c_base_arm_rom",	prof_chr4c_drawg_b1cts_c_base_arm_rom, 0 }, 
+	{	"c_fast_arm_rom",	prof_chr4c_drawg_b1cts_c_fast_arm_rom, 0 }, 
+	{	"c_base_th_iw",		prof_chr4c_drawg_b1cts_c_base_thumb_iwram, 0 }, 
+	{	"c_fast_th_iw",		prof_chr4c_drawg_b1cts_c_fast_thumb_iwram, 0 }, 
+	{	"c_base_arm_iw",	prof_chr4c_drawg_b1cts_c_base_arm_iwram, 0 }, 
+	{	"c_fast_arm_iw",	prof_chr4c_drawg_b1cts_c_fast_arm_iwram, 0 }, 
+
+	{	"asm_base_arm_iw",	prof_chr4c_drawg_b1cts_asm_base_arm_iwram, 0 }, 
+	{	"asm_fast_arm_iw",	prof_chr4c_drawg_b1cts_fast, 0 }, 
+
+#endif
 };
 
 TFont gFont;
@@ -218,7 +265,6 @@ void bmp16_drawg_b1cts_base(uint gid)
 // --------------------------------------------------------------------
 // Profiler routines
 // --------------------------------------------------------------------
-
 
 void prof_draws(TProfiler *prof, const char *str)
 {

@@ -43,7 +43,7 @@ BEGIN_FUNC_ARM(chr4c_drawg_b4cts_fast, CSEC_IWRAM)
 	and		r6, r6, #7				@ x%7
 	add		lr, r11, r6				@ right= width + x%8
 	mov		r8, r6, lsl #2			@ lsl = x%8*4
-	rsb		r9, r8, #32				@ lsr = 32-x%8*4			
+	rsb		r9, r8, #32				@ lsr = 32-x%8*4
 
 	sub		r3, r10, r2				@ prep deltaS
 	ldr		r6,=0x11111111

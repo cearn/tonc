@@ -39,7 +39,7 @@ export OBJCOPY	:=	$(PREFIX)objcopy
 
 %.elf :
 	@echo Linking cartridge
-	$(LD) -specs=gba.specs $(LDFLAGS) $(OFILES) $(LIBPATHS) $(LIBS) -o $@	
+	$(LD) -specs=gba.specs $(LDFLAGS) $(OFILES) $(LIBPATHS) $(LIBS) -o $@
 	$(NM) -Sn $@ > $(basename $(notdir $@)).map
 
 #----------------------------------------------------------------------
@@ -51,6 +51,29 @@ export OBJCOPY	:=	$(PREFIX)objcopy
 
 
 # === OBJECTIFY =======================================================
+
+# TODO: do this nicely.
+%.thumb.o : %.thumb.cpp
+	@echo $(notdir $<)
+	$(CXX) -MMD -MP -MF $(DEPSDIR)/$*.d $(CXXFLAGS) $(RARCH) -mlong-calls -c $< -o $@
+
+
+%.thumb.o : %.thumb.c
+	@echo $(notdir $<)
+	$(CC) -MMD -MP -MF $(DEPSDIR)/$*.d $(CFLAGS) $(RARCH) -mlong-calls -c $< -o $@
+
+#----------------------------------------------------------------------
+
+# TODO: do this nicely.
+%.arm.o : %.arm.cpp
+	@echo $(notdir $<)
+	$(CXX) -MMD -MP -MF $(DEPSDIR)/$*.d $(CXXFLAGS) $(IARCH) -c $< -o $@
+
+%.arm.o : %.arm.c
+	@echo $(notdir $<)
+	$(CC) -MMD -MP -MF $(DEPSDIR)/$*.d $(CFLAGS) $(IARCH) -c $< -o $@
+
+#----------------------------------------------------------------------
 
 %.iwram.o : %.iwram.cpp
 	@echo $(notdir $<)
