@@ -1,0 +1,17 @@
+{
+    "configurations": [
+        {
+            "name": "GBA",
+            "compilerPath": "${env:WIN_DEVKITPRO}/devkitARM/bin/arm-none-eabi-gcc.exe",
+            "intelliSenseMode": "gcc-arm",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${env:WIN_DEVKITPRO}/devkitARM/arm-none-eabi/include"
+            ],
+            "defines": [
+                "__GNUC__=4"
+            ]
+        }
+    ],
+    "version": 4
+}
