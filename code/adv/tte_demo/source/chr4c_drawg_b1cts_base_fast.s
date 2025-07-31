@@ -71,12 +71,12 @@ BEGIN_FUNC_ARM(chr4c_drawg_b1cts_asm_base_arm_iwram, CSEC_IWRAM)
 	mov		r3, r6, lsr #16			// y
 	bic		r6, r6, r3, lsl #16		// x
 
-	add		r0, r4, r3, lsl #2		// dstD= dstBase + y*4
-	mov		r3, r6, lsr #3
-	mla		r0, ip, r3, r0
+	add		r0, r4, r3, lsl #2		//
+	mov		r3, r6, lsr #3			// - dstD= dstBase + y*4 + x/8*dstPitch
+	mla		r0, ip, r3, r0			// /
 
 	and		r9, r6, #7				// - xshift0 = x&7*4
-	mov		r9, r9, lsl #2				// /
+	mov		r9, r9, lsl #2			// /
 
 	ldrh	r7, [r5, #TTC_ink]
 

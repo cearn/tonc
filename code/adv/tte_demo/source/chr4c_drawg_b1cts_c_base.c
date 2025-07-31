@@ -42,7 +42,7 @@ GEN_CODE_SEC void GEN_PROCNAME_BASE (uint gid)
 			raw= srcL[iy];
 			for(ix=0; raw>0; raw>>=1, ix++)
 				if(raw&1)
-					schr4c_plot(&tc->dst, x0+ix, y0+iy, ink);
+					_schr4c_plot(&tc->dst, x0+ix, y0+iy, ink);
 		}
 		srcL += srcP;
 		x0 += 8;
@@ -57,7 +57,7 @@ GEN_CODE_SEC void GEN_PROCNAME_FAST (uint gid)
 	uint x= tc->cursorX, y= tc->cursorY;
 	uint srcP= font->cellH, dstP= tc->dst.pitch/4;
 
-	u32 *dstD= (u32*)(tc->dst.data + y*4 + x/8*dstP*4), *dstL;
+	u32 *dstD= (u32*)((u8*)tc->dst.data + y*4 + x/8*dstP*4), *dstL;
 	x %= 8;
 	u32 lsl= 4*x, lsr= 32-4*x, right= x+charW;
 
