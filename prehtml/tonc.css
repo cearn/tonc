@@ -233,6 +233,35 @@ td.hdr_r	{ width: 40%; text-align:right;	}
 .bdrB, .bdrBL, .bdrBR, .bdrLL, .bdrRR
 { border-bottom: 1px black solid;	}
 
+/* ------------------------------------------------------------------------------------------
+	BANNERS
+   ------------------------------------------------------------------------------------------ */
+
+.banner-deprecation {
+	/*
+	position: fixed; 
+	width: 100%;
+	*/
+	background: rgba(192,128,0,0.5);
+	padding: 0.3rem 2rem;
+}
+
+/* Useful to make position:fixed work. */
+/*
+.main-scroll {
+  position: absolute;
+  top: 2.5em;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: auto;
+}
+*/
+
+/* ------------------------------------------------------------------------------------------
+	MEDIA
+   ------------------------------------------------------------------------------------------ */
+
 
 @media print {
 	a:link		{ color:navy; }
