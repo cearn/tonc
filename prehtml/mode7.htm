@@ -12,6 +12,8 @@
   <script type="text/javascript" src="tonc.js"></script>
 </head>
 <body onload="main();">
+<div class="main-container">
+
 
 <!--567890123456789012345678901234567890123456789012345678901234567-->
 
@@ -215,7 +217,7 @@ plane and the line passing through the viewer and the original point:
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-persp]]</em>)
   <td class="eqcell">
-    <i>y</i><sub>p</sub> = <i>y</i>·D/z
+    <i>y</i><sub>p</sub> = <i>y</i>ï¿½D/z
 </table>
 
 <p>
@@ -254,7 +256,7 @@ be enlarged, and everything behind it (&lambda;&gt;1) is shrunk.
   <b>Fig <em>[[ref:img-side1]]</em></b>: 
   Side view; point (<i>y, z</i>) is projected onto the 
   (<i>z</i> = &minus;<i>D</i> plane. The projected point is 
-  <i>y</i><sub>p</sub> =  <i>y·D/z</i>
+  <i>y</i><sub>p</sub> =  <i>yï¿½D/z</i>
   </div>
 </table>
 </div>
@@ -473,7 +475,7 @@ is:
 So for each scanline you do the calculations for the zoom, put the
 <b>P</b> matrix of eq&nbsp;<em>[[ref:eq-prs]]</em> into 
 <code>REG_BGxPA-REG_BGxPD</code>, and
-<b>a&minus;P·x</b><sub>s</sub> into <code>REG_BGxX</code> and
+<b>a&minus;Pï¿½x</b><sub>s</sub> into <code>REG_BGxX</code> and
 <code>REG_BGxY</code> and presto! Instant Mode 7.
 </p>
 <p>
@@ -785,7 +787,7 @@ The problem, or at least part of it, is the basic algorithm used in
 types A and B. If you look back to the theory, you'll see that the 
 affine matrix is calculated first, then the offsets. In other words, 
 first combine the scale and rotation, then calculate the 
-offset-correction, <b>P</b>·<b>x</b><sub>s</sub>. This is how the 
+offset-correction, <b>P</b>ï¿½<b>x</b><sub>s</sub>. This is how the 
 affine parameters in the GBA work anyway.
 However, this is actually only the first step. If you follow that 
 procedure, you'd still get the jagged result. The <i>real</i> reason 
@@ -803,7 +805,7 @@ class="num">4</span>);
 </pre>
 
 <p>
-Getting <code>lxr</code>&nbsp;=&nbsp;<i>p</i><sub>a/c</sub>·<i>x</i><sub>s</sub> 
+Getting <code>lxr</code>&nbsp;=&nbsp;<i>p</i><sub>a/c</sub>ï¿½<i>x</i><sub>s</sub> 
 requires two parts: multiplication with <b>P</b> elements and the
 shift down to .8 fixeds. You might expect doing the shift last would 
 be better because it has a higher precision. The funny thing is that 
@@ -894,6 +896,7 @@ Get all Tonc files <a href="http://www.coranac.com/projects/#tonc" target="_blan
 </table>
 <!-- [[/footer]] -->
 
+</div> <!-- main-container -->
 </body>
 </html>
 

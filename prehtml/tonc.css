@@ -5,12 +5,19 @@ body
 {
 	background: url(../img/main/tonc_bg.png) #D0F0F0; 
 	color: #000000;
-	max-width: 800px;
-	margin: 0 auto;
+	margin: 0;
 }
 
 body, table {
-	font: 13px tahoma, verdana, sans-serif;
+	font-family: tahoma, verdana, sans-serif;
+	font-size: 15px;
+	line-height: 1.3;
+}
+
+.main-container {
+	max-width: 860px;
+	margin: 0 auto;
+	padding: 0 10px;
 }
 
 .page-break {
@@ -32,9 +39,9 @@ h2+h4	{ margin-top: 0.2em;		}
 h3+h4	{ margin-top: 0.2em;		}
 
 
-p		{ margin-top: 0.1em; margin-bottom: 0.1em;	}
-p+p		{ text-indent: 1.5em;	}
-p.ni	{ text-indent: 0;		}
+p		{ margin-top: 0.2em; margin-bottom: 0.2em; }
+p+p		{ text-indent: 1.2em; }
+p.ni	{ text-indent: 0; }
 
 
 sup { 

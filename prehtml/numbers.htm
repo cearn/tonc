@@ -11,6 +11,8 @@
   <script type="text/javascript" src="tonc.js"></script>
 </head>
 <body onload="main();">
+<div class="main-container">
+
 
 <!--567890123456789012345678901234567890123456789012345678901234567-->
 
@@ -173,15 +175,15 @@ possible. Now, for our sample string of numerals, consider
 <div class="lblock">
 <table>
 <tr><td>1025<sub>ten</sub>
-  <td>=<td> 1·10<sup>3</sup><sub>ten</sub>
-  <td>+<td> 0·10<sup>2</sup><sub>ten</sub>
-  <td>+<td> 2·10<sup>1</sup><sub>ten</sub>
-  <td>+<td> 5·10<sup>0</sup><sub>ten</sub>
+  <td>=<td> 1ï¿½10<sup>3</sup><sub>ten</sub>
+  <td>+<td> 0ï¿½10<sup>2</sup><sub>ten</sub>
+  <td>+<td> 2ï¿½10<sup>1</sup><sub>ten</sub>
+  <td>+<td> 5ï¿½10<sup>0</sup><sub>ten</sub>
 <tr><td>
-  <td>=<td> 1·1000<sub>ten</sub>
-  <td>+<td> 0·100<sub>ten</sub>
-  <td>+<td> 2·10<sub>ten</sub>
-  <td>+<td>5·1
+  <td>=<td> 1ï¿½1000<sub>ten</sub>
+  <td>+<td> 0ï¿½100<sub>ten</sub>
+  <td>+<td> 2ï¿½10<sub>ten</sub>
+  <td>+<td>5ï¿½1
 <tr><td><td>=<td colspan=7> one thousand twenty five
 </table>
 </div>
@@ -374,7 +376,7 @@ and convert those to hex.
 <tr><td>1025<sub>ten</sub>
   <td>=<td colspan=4>100,0000,0001<sub>bin</sub>
 <tr><td>
-  <td>=<td>401<sub>bin</sub>·16<sup>2</sup> <td>+<td>1·16<sup>0</sup>
+  <td>=<td>401<sub>bin</sub>ï¿½16<sup>2</sup> <td>+<td>1ï¿½16<sup>0</sup>
 <tr><td>
   <td>=<td colspan=4>401<sub>hex</sub>
 </table>
@@ -724,9 +726,9 @@ the number is just too damn long to write!
 The scientific notation solves both problems. Multiplying with a power
 of 10 effectively moves the floating point around and thus can
 rid you of the zeros. The mass of the Earth can then be written
-concisely as 5.9742·10<sup>24</sup>, that is, 5.9742 times 10 to the
+concisely as 5.9742ï¿½10<sup>24</sup>, that is, 5.9742 times 10 to the
 power 24. You can also come across the even shorter notation of 
-5.9742e+24, where the &ldquo;·10^&rdquo; is replaced by an 
+5.9742e+24, where the &ldquo;ï¿½10^&rdquo; is replaced by an 
 &lsquo;e&rsquo; for exponent. Don't misread it as a hexadecimal number. 
 And yes, I am aware that this is a shorthand notation of a shorthand 
 notation. What can I say, math people are lazy bastards. Additionally, 
@@ -1937,5 +1939,6 @@ Get all Tonc files <a href="http://www.coranac.com/projects/#tonc" target="_blan
 </table>
 <!-- [[/footer]] -->
 
+</div> <!-- main-container -->
 </body>
 </html>

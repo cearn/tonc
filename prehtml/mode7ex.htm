@@ -12,6 +12,8 @@
   <script type="text/javascript" src="tonc.js"></script>
 </head>
 <body onload="main();">
+<div class="main-container">
+
 
 <!--567890123456789012345678901234567890123456789012345678901234567-->
 
@@ -204,7 +206,7 @@ Now, for every transformation between systems <i>S</i><sub>i</sub> and
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-crd-transf]]</em>)
   <td class="eqcell">
-    <b>M</b><sub>ij</sub>·<b>x</b><sub>j</sub>
+    <b>M</b><sub>ij</sub>ï¿½<b>x</b><sub>j</sub>
     = <b>x</b><sub>i</sub> &minus; <b>a</b><sub>ji</sub>
 </table>
 
@@ -240,7 +242,7 @@ sense. If you don't get it right away, think of them as arrays and
 matrices. An observant reader will also recognise the structure 
 in the <a href="affbg.htm#sec-aff-ofs">screen&harr;map 
 transformation</a> we had for affine maps: 
-<b>P·q</b>&nbsp;=&nbsp;<b>p &minus; dx</b>. 
+<b>Pï¿½q</b>&nbsp;=&nbsp;<b>p &minus; dx</b>. 
 Eq <em>[[ref:eq-crd-transf]]</em> is a very 
 general equation, by the way, it holds for every kind of linear 
 coordinate transformation. In fact, systems <i>S</i><sub>i</sub> and 
@@ -460,7 +462,7 @@ operation, but not the one that the math requires.
 </p>
 <p>
 I know it's a subtle point, but there really is an important 
-difference. Try visualizing it with a 90° rotation in both orders, 
+difference. Try visualizing it with a 90ï¿½ rotation in both orders, 
 maybe that'd help. 
 </p>
 </div>
@@ -620,7 +622,7 @@ have
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-p2s]]</em>)
   <td class="eqcell">
-    <b>S</b>(1,&minus;1,1)·<b>x</b><sub>s</sub> =
+    <b>S</b>(1,&minus;1,1)ï¿½<b>x</b><sub>s</sub> =
     <b>x</b><sub>p</sub> &minus; <b>a</b><sub>sp</sub>
 </table>
 
@@ -651,12 +653,12 @@ repeat the most important things. First, the main equations we need are:
 <col span=2 align="right">
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-m7-main]]</em>a)
-  <td class="eqcell"> &lambda;<b>C</b> · <b>x</b><sub>p</sub>
+  <td class="eqcell"> &lambda;<b>C</b> ï¿½ <b>x</b><sub>p</sub>
   <td class="eqcell">=
   <td class="eqcell"> <b>x</b><sub>w</sub> &minus; <b>a</b><sub>cw</sub>
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-m7-main]]</em>b)
-  <td class="eqcell"> <b>S</b>(1,-1,1) · <b>x</b><sub>s</sub>
+  <td class="eqcell"> <b>S</b>(1,-1,1) ï¿½ <b>x</b><sub>s</sub>
   <td class="eqcell">=
   <td class="eqcell"> (<b>x</b><sub>p</sub> &minus; <b>a</b><sub>sp</sub>)
 </table>
@@ -681,7 +683,7 @@ repeat the most important things. First, the main equations we need are:
 <tr><td><b>C</b>
   <td>the camera matrix, as function of pitch &theta; and yaw &phi;:
     <b>C</b> =
-    <b>R</b><sub>y</sub>(&phi;)· <b>R</b><sub>x</sub>(&theta;);
+    <b>R</b><sub>y</sub>(&phi;)ï¿½ <b>R</b><sub>x</sub>(&theta;);
 <tr><td>&lambda;
   <td>the scaling factor. Its value can be determined by the
     boundary conditions.
@@ -812,11 +814,11 @@ which will be something like
   <td class="eqnrcell">(<em>[[ref:eq-horz-line]]</em>c)
   <td class="eqcell">
     <i>y</i><sub>p,h</sub> 
-	  = <i>D/F</i> · (<i>F w</i><sub>y</sub> &minus;
+	  = <i>D/F</i> ï¿½ (<i>F w</i><sub>y</sub> &minus;
       <i>a</i><sub>cw,y</sub>) / <i>v</i><sub>y</sub>
 
 <!--  = <i>D</i>tan(&theta;) 
-    - <i>D/F</i> ·<i>a</i><sub>cw,y</sub>/cos &theta; -->
+    - <i>D/F</i> ï¿½<i>a</i><sub>cw,y</sub>/cos &theta; -->
 </table>
 
 <p>
@@ -919,7 +921,7 @@ eq&nbsp;<em>[[ref:eq-fov-cam]]</em>. If all is right we should have
   <tr>
     <td> &alpha;
     <td>=
-    <td> 2·arctan(&frac12;<i>W</i>/<i>D</i>)
+    <td> 2ï¿½arctan(&frac12;<i>W</i>/<i>D</i>)
   <tr>
     <td> &alpha;
     <td>=
@@ -966,7 +968,7 @@ company <kbd>:P</kbd>
 So, we just define a perimeter value and with it backdrop map-width 
 ourselves. In this case I'm going to use <i>P</i>&nbsp;=&nbsp;1024, 
 which is a nice round number and for which we can use a 512 px wide 
-tile-map will effectively end up as a panorama with 180° rotational 
+tile-map will effectively end up as a panorama with 180ï¿½ rotational 
 symmetry. Taking into account the circle partitioning of 
 2&pi;&nbsp;&hArr;&nbsp;10000h, the scrolling value is simply 
 &phi;*<i>P</i>/10000h&nbsp;=&nbsp;&phi;/64. We'll have to offset this 
@@ -1021,11 +1023,11 @@ equations you need to solve, and hints on how to do that.
   <col align="center">
   <col align="left">
   <tr>
-    <td> &lambda;<b>C</b> · <b>x</b><sub>p</sub>
+    <td> &lambda;<b>C</b> ï¿½ <b>x</b><sub>p</sub>
     <td>=
     <td> <b>x</b><sub>w</sub> &minus; <b>a</b><sub>cw</sub>
   <tr>
-    <td> <b>S</b>(1,&minus;1,1) · <b>x</b><sub>s</sub>
+    <td> <b>S</b>(1,&minus;1,1) ï¿½ <b>x</b><sub>s</sub>
     <td>=
     <td> (<b>x</b><sub>p</sub> &minus; <b>a</b><sub>sp</sub>)
   <tr>
@@ -1342,15 +1344,15 @@ using <b>C</b>&nbsp;=&nbsp;[<b>u&nbsp;v&nbsp;w</b>], we find
   <tr>
     <td>&lambda;
     <td>=
-    <td>&minus;<b>w</b>·<b>r</b> / <i>D</i>
+    <td>&minus;<b>w</b>ï¿½<b>r</b> / <i>D</i>
   <tr>
     <td><i>x</i><sub>p</sub>
     <td>= 
-    <td><b>u</b>·<b>r</b> / &lambda;
+    <td><b>u</b>ï¿½<b>r</b> / &lambda;
   <tr>
     <td><i>y</i><sub>p</sub>
     <td>= 
-    <td><b>v</b>·<b>r</b> / &lambda;
+    <td><b>v</b>ï¿½<b>r</b> / &lambda;
   </table>
 </table>
 
@@ -1394,7 +1396,7 @@ objects.
     <td> <b>x</b>
     <td>=
     <td> <b>q</b><sub>0</sub> &minus; <i>m</i><b>s</b> &minus; 
-	  <b>P</b><sup>&minus;1</sup>·
+	  <b>P</b><sup>&minus;1</sup>ï¿½
 	  (<b>p</b><sub>0</sub> &minus; &frac12;<b>s</b>)
   </tbody>
   </table>
@@ -1456,7 +1458,7 @@ fully visible).
 It's actually easier to do the view volume checks in 3D camera 
 space instead of 2D projection space. The object rectangle can 
 easily be calculated from 
-<b>x</b><sub>c</sub>&nbsp;=&nbsp;<b>C</b><sup>T</sup>·<b>r</b>, 
+<b>x</b><sub>c</sub>&nbsp;=&nbsp;<b>C</b><sup>T</sup>ï¿½<b>r</b>, 
 the anchor <b>p</b><sub>0</sub> and the size <b>s</b>. The viewport 
 will have to be scaled by &lambda;, and this gives us the 
 following rests to perform:
@@ -1475,7 +1477,7 @@ following rests to perform:
 </tr>
 <tr>
   <th> Depth </th>
-  <td> <i>d</i> = -<i>z</i><sub>c</sub> = <b>w</b>·<b>r</b> </td>
+  <td> <i>d</i> = -<i>z</i><sub>c</sub> = <b>w</b>ï¿½<b>r</b> </td>
   <td> <i>N</i> &le; <i>d</i> 
     &amp;&amp; <i>d</i> &lt; <i>F</i> </td>
 </tr>
@@ -1576,7 +1578,7 @@ circle into equal parts each 2&pi;/<i>N</i> radians wide. To get the
 slice that &psi; is in, we merely have to divide by the angle of each 
 slice: 
 <i>i</i>&nbsp;=&nbsp;&psi;/(2&pi;/<i>N</i>)<!--
--->&nbsp;=&nbsp;<i>N</i>·&psi;/(2&pi;).
+-->&nbsp;=&nbsp;<i>N</i>ï¿½&psi;/(2&pi;).
 If you have defined your circle in power-of-two divisions (which we 
 have) then this part is ridiculously easy: just use a right-shift. 
 Once you have the frame-index, the rest should be easy. Mostly. There 
@@ -2071,13 +2073,13 @@ feel free to skip it and go onto the code.
 </p>
 <p>
 Remember that the camera matrix is 
-<b>C</b>&nbsp;=&nbsp;<b>R</b><sub>y</sub>(&phi;)·<b>R</b><sub>x</sub>(&theta;);
+<b>C</b>&nbsp;=&nbsp;<b>R</b><sub>y</sub>(&phi;)ï¿½<b>R</b><sub>x</sub>(&theta;);
 and that &lambda; and <b>dx</b> are calculated via 
 eq&nbsp;<em>[[ref:eq-m7-ofs]]</em>: 
 <b>dx</b>&prime;&nbsp;=&nbsp;<b>a</b><sub>cw</sub> + 
-&lambda;·<b>C</b>·<b>b</b>. 
+&lambda;ï¿½<b>C</b>ï¿½<b>b</b>. 
 You can break up <b>C</b> can combine it with <b>b</b> to form 
-<b>b</b>&prime;&nbsp;=&nbsp;<b>R</b><sub>x</sub>(&theta;)·<b>b</b>. 
+<b>b</b>&prime;&nbsp;=&nbsp;<b>R</b><sub>x</sub>(&theta;)ï¿½<b>b</b>. 
 This new vector takes care of the pitch entirely &ndash; it's as if 
 we only had a rotation around the vertical axis, i.e., the case 
 discussed in the previous chapter. With this pre-rotation, the code 
@@ -2429,7 +2431,7 @@ outside the view volume.
 The first step is convert to the convert the world-position of the 
 sprite to a vector in the camera space, using the first part of 
 eq&nbsp;<em>[[ref:eq-obj-w2s]]</em>: 
-<b>x</b><sub>c</sub>&nbsp;=&nbsp;<b>C</b><sup>T</sup>·<b>r</b>, 
+<b>x</b><sub>c</sub>&nbsp;=&nbsp;<b>C</b><sup>T</sup>ï¿½<b>r</b>, 
 with 
 <b>r</b> being the position of the sprite relative to the camera: 
 <b>r</b>&nbsp;=&nbsp;<b>x</b><sub>w</sub>&minus;<b>a</b><sub>cw</sub>. 
@@ -2601,7 +2603,7 @@ angles 0&deg; through 90&deg;, the remaining four for
 90&deg;-180&deg;. The reason behind this is that most of the time 
 you'll see the karts from the back, so it pays to have more frames 
 for those. Now, in the theory we could calculate the animation frame 
-quite nicely, namely <i>N</i>·&psi;/2<sup>16</sup>. However, that 
+quite nicely, namely <i>N</i>ï¿½&psi;/2<sup>16</sup>. However, that 
 relied on having <i>N</i> equal slices, which we don't have anymore.
 Or do we?
 </p>
@@ -2818,7 +2820,7 @@ forward along &minus;<b>w</b>. A general movement could be written as
 <i>x</i>, <i>y</i> and <i>z</i> are used as <i>multipliers</i>
 for the direction vectors, and the final displacement in global 
 space is <b>dx</b> = 
-<i>x</i>·<b>u</b> + <i>y</i>·<b>v</b> + <i>z</i>·<b>w</b>. 
+<i>x</i>ï¿½<b>u</b> + <i>y</i>ï¿½<b>v</b> + <i>z</i>ï¿½<b>w</b>. 
 </p>
 <p>
 And where matrices come in. Those three multipliers 
@@ -2827,7 +2829,7 @@ can be written a vector
 is the distance vector in <i>local</i> space. The three directions 
 formed a matrix <b>C</b>, The definition of <b>dx</b> given above is 
 nothing else than the long way of writing down
-<b>dx</b>&nbsp;=&nbsp;<b>C</b>·<b>r</b>. The matrix multiplication 
+<b>dx</b>&nbsp;=&nbsp;<b>C</b>ï¿½<b>r</b>. The matrix multiplication 
 is just shorthand for &ldquo;scale the vectors of <b>C</b> by 
 the elements of <b>r</b> and add them all up&rdquo;.
 Note that this procedure would work for any object, in any 
@@ -2865,17 +2867,17 @@ Experiment with them and see what you like.
 <tr>
   <td>Global frame</td> 
   <td><code>m7_translate_global()</code></td>
-  <td><b>dx</b> = <b>I</b> · <b>r</b> = <b>r</b>
+  <td><b>dx</b> = <b>I</b> ï¿½ <b>r</b> = <b>r</b>
 </tr>
 <tr>
   <td>Local (camera) frame</td> 
   <td><code>m7_translate_local()</code></td>
-  <td><b>dx</b> = <b>C</b>(&theta;, &phi;) · <b>r</b>
+  <td><b>dx</b> = <b>C</b>(&theta;, &phi;) ï¿½ <b>r</b>
 </tr>
 <tr>
   <td>Level: local but parallel to ground</td> 
   <td><code>m7_translate_level()</code></td>
-  <td><b>dx</b> = <b>R</b><sub>y</sub>(&phi;) · <b>r</b>
+  <td><b>dx</b> = <b>R</b><sub>y</sub>(&phi;) ï¿½ <b>r</b>
 </tr>
 </tbody>
 </table>
@@ -2940,7 +2942,7 @@ from, <i>Z</i> and presumably the sprite position,
 <b>x</b><sub>w</sub>. What you need to do is: move the camera to 
 the sprite's position, then take <i>Z</i> steps back. In other 
 words 
-<b>a</b><sub>cw</sub>&nbsp;=&nbsp;<b>x</b><sub>w</sub>+<b>C</b>·(0, 0, <i>Z</i>),
+<b>a</b><sub>cw</sub>&nbsp;=&nbsp;<b>x</b><sub>w</sub>+<b>C</b>ï¿½(0, 0, <i>Z</i>),
 which boils down to 
 <b>a</b><sub>cw</sub>&nbsp;=&nbsp;<b>x</b><sub>w</sub>+<i>Z</i><b>w</b>, 
 </p>
@@ -3004,6 +3006,7 @@ Get all Tonc files <a href="http://www.coranac.com/projects/#tonc" target="_blan
 </table>
 <!-- [[/footer]] -->
 
+</div> <!-- main-container -->
 </body>
 </html>
 
