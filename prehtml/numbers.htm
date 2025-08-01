@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+  <meta content="text/html; charset=UTF-8" http-equiv="content-type">
   <meta name="Author" content="Cearn">
   <meta name="Created" content="20041112">
   <meta name="Modified" content="20130324">
@@ -175,15 +175,15 @@ possible. Now, for our sample string of numerals, consider
 <div class="lblock">
 <table>
 <tr><td>1025<sub>ten</sub>
-  <td>=<td> 1�10<sup>3</sup><sub>ten</sub>
-  <td>+<td> 0�10<sup>2</sup><sub>ten</sub>
-  <td>+<td> 2�10<sup>1</sup><sub>ten</sub>
-  <td>+<td> 5�10<sup>0</sup><sub>ten</sub>
+  <td>=<td> 1&middot;10<sup>3</sup><sub>ten</sub>
+  <td>+<td> 0&middot;10<sup>2</sup><sub>ten</sub>
+  <td>+<td> 2&middot;10<sup>1</sup><sub>ten</sub>
+  <td>+<td> 5&middot;10<sup>0</sup><sub>ten</sub>
 <tr><td>
-  <td>=<td> 1�1000<sub>ten</sub>
-  <td>+<td> 0�100<sub>ten</sub>
-  <td>+<td> 2�10<sub>ten</sub>
-  <td>+<td>5�1
+  <td>=<td> 1&middot;1000<sub>ten</sub>
+  <td>+<td> 0&middot;100<sub>ten</sub>
+  <td>+<td> 2&middot;10<sub>ten</sub>
+  <td>+<td>5&middot;1
 <tr><td><td>=<td colspan=7> one thousand twenty five
 </table>
 </div>
@@ -246,7 +246,7 @@ of course, we need the powers of two themselves. The first 11 are:
 <div class="lblock">
 <table id="tbl-pot"
   border=1 cellpadding=2 cellspacing=0>
-<caption align="bottom"><b>Table 1</b>: powers of two</caption>
+<caption align="bottom"><b>Table <em>[[ref:[tbl-pot]]</em></b>: powers of two</caption>
 <col span=3 align="right">
 <tr align="center"><th>exponent<th>binary<th>decimal
 <tr><td> 0 <td>1			<td>1
@@ -314,7 +314,7 @@ will fit on your floppy disk or not.
 
 <div class="cpt_fr" style="width:160px">
 <p>
-<b>Table 2</b>: counting to twenty in decimal, binary, hex and octal. 
+<b>Table <em>[[ref:tbl-count]]</em></b>: counting to twenty in decimal, binary, hex and octal. 
 Note the alternating sequences in the binary column.
 </p>
 
@@ -376,7 +376,7 @@ and convert those to hex.
 <tr><td>1025<sub>ten</sub>
   <td>=<td colspan=4>100,0000,0001<sub>bin</sub>
 <tr><td>
-  <td>=<td>401<sub>bin</sub>�16<sup>2</sup> <td>+<td>1�16<sup>0</sup>
+  <td>=<td>401<sub>bin</sub>&middot;16<sup>2</sup> <td>+<td>1&middot;16<sup>0</sup>
 <tr><td>
   <td>=<td colspan=4>401<sub>hex</sub>
 </table>
@@ -438,7 +438,7 @@ hexadecimal. I've also given the multiplication tables for convenience.
 <table id="tbl-multiply">
 <tr><td>
   <table border=1 cellpadding=2 cellspacing=0>
-  <caption><b>Table 3a</b>: decimal multiplication table</caption>
+  <caption><b>Table <em>[[ref:tbl-multiply]]</em>a</b>: decimal multiplication table</caption>
   <col span=11 align="right">
   <tr><th> x
     <th> 1 <th> 2 <th> 3 <th> 4 <th> 5
@@ -477,7 +477,7 @@ hexadecimal. I've also given the multiplication tables for convenience.
 
 <td width=64><td>
   <table border=1 cellpadding=2 cellspacing=0>
-  <caption><b>Table 3b</b>: hex multiplication table</caption>
+  <caption><b>Table <em>[[ref:tbl-multiply]]</em>b</b>: hex multiplication table</caption>
   <col span=17 align="right">
   <tr><th> x
     <th> 1 <th> 2 <th> 3 <th> 4 <th> 5 <th> 6 <th> 7 <th> 8
@@ -726,9 +726,9 @@ the number is just too damn long to write!
 The scientific notation solves both problems. Multiplying with a power
 of 10 effectively moves the floating point around and thus can
 rid you of the zeros. The mass of the Earth can then be written
-concisely as 5.9742�10<sup>24</sup>, that is, 5.9742 times 10 to the
+concisely as 5.9742&middot;10<sup>24</sup>, that is, 5.9742 times 10 to the
 power 24. You can also come across the even shorter notation of 
-5.9742e+24, where the &ldquo;�10^&rdquo; is replaced by an 
+5.9742e+24, where the &ldquo;&middot;10^&rdquo; is replaced by an 
 &lsquo;e&rsquo; for exponent. Don't misread it as a hexadecimal number. 
 And yes, I am aware that this is a shorthand notation of a shorthand 
 notation. What can I say, math people are lazy bastards. Additionally, 
@@ -829,7 +829,7 @@ complement</dfn>. The table below shows how this works for 3 digits.
 <table id="tbl-10cmpl"
   border=1 cellpadding=2 cellspacing=0>
 <caption align="bottom">
-  <b>Table 4</b>: tens' complement for 3 digits
+  <b>Table <em>[[ref:tbl-10cmpl]]</em></b>: tens' complement for 3 digits
 </caption>
 <tbody align="center">
 <tr><th>Number
@@ -1062,7 +1062,7 @@ yourself warned.
 <table id="tbl-ascii"
   border=1 cellpadding=2 cellspacing=0>
 <caption align="bottom">
-  <b>Table 5</b>: ASCII 0-127
+  <b>Table <em>[[ref-tbl-ascii]]</em></b>: ASCII 0-127
 </caption>
 <tr><td>
   <table><tr><th>dec <th>hex <th>Char
@@ -1314,7 +1314,7 @@ transfer that to a computer with a different endian-scheme.
 <table id="tbl-endian"
   border=1 cellpadding=2 cellspacing=0 width=30%>
 <caption align="bottom">
-  <b>Table 6</b>: storing 0x11223344
+  <b>Table <em>[[ref:tbl-endian]]</em></b>: storing 0x11223344
 </caption>
 <col span=5 align="center">
 <tr><th>memory <th> 00 <th> 01 <th> 02 <th> 03
@@ -1448,7 +1448,7 @@ Table 8 shows examples of these operators on bytes 0Fh and 35h.
 <div class="lblock">
 <table id="tbl-bitops-truth">
 <caption align="bottom">
-  <b>Table 7</b>: bit operations
+  <b>Table <em>[[ref:tbl-bitops-truth]]</em></b>: bit operations
 </caption>
   <tr valign="top"><td>
     <table border=1 cellpadding=2 cellspacing=0 frame=void rules=groups>
@@ -1483,7 +1483,7 @@ Table 8 shows examples of these operators on bytes 0Fh and 35h.
 <!-- frame for masked results -->
 <table id="tbl-bitops-eg">
 <caption>
-  <b>Table 8a</b>: bit-ops examples
+  <b>Table <em>[[ref:tbl-bitops-eg]]a</em></b>: bit-ops examples
 </caption>
   <col span=4 width=144>
   <tr valign="bottom"><td>
@@ -1584,7 +1584,7 @@ operators like '|='.
 <!-- frame for masked results -->
 <table>
 <caption align="bottom">
-  <b>Table 8b</b>: bit-ops examples encore,
+  <b>Table <em>[[ref:tbl-bitops-eg]]</em>b</b>: bit-ops examples encore,
   using source <i>s</i>=35h and mask <i>m</i>=0Fh
 </caption>
 <col span=4 width=144>
@@ -1670,7 +1670,7 @@ variable, in pretty much the way you'd expect:
 <div class="lblock">
 <table id="tbl-shift"
   cellpadding=4 cellspacing=0 frame=void rules=groups>
-<caption align="bottom"><b>Table 9</b>: shift / rotate operations on
+<caption align="bottom"><b>Table <em>[[ref:tbl-shift]]</em></b>: shift / rotate operations on
   byte 35h (<code>00110101</code>)</caption>
 <colgroup>
 <colgroup>
@@ -1751,7 +1751,7 @@ you'd get by sign-bit extension or not.
 <table id="tbl-sign"
   border=1 cellspacing=0 cellpadding=2>
 <caption align="bottom">
-  <b>Table 10</b>: signed and unsigned <code>80h&gt;&gt;3</code>
+  <b>Table <em>[[ref:tbl-sign]]</em></b>: signed and unsigned <code>80h&gt;&gt;3</code>
 </caption>
 <col span=3 align="center">
 <tr><th>type <b>char</b><th> unsigned <th> signed
@@ -1835,7 +1835,7 @@ constant is a power of two.
 <table id="tbl-bitops-arith"
   cellpadding=4 cellspacing=0 frame=void rules=groups>
 <caption align="bottom">
-  <b>Table 11</b> Arithmetic bit-ops summary
+  <b>Table <em>[[ref:tbl-bitops-arith]]</em></b> Arithmetic bit-ops summary
 </caption>
 <colgroup valign="bottom">
 <colgroup align="center" valign="bottom">
@@ -1881,7 +1881,7 @@ an 8bit computer, cool huh?
 <table id="tbl-adder"
   border=1 cellspacing=0 cellpadding=2 frame=void rules=groups width=10%>
 <caption align="bottom">
-  <b>Table 12</b>: 1&minus;bit adder
+  <b>Table <em>[[ref:tbl-adder]]</em></b>: 1-bit adder
 </caption>
 <colgroup align="center">
 <colgroup align="center">

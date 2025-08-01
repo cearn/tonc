@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+  <meta content="text/html; charset=UTF-8" http-equiv="content-type">
   <meta name="generator" content="Context">
   <meta name="Author" content="Cearn">
   <meta name="Created" content="20031127">
@@ -217,7 +217,7 @@ plane and the line passing through the viewer and the original point:
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-persp]]</em>)
   <td class="eqcell">
-    <i>y</i><sub>p</sub> = <i>y</i>�D/z
+    <i>y</i><sub>p</sub> = <i>y</i> &middot; D/z
 </table>
 
 <p>
@@ -256,7 +256,7 @@ be enlarged, and everything behind it (&lambda;&gt;1) is shrunk.
   <b>Fig <em>[[ref:img-side1]]</em></b>: 
   Side view; point (<i>y, z</i>) is projected onto the 
   (<i>z</i> = &minus;<i>D</i> plane. The projected point is 
-  <i>y</i><sub>p</sub> =  <i>y�D/z</i>
+  <i>y</i><sub>p</sub> =  <i>y&middot;D/z</i>
   </div>
 </table>
 </div>
@@ -475,7 +475,7 @@ is:
 So for each scanline you do the calculations for the zoom, put the
 <b>P</b> matrix of eq&nbsp;<em>[[ref:eq-prs]]</em> into 
 <code>REG_BGxPA-REG_BGxPD</code>, and
-<b>a&minus;P�x</b><sub>s</sub> into <code>REG_BGxX</code> and
+<b>a&minus;P&middot;x</b><sub>s</sub> into <code>REG_BGxX</code> and
 <code>REG_BGxY</code> and presto! Instant Mode 7.
 </p>
 <p>
@@ -549,21 +549,25 @@ a label in the top-left corner indicating the current type.
 <div class="cblock">
 <table id="img-types">
 <tr>
-<td>
-  <div class="cpt" style="width:240px;">
-  <img src="../img/demo/m7_demo_a.png" alt="blocky"><br>
-  <b>Fig <em>[[ref:img-types]]</em>a</b>: Type A: blocked.
-  </div>
-<td>
-  <div class="cpt" style="width:240px;">
-  <img src="../img/demo/m7_demo_b.png" alt="sawtooth"><br>
-  <b>Fig <em>[[ref:img-types]]</em>b</b>: Type B: sawtooth.
-  </div>
-<tr><td colspan=2 align="center">
-  <div class="cpt" style="width:240px;">
-  <img src="../img/demo/m7_demo_c.png" alt="smooth"><br>
-  <b>Fig <em>[[ref:img-types]]</em>c</b>: Type C: smooth.
-  </div>
+  <td>
+    <div class="cpt" style="width:240px;">
+    <img src="../img/demo/m7_demo_a.png" alt="blocky"><br>
+    <b>Fig <em>[[ref:img-types]]</em>a</b>: Type A: blocked.
+    </div>
+  </td>
+  <td>
+    <div class="cpt" style="width:240px;">
+    <img src="../img/demo/m7_demo_b.png" alt="sawtooth"><br>
+    <b>Fig <em>[[ref:img-types]]</em>b</b>: Type B: sawtooth.
+    </div>
+    </td>
+  <td>
+    <div class="cpt" style="width:240px;">
+    <img src="../img/demo/m7_demo_c.png" alt="smooth"><br>
+    <b>Fig <em>[[ref:img-types]]</em>c</b>: Type C: smooth.
+    </div>
+  </td>
+</tr>
 </table>
 </div>
 
@@ -787,7 +791,7 @@ The problem, or at least part of it, is the basic algorithm used in
 types A and B. If you look back to the theory, you'll see that the 
 affine matrix is calculated first, then the offsets. In other words, 
 first combine the scale and rotation, then calculate the 
-offset-correction, <b>P</b>�<b>x</b><sub>s</sub>. This is how the 
+offset-correction, <b>P</b>&middot;<b>x</b><sub>s</sub>. This is how the 
 affine parameters in the GBA work anyway.
 However, this is actually only the first step. If you follow that 
 procedure, you'd still get the jagged result. The <i>real</i> reason 
@@ -805,7 +809,7 @@ class="num">4</span>);
 </pre>
 
 <p>
-Getting <code>lxr</code>&nbsp;=&nbsp;<i>p</i><sub>a/c</sub>�<i>x</i><sub>s</sub> 
+Getting <code>lxr</code>&nbsp;=&nbsp;<i>p</i><sub>a/c</sub>&middot;<i>x</i><sub>s</sub> 
 requires two parts: multiplication with <b>P</b> elements and the
 shift down to .8 fixeds. You might expect doing the shift last would 
 be better because it has a higher precision. The funny thing is that 
