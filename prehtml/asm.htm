@@ -1,7 +1,7 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+  <meta charset="utf-8">
   <meta name="generator" content="Context">
   <meta name="Author" content="Cearn">
   <meta name="Created" content="20060505">
@@ -9,7 +9,7 @@
 
   <title>Tonc: Whirlwind Tour of ARM Assembly</title>
   <link rel="stylesheet" type="text/css" href="tonc.css">
-  <script type="text/javascript" src="tonc.js"></script>
+  <script src="tonc.js"></script>
 </head>
 <body onload="main();">
 <div class="main-container">
@@ -923,7 +923,7 @@ into this category too. The rest, <b>r4-r11</b>, are also known as
 <div class="lblock">
 <table id="tbl-regnames"
   border=1 cellpadding=1 cellspacing=0>
-<caption align="bottom">
+<caption class="bottom">
   <b>Table <em>[[ref:tbl-regnames]]</em></b>. Standard and alternative 
   register names. 
 </caption>
@@ -1275,7 +1275,7 @@ both, the conditional affix always comes first.
 
 <div class="cblock">
 <table id="tbl-ins-data">
-<caption align="bottom">
+<caption class="bottom">
   <b><em>[[ref:tbl-ins-data]]</em></b>: Data processing instructions.
   Basic format <code>op{cond}{s} Rd, Rn, Op2</code>, 
   <code>cond</code> and <code>s</code> are the optional condition and 
@@ -1837,7 +1837,7 @@ which expand to &lsquo;<code>stmfd sp!,</code>&rsquo; and
 <div class="lblock">
 <table id="tbl-block"
   border=1 cellpadding=2 cellspacing=0>
-<caption align="bottom">
+<caption class="bottom">
   <b>Table <em>[[ref:tbl-block]]</em></b>: Block transfer 
   instructions.
 </caption>
@@ -1924,7 +1924,7 @@ is non-zero, and continue with the next instruction if it isn't.
 <div class="lblock">
 <table id="tbl-cnd-afx"
   border=1 cellpadding=2 cellspacing=0>
-<caption align="bottom">
+<caption class="bottom">
   <b>Table <em>[[ref:tbl-cnd-afx]]</em></b>: conditional affixes.
 </caption>
 <col span=2 align="center">
@@ -1993,7 +1993,7 @@ for numbers larger thatn the registers.
 
 <div class="lblock">
 <table id="tbl-carry">
-<caption align="bottom">
+<caption class="bottom">
 <b>Table <em>[[ref:tbl-carry]]</em></b>: 
   carry bit in (unsigned) addition.
 </caption>
@@ -2049,7 +2049,7 @@ information to pick the right one.
 
 <div class="lblock">
 <table id="tbl-overflow">
-<caption align="bottom">
+<caption class="bottom">
 <b>Table <em>[[ref:tbl-overflow]]</em></b>: sign overflow.
 </caption>
 <col width=160>
@@ -2776,7 +2776,7 @@ it'll just have to wait. I-cycles do not suffer from waitstates.
 <tr>
 <td><table id="tbl-cycles"
   border=1 cellpadding=2 cellspacing=0>
-<caption align="bottom">
+<caption class="bottom">
   <b>Table <em>[[ref:tbl-cycles]]</em></b>: Cycle times for the most 
 important instructions.
 </caption>
@@ -2798,7 +2798,7 @@ important instructions.
 
 <td><table id="tbl-waits" 
   border=1 cellpadding=2 cellspacing=0>
-<caption align="bottom">
+<caption class="bottom">
   <b>Table <em>[[ref:tbl-waits]]</em></b>: Section default timing details. 
   See also 
 <a href="http://nocash.emubase.de/gbatek.htm#memorymap" target="_blank">GBATek memory map</a>.
@@ -2956,7 +2956,7 @@ all <code>add</code> forms.
 <br>
 
 <table>
-<caption>
+<caption class="top">
   Top 20 bits for <code>add</code>; denote instruction type, 
   status/conditional flags and destination and first operand 
   registers.
@@ -2992,7 +2992,7 @@ all <code>add</code> forms.
 </table><br>
 
 <table>
-<caption>
+<caption class="top">
   Lower 12 bits for <code>add</code>; these form the second operand.
 </caption>
   <col class="bits" width=40>
@@ -3234,7 +3234,7 @@ itself.
   <div style="margin:0.5em;">
   <table id="tbl-thumb-mem"
     border=1 cellpadding=2 cellspacing=0>
-  <caption align="bottom">
+  <caption class="bottom">
     <b>Table <em>[[ref:tbl-thumb-mem]]</em></b>. THUMB addressing mode 
     availability.
   </caption>

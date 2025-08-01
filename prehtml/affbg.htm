@@ -1,15 +1,15 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+  <meta charset="utf-8">
   <meta name="generator" content="Context">
-    <meta name="Author" content="Cearn">
-    <meta name="Created" content="20040307">
-    <meta name="Modified" content="20130324">
+  <meta name="Author" content="Cearn">
+  <meta name="Created" content="20040307">
+  <meta name="Modified" content="20130324">
 
-    <title>Tonc: affine backgrounds</title>
-    <link rel="stylesheet" type="text/css" href="tonc.css">
-  <script type="text/javascript" src="tonc.js"></script>
+  <title>Tonc: affine backgrounds</title>
+  <link rel="stylesheet" type="text/css" href="tonc.css">
+  <script src="tonc.js"></script>
 </head>
 <body onload="main();">
 <div class="main-container">
@@ -79,7 +79,7 @@ table <em>[[ref:tbl-bga-size]]</em>.
 <tr><td>
   <table id="tbl-bg-types"
     border=1 cellpadding=2 cellspacing=0 width=128>
-  <caption align="bottom">
+  <caption>
     <b>Table <em>[[ref:tbl-bg-types]]</em></b>: video modes and 
 	background type
   </caption>
@@ -95,16 +95,16 @@ table <em>[[ref:tbl-bga-size]]</em>.
 <td>
   <table id="tbl-bga-size" 
     border=1 cellpadding=2 cellspacing=0 width=144>
-  <caption align="bottom">
+  <caption class="bottom">
     <b>Table <em>[[ref:tbl-bga-size]]</em></b>: affine bg sizes
   </caption>
-  <col><col class="def">
+  <col><col class="def"><col><col>
   <tbody align="center">
-    <tr><th>Sz	  <th>define    <th>(tiles) <th>(pixels)
-    <tr><td> 00   <td>BG_AFF_16x16  <td> 16x16  <td> 128x128 
-    <tr><td> 01   <td>BG_AFF_32x32  <td> 32x32  <td> 256x256 
-    <tr><td> 10   <td>BG_AFF_64x64  <td> 64x64  <td> 512x512 
-    <tr><td> 11   <td>BG_AFF_128x128 <td>128x128 <td>1024x1024
+    <tr><th>Sz	  </th><th>define         </th><th>(tiles) </th><th>(pixels) </th>
+    <tr><td> 00   </td><td>BG_AFF_16x16   </td><td> 16x16  </td><td> 128x128 </td>
+    <tr><td> 01   </td><td>BG_AFF_32x32   </td><td> 32x32  </td><td> 256x256 </td>
+    <tr><td> 10   </td><td>BG_AFF_64x64   </td><td> 64x64  </td><td> 512x512 </td>
+    <tr><td> 11   </td><td>BG_AFF_128x128 </td><td>128x128 </td><td>1024x1024</td>
   </tbody>
   </table>
 </table>
@@ -130,7 +130,7 @@ You can find their addresses in table <em>[[ref:tbl-aff-regs]]</em>.
 <div class="lblock">
 <table id="tbl-aff-regs"
   border=1 cellpadding=2 cellspacing=0>
-<caption align="bottom">
+<caption class="bottom">
   <b>Table <em>[[ref:tbl-aff-regs]]</em></b>: Affine background 
   register addresses. Note that <i>x</i> is 2 or 3 only!
 </caption>
