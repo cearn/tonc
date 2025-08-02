@@ -186,34 +186,38 @@ checked for yourself -->
 </p>
 
 <div class="cblock">
-<table id="img-tile-use">
-<col span=2>
-<tr valign="top">
-<td>
-  <div class="cpt" style="width:200px">
-  <img src="../img/tile_gfx_render.png" 
-    alt="Example of both sprites and background"
-    width=192><br>
-  <b>Fig <em>[[ref:img-tile-use]]</em>a</b>: 2 sprites on a background.
-  </div>
-<td rowspan=2>
-  <div class="cpt" style="width:384px">
-  <img src="../img/tile_gfx_map.png" 
-    alt="Tile usage" width=384><br>
-  <b>Fig <em>[[ref:img-tile-use]]</em>c</b>: tile usage by bgs and 
-    sprites. One tile per SE for 
-    bgs, and the top-left tile for sprites. Default tiles (with 
-	index 0 are omitted for clarity's sake.
-  </div>
+<table class="frame-group" id="img-tile-use">
 <tr>
-<td>
-  <div class="cpt" style="width:200px">
-  <img src="../img/tile_gfx_tileset.png" 
-    alt="The bg and sprite tiles"><br>
-  <b>Fig <em>[[ref:img-tile-use]]</em>b</b>: background (above) and
-    sprite (below) tiles. 
-  <!--Note the 'interesting' division of the sprite tiles.-->
-  </div>
+  <td>
+    <div class="cpt" style="width:200px">
+    <img src="../img/tile_gfx_render.png" 
+      alt="Example of both sprites and background"
+      width=192><br>
+    <b>Fig <em>[[ref:img-tile-use]]</em>a</b>: 2 sprites on a background.
+    </div>
+  </td>
+  <td rowspan=2>
+    <div class="cpt" style="width:384px">
+    <img src="../img/tile_gfx_map.png" 
+      alt="Tile usage" width=384><br>
+    <b>Fig <em>[[ref:img-tile-use]]</em>c</b>: tile usage by bgs and 
+      sprites. One tile per SE for 
+      bgs, and the top-left tile for sprites. Default tiles (with 
+    index 0 are omitted for clarity's sake.
+    </div>
+  </td>
+</tr>
+<tr>
+  <td>
+    <div class="cpt" style="width:200px">
+    <img src="../img/tile_gfx_tileset.png" 
+      alt="The bg and sprite tiles"><br>
+    <b>Fig <em>[[ref:img-tile-use]]</em>b</b>: background (above) and
+      sprite (below) tiles. 
+    <!--Note the 'interesting' division of the sprite tiles.-->
+    </div>
+  </td>
+</tr>
 </table>
 </div>
 
@@ -280,32 +284,34 @@ conversion option is all it takes.
 </p>
 
 <div class="cblock">
-<table id="img-bad-bpp">
-<tr valign="top">
-<td>
-  <div class="cpt" style="width:192px">
-  <img src="../img/tile_8as8.png" width=192 
-    alt="8 bpp tiles">
-  <b>Fig <em>[[ref:img-bad-bpp]]</em>a</b>: 8bpp tiles.
-  </div>
-</td>
-<td>
-  <div class="cpt" style="width:192px">
-  <img src="../img/tile_as_bm.png" width=192 
-    alt="8 bpp tiles as bitmap">
-  <b>Fig <em>[[ref:img-bad-bpp]]</em>b</b>: 8bpp tiles as bitmap.
-  </div>
-</td>
+<table class="frame-group" id="img-bad-bpp">
 <tr>
-<td colspan=2>
-  <div class="cpt" style="width:384px">
-  <img src="../img/tile_8as4.png" width=384
-    alt="as before, but interpreted as 4 bpp">
-  <b>Fig <em>[[ref:img-bad-bpp]]</em>c</b>: the data of 
-    fig&nbsp;<em>[[ref:img-bad-bpp]]</em>a, interpreted as 4bpp data. 
-    If you see something like this (and you will), you now know why.
-  </div>
-</td>
+  <td>
+    <div class="cpt" style="width:192px">
+    <img src="../img/tile_8as8.png" width=192 
+      alt="8 bpp tiles">
+    <b>Fig <em>[[ref:img-bad-bpp]]</em>a</b>: 8bpp tiles.
+    </div>
+  </td>
+  <td>
+    <div class="cpt" style="width:192px">
+    <img src="../img/tile_as_bm.png" width=192 
+      alt="8 bpp tiles as bitmap">
+    <b>Fig <em>[[ref:img-bad-bpp]]</em>b</b>: 8bpp tiles as bitmap.
+    </div>
+  </td>
+</tr>
+<tr>
+  <td colspan=2>
+    <div class="cpt" style="width:384px">
+    <img src="../img/tile_8as4.png" width=384
+      alt="as before, but interpreted as 4 bpp">
+    <b>Fig <em>[[ref:img-bad-bpp]]</em>c</b>: the data of 
+      fig&nbsp;<em>[[ref:img-bad-bpp]]</em>a, interpreted as 4bpp data. 
+      If you see something like this (and you will), you now know why.
+    </div>
+  </td>
+</tr>
 </table>
 </div>
 
@@ -481,7 +487,7 @@ more detail in the following pages.
 </p>
 <div class="cblock">
 <table id="tbl-sum"
-  border=1 cellspacing=0 cellpadding=2 width="70%">
+  border=1 cellpadding=2 width="70%">
 <col span=3 valign="top">
 <tr><th width="30%">Subject		<th>Backgrounds		<th>Sprites
 <tr><td>Number		<td>4 (2 affine)	<td>128	(32 affine)
@@ -541,7 +547,7 @@ list of differences in names.
 
 <div class="cblock">
 <table id="tbl-name" 
-  border=1 cellspacing=0 cellpadding=2 width="70%">
+  border=1 cellpadding=2 width="70%">
 <col span=3 valign="top">
 <tr><th>Subject		<th>Traditional		<th>Tonc
 <tr>

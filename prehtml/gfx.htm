@@ -91,7 +91,7 @@ enable mosaic. For individual sprites, set
 
 <div class="reg">
 <table class="reg" id="tbl-reg-mosaic"
-  border=1 frame=void cellpadding=4 cellspacing=0>
+  border=1 frame=void cellpadding=4 >
 <caption class="reg">
   REG_MOSAIC @ <code>0400:004Ch</code>
 </caption>
@@ -105,13 +105,13 @@ enable mosaic. For individual sprites, set
 </table>
 <br>
 
-<table>
+<table class="reg-desc">
   <col class="bits" width=40>
   <col class="bf" width="8%">
   <col class="def" width="12%">
 <tr align="left"><th>bits<th>name<th>define<th>description
 <tbody valign="top">
-<tr class="bg0">	
+<tr class="bg0">
   <td>0-3<td class="rclr0">Bh
   <td><i>MOS_BH#</i>
   <td>Horizontal BG stretch.
@@ -337,7 +337,7 @@ that overlap each other. Consider A to be on top of B. The color-value
 of the a pixel in this region is defined as
 </p>
 
-<table id="eq-blend">
+<table id="eq-blend" class="eq-container">
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-blend]]</em>)
   <td class="eqcell">
@@ -390,7 +390,7 @@ levels.
 
 <div class="reg">
 <table class="reg" id="tbl-reg-bldcnt"
-  border=1 frame=void cellpadding=4 cellspacing=0>
+  border=1 frame=void cellpadding=4 >
 <caption class="reg">
   REG_BLDCNT (REG_BLDMOD) @ <code>0400:0050h</code>
 </caption>
@@ -415,7 +415,7 @@ levels.
 </table>
 <br>
 
-<table>
+<table class="reg-desc">
   <col class="bits" width=40>
   <col class="bf" width="8%">
   <col class="def" width="12%">
@@ -463,7 +463,7 @@ called that; they just are.
 
 <div class="reg">
 <table class="reg" id="tbl-reg-bldalpha"
-  border=1 frame=void cellPadding=4 cellSpacing=0>
+  border=1 frame=void cellPadding=4 >
 <caption class="reg">
   REG_BLDALPHA (REG_COLEV) @ <code>0400:0052h</code>
 </caption>
@@ -477,7 +477,7 @@ called that; they just are.
 </table>
 <br>
 
-<table>
+<table class="reg-desc">
   <col class="bits" width=40>
   <col class="bf" width="8%">
   <col class="def" width="12%">
@@ -499,7 +499,7 @@ called that; they just are.
 
 <div class="reg">
 <table class="reg" id="tbl-reg-bldy"
-  border=1 frame=void cellpadding=4 cellspacing=0>
+  border=1 frame=void cellpadding=4 >
 <caption class="reg">
   REG_BLDY (REG_COLEY) @ <code>0400:0054h</code>
 </caption>
@@ -511,7 +511,7 @@ called that; they just are.
 </table>
 <br>
 
-<table>
+<table class="reg-desc">
   <col class="bits" width=40>
   <col class="bf" width="8%">
   <col class="def" width="12%">
@@ -734,7 +734,7 @@ top left corner. The controls are:
 </p>
 
 <div class="lblock">
-<table>
+<table class="controls-container">
 <col valign="top">
 <tr><th>left, right<td> changes <code>eva</code>. Note that 
 	<code>eva</code> is at maximum initially.
@@ -792,8 +792,7 @@ winIn = win0 | win1 <br>
 winOut = ~(winIn)
 </table>
 
-<table id="img-win-dgrm">
-<tbody valign="top">
+<table id="img-win-dgrm" class="frame-group">
 <tr>
 <td>
   <div class="cpt" style="width:240px;">
@@ -809,7 +808,6 @@ winOut = ~(winIn)
     win0 in red, win1 in green, winIn is win0 | win1 (blue edge), 
 	winOut in grey.
   </div>
-</tbody>
 </table>
 </div>
 
@@ -826,7 +824,7 @@ following layout:
 
 <div class="reg">
 <table class="reg" id="tbl-reg-winxy"
-  border=1 frame=void cellPadding=4 cellSpacing=0>
+  border=1 frame=void cellPadding=4 >
 <caption class="reg">
   REG_WINxH and REG_WINxV @ <code>0400:0040-0400:0047h</code>
 </caption>
@@ -844,7 +842,7 @@ following layout:
 </table>
 <br>
 
-<table>
+<table class="reg-desc">
   <col class="bits" width=40>
   <col class="bf" width=40>
   <col class="def">
@@ -896,7 +894,7 @@ you intend to use blending on the contents of that particular window.
 
 <div class="reg">
 <table class="reg" id="tbl-reg-winio"
-  border=1 frame=void cellpadding=4 cellspacing=0>
+  border=1 frame=void cellpadding=4 >
 <tr class="bits">
     <th>register
 	<td>F E<td>D<td>C<td>B<td>A<td>9<td>8
@@ -927,7 +925,7 @@ you intend to use blending on the contents of that particular window.
   <td>-<td colspan=6>winOut
 </table><br>
 
-<table>
+<table class="reg-desc">
   <col class="bits" width=40>
   <col class="bf" width="8%">
   <col class="def" width="12%">
@@ -1050,7 +1048,7 @@ exhibit at certain positions.
 </p>
 
 <div class="lblock">
-<table>
+<table class="controls-container">
 <tr><th width="10%">dir<td>Moves the rectangle.
 <tr><th>A + dir<td>Move rectangle by tapping for finer control.
 <tr><th>start<td>Randomly change the position of the rocket.

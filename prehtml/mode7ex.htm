@@ -33,13 +33,13 @@
 
 <!-- [[toc]] -->
 <ul>
-  <li><a href="#sec-intro">Introduction</a>.
-  <li><a href="#sec-theory">Basic mode 7 theory</a>.
-  <li><a href="#sec-horz">Horizon and backdrop</a>.
-  <li><a href="#sec-flr">The floor</a>.
-  <li><a href="#sec-objs">Sprites</a>.
-  <li><a href="#sec-code">Implementation</a>.
-  <li><a href="#sec-conc">Concluding remarks</a>.
+  <li><a href="#sec-intro">Introduction</a>
+  <li><a href="#sec-theory">Basic mode 7 theory</a>
+  <li><a href="#sec-horz">Horizon and backdrop</a>
+  <li><a href="#sec-flr">The floor</a>
+  <li><a href="#sec-objs">Sprites</a>
+  <li><a href="#sec-code">Implementation</a>
+  <li><a href="#sec-conc">Concluding remarks</a>
 </ul>
 <!-- [[/toc]] -->
 
@@ -91,7 +91,7 @@ time here.
 
 <div class="cblock">
 <table class="bdr" id="img-m7-ex"
-  cellpadding=2 cellspacing=0>
+  cellpadding=2 >
 <tbody align="center">
 <tr>
 <td><img src="../img/mode7/m7_ex_00.png" alt="full mode 7"></td>
@@ -121,7 +121,7 @@ The basic controls are as follows:
 </p>
 
 <div class="lblock">
-<table cellpadding=2 cellspacing=0>
+<table class="controls-container" cellpadding=2 >
 <col span=2 align="left" valign="top">
 <tr><th>D-pad	<td>Looking
 <tr><th>A/B		<td>Back/forward
@@ -202,7 +202,7 @@ Now, for every transformation between systems <i>S</i><sub>i</sub> and
 <i>S</i><sub>j</sub> the following relation holds:
 </p>
 
-<table id="eq-crd-transf">
+<table id="eq-crd-transf" class="eq-container">
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-crd-transf]]</em>)
   <td class="eqcell">
@@ -294,7 +294,7 @@ Rewriting eq&nbsp;<em>[[ref:eq-crd-transf]]</em>, the transformation
 between camera and world space is given by
 </p>
 
-<table id="eq-w2c">
+<table id="eq-w2c" class="eq-container">
 <tr>
    <td class="eqnrcell">(<em>[[ref:eq-w2c]]</em>)
    <td class="eqcell">
@@ -328,13 +328,13 @@ and &phi; to the view down and right, respectively, meaning I need the
 following rotation matrices:
 </p>
 
-<table id="eq-mat-rot">
+<table id="eq-mat-rot" class="eq-container">
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-mat-rot]]</em>a)
   <td class="eqcell">
     <b>R</b><sub>x</sub>(&theta;) =
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 cellspacing=0>
+  <table class="eqtbl" cellpadding=2 >
   <tbody align="center">
     <tr>
       <td class="bdrLL" rowspan=3>&ensp;
@@ -354,13 +354,13 @@ following rotation matrices:
   </table> 
 </table>
 
-<table>
+<table class="eq-container">
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-mat-rot]]</em>b)
   <td class="eqcell">
     <b>R</b><sub>y</sub>(&phi;) =
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 cellspacing=0>
+  <table class="eqtbl" cellpadding=2 >
   <tbody align="center">
     <tr>
       <td class="bdrLL" rowspan=3>&ensp;
@@ -395,7 +395,7 @@ feel for this: stand up, tilt your head down (pitch
 camera matrix then becomes:
 </p>
 
-<table id="eq-rotxy">
+<table id="eq-rotxy" class="eq-container">
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-rotxy]]</em>)
   <td class="eqcell">
@@ -403,7 +403,7 @@ camera matrix then becomes:
     <b>R</b><sub>y</sub>(&phi;) 
 	&middot; <b>R</b><sub>x</sub>(&theta;) =
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 cellspacing=0>
+  <table class="eqtbl" cellpadding=2 >
   <tbody align="center">
     <tr>
       <td class="bdrLL" rowspan=3>&ensp;
@@ -493,7 +493,7 @@ origin, the relation between <b>x</b><sub>c</sub> and
 <b>x</b><sub>p</sub> is
 </p>
 
-<table id="eq-c2p">
+<table id="eq-c2p" class="eq-container">
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-c2p]]</em>)
   <td class="eqcell">
@@ -570,7 +570,7 @@ Another point is the notion of the <dfn>field of view</dfn> (FOV).
 This is the horizontal angle &alpha; that you can see, meaning that
 </p>
 
-<table id="eq-fov-cam">
+<table id="eq-fov-cam" class="eq-container">
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-fov-cam]]</em>)
   <td class="eqcell">
@@ -618,7 +618,7 @@ inverted vertical axis and the origin of screen-space in mind, we
 have
 </p>
 
-<table id="eq-p2s">
+<table id="eq-p2s" class="eq-container">
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-p2s]]</em>)
   <td class="eqcell">
@@ -649,7 +649,7 @@ And that's basically it, phew. Since it took three pages to get here, I'll
 repeat the most important things. First, the main equations we need are:
 </p>
 
-<table id="eq-m7-main">
+<table id="eq-m7-main" class="eq-container">
 <col span=2 align="right">
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-m7-main]]</em>a)
@@ -761,11 +761,11 @@ is take the
 rearrange the terms to get
 </p>
 
-<table id="eq-horz-line">
+<table id="eq-horz-line" class="eq-container">
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-horz-line]]</em>a)
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 cellspacing=0>
+  <table class="eqtbl" cellpadding=2 >
   <col align="right">
   <col align="center">
   <col align="left">
@@ -788,7 +788,7 @@ And if we were to take our horizon at infinity, them
 eq&nbsp;<em>[[ref:eq-horz-line]]</em> to
 </p>
 
-<table>
+<table class="eq-container">
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-horz-line]]</em>b)
   <td class="eqcell">
@@ -809,7 +809,7 @@ eq&nbsp;<em>[[ref:eq-horz-line]]</em> to calculate the horizon,
 which will be something like
 </p>
 
-<table>
+<table class="eq-container">
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-horz-line]]</em>c)
   <td class="eqcell">
@@ -910,11 +910,11 @@ eq&nbsp;<em>[[ref:eq-fov-cam]]</em>. If all is right we should have
 &alpha;<sub>p</sub>&nbsp;=&nbsp;&alpha;<sub>c</sub>&nbsp;=&nbsp;&alpha;.
 </p>
 
-<table id="eq-fov">
+<table id="eq-fov" class="eq-container">
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-fov]]</em>)
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 cellspacing=0>
+  <table class="eqtbl" cellpadding=2 >
   <col align="right">
   <col align="center">
   <col align="left">
@@ -977,11 +977,11 @@ north. The final position of the backdrop is given in
 <em>[[ref:eq-bd-pos]]</em>.
 </p>
 
-<table id="eq-bd-pos">
+<table id="eq-bd-pos" class="eq-container">
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-bd-pos]]</em>)
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 cellspacing=0>
+  <table class="eqtbl" cellpadding=2 >
   <col align="right">
   <col align="center">
   <col align="left">
@@ -1014,11 +1014,11 @@ don't want to see that. So instead, I'll give you the set of
 equations you need to solve, and hints on how to do that.
 </p>
 
-<table id="eq-m7-set">
+<table id="eq-m7-set" class="eq-container">
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-m7-set]]</em>)
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 cellspacing=0>
+  <table class="eqtbl" cellpadding=2 >
   <col align="right">
   <col align="center">
   <col align="left">
@@ -1059,7 +1059,7 @@ eventually you will end up with an expression that can best be
 summed up by:
 </p>
 
-<table id="eq-m7-ofs">
+<table id="eq-m7-ofs" class="eq-container">
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-m7-ofs]]</em>)
   <td class="eqcell">
@@ -1071,7 +1071,7 @@ summed up by:
 <p>where</p>
 
 <div class="lblock">
-<table>
+<table class="eq-container">
 <col align="right">
 <tr><td><b>dx'</b> <td>= (<i>dx</i>, 0, <i>dy</i>)
 <tr><td><b>b</b>   <td>= (<i>L</i>, 
@@ -1094,7 +1094,7 @@ when I prefer the conciseness of eq&nbsp;<em>[[ref:eq-m7-ofs]]</em>
 myself.
 </p>
 
-<table id="eq-m7-sum">
+<table id="eq-m7-sum" class="eq-container">
 <col span=2 align="right">
 <tr>
   <td rowspan=5 class="eqnrcell">(<em>[[ref:eq-m7-sum]]</em>)
@@ -1152,7 +1152,7 @@ The fundamental equation for this is the following differential
 equation:
 </p>
 
-<table>
+<table class="eq-container">
 <tr>
   <td class="fill">&nbsp;
   <td class="eqcell">
@@ -1180,7 +1180,7 @@ well enough.
 
 <div class="cblock">
 <table class="bdr" id="img-fog"
-  border=0 cellpadding=2 cellspacing=2>
+  cellpadding=2 cellspacing=2>
 <tr>
 <td> <img src="../img/mode7/fog_off.png" alt="fog off"> </td>
 <td> <img src="../img/mode7/fog_on.png" alt="fog on"> </td>
@@ -1268,7 +1268,7 @@ objects so that they don't grow too big for their clipping rectangle.
 
 <table id="img-m7-obj"
   class="bdr" style="width:512px; margin:10px auto;"
-  border=0 cellpadding=2 cellspacing=0>
+  cellpadding=2 >
 <tr>
   <td><img src="../img/mode7/obj_back.png" alt="normal view"></td>
   <td><img src="../img/mode7/obj_down.png" alt="looking down"></td>
@@ -1304,11 +1304,11 @@ inverse is simply its transpose:
 That leads us to the following equations:
 </p>
 
-<table id="eq-obj-w2s">
+<table id="eq-obj-w2s" class="eq-container">
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-obj-w2s]]</em>)
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 cellspacing=0>
+  <table class="eqtbl" cellpadding=2 >
   <col align="right">
   <col align="center">
   <col align="left">
@@ -1333,11 +1333,11 @@ let the distance between camera and sprite be
 <b>r</b>&nbsp;=&nbsp;<b>x</b><sub>w</sub>&nbsp;&minus;&nbsp;<b>a</b><sub>cw</sub>; 
 using <b>C</b>&nbsp;=&nbsp;[<b>u&nbsp;v&nbsp;w</b>], we find
 
-<table>
+<table class="eq-container">
 <tr>
   <td class="eqfill">&nbsp;
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 cellspacing=0>
+  <table class="eqtbl" cellpadding=2 >
   <col align="right">
   <col align="center">
   <col align="left">
@@ -1383,11 +1383,11 @@ is &frac12; for normal affine objects and 1 for double-size affine
 objects.
 </p>
 
-<table id="eq-anchor">
+<table id="eq-anchor" class="eq-container">
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-anchor]]</em>)
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 cellspacing=0>
+  <table class="eqtbl" cellpadding=2 >
   <col align="right">
   <col align="center">
   <col align="left">
@@ -1466,7 +1466,7 @@ following rests to perform:
 
 <div class="lblock">
 <table id="tbl-culltest"
-  border=1 cellpadding=2 cellspacing=0>
+  border=1 cellpadding=2 >
 <caption class="bottom">
   <b>Table <em>[[ref:tbl-culltest]]</em></b>:
   Object rect and culling tests in camera space. Note the signs!
@@ -1542,11 +1542,11 @@ closely, you'll see that
 In other words:
 </p>
 
-<table id="eq-psi">
+<table id="eq-psi" class="eq-container">
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-psi]]</em>) </td>
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 cellspacing=0>
+  <table class="eqtbl" cellpadding=2 >
   <col align="right">
   <col align="center">
   <col align="left">
@@ -1608,7 +1608,7 @@ again, because steps were taken to ensure the correct object order.
 
 <table id="img-obj-sort"
   class="bdr" style="width:512px; margin:10px auto;"
-  border=0 cellpadding=2 cellspacing=2>
+  cellpadding=2 cellspacing=2>
 <tr>
   <td><img src="../img/mode7/order_dflt.png" alt="default order"></td>
   <td><img src="../img/mode7/order_nosort.png" alt="non-sorted"></td>
@@ -1723,7 +1723,7 @@ I'd like to hear it.
 <div class="cblock">
 <table id="img-obj-norm"
   class="bdr" width=512
-  border=0 cellpadding=4 cellspacing=0>
+  cellpadding=4 >
 <tr>
   <td><img src="../img/mode7/norm_1x.png" alt="norm 1x"></td>
   <td><img src="../img/mode7/norm_2x.png" alt="norm 2x"></td>
@@ -2194,7 +2194,7 @@ With a good deal of trigonometry, you could rewrite the formula for
 &lambda; to
 </p>
 
-<table id="eq-lambda-alt">
+<table id="eq-lambda-alt" class="eq-container">
 <tr><td class="eqnrcell">(<em>[[ref:eq-lambda-alt]]</em>)
   <td class="eqcell">
 <!-- <img src="../img/mode7/lam_trig.png" alt=""> -->
@@ -2627,8 +2627,8 @@ problems in one go.
 </p>
 
 <div class="cblock">
-<table cellspacing=4>
-<tr valign="top">
+<table class="frame-group">
+<tr>
 <td>
 <div class="cpt" style="width:392px;">
   <img src="../img/mode7/toad_frames.png" id="img-obj-frames" 
@@ -2855,7 +2855,7 @@ Experiment with them and see what you like.
 
 <div class="cblock">
 <table id="tbl-motion"
-  border=1 cellpadding=2 cellspacing=0>
+  border=1 cellpadding=2 >
 <caption class="bottom">
   <b>Table <em>[[ref:tbl-motion]]</em></b>: 
   Movement methods and their associated transformations to world-space.

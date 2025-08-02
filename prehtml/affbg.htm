@@ -75,10 +75,10 @@ table <em>[[ref:tbl-bga-size]]</em>.
 </p>
 
 <div class="cblock">
-<table>
+<table class="frame-group">
 <tr><td>
   <table id="tbl-bg-types"
-    border=1 cellpadding=2 cellspacing=0 width=128>
+    border=1 cellpadding=2 width=128>
   <caption>
     <b>Table <em>[[ref:tbl-bg-types]]</em></b>: video modes and 
 	background type
@@ -94,7 +94,7 @@ table <em>[[ref:tbl-bga-size]]</em>.
 <td width="10%">
 <td>
   <table id="tbl-bga-size" 
-    border=1 cellpadding=2 cellspacing=0 width=144>
+    border=1 cellpadding=2 width=144>
   <caption class="bottom">
     <b>Table <em>[[ref:tbl-bga-size]]</em></b>: affine bg sizes
   </caption>
@@ -129,7 +129,7 @@ You can find their addresses in table <em>[[ref:tbl-aff-regs]]</em>.
 
 <div class="lblock">
 <table id="tbl-aff-regs"
-  border=1 cellpadding=2 cellspacing=0>
+  border=1 cellpadding=2 >
 <caption class="bottom">
   <b>Table <em>[[ref:tbl-aff-regs]]</em></b>: Affine background 
   register addresses. Note that <i>x</i> is 2 or 3 only!
@@ -233,7 +233,7 @@ describes the transformation from screen space to texture space.
 To put it mathematically, if we define
 </p>
 
-<table id="eq-defs">
+<table id="eq-defs" class="eq-container">
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-defs]]</em>a)
   <td class="eqcell">
@@ -247,7 +247,7 @@ To put it mathematically, if we define
 
 <p>then</p>
 
-<table id="eq-aff-defs">
+<table id="eq-aff-defs" class="eq-container">
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-aff-defs]]</em>a)
   <td class="eqcell">
@@ -260,7 +260,7 @@ To put it mathematically, if we define
 
 <p>where</p>
 
-<table cellpadding=1 cellspacing=0>
+<table cellpadding=1 >
 <tr><th>p	<td>is a point in texture space,
 <tr><th>q	<td>is a point in screen space,
 <tr><th>dx	<td>is the displacement vector
@@ -281,11 +281,11 @@ is true for the order of transformation and displacement as well.
 As it happens, translation goes first:
 </p>
 
-<table id="eq-ofs">
+<table id="eq-ofs" class="eq-container">
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-ofs]]</em>)
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 cellspacing=0>
+  <table class="eqtbl" cellpadding=2 >
   <col align="right">
   <col align="center">
   <col align="left">
@@ -315,11 +315,11 @@ eq&nbsp;<em>[[ref:eq-ofs]]</em> and the general coordinate
 transformation equation:
 </p>
 
-<table id="eq-aff-ofs">
+<table id="eq-aff-ofs" class="eq-container">
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-aff-ofs]]</em>)
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 cellspacing=0>
+  <table class="eqtbl" cellpadding=2 >
   <col align="right">
   <col align="center">
   <col align="left">
@@ -452,7 +452,7 @@ getting a screenentry-number <i>n</i> works, making things a whole
 lot easier. 
 </p>
 
-<table id="eq-aff-sid">
+<table id="eq-aff-sid" class="eq-container">
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-aff-sid]]</em>)
   <td class="eqcell">
@@ -534,7 +534,7 @@ list of controls is.
 </p>
 
 <div class="lblock">
-<table cellpadding=1 cellspacing=0>
+<table class="controls-container" cellpadding=1 >
 <tr><th>D-pad	<td>move map rotation point, <b>p</b><sub>0</sub>
 <tr><th>D-pad + A<td>move screen rotation point, <b>q</b><sub>0</sub>
 <tr><th>L,R		<td>rotate the background.
@@ -729,9 +729,6 @@ class="num">232</span>, <span class="num">156</span>, <span class="num">8</span>
 }
 </pre>
 
-
-
-
 <br>
 
 <div class="endtag">
@@ -741,7 +738,6 @@ Get all Tonc files <a href="http://www.coranac.com/projects/#tonc" target="_blan
 </div>
 
 <hr>
-
 
 <!-- [[footer]] -->
 <table class="footer">

@@ -441,7 +441,7 @@ got in front of you.
 
 <div class="cpt_fr" style="width:220px;">
 <table id="tbl-endian"
-  border=1 cellpadding=2 cellspacing=0>
+  border=1 cellpadding=2 >
 <caption class="bottom">
   <b>Table <em>[[ref:tbl-endian]]</em></b>: Big endian vs little 
   endian interpretation of byte-sequence 01h, 02h, 03h, 04h
@@ -526,7 +526,7 @@ forget about that and think of bits in memory to walk through from 0 to
 <div class="cpt" style="width:512px;">
 
 <table id="img-fontpack"
-  border=0 cellpadding=4 cellspacing=0>
+  border=0 cellpadding=4 >
   <tbody align="center">
   <tr>
     <th>pixels
@@ -540,7 +540,7 @@ forget about that and think of bits in memory to walk through from 0 to
     <td>
     <img src="../img/font_pack.png" alt="pixels" width=133>
     <td> <!-- bits -->
-    <table class="reg" cellpadding=1 cellspacing=0>
+    <table class="reg" cellpadding=1 >
       <tr>
         <td class="bdrLL">&nbsp;
         <th> 7 <th> 6 <th> 5 <th> 4 <th> 3 <th> 2 <th> 1 <th> 0
@@ -565,7 +565,7 @@ forget about that and think of bits in memory to walk through from 0 to
         <td> 0 <td> 0 <td> 0 <td> 0 <td> 0 <td> 0 <td> 0 <td> 0
     </table>
     <td> <!-- bytes -->
-    <table cellpadding=1 cellspacing=0>
+    <table cellpadding=1 >
       <tr>
         <th colspan=3>&nbsp;
       <tr>
@@ -584,7 +584,7 @@ forget about that and think of bits in memory to walk through from 0 to
       <tr><td> 0x00
     </table>
     <td> <!-- words -->
-    <table cellpadding=1 cellspacing=0>
+    <table cellpadding=1 >
       <tr>
         <th colspan=3>&nbsp;
       <tr>
@@ -1417,7 +1417,7 @@ class="num">112</span>, str, CLR_WHITE);
 Controls:
 </p>
 
-<table>
+<table class="controls-container">
 <tbody valign="top">
 <tr><th>D-pad<td>Moves cursor.
 <tr><th>Start<td>Toggles string clearing.
@@ -1955,7 +1955,7 @@ class="num">0xE000</span>|TID_FONT3);
 
 
 <div class="lblock">
-<table id="img-txt-se1">
+<table id="img-txt-se1" class="frame-group">
 <tr>
 <td>
   <div class="cpt" style="width:240px">
@@ -2101,7 +2101,7 @@ We've seen the same thing with the object text.
 <div class="cpt_fr" style="width:200px;">
 <center>
 <table id="tbl-bupshade"
-    cellpadding=2 cellspacing=0 bgcolor=#E0E0E0>
+    cellpadding=2 bgcolor=#E0E0E0>
 <caption class="bottom">
   <b>Table <em>[[ref:tbl-bupshade]]</em></b>: 
   bit-unpacking with with base <code>0xEE</code>.
@@ -2430,24 +2430,27 @@ class="num">16</span>)|REG_TM2D;
 </pre>
 
 <div class="lblock">
-<table id="img-txt-se2">
+<table id="img-txt-se2" class="frame-group">
 <tr>
-<td>
-  <div class="cpt" style="width:240px">
-  <img src="../img/demo/txt_se2_vba.png" alt="txt_se2 on vba"><br>
-  <b>Fig <em>[[ref:img-txt-se2]]</em>a</b>: <tt>txt_se2</tt> on VBA.
-  </div>
-<td>
-  <div class="cpt" style="width:240px">
-  <img src="../img/demo/txt_se2_nocash.png" alt="txt_se2 on no$gba"><br>
-  <b>Fig <em>[[ref:img-txt-se2]]</em>b</b>: <tt>txt_se2</tt> on no$gba.
-  </div>
+  <td>
+    <div class="cpt" style="width:240px">
+    <img src="../img/demo/txt_se2_vba.png" alt="txt_se2 on vba"><br>
+    <b>Fig <em>[[ref:img-txt-se2]]</em>a</b>: <tt>txt_se2</tt> on VBA.
+    </div>
+  </td>
+  <td>
+    <div class="cpt" style="width:240px">
+    <img src="../img/demo/txt_se2_nocash.png" alt="txt_se2 on no$gba"><br>
+    <b>Fig <em>[[ref:img-txt-se2]]</em>b</b>: <tt>txt_se2</tt> on no$gba.
+    </div>
+  </td>
+</tr>
 </table>
 </div>
 
 <div class="lblock">
 <table id="tbl-txt-se2"
-  border=1 cellpadding=2 cellspacing=0>
+  border=1 cellpadding=2 >
 <caption class="bottom">
   <b>Table <em>[[ref:tbl-txt-se2]]</em></b>: timing results for hardware, 
   vba and no$gba.

@@ -119,12 +119,12 @@ down. They're all equivalent though, and you can go from one to the
 other with some trickery that does not concern us at this moment.
 </p>
 
-<table id="eq-wave">
+<table id="eq-wave" class="eq-container">
 <tbody valign="middle">
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-wave]]</em>)
   <td class="eqcell">
-  <table cellpadding=0 cellspacing=0>
+  <table cellpadding=0 >
   <tr>
     <td class="bdrB"> d&sup2; 
   <tr>
@@ -140,11 +140,11 @@ other with some trickery that does not concern us at this moment.
 General solution(s):
 </p>
 
-<table id="eq-wave-sols">
+<table id="eq-wave-sols" class="eq-container">
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-wave-sols]]</em>)
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 cellspacing=0>
+  <table class="eqtbl" cellpadding=2 >
   <col align="right">
   <col align="center">
   <col align="left">
@@ -241,7 +241,7 @@ notes don't <i>quite</i> fit in exactly.
 
 <div class="cblock">
 <table id="tbl-oct0"
-  border=1 cellpadding=2 cellspacing=0>
+  border=1 cellpadding=2 >
 <caption class="bottom">
   <b>Table <em>[[ref:tbl-oct0]]</em></b>: notes &amp; frequencies of 
   octave 0
@@ -280,7 +280,7 @@ polynomials, exponentials and also waves. For example, as a Fourier
 series, a function may look like eq&nbsp;<em>[[ref:eq-fser]]</em>. 
 </p>
 
-<table id="eq-fser">
+<table id="eq-fser" class="eq-container">
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-fser]]</em>)
   <td class="eqcell">f(<i>t</i>) = &frac12;A<sub>0</sub> + 
@@ -303,17 +303,17 @@ complex exponential instead of sines and cosines, but in the end
 they're all doing the same thing.
 </p>
 
-<table id="eq-ftrans">
+<table id="eq-ftrans" class="eq-container">
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-ftrans]]</em>)
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 cellspacing=0>
+  <table class="eqtbl" cellpadding=2 >
   <tbody valign="middle">
   <tr>
     <td><i>A</i><sub>m</sub>
     <td> =
     <td>
-      <table cellpadding=2 cellspacing=0>
+      <table cellpadding=2 >
       <tr><td class="bdrB"> 2
       <tr><td> T
       </table>
@@ -323,7 +323,7 @@ they're all doing the same thing.
     <td><i>B</i><sub>m</sub>
     <td> =
     <td>
-      <table cellpadding=2 cellspacing=0>
+      <table cellpadding=2 >
       <tr><td class="bdrB"> 2
       <tr><td> T
       </table>
@@ -354,13 +354,13 @@ follow from eq&nbsp;<em>[[ref:eq-ftrans]]</em>.
 </p>
 
 
-<table id="eq-fsqr">
+<table id="eq-fsqr" class="eq-container">
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-fsqr]]</em>)
   <td class="eqcell">
     <i>A</i><sub>m</sub> = 
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 cellspacing=0>
+  <table class="eqtbl" cellpadding=2 >
   <tbody align="center">
   <tr>
     <td class="bdrB">2
@@ -373,7 +373,7 @@ follow from eq&nbsp;<em>[[ref:eq-ftrans]]</em>.
   </table>
   <td> &nbsp;=&nbsp;
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 cellspacing=0>
+  <table class="eqtbl" cellpadding=2 >
   <tbody align="center">
   <tr>
     <td class="bdrB">2<i>T</i>
@@ -429,7 +429,7 @@ which IMHO makes more sense than the other two.
 
 <div class="cblock">
 <table id="tbl-snd-names"
-  border=1 cellpadding=2 cellspacing=0>
+  border=1 cellpadding=2 >
 <caption class="bottom">
   <b>Table <em>[[ref:tbl-snd-names]]</em></b>: Sound register nomenclature.
 </caption>
@@ -509,7 +509,7 @@ set at least some bits on each of these to get anything to work.
 
 <div class="reg">
 <table class="reg" 
-  border=1 frame=void cellpadding=4 cellspacing=0>
+  border=1 frame=void cellpadding=4 >
 <caption class="reg">
   REG_SNDDMGCNT (SOUNDCNT_L / SGCNT0_L ) @ <code>0400:0080h</code>
 </caption>
@@ -531,7 +531,7 @@ set at least some bits on each of these to get anything to work.
   <td class="rclr2">LV
 </table>
 
-<table>
+<table class="reg-desc">
   <col class="bits" width=40>
   <col class="bf" width="8%">
   <col class="def" width=128>
@@ -589,7 +589,7 @@ class="num">8</span>) | ((_rmode)&lt;&lt;<span class="num">12</span>) )
 
 <div class="reg">
 <table class="reg" 
-  border=1 frame=void cellpadding=4 cellspacing=0>
+  border=1 frame=void cellpadding=4 >
 <caption class="reg">
   REG_SNDDSCNT (SOUNDCNT_H / SGCNT0_H) @ <code>0400:0082h</code>
 </caption>
@@ -611,7 +611,7 @@ class="num">8</span>) | ((_rmode)&lt;&lt;<span class="num">12</span>) )
   <td class="rclr0">DMGV
 </table>
 
-<table>
+<table class="reg-desc">
   <col class="bits" width=40>
   <col class="bf" width="8%">
   <col class="def" width=128>
@@ -671,7 +671,7 @@ you need to set bit 7 there.
 
 <div class="reg">
 <table class="reg" 
-  border=1 frame=void cellpadding=4 cellspacing=0>
+  border=1 frame=void cellpadding=4 >
 <caption class="reg">
   REG_SNDSTAT (SOUNDCNT_X / SGCNT1) @ <code>0400:0084h</code>
 </caption>
@@ -689,7 +689,7 @@ you need to set bit 7 there.
   <td class="rclr1">1A
 </table>
 
-<table>
+<table class="reg-desc">
   <col class="bits" width=40>
   <col class="bf" width="8%">
   <col class="def" width=128>
@@ -755,11 +755,11 @@ aren't of much use because the frequency steps become too large (the
 denominator in eq&nbsp;<em>[[ref:eq-fvsr]]</em> approaches 0). 
 </p>
 
-<table id="eq-fvsr">
+<table id="eq-fvsr" class="eq-container">
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-fvsr]]</em>a)
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 cellspacing=0>
+  <table class="eqtbl" cellpadding=2 >
   <tbody align="center" valign="middle">
   <tr>
     <td rowspan=2> <i>f</i>(<i>R</i>) &nbsp;=&nbsp;
@@ -790,7 +790,7 @@ they have exactly the same function.
 
 <div class="reg">
 <table class="reg" id="tbl-reg-snd1cnt"
-  border=1 frame=void cellpadding=4 cellspacing=0>
+  border=1 frame=void cellpadding=4 >
 <caption class="reg">
 <span class="nobr">
   REG_SND1CNT (SOUND1CNT_H / SG10_H) @ <code>0400:0062h</code></span>
@@ -808,7 +808,7 @@ they have exactly the same function.
   <td class="rclr4">L
 </table>
 
-<table>
+<table class="reg-desc">
   <col class="bits" width=40>
   <col class="bf" width="8%">
   <col class="def" width="12%">
@@ -859,13 +859,13 @@ they have exactly the same function.
   (integer <i>m</i> only)
 </div>
 
-<table>
+<table class="eq-container">
 <tr>
   <td class="fill">&nbsp;
   <td class="eqcell">
     <i>A</i><sub>m</sub> = 
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 cellspacing=0>
+  <table class="eqtbl" cellpadding=2 >
   <tbody align="center">
   <tr>
     <td class="bdrB">2
@@ -902,7 +902,7 @@ they really did sound the same to me.
 
 <div class="reg">
 <table class="reg" id="tbl-reg-snd1freq"
-  border=1 frame=void cellpadding=4 cellspacing=0>
+  border=1 frame=void cellpadding=4 >
 <caption class="reg">
 <span class="nobr">
   REG_SND1FREQ (SOUND1CNT_X / SG11) @ <code>0400:0062h</code></span>
@@ -920,7 +920,7 @@ they really did sound the same to me.
   <td class="rclr0">R
 </table>
 
-<table>
+<table class="reg-desc">
   <col class="bits" width=40>
   <col class="bf" width="8%">
   <col class="def" width="12%">
@@ -956,7 +956,7 @@ they really did sound the same to me.
 
 <div class="reg">
 <table class="reg" id="tbl-reg-snd1sweep"
-  border=1 frame=void cellpadding=4 cellspacing=0>
+  border=1 frame=void cellpadding=4 >
 <caption class="reg">
   REG_SND1SWEEP (SOUND1CNT_L / SG10_L) @ <code>0400:0060h</code>
 </caption>
@@ -969,7 +969,7 @@ they really did sound the same to me.
   <td class="rclr0">N
 </table>
 
-<table>
+<table class="reg-desc">
   <col class="bits" width=40>
   <col class="bf" width="8%">
   <col class="def" width="12%">
@@ -1006,7 +1006,7 @@ but only if you know what to look for. The usual formula given is
 something like:
 </p>
 
-<table>
+<table class="eq-container">
 <tr>
   <td class="fill">
   <td class="eqcell">
@@ -1044,18 +1044,18 @@ increasing and decreasing sweeps, respectively; with <i>n</i>=2 it's
 the shift, the slower the sweep.
 </p>
 
-<table id="eq-sweep">
+<table id="eq-sweep" class="eq-container">
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-sweep]]</em>a)
   <td class="eqcell">
     &Delta;<i>R</i> &nbsp;=&nbsp; 2<sup>&minus;n</sup>&middot;<i>R</i>
 </table>
 
-<table>
+<table class="eq-container">
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-sweep]]</em>b)
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 cellspacing=0>
+  <table class="eqtbl" cellpadding=2 >
   <col align="right">
   <col align="center">
   <col align="left">
@@ -1077,7 +1077,7 @@ the shift, the slower the sweep.
   </table>
 </table>
 
-<table>
+<table class="eq-container">
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-sweep]]</em>c)
   <td class="eqcell">
@@ -1113,11 +1113,11 @@ frequency <i>f</i> and octave <i>c</i>. We also have a base octave
 <i>C</i> and frequency <i>F</i> in that base octave.
 </p>
 
-<table>
+<table class="eq-container">
 <tr>
   <td class="fill">&nbsp;
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 cellspacing=0>
+  <table class="eqtbl" cellpadding=2 >
   <col align="right">
   <col align="center">
   <col align="left">
@@ -1138,11 +1138,11 @@ And now for the magic. And you <i>are</i> expected to understand
 this.
 </p>
 
-<table id="eq-noterate">
+<table id="eq-noterate" class="eq-container">
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-noterate]]</em>)
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 cellspacing=0>
+  <table class="eqtbl" cellpadding=2 >
   <col align="right">
   <col align="center">
   <col align="left">
@@ -1430,7 +1430,7 @@ with L and R; the background color changes with it. B plays
 </p>
 
 <div class="lblock">
-<table>
+<table class="controls-container">
 <tbody valign="top">
 <tr>
   <th>A / D-pad <td>Play a note

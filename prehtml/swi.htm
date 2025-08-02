@@ -111,7 +111,7 @@ taste of how they work.
 <h3 id="ssec-funs-list"><em>[[ref:ssec-funs-list]]</em>
   Full list</h3>
 
-<center>
+<div class="cblock">
 <table width="70%">
 <col span=5 align="left">
 <tr><th>id		<th width="30%">Name  <th width="10%">	<th>id		<th>Name
@@ -144,65 +144,68 @@ taste of how they work.
 <tr><td>0x26	<td>HardReset
 <tr><td>0x27	<td>CustomHalt
 </table>
-</center>
+</div>
 
 <h3 id="ssec-funs-smpl"><em>[[ref:ssec-funs-smpl]]</em>
   Div, Sqrt, Arctan2 and  ObjAffineSet descriptions</h3>
 
 <dl>
-<dt>0x06: Div</dt>
-<dd>
-Input:
-  <p>r0: numerator</p>
-  <p>r1: denominator</p>
- Output:
-  <p>r0: numerator / denominator</p>
-  <p>r1: numerator % denominator</p>
-  <p>r3: abs(numerator / denominator)</p>
- Note: do NOT divide by zero!
-<br>
-</dd>
+  <dt>0x06: Div</dt>
+  <dd>
+    Input:
+      <p>r0: numerator</p>
+      <p>r1: denominator</p>
+    Output:
+      <p>r0: numerator / denominator</p>
+      <p>r1: numerator % denominator</p>
+      <p>r3: abs(numerator / denominator)</p>
+    <p class="ni">Note: do NOT divide by zero!</p>
+    <br>
+  </dd>
 
-<dt>0x08: Sqrt</dt>
-<dd>
-Input:
-  <p>r0: num, a unsigned 32-bit integer</p>
-Output:
-  <p>r1: sqrt(num)</p>
-<br>
-</dd>
+  <dt>0x08: Sqrt</dt>
+  <dd>
+    Input:
+      <p>r0: num, a unsigned 32-bit integer</p>
+    Output:
+      <p>r1: sqrt(num)</p>
+    <br>
+  </dd>
 
-<dt>0x0a: ArcTan2</dt>
-<dd>
-Input:
-  <p>r0: <i>x</i>, a <b>signed 16bit</b> number (<code>s16</code>)</p>
-  <p>r1: <i>y</i>, a <b>signed 16bit</b> number (<code>s16</code>)</p>
-Output:
-  <p>r0: 
-    <i>x</i>&ge;0 : <i>&theta;</i>= arctan(<i>y/x</i>) &or;
-    <i>x</i>&lt;0 : <i>&theta;</i>= 
-      sign(<i>y</i>)*(&pi; &minus; arctan(|<i>y/x</i>|).<br>
-  </p>
-    This does the full inverse of <i>y</i> = <i>x</i>*tan(&theta;).
-    The problem with the tangent is that the domain is a semi-circle,
-    as is the range of arc tangent. To get the full circle range, both
-    <i>x</i> and <i>y</i> values are required for not only their 
-    quotient, but their signs as well. The mathematical range of
-    <i>&theta;</i> is [&minus;&pi;,&nbsp;&pi;&rang;, which corresponds
-    to [&minus;0x8000,&nbsp;0x8000&rang; (or
-    [0,&nbsp;2&pi;&rang; and [0,&nbsp;0xFFFF] if you like)
-<br>
-</dd>
+  <dt>0x0a: ArcTan2</dt>
+  <dd>
+    Input:
+      <p>r0: <i>x</i>, a <b>signed 16bit</b> number (<code>s16</code>)</p>
+      <p>r1: <i>y</i>, a <b>signed 16bit</b> number (<code>s16</code>)</p>
+    Output:
+      <p>r0: 
+        <i>x</i>&ge;0 : <i>&theta;</i>= arctan(<i>y/x</i>) &or;
+        <i>x</i>&lt;0 : <i>&theta;</i>= 
+          sign(<i>y</i>)*(&pi; &minus; arctan(|<i>y/x</i>|).<br>
+      </p>
+      <p class="ni">
+        This does the full inverse of <i>y</i> = <i>x</i>*tan(&theta;).
+        The problem with the tangent is that the domain is a semi-circle,
+        as is the range of arc tangent. To get the full circle range, both
+        <i>x</i> and <i>y</i> values are required for not only their 
+        quotient, but their signs as well. The mathematical range of
+        <i>&theta;</i> is [&minus;&pi;,&nbsp;&pi;&rang;, which corresponds
+        to [&minus;0x8000,&nbsp;0x8000&rang; (or
+        [0,&nbsp;2&pi;&rang; and [0,&nbsp;0xFFFF] if you like)
+      </p>
+    <br>
+  </dd>
 
-<dt>0x0f: ObjAffineSet</dt>
-<dd>
-Input:
-  <p>r0: source address</p>
-  <p>r1: destination address</p>
-  <p>r2: number of calculations</p>
-  <p>r3: Offset of <b>P</b> matrix elements (2 for bgs,
-    8 for objects)</p>
-</dd>
+  <dt>0x0f: ObjAffineSet</dt>
+  <dd>
+    Input:
+      <p>r0: source address</p>
+      <p>r1: destination address</p>
+      <p>r2: number of calculations</p>
+      <p>r3: Offset of <b>P</b> matrix elements (2 for bgs,
+        8 for objects)</p>
+      <br>
+  </dd>
 </dl>
 
 <p>
@@ -215,12 +218,12 @@ angle &alpha;, which again uses the range [0,&nbsp;0xFFFF] for
 2&pi;. The resulting <b>P</b>:
 </p>
 
-<table id="eq-pswi">
+<table id="eq-pswi" class="eq-container">
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-pswi]]</em>)
   <td class="eqcell"> <b>P</b> =
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 cellspacing=0>
+  <table class="eqtbl" cellpadding=2 >
   <tbody align="center">
   <tr>
     <td class="bdrLL" rowspan=2>&nbsp;
@@ -600,7 +603,7 @@ cosine. I've scaled them in such a way so that they fit nicely
 on the 240x160 screen. The definitions are
 </p>
 
-<table>
+<table class="controls-container">
 <tr><td>division	<td><i>y</i>= 2560/<i>x</i>
 <tr><td>square root	<td><i>y</i>= 160*sqrt(<i>x</i>/240)
 <tr><td>arctan  	<td><i>y</i>= 80 + 64*(2/&pi;)*(arctan(<i>x</i>-120)/16))

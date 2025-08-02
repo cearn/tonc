@@ -159,7 +159,19 @@ div.cblock div.cpt	{ margin: 0.5em auto; }
 
 table {
 	border-spacing: 0;
+	td {
+		padding: 2px;
+	}
 }
+
+table.frame-group {
+	border-spacing: 4px;
+
+	td {
+		vertical-align: top;
+	}
+}
+
 
 td.fill, th.fill	{ width: 16px; }
 
@@ -189,6 +201,10 @@ table.reg {
 	background: #E0E0E0; 
 	border: solid #C0C0C0 1px;
 	page-break-inside: avoid;
+}
+
+table.reg-desc {
+		border-spacing: 2px;
 }
 
 tr.bits, tr.bf, col.bits, col.bf, col.def { text-align:center; }

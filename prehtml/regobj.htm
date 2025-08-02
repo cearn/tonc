@@ -163,7 +163,7 @@ nothing shows up, it's possible you filled the wrong palette.
 
 <div class="lblock">
 <table id="tbl-obj-tids"
-  border=1 cellspacing=0 cellpadding=1>
+  border=1 cellpadding=1>
 <caption class="bottom">
   <b>Table <em>[[ref:tbl-obj-tids]]</em></b>: tile counting for sprites, 
   always per 32 bytes. (You can use odd numbers for 8bpp tiles, but 
@@ -225,9 +225,8 @@ for you. You can do this with
 </p>
 
 <div class="lblock">
-<table id="img-obj-map"
-  cellpadding=4 cellspacing=0>
-<tr valign="top">
+<table class="frame-group" id="img-obj-map">
+<tr>
 <td>
   <div class="cpt" style="width:200px">
   <img src="../img/metr/tile_1d2d.png" alt="a metroid divided into tiles">
@@ -236,7 +235,7 @@ for you. You can do this with
     indicate mapping mode: red for 2d, cyan for 1d.
   </div>
 <td>
-  <div class="cpt" style="width:297px">
+  <div class="cpt" style="width:296px">
   <img src="../img/metr/tile_2d.png" alt="2d mapping">
   <b>Fig <em>[[ref:img-obj-map]]</em>b</b>: how 
     fig&nbsp;<em>[[ref:img-obj-map]]</em>a should be stored in memory when 
@@ -247,7 +246,7 @@ for you. You can do this with
   <img src="../img/metr/tile_1d.png" alt="1d mapping">
   <b>Fig <em>[[ref:img-obj-map]]</em>c</b>: how 
     fig&nbsp;<em>[[ref:img-obj-map]]</em>a should be stored in memory when using 
-	1d mapping.
+    1d mapping.
   </div>
 </table>
 </div>
@@ -365,7 +364,7 @@ and will save <a href="affobj.htm">affine sprites</a> for later.
 
 <div class="lblock">
 <table id="tbl-obj-weave"
-  class="reg" border=1 frame=void cellpadding=4 cellspacing=0>
+  class="reg" border=1 frame=void cellpadding=4 >
 <caption align= bottom>
   <b>Table <em>[[ref:tbl-obj-weave]]</em></b>: 
   memory interlace of OBJ_ATTR and 
@@ -419,7 +418,7 @@ palette).
 
 <div class="reg">
 <table class="reg" id="tbl-oe-attr0"
-  border=1 frame=void cellpadding=4 cellspacing=0>
+  border=1 frame=void cellpadding=4 >
 <caption class="reg">
   <code>OBJ_ATTR.attr0</code>
 </caption>
@@ -506,7 +505,7 @@ that.
 
 <div class="lblock">
 <table id="tbl-obj-size"
-  class="reg" border=1 cellpadding=2 cellspacing=0>
+  class="reg" border=1 cellpadding=2 >
 <caption class="bottom">
   <b>Table <em>[[ref:tbl-obj-size]]</em></b>: GBA sprite sizes
 </caption>
@@ -529,7 +528,7 @@ should be used. If not, they hold flipping flags.
 
 <div class="reg">
 <table class="reg" id="tbl-oe-attr1"
-  border=1 frame=void cellPadding=4 cellSpacing=0>
+  border=1 frame=void cellPadding=4 >
 <caption class="reg">
   <code>OBJ_ATTR.attr1</code>
 </caption>
@@ -597,7 +596,7 @@ say what sub-palette should be used.
 
 <div class="reg">
 <table class="reg" id="tbl-oe-attr2"
-  border=1 frame=void cellpadding=4 cellspacing=0>
+  border=1 frame=void cellpadding=4 >
 <caption class="reg">
   <code>OBJ_ATTR.attr2</code>
 </caption>

@@ -87,8 +87,7 @@ of a factor 28.
 
 
 <div class="cblock">
-<table width=70% id="img-map">
-<tbody valign="top">
+<table class="frame-group" width=70% id="img-map">
 <tr>
 <td colspan=2 align="center">
   <div class="cpt" style="width:512px">
@@ -115,7 +114,6 @@ of a factor 28.
   <b>Fig <em>[[ref:img-map]]</em>c</b>: the tile map (with the proper 
     tiles as a backdrop).
   </div>
-</tbody>
 </table></div>
 
 <p>
@@ -169,7 +167,7 @@ bytes) long, giving four blocks overall.
 
 <div class="cblock">
 <table id="tbl-cbb-sbb"
-  border=1 cellpadding=3 cellspacing=0 rules=groups>
+  border=1 cellpadding=3 rules=groups>
 <caption class="bottom">
   <b>Table <em>[[ref:tbl-cbb-sbb]]</em></b>:
   charblock and screenblock overlap.
@@ -274,7 +272,7 @@ on the <a href="affine.htm">affine matrix</a>.
 
 <div class="lblock">
 <table id="tbl-bg-types"
-  border=1 cellpadding=2 cellspacing=0>
+  border=1 cellpadding=2 >
 <caption class="bottom">
   <b>Table <em>[[ref:tbl-bg-types]]</em></b>: video modes and 
   background type
@@ -311,7 +309,7 @@ pairs. These start at <code>0400:0010</code>
 
 <div class="lblock">
 <table id="tbl-ctrl-ofs"
-  border=1 cellpadding=2 cellspacing=0>
+  border=1 cellpadding=2 >
 <caption align= bottom>
   <b>Table <em>[[ref:tbl-ctrl-ofs]]</em></b>: Background register 
     addresses
@@ -335,7 +333,7 @@ same bits you may have to be careful that you're using the right
 
 <div class="reg">
 <table class="reg" id="tbl-reg-bgxcnt"
-  border=1 frame=void cellpadding=4 cellspacing=0>
+  border=1 frame=void cellpadding=4 >
 <caption class="reg">
   REG_BGxCNT @ <code>0400:0008</code> + 2<i>x</i>
 </caption>
@@ -353,7 +351,7 @@ same bits you may have to be careful that you're using the right
 	<td class="rclr4">Pr
 </table>
 
-<table>
+<table class="reg-desc">
   <col class="bits" width=40>
   <col class="bf" width="8%">
   <col class="def" width="12%">
@@ -399,10 +397,10 @@ same bits you may have to be careful that you're using the right
 </div>
 
 <div class="cblock">
-<table width="100%">
+<table class="frame-group" width="100%">
 <tr align="center">
 <td>
-  <table id="tbl-reg-size" border=1 cellpadding=2  cellspacing=0>
+  <table id="tbl-reg-size" border=1 cellpadding=2>
   <caption class="bottom">
     <b>Table <em>[[ref:tbl-reg-size]]</em>a</b>: regular bg sizes
   </caption>
@@ -416,7 +414,7 @@ same bits you may have to be careful that you're using the right
   </tbody>
   </table>
 <td>
-  <table id="tbl-aff-size" border=1 cellpadding=2 cellspacing=0>
+  <table id="tbl-aff-size" border=1 cellpadding=2 >
   <caption class="bottom">
     <b>Table <em>[[ref:tbl-reg-size]]</em>b</b>: affine bg sizes
   </caption>
@@ -476,7 +474,7 @@ position <b>q</b>, then the following is true:
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-bgr-dx]]</em>)
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 cellspacing=0>
+  <table class="eqtbl" cellpadding=2 >
   <col align="right">
   <col align="center">
   <col align="left">
@@ -611,7 +609,7 @@ only 8 bits wide and just contain an 8bit tile index.
 
 <div class="reg">
 <table class="reg" id="tbl-se"
-  border=1 frame=void cellpadding=4 cellspacing=0>
+  border=1 frame=void cellpadding=4 >
 <caption class="reg">
   Screen entry format for regular backgrounds
 </caption>
@@ -677,7 +675,7 @@ the SE-number inside that screenblock.
 
 <div class="lblock">
 <table class="reg" id="tbl-reg-layout"
-  border=1 frame=void cellpadding=4 cellspacing=0>
+  border=1 frame=void cellpadding=4 >
 <caption class="bottom">
   <b>Table <em>[[ref:tbl-reg-layout]]</em></b>: screenblock layout of 
   regular backgrounds.
@@ -686,20 +684,20 @@ the SE-number inside that screenblock.
 <tr><th>32x32<th>64x32<th>32x64<th>64x64
 <tr>
 <td>
-  <table border=frame cellpadding= 8 cellspacing=0>
+  <table border=frame cellpadding= 8 >
     <tr><td bgcolor=red><b>0</b>
   </table>
 <td>
-  <table border=frame cellpadding= 8 cellspacing=0>
+  <table border=frame cellpadding= 8 >
     <tr><td bgcolor=red><b>0</b><td bgcolor= green><b>1</b>
   </table>
 <td>
-  <table border=frame cellpadding= 8 cellspacing=0>
+  <table border=frame cellpadding= 8 >
     <tr><td bgcolor=red><b>0</b>
     <tr><td bgcolor=blue><b>1</b>
   </table>
 <td>
-  <table border=frame cellpadding= 8 cellspacing=0>
+  <table border=frame cellpadding= 8 >
     <tr><td bgcolor=red><b>0</b><td bgcolor= green><b>1</b>
     <tr><td bgcolor=blue><b>2</b><td bgcolor= gray><b>3</b>
   </table>
@@ -798,7 +796,7 @@ it starts at <i>id</i>&middot;20h for 4bit tiles, but at <i>id</i>&middot;40h fo
 
 <div class="lblock">
 <table id="tbl-bg-tids"
-  border=1 cellpadding=2 cellspacing=0>
+  border=1 cellpadding=2 >
 <caption class="bottom">
   <b>Table <em>[[ref:tbl-bg-tids]]</em></b>: tile counting 
   for backgrounds, sticks to its bit-depth.
@@ -940,7 +938,7 @@ after a conversion you'd have a palette, a tileset and a tilemap.
 </p>
 
 <div class="cblock">
-<table id="img-brin" width=100%>
+<table id="img-brin" class="frame-group" width=100%>
 <tr>
   <td valign="top" width=160>
     <div class="cpt">
@@ -1101,22 +1099,25 @@ class="num">192</span>, y= <span class="num">64</span>;
 </pre>
 
 <div class="cblock">
-<table id="img-brin-demo">
+<table id="img-brin-demo" class="frame-group">
 <tr>
   <td>
-	<div class="cpt" style="width:240px;">
-	  <img src="../img/demo/brin_demo.png"
-		alt=""><br>
-	  <b>Fig <em>[[ref:img-brin-demo]]</em>a</b>: <tt>brin_demo</tt> 
-	    at <b>dx</b>=(192, 64).
-	</div>
+    <div class="cpt" style="width:240px;">
+      <img src="../img/demo/brin_demo.png"
+      alt=""><br>
+      <b>Fig <em>[[ref:img-brin-demo]]</em>a</b>: <tt>brin_demo</tt> 
+        at <b>dx</b>=(192, 64).
+    </div>
+  </td>
   <td>
-	<div class="cpt" style="width:240px;">
-	  <img src="../img/demo/brin_demo0.png"
-		alt=""><br>
-	  <b>Fig <em>[[ref:img-brin-demo]]</em>b</b>: <tt>brin_demo</tt> 
-	    at <b>dx</b>=(0, 0).
-	</div>
+    <div class="cpt" style="width:240px;">
+      <img src="../img/demo/brin_demo0.png"
+      alt=""><br>
+      <b>Fig <em>[[ref:img-brin-demo]]</em>b</b>: <tt>brin_demo</tt> 
+        at <b>dx</b>=(0, 0).
+    </div>
+  </td>
+</tr>
 </table>
 </div>
 
@@ -1133,12 +1134,12 @@ fig&nbsp;<em>[[ref:img-brin-bad]]</em>).
 </p>
 
 <div class="lblock">
-	<div class="cpt" style="width:512px;">
-	  <img src="../img/demo/brin_demo_bad.png" id="img-brin-bad"
-		alt=""><br>
-	  <b>Fig <em>[[ref:img-brin-bad]]</em></b> <tt>brin_demo</tt> 
-	  without blocking out into SBB's first.
-	</div>
+  <div class="cpt" style="width:512px;">
+    <img src="../img/demo/brin_demo_bad.png" id="img-brin-bad"
+    alt=""><br>
+    <b>Fig <em>[[ref:img-brin-bad]]</em></b> <tt>brin_demo</tt> 
+    without blocking out into SBB's first.
+  </div>
 </div>
 
 <p>
@@ -1563,20 +1564,23 @@ be wary of the code that produced it.
 </p>
 
 <div class="lblock">
-<table id="img-cbb-demo">
-<tr valign="top">
-<td>
-  <div class="cpt" style="width:240px">
-  <img src="../img/demo/cbb_demo_vba.png" alt="cbb_demo on VBA"><br>
-  <b>Fig <em>[[ref:img-cbb-demo]]</em>a</b>: <tt>cbb_demo</tt> on 
-  VBA (and Boycott Adv and Mappy well, almost) ).
-  </div>
-<td>
-  <div class="cpt" style="width:240px">
-  <img src="../img/demo/cbb_demo_hw.png" alt="cbb_demo on hardware"><br>
-  <b>Fig <em>[[ref:img-cbb-demo]]</em>b</b>: <tt>cbb_demo</tt> on 
-    hardware. Spot the differences!
-  </div>
+<table id="img-cbb-demo" class="frame-group">
+<tr>
+  <td>
+    <div class="cpt" style="width:240px">
+    <img src="../img/demo/cbb_demo_vba.png" alt="cbb_demo on VBA"><br>
+    <b>Fig <em>[[ref:img-cbb-demo]]</em>a</b>: <tt>cbb_demo</tt> on 
+    VBA (and Boycott Adv and Mappy well, almost) ).
+    </div>
+  </td>
+  <td>
+    <div class="cpt" style="width:240px">
+    <img src="../img/demo/cbb_demo_hw.png" alt="cbb_demo on hardware"><br>
+    <b>Fig <em>[[ref:img-cbb-demo]]</em>b</b>: <tt>cbb_demo</tt> on 
+      hardware. Spot the differences!
+    </div>
+  </td>
+</tr>
 </table>
 </div>
 
@@ -1633,20 +1637,21 @@ class="cmt">// Print &quot;Hello world!&quot;</span>
 
 
 <div class="lblock">
-<table id="img-hello">
-<tbody valign="top">
+<table id="img-hello" class="frame-group">
 <tr>
   <td>
     <div class="cpt" style="width:112px;">
       <img src="../img/demo/hello.png" alt=""><br>
       <b>Fig <em>[[ref:img-hello]]</em>a</b>: <tt>hello</tt> demo.
     </div>
+  </td>
   <td>
     <div class="cpt" style="width:256px;">
       <img src="../img/demo/hello_tiles.png" alt=""><br>
       <b>Fig <em>[[ref:img-hello]]</em>b</b>: tileset of the <tt>hello</tt> demo.
     </div>
-</tbody>
+  </td>
+</tr>
 </table>
 </div>
 

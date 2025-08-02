@@ -103,7 +103,7 @@ sender. With that in mind, let's check out the bit layout for
 
 <div class="reg">
 <table class="reg" id="tbl-reg-ie"
-  border=1 frame=void cellpadding=4 cellspacing=0>
+  border=1 frame=void cellpadding=4 >
 <caption class="reg">
   REG_IE @ <code>0400:0200</code> and REG_IF @ <code>0400:0202</code>
 </caption>
@@ -122,7 +122,7 @@ sender. With that in mind, let's check out the bit layout for
 </table>
 <br>
 
-<table>
+<table class="reg-desc">
   <col class="bits" width=40>
   <col class="bf" width="8%">
   <col class="def" width="12%">
@@ -855,7 +855,7 @@ Today's demo shows a little bit of everything described above:
 <p>
 The controls are as follows:
 </p>
-<table>
+<table class="controls-container">
 <tbody valign="top">
 <tr>
   <th>A</th>
@@ -1049,33 +1049,33 @@ chooses between the nested and non-nested VCount routine.
 </p>
 
 <div class="cblock">
-<table id="img-irq-demo">
-<tbody align="center"><tr>
-<td>
-<div class="cpt" style="width:192px;">
-  <img src="../img/demo/irq_demo_hbl.png"
-    alt="Gradient hbl&gt;vct"><br>
-  <b>Fig <em>[[ref:img-irq-demo]]</em>a</b>: Gradient; nested 
-  <code>vct_wait_nested</code>.
-</div>
-</td>
-<td>
-<div class="cpt" style="width:192px;">
-  <img src="../img/demo/irq_demo_vct.png"
-    alt="Gradient vct&gt;hbl"><br>
-  <b>Fig <em>[[ref:img-irq-demo]]</em>b</b>: Gradient; non-nested 
-  <code>vct_wait</code>.
-</div>
-</td>
-<td>
-<div class="cpt" style="width:192px;">
-  <img src="../img/demo/irq_demo_c.png"
-    alt="Gradient hbl in C"><br>
-  <b>Fig <em>[[ref:img-irq-demo]]</em>c</b>: Gradient; HBlank in 
-  master ISR in C.
-</div>
-</td>
-</tr></tbody>
+<table id="img-irq-demo" class="frame-group">
+<tr>
+  <td>
+  <div class="cpt" style="width:192px;">
+    <img src="../img/demo/irq_demo_hbl.png"
+      alt="Gradient hbl&gt;vct"><br>
+    <b>Fig <em>[[ref:img-irq-demo]]</em>a</b>: Gradient; nested 
+    <code>vct_wait_nested</code>.
+  </div>
+  </td>
+  <td>
+  <div class="cpt" style="width:192px;">
+    <img src="../img/demo/irq_demo_vct.png"
+      alt="Gradient vct&gt;hbl"><br>
+    <b>Fig <em>[[ref:img-irq-demo]]</em>b</b>: Gradient; non-nested 
+    <code>vct_wait</code>.
+  </div>
+  </td>
+  <td>
+  <div class="cpt" style="width:192px;">
+    <img src="../img/demo/irq_demo_c.png"
+      alt="Gradient hbl in C"><br>
+    <b>Fig <em>[[ref:img-irq-demo]]</em>c</b>: Gradient; HBlank in 
+    master ISR in C.
+  </div>
+  </td>
+</tr>
 </table>
 </div>
 

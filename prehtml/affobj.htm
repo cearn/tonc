@@ -122,12 +122,12 @@ followed by a counter-clockwise rotation by &alpha;, the correct
 matrix is this:
 </p>
 
-<table>
+<table class="eq-container">
 <tr>
   <td class="fill">&nbsp;
   <td class="eqcell"> <b>P</b> =
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 cellspacing=0>
+  <table class="eqtbl" cellpadding=2 >
   <tbody align="center">
   <tr>
     <td class="bdrLL" rowspan=2>&nbsp;
@@ -143,7 +143,7 @@ matrix is this:
   </table>
   <td class="eqcell"> =
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 cellspacing=0>
+  <table class="eqtbl" cellpadding=2 >
   <tbody align="center">
   <tr>
     <td class="bdrLL" rowspan=2>&nbsp;
@@ -194,7 +194,7 @@ paint the screen pixels in that area (<b>q</b>) uses texture-pixel
 <b>p</b>, which is calculated via:
 </p>
 
-<table id="eq-aff-ofs">
+<table id="eq-aff-ofs" class="eq-container">
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-aff-ofs]]</em>)
   <td class="eqcell">
@@ -313,25 +313,25 @@ out of the designated 16x16 box of the sprite (the dashed lines).
 </p>
 
 <div class="cblock">
-<table>
-<tbody valign="top">
+<table class="frame-group">
 <tr>
   <td>
-  <div class="cpt_fr" style="width:288px;">
-  <img src="../img/affine/numline.png" id="img-numline" width="288"
-    alt="Numbers vs pixels"><br>
-  <b>Fig <em>[[ref:img-numline]]</em></b>: pixels are between, 
-    not on, coordinates.
-  </div></td>
+    <div class="cpt_fr" style="width:288px;">
+    <img src="../img/affine/numline.png" id="img-numline" width="288"
+        alt="Numbers vs pixels"><br>
+    <b>Fig <em>[[ref:img-numline]]</em></b>: pixels are between, 
+        not on, coordinates.
+    </div>
+  </td>
   <td>
-  <div class="cpt_fr" style="width:320px;">
-  <img src="../img/affine/numalgor.png" id="img-aff-algor" width="320"
-    alt="Rotations"><br>
-  <b>Fig <em>[[ref:img-aff-algor]]</em></b>: Rotations in 90&deg; 
-    increments.
-  </div></td>
+    <div class="cpt_fr" style="width:320px;">
+    <img src="../img/affine/numalgor.png" id="img-aff-algor" width="320"
+        alt="Rotations"><br>
+    <b>Fig <em>[[ref:img-aff-algor]]</em></b>: Rotations in 90&deg; 
+        increments.
+    </div>
+  </td>
 </tr>
-</tbody>
 </table>
 </div>
 
@@ -418,7 +418,7 @@ the different matrices. The controls are as follows:
 </p>
 
 <div class="lblock">
-<table cellspacing=0>
+<table class="controls-container">
 <col valign="top">
 <tr><th>L,R<td>Rotates the sprite CCW and CW, respectively.
 <tr><th>D-pad<td>Shears the sprite.
@@ -447,22 +447,25 @@ double-size flag here.
 </p>
 
 <div class="cblock">
-<table>
+<table class="frame-group">
 <tr>
-<td>
-<div class="cpt_fr" style="width:240px;">
-<img src="../img/demo/obj_aff_rs.png" id="img-obj-aff-rs" 
-  alt="R*S affine object."><br>
-<b>Fig <em>[[ref:img-obj-aff-rs]]</em></b>: 
-  <tt>obj_aff</tt>, via <b>S</b>(1,2), then <b>R</b>(45&deg;)
-</div>
-<td>
-<div class="cpt_fr" style="width:240px;">
-<img src="../img/demo/obj_aff_sr.png" id="img-obj-aff-sr"
-  alt="S*R affine object."><br>
-<b>Fig <em>[[ref:img-obj-aff-sr]]</em></b>: 
-  <tt>obj_aff</tt>, via <b>R</b>(45&deg;), then <b>S</b>(1,2)
-</div>
+  <td>
+    <div class="cpt_fr" style="width:240px;">
+    <img src="../img/demo/obj_aff_rs.png" id="img-obj-aff-rs" 
+    alt="R*S affine object."><br>
+    <b>Fig <em>[[ref:img-obj-aff-rs]]</em></b>: 
+    <tt>obj_aff</tt>, via <b>S</b>(1,2), then <b>R</b>(45&deg;)
+    </div>
+  </td>
+  <td>
+    <div class="cpt_fr" style="width:240px;">
+    <img src="../img/demo/obj_aff_sr.png" id="img-obj-aff-sr"
+    alt="S*R affine object."><br>
+    <b>Fig <em>[[ref:img-obj-aff-sr]]</em></b>: 
+    <tt>obj_aff</tt>, via <b>R</b>(45&deg;), then <b>S</b>(1,2)
+    </div>
+  </td>
+</tr>
 </table>
 </div>
 
@@ -743,7 +746,7 @@ pressing a button (or not), a small transformation of the current
 state will be performed, via matrix multiplication. 
 </p>
 
-<table>
+<table class="eq-container">
 <tr>
   <td class="fill">&nbsp;
   <td class="eqcell">
@@ -760,7 +763,7 @@ result in unacceptable round-off errors very very quickly. Fortunately,
 all these transformations have the convenient property that
 </p>
 
-<table>
+<table class="eq-container">
 <tr>
   <td class="fill">&nbsp;
   <td class="eqcell">
@@ -819,7 +822,7 @@ the table below.
 
 <div class="lblock">
 
-<table border=0 cellpadding=1 cellspacing=0>
+<table class="controls-container" border=0 cellpadding=1 >
 <tbody valign="top">
 <tr align="left"> <th width=48>point</th>		<th>description</th> </tr>
 <tr>
@@ -864,7 +867,7 @@ equations.
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-aff-ex-base]]</em>)</td>
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 cellspacing=0>
+  <table class="eqtbl" cellpadding=2 >
   <col align="right">
   <col align="center">
   <col align="left">
@@ -895,11 +898,11 @@ what you see in eq&nbsp;<em>[[ref:eq-aff-ex]]</em> is the end result
 in the most usable form.
 </p>
 
-<table id="eq-aff-ex">
+<table id="eq-aff-ex" class="eq-container">
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-aff-ex]]</em>)
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 cellspacing=0>
+  <table class="eqtbl" cellpadding=2 >
   <col align="right">
   <col align="center">
   <col align="left">

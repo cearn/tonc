@@ -39,12 +39,12 @@
 
 <!-- [[toc]] -->
 <ul>
-  <li><a href="#sec-intro">Introduction</a>.
-  <li><a href="#sec-persp">Getting a sense of perspective</a>.
-  <li><a href="#sec-m7-math">Enter Mode 7</a>.
-  <li><a href="#sec-demo">Threefold demo</a>.
-  <li><a href="#sec-order">Order, order!</a>.
-  <li><a href="#sec-final">Final thoughts</a>.
+  <li><a href="#sec-intro">Introduction</a>
+  <li><a href="#sec-persp">Getting a sense of perspective</a>
+  <li><a href="#sec-m7-math">Enter Mode 7</a>
+  <li><a href="#sec-demo">Threefold demo</a>
+  <li><a href="#sec-order">Order, order!</a>
+  <li><a href="#sec-final">Final thoughts</a>
 </ul>
 <!-- [[/toc]] -->
 
@@ -145,20 +145,23 @@ be to hard.
 </p>
 
 <div class="lblock">
-<table>
-<tr valign="top">
-<td>
-  <div class="cpt" style="width:256px;">
-  <img src="../img/mode7/m7_map.png" id="img-m7-map"
-    alt="This is your map."><br>
-  <b>Fig <em>[[ref:img-m7-map]]</em></b>: this is your map (well, kinda)
-  </div>
-<td>
-  <div class="cpt" style="width:240px;">
-  <img src="../img/mode7/m7_persp.png" id="img-m7-persp"
-    alt="This is your map in mode7."><br>
-  <b>Fig <em>[[ref:img-m7-persp]]</em></b>: this is your map in mode7.
-  </div>
+<table class="frame-group">
+<tr>
+  <td>
+    <div class="cpt" style="width:256px;">
+    <img src="../img/mode7/m7_map.png" id="img-m7-map"
+      alt="This is your map."><br>
+    <b>Fig <em>[[ref:img-m7-map]]</em></b>: this is your map (well, kinda)
+    </div>
+  </td>
+  <td>
+    <div class="cpt" style="width:240px;">
+    <img src="../img/mode7/m7_persp.png" id="img-m7-persp"
+      alt="This is your map in mode7."><br>
+    <b>Fig <em>[[ref:img-m7-persp]]</em></b>: this is your map in mode7.
+    </div>
+  </td>
+</tr>
 </table>
 </div>
 
@@ -213,7 +216,7 @@ projected <i>y</i>-coordinate is the intersection of the projection
 plane and the line passing through the viewer and the original point: 
 </p>
 
-<table id="eq-persp">
+<table id="eq-persp" class="eq-container">
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-persp]]</em>)
   <td class="eqcell">
@@ -225,7 +228,7 @@ Basically, you divide by <i>z/D</i>. Since it is so important a factor
 it has is own variable: the <dfn>zoom factor</dfn> &lambda;:
 </p>
 
-<table id="eq-lambda">
+<table id="eq-lambda" class="eq-container">
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-lambda]]</em>)
   <td class="eqcell">
@@ -238,26 +241,29 @@ be enlarged, and everything behind it (&lambda;&gt;1) is shrunk.
 </p>
 
 <div class="cblock">
-<table>
-<tr valign="top">
+<table class="frame-group">
+<tr>
 <td>
-  <div class="cpt" style="width:256px;">
-  <img src="../img/mode7/m7_3dview.png" id="img-3dview"
-    alt="3D coordinate system"><br>
-  <b>Fig <em>[[ref:img-3dview]]</em></b>: 
-  3D coordinate system showing the viewing pyramid 
-  defined by the origin, and the screen rectangle 
-  (<i>W</i>&times;<i>H</i>) at <i>z</i>= &minus;<i>D</i>
-  </div>
-<td>
-  <div class="cpt" style="width:320px;">
-  <img src="../img/mode7/m7_side1.png" id="img-side1"
-    alt="projection step, side view"><br>
-  <b>Fig <em>[[ref:img-side1]]</em></b>: 
-  Side view; point (<i>y, z</i>) is projected onto the 
-  (<i>z</i> = &minus;<i>D</i> plane. The projected point is 
-  <i>y</i><sub>p</sub> =  <i>y&middot;D/z</i>
-  </div>
+    <div class="cpt" style="width:256px;">
+    <img src="../img/mode7/m7_3dview.png" id="img-3dview"
+      alt="3D coordinate system"><br>
+    <b>Fig <em>[[ref:img-3dview]]</em></b>: 
+    3D coordinate system showing the viewing pyramid 
+    defined by the origin, and the screen rectangle 
+    (<i>W</i>&times;<i>H</i>) at <i>z</i>= &minus;<i>D</i>
+    </div>
+  </td>
+  <td>
+    <div class="cpt" style="width:320px;">
+    <img src="../img/mode7/m7_side1.png" id="img-side1"
+      alt="projection step, side view"><br>
+    <b>Fig <em>[[ref:img-side1]]</em></b>: 
+    Side view; point (<i>y, z</i>) is projected onto the 
+    (<i>z</i> = &minus;<i>D</i> plane. The projected point is 
+    <i>y</i><sub>p</sub> =  <i>y&middot;D/z</i>
+    </div>
+  </td>
+</tr>
 </table>
 </div>
 
@@ -322,7 +328,7 @@ Green figures indicate the original map; red is the map after the
 operation. Given a scanline <i>h</i>, here's what we do:
 </p>
 
-<ol type=a>
+<ol type="a">
   <li><b>Pre-translation</b> by <b>a</b>= (<i>a</i><sub>x</sub>, 
     <i>a</i><sub>z</sub>). This places the viewer at the origin, which 
     is where we need it for steps b and c.
@@ -343,11 +349,11 @@ operation. Given a scanline <i>h</i>, here's what we do:
 	position (the beige area). For obvious reasons the horizontal
 	component should be half the screen width. The vertical move 
 	should move the floor-line to the scanline, so the vector is:
-<table id="eq-post-ofs">
+<table id="eq-post-ofs" class="eq-container">
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-post-ofs]]</em>)
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 cellspacing=0>
+  <table class="eqtbl" cellpadding=2 >
   <col align="right">
   <col align="center">
   <col align="left">
@@ -365,7 +371,7 @@ operation. Given a scanline <i>h</i>, here's what we do:
 
 <div class="cblock">
 <table id="img-steps"
-  border=1 cellpadding=4 cellspacing=0>
+  border=1 cellpadding=4 >
 <caption class="bottom">
   Fig <em>[[ref:img-steps]]</em>a-d: The 4 steps of mode 7
 </caption>
@@ -396,7 +402,7 @@ background space, which is actually the inverse of what you're trying
 to do. So what you should use is:
 </p>
 
-<table id="eq-prs">
+<table id="eq-prs" class="eq-container">
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-prs]]</em>)
   <td class="eqcell">
@@ -404,7 +410,7 @@ to do. So what you should use is:
     <b>S</b>(&lambda;) &middot; <b>R</b>(&alpha;) 
     &nbsp;=&nbsp;
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 cellspacing=0>
+  <table class="eqtbl" cellpadding=2 >
   <tbody align="center">
   <tr>
     <td class="bdrLL" rowspan=2>&nbsp;
@@ -427,7 +433,7 @@ GBA uses the following relation between screen point <b>q</b> and
 background point <b>p</b>:
 </p>
 
-<table id="eq-ofs-base">
+<table id="eq-ofs-base" class="eq-container">
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-ofs-base]]</em>)
   <td class="eqcell">
@@ -442,11 +448,11 @@ background page</a>, only with different names. Anyway, what you need
 is:
 </p>
 
-<table id="eq-aff-ofs">
+<table id="eq-aff-ofs" class="eq-container">
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-aff-ofs]]</em>)
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 cellspacing=0>
+  <table class="eqtbl" cellpadding=2 >
   <col align="right">
   <col align="center">
   <col align="left">
@@ -488,7 +494,7 @@ the true <i>y</i><sub>s</sub> to <i>y</i><sub>s0</sub>, what
 you <i>should</i> use is 
 </p>
 
-<table id="eq-yofs">
+<table id="eq-yofs" class="eq-container">
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-yofs]]</em>)
   <td class="eqcell">
@@ -529,7 +535,7 @@ but that's not important right now. The demo is called <tt>m7_demo</tt>
 and the controls are:
 </p>
 
-<table>
+<table class="controls-container">
 <col valign="top">
 <tr><th>D-pad<td>Strafe.
 <tr><th>L, R<td>turn left and right (i.e., rotate map right and left, 
@@ -547,7 +553,7 @@ a label in the top-left corner indicating the current type.
 </p>
 
 <div class="cblock">
-<table id="img-types">
+<table id="img-types" class="frame-group">
 <tr>
   <td>
     <div class="cpt" style="width:240px;">
@@ -734,7 +740,7 @@ are the differences:
 
 <div class="cpt_fr">
 <table id="tbl-divs"
-  border=1 cellpadding=2 cellspacing=0>
+  border=1 cellpadding=2 >
 <caption align= bottom>
   <b>Table <em>[[ref:tbl-divs]]</em></b>: division tables and zoom 
 	factors. <i>a</i><sub>y</sub>=32

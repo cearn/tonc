@@ -70,12 +70,12 @@ how pretty much all tutorials describe them. These tutorials also
 give the following matrix for rotation and scaling:
 </p>
 
-<table id="eq-prs-bad">
+<table id="eq-prs-bad" class="eq-container">
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-prs-bad]]</em>)
   <td class="eqcell"> <b>P</b> &nbsp;=&nbsp;
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 cellspacing=0>
+  <table class="eqtbl" cellpadding=2 >
   <tbody align="center">
   <tr>
     <td class="bdrLL" rowspan=2>&nbsp;
@@ -91,7 +91,7 @@ give the following matrix for rotation and scaling:
   </table>
   <td class="eqcell"> &nbsp;=&nbsp;
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 cellspacing=0>
+  <table class="eqtbl" cellpadding=2 >
   <tbody align="center">
   <tr>
     <td class="bdrLL" rowspan=2>&nbsp;
@@ -121,20 +121,23 @@ for this to happen, but that's probably not quite true.
 </p>
 
 <div class="lblock">
-<table id="img-metr-rs">
-<tr valign="top">
-<td>
-  <div class="cpt" style="width:160px;">
-  <img src="../img/affine/metr_rs_good.png" alt=""><br>
-  <b>Fig <em>[[ref:img-metr-rs]]</em>a</b>: when you say 
-  &lsquo;rotate and scale&rsquo;,  you probably expect this &hellip;
-  </div>
-<td>
-  <div class="cpt" style="width:160px">
-  <img src="../img/affine/metr_rs_bad.png" alt=""><br>
-  <b>Fig <em>[[ref:img-metr-rs]]</em>b</b>: but with <b>P</b> 
-  from eq&nbsp;<em>[[ref:eq-prs-bad]]</em>, this is what you get.
-  </div>
+<table id="img-metr-rs" class="frame-group">
+<tr>
+  <td>
+    <div class="cpt" style="width:160px;">
+    <img src="../img/affine/metr_rs_good.png" alt=""><br>
+    <b>Fig <em>[[ref:img-metr-rs]]</em>a</b>: when you say 
+    &lsquo;rotate and scale&rsquo;,  you probably expect this &hellip;
+    </div>
+  </td>
+  <td>
+    <div class="cpt" style="width:160px">
+    <img src="../img/affine/metr_rs_bad.png" alt=""><br>
+    <b>Fig <em>[[ref:img-metr-rs]]</em>b</b>: but with <b>P</b> 
+    from eq&nbsp;<em>[[ref:eq-prs-bad]]</em>, this is what you get.
+    </div>
+  </td>
+</tr>
 </table>
 </div>
 
@@ -223,7 +226,7 @@ dimensions, btw), so that gives us:
   <td class="fill">
   <td class="eqcell"> <b>A</b> =
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 cellspacing=0>
+  <table class="eqtbl" cellpadding=2 >
   <tbody align="center">
   <tr>
     <td class="bdrLL" rowspan=2>&nbsp;
@@ -268,7 +271,7 @@ The transformations you can do with a 2D matrix are called
 transformations. The technical definition of an 
 affine transformation is one that preserves parallel lines, which 
 basically means that you can write them as matrix transformations, or 
-that a rectangle will become a parallelogram under an affine 
+that a rectangle will become a parallellogram under an affine 
 transformation (see fig&nbsp;<em>[[ref:img-texmap]]</em>b).
 </p>
 <p>
@@ -297,7 +300,7 @@ matrix and inverse matrix of each transformation. Why? You'll see.
   <td class="eqnrcell">(<em>[[ref:eq-2d-inv]]</em>)
   <td class="eqcell"> <b>A</b> &nbsp;=&nbsp;
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 cellspacing=0>
+  <table class="eqtbl" cellpadding=2 >
   <tbody align="center">
   <tr>
     <td class="bdrLL" rowspan=2>&nbsp;
@@ -314,7 +317,7 @@ matrix and inverse matrix of each transformation. Why? You'll see.
   <td width=32>&nbsp;
   <td class="eqcell"> <b>A</b><sup>&minus;1</sup> &nbsp;&equiv;&nbsp;
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 cellspacing=0>
+  <table class="eqtbl" cellpadding=2 >
   <tbody align="center">
   <tr>
     <td class="bdrB"> 1
@@ -323,7 +326,7 @@ matrix and inverse matrix of each transformation. Why? You'll see.
   </tbody>
   </table>
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 cellspacing=0>
+  <table class="eqtbl" cellpadding=2 >
   <tbody align="center">
   <tr>
     <td class="bdrLL" rowspan=2>&nbsp;
@@ -341,7 +344,7 @@ matrix and inverse matrix of each transformation. Why? You'll see.
 
 <div class="cblock">
 <table id="tbl-aff-def"
-  border=1 cellpadding=4 cellspacing=0>
+  border=1 cellpadding=4 >
 <caption>
   Table <em>[[ref:tbl-aff-def]]</em>: transformation matrices and 
   their inverses.
@@ -359,7 +362,7 @@ matrix and inverse matrix of each transformation. Why? You'll see.
   <tr>
     <td class="eqcell"> <b>I</b> =
     <td>
-    <table class="eqtbl" cellpadding=2 cellspacing=0>
+    <table class="eqtbl" cellpadding=2 >
     <tbody align="center">
     <tr>
       <td class="bdrLL" rowspan=2>&nbsp;
@@ -379,7 +382,7 @@ matrix and inverse matrix of each transformation. Why? You'll see.
   <tr>
     <td class="eqcell"> <b>R</b>(&theta;) =
     <td>
-    <table class="eqtbl" cellpadding=2 cellspacing=0>
+    <table class="eqtbl" cellpadding=2 >
     <tbody align="center">
     <tr>
       <td class="bdrLL" rowspan=2>&nbsp;
@@ -400,7 +403,7 @@ matrix and inverse matrix of each transformation. Why? You'll see.
     <td class="eqcell">
 	  <b>S</b>(<i>s</i><sub>x</sub> , <i>s</i><sub>y</sub>) =
     <td>
-    <table class="eqtbl" cellpadding=2 cellspacing=0>
+    <table class="eqtbl" cellpadding=2 >
     <tbody align="center">
     <tr>
       <td class="bdrLL" rowspan=2>&nbsp;
@@ -421,7 +424,7 @@ matrix and inverse matrix of each transformation. Why? You'll see.
     <td class="eqcell">
 	  <b>H</b>(<i>h</i><sub>x</sub> , <i>h</i><sub>y</sub>) =
     <td>
-    <table class="eqtbl" cellpadding=2 cellspacing=0>
+    <table class="eqtbl" cellpadding=2 >
     <tbody align="center">
     <tr>
       <td class="bdrLL" rowspan=2>&nbsp;
@@ -466,7 +469,7 @@ matrix multiplication.
     <b>A</b> = <b>R</b>(-&alpha;) &middot;
     <b>S</b>(s<sub>x</sub> , s<sub>y</sub>) =
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 cellspacing=0>
+  <table class="eqtbl" cellpadding=2 >
   <tbody align="center">
   <tr>
     <td class="bdrLL" rowspan=2>&nbsp;
@@ -617,7 +620,7 @@ counter-clockwise rotation by &alpha; is:
 <tr>
   <td class="fill">
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 cellspacing=0>
+  <table class="eqtbl" cellpadding=2 >
   <col align="right">
   <col align="center">
   <col align="left">
@@ -653,7 +656,7 @@ Using the inverse matrices given earlier, we find
   <td class="eqnrcell">(<em>[[ref:eq-prs-good]]</em>)
   <td class="eqcell"> <b>P</b> =
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 cellspacing=0>
+  <table class="eqtbl" cellpadding=2 >
   <tbody align="center">
   <tr>
     <td class="bdrLL" rowspan=2>&nbsp;
@@ -669,7 +672,7 @@ Using the inverse matrices given earlier, we find
   </table>
   <td class="eqcell"> = 
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 cellspacing=0>
+  <table class="eqtbl" cellpadding=2 >
   <tbody align="center">
   <tr>
     <td class="bdrLL" rowspan=2>&nbsp;
@@ -893,7 +896,7 @@ somewhere.
 
 <div class="cblock">
 <table id="tbl-aff-fun"
-  border=1 cellpadding=2 cellspacing=0>
+  border=1 cellpadding=2 >
 <caption class="bottom">
   <b>Table <em>[[ref:tbl-aff-fun]]</em></b>: affine functions
  </caption>
