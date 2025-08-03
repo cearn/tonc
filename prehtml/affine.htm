@@ -75,7 +75,7 @@ give the following matrix for rotation and scaling:
   <td class="eqnrcell">(<em>[[ref:eq-prs-bad]]</em>)
   <td class="eqcell"> <b>P</b> &nbsp;=&nbsp;
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 >
+  <table class="eqtbl">
   <tbody align="center">
   <tr>
     <td class="bdrLL" rowspan=2>&nbsp;
@@ -91,7 +91,7 @@ give the following matrix for rotation and scaling:
   </table>
   <td class="eqcell"> &nbsp;=&nbsp;
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 >
+  <table class="eqtbl">
   <tbody align="center">
   <tr>
     <td class="bdrLL" rowspan=2>&nbsp;
@@ -207,11 +207,11 @@ brings <b>p</b> (in texture space) to a point <b>q</b> (in screen
 space). The actual mapping is done by a 2&times;2 matrix <b>A</b>:
 </p>
 
-<table>
+<table class="eq-container">
 <tr>
   <td class="fill">
   <td class="eqcell">
-    <b>q</b>= <b>A &middot; p</b>.
+    <b>q</b> = <b>A &middot; p</b>.
 </table>
 
 <p>
@@ -221,12 +221,12 @@ which are <b>u</b> and <b>v</b> (this works in any number of
 dimensions, btw), so that gives us:
 </p>
 
-<table>
+<table class="eq-container">
 <tr>
   <td class="fill">
   <td class="eqcell"> <b>A</b> =
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 >
+  <table class="eqtbl">
   <tbody align="center">
   <tr>
     <td class="bdrLL" rowspan=2>&nbsp;
@@ -244,7 +244,7 @@ dimensions, btw), so that gives us:
 
 <div class="lblock">
 <table id="img-texmap">
-<caption class="bottom">
+<caption>
   A forward texture mapping via affine matrix <b>A</b>.
 </caption>
 <tr>
@@ -300,7 +300,7 @@ matrix and inverse matrix of each transformation. Why? You'll see.
   <td class="eqnrcell">(<em>[[ref:eq-2d-inv]]</em>)
   <td class="eqcell"> <b>A</b> &nbsp;=&nbsp;
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 >
+  <table class="eqtbl">
   <tbody align="center">
   <tr>
     <td class="bdrLL" rowspan=2>&nbsp;
@@ -317,7 +317,7 @@ matrix and inverse matrix of each transformation. Why? You'll see.
   <td width=32>&nbsp;
   <td class="eqcell"> <b>A</b><sup>&minus;1</sup> &nbsp;&equiv;&nbsp;
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 >
+  <table class="eqtbl">
   <tbody align="center">
   <tr>
     <td class="bdrB"> 1
@@ -326,7 +326,7 @@ matrix and inverse matrix of each transformation. Why? You'll see.
   </tbody>
   </table>
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 >
+  <table class="eqtbl">
   <tbody align="center">
   <tr>
     <td class="bdrLL" rowspan=2>&nbsp;
@@ -343,8 +343,7 @@ matrix and inverse matrix of each transformation. Why? You'll see.
 </table>
 
 <div class="cblock">
-<table id="tbl-aff-def"
-  border=1 cellpadding=4 >
+<table id="tbl-aff-def" border=1>
 <caption>
   Table <em>[[ref:tbl-aff-def]]</em>: transformation matrices and 
   their inverses.
@@ -358,11 +357,11 @@ matrix and inverse matrix of each transformation. Why? You'll see.
 <td><img src="../img/affine/metr_shear.png" alt="Sheared metroid">
 <tr>
 <td> <!-- Identity -->
-  <table>
+  <table class="eq-container">
   <tr>
     <td class="eqcell"> <b>I</b> =
     <td>
-    <table class="eqtbl" cellpadding=2 >
+    <table class="eqtbl">
     <tbody align="center">
     <tr>
       <td class="bdrLL" rowspan=2>&nbsp;
@@ -378,11 +377,11 @@ matrix and inverse matrix of each transformation. Why? You'll see.
     </table>
   </table>
 <td> <!-- Rotation -->
-  <table>
+  <table class="eq-container">
   <tr>
     <td class="eqcell"> <b>R</b>(&theta;) =
     <td>
-    <table class="eqtbl" cellpadding=2 >
+    <table class="eqtbl">
     <tbody align="center">
     <tr>
       <td class="bdrLL" rowspan=2>&nbsp;
@@ -398,12 +397,12 @@ matrix and inverse matrix of each transformation. Why? You'll see.
     </table>
   </table>
 <td> <!-- Scaling -->
-  <table>
+  <table class="eq-container">
   <tr>
     <td class="eqcell">
 	  <b>S</b>(<i>s</i><sub>x</sub> , <i>s</i><sub>y</sub>) =
     <td>
-    <table class="eqtbl" cellpadding=2 >
+    <table class="eqtbl">
     <tbody align="center">
     <tr>
       <td class="bdrLL" rowspan=2>&nbsp;
@@ -419,12 +418,12 @@ matrix and inverse matrix of each transformation. Why? You'll see.
     </table>
   </table>
 <td> <!-- Shear -->
-  <table>
+  <table class="eq-container">
   <tr>
     <td class="eqcell">
 	  <b>H</b>(<i>h</i><sub>x</sub> , <i>h</i><sub>y</sub>) =
     <td>
-    <table class="eqtbl" cellpadding=2 >
+    <table class="eqtbl">
     <tbody align="center">
     <tr>
       <td class="bdrLL" rowspan=2>&nbsp;
@@ -469,7 +468,7 @@ matrix multiplication.
     <b>A</b> = <b>R</b>(-&alpha;) &middot;
     <b>S</b>(s<sub>x</sub> , s<sub>y</sub>) =
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 >
+  <table class="eqtbl">
   <tbody align="center">
   <tr>
     <td class="bdrLL" rowspan=2>&nbsp;
@@ -616,11 +615,11 @@ In case you're curious, the proper matrix for scale by
 counter-clockwise rotation by &alpha; is:
 </p>
 
-<table>
+<table class="eq-container">
 <tr>
   <td class="fill">
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 >
+  <table class="eqtbl">
   <col align="right">
   <col align="center">
   <col align="left">
@@ -656,7 +655,7 @@ Using the inverse matrices given earlier, we find
   <td class="eqnrcell">(<em>[[ref:eq-prs-good]]</em>)
   <td class="eqcell"> <b>P</b> =
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 >
+  <table class="eqtbl">
   <tbody align="center">
   <tr>
     <td class="bdrLL" rowspan=2>&nbsp;
@@ -672,7 +671,7 @@ Using the inverse matrices given earlier, we find
   </table>
   <td class="eqcell"> = 
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 >
+  <table class="eqtbl">
   <tbody align="center">
   <tr>
     <td class="bdrLL" rowspan=2>&nbsp;
@@ -895,9 +894,8 @@ somewhere.
 </p>
 
 <div class="cblock">
-<table id="tbl-aff-fun"
-  border=1 cellpadding=2 >
-<caption class="bottom">
+<table id="tbl-aff-fun" border=1>
+<caption>
   <b>Table <em>[[ref:tbl-aff-fun]]</em></b>: affine functions
  </caption>
 <tr align="left"><th width="60%">Function</th>  <th>Description</th></tr>

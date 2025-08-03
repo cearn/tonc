@@ -162,9 +162,8 @@ nothing shows up, it's possible you filled the wrong palette.
 </p>
 
 <div class="lblock">
-<table id="tbl-obj-tids"
-  border=1 cellpadding=1>
-<caption class="bottom">
+<table id="tbl-obj-tids" border=1 cellpadding=1>
+<caption>
   <b>Table <em>[[ref:tbl-obj-tids]]</em></b>: tile counting for sprites, 
   always per 32 bytes. (You can use odd numbers for 8bpp tiles, but 
   be sure you fill the VRAM accordingly.)
@@ -363,9 +362,8 @@ and will save <a href="affobj.htm">affine sprites</a> for later.
 </p>
 
 <div class="lblock">
-<table id="tbl-obj-weave"
-  class="reg" border=1 frame=void cellpadding=4 >
-<caption align= bottom>
+<table id="tbl-obj-weave" class="reg" border=1>
+<caption>
   <b>Table <em>[[ref:tbl-obj-weave]]</em></b>: 
   memory interlace of OBJ_ATTR and 
   OBJ_AFFINE structures.
@@ -417,8 +415,7 @@ palette).
 </p>
 
 <div class="reg">
-<table class="reg" id="tbl-oe-attr0"
-  border=1 frame=void cellpadding=4 >
+<table class="reg" id="tbl-oe-attr0" border=1>
 <caption class="reg">
   <code>OBJ_ATTR.attr0</code>
 </caption>
@@ -433,12 +430,8 @@ palette).
 	<td class="rclr0">Y
 </table>
 
-<table>
-  <col class="bits" width=40>
-  <col class="bf" width="8%">
-  <col class="def" width="12%">
-<tr align="left"><th>bits<th>name<th>define<th>description
-<tbody valign="top">
+<table class="reg-desc">
+<tr><th>bits<th>name<th>define<th>description
 <tr class="bg0">	
   <td>0-7<td class="rclr0">Y
   <td><i>ATTR0_Y#</i>
@@ -485,7 +478,6 @@ palette).
   <td><b>Sprite shape</b>. This and the sprite's size 
     (<code>attr1{E-F}</code>) determines the sprite's real size, see 
     <a href="#tbl-obj-size">table <em>[[ref:tbl-obj-size]]</em></a>.
-</tbody>
 </table>
 </div>
 
@@ -504,9 +496,8 @@ that.
 </p>
 
 <div class="lblock">
-<table id="tbl-obj-size"
-  class="reg" border=1 cellpadding=2 >
-<caption class="bottom">
+<table id="tbl-obj-size" class="reg" border=1>
+<caption>
   <b>Table <em>[[ref:tbl-obj-size]]</em></b>: GBA sprite sizes
 </caption>
 <tr><td>shape\size <th>00    <th>01    <th>10    <th>11
@@ -527,8 +518,7 @@ should be used. If not, they hold flipping flags.
 </p>
 
 <div class="reg">
-<table class="reg" id="tbl-oe-attr1"
-  border=1 frame=void cellPadding=4 >
+<table class="reg" id="tbl-oe-attr1" border=1>
 <caption class="reg">
   <code>OBJ_ATTR.attr1</code>
 </caption>
@@ -546,12 +536,8 @@ should be used. If not, they hold flipping flags.
     <td>-
 </table>
 
-<table>
-  <col class="bits" width=40>
-  <col class="bf" width="8%">
-  <col class="def" width="12%">
-<tr align="left"><th>bits<th>name<th>define<th>description
-<tbody valign="top">
+<table class="reg-desc">
+<tr><th>bits<th>name<th>define<th>description
 <tr class="bg0">	
   <td>0-8<td class="rclr0">X
   <td><i>ATTR1_X#</i>
@@ -574,7 +560,6 @@ should be used. If not, they hold flipping flags.
   <td><b>Sprite size</b>. Kinda. Together with the shape bits
     (<code>attr0</code>{E-F}) these determine the sprite's real size, 
     see <a href="#tbl-obj-size">table <em>[[ref:tbl-obj-size]]</em></a>.
-</tbody>
 </table>
 </div>
 
@@ -595,8 +580,7 @@ say what sub-palette should be used.
 </p>
 
 <div class="reg">
-<table class="reg" id="tbl-oe-attr2"
-  border=1 frame=void cellpadding=4 >
+<table class="reg" id="tbl-oe-attr2" border=1>
 <caption class="reg">
   <code>OBJ_ATTR.attr2</code>
 </caption>
@@ -608,12 +592,8 @@ say what sub-palette should be used.
 	<td class="rclr0">TID
 </table>
 
-<table>
-  <col class="bits" width=40>
-  <col class="bf" width="8%">
-  <col class="def">
-<tr align="left"><th>bits<th>name<th>&nbsp;<th>description
-<tbody valign="top">
+<table class="reg-desc">
+<tr><th>bits<th>name<th>define<th>description
 <tr class="bg0">	
   <td>0-9<td class="rclr0">TID
   <td><i>ATTR2_ID#</i>
@@ -631,7 +611,6 @@ say what sub-palette should be used.
   <td><i>ATTR2_PALBANK#</i>
   <td><b>Palette-bank</b> to use when in 16-color mode. Has no effect if
 	the color mode flag (<code>attr0</code>{C}) is set.
-</tbody>
 </table>
 </div>
 

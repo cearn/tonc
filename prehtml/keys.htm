@@ -78,8 +78,7 @@ name of the button, in caps.
 </p>
 
 <div class="reg">
-<table class="reg" id="tbl-reg-keys"
-  border=1 frame=void cellpadding=4 >
+<table class="reg" id="tbl-reg-keys" border=1>
 <caption class="reg">
   REG_KEYINPUT (REG_P1) @ <code>0400:0130h</code>
 </caption>
@@ -155,8 +154,7 @@ of this register you need to know how to work with
 </p><br>
 
 <div class="reg">
-<table class="reg" id="tbl-reg-keycnt"
-  border=1 frame=void cellpadding=4 >
+<table class="reg" id="tbl-reg-keycnt" border=1>
 <caption class="reg">
   REG_KEYCNT (REG_P1CNT) @ <code>0400:0132h</code>
 </caption>
@@ -179,12 +177,8 @@ of this register you need to know how to work with
   <td class="rclr9">A
 </table><br>
 
-<table>
-  <col class="bits" width=40>
-  <col class="bf" width="8%">
-  <col class="def" width="12%">
-<tr align="left"><th>bits<th>name<th>define<th>description
-<tbody valign="top">
+<table class="reg-desc">
+<tr><th>bits<th>name<th>define<th>description
 <tr class="bg0">
   <td>0-9<td class="rclr9">keys
   <td>KEY_<i>x</i>
@@ -200,7 +194,6 @@ of this register you need to know how to work with
     interrupt or not. If clear, it uses an OR (raise if any of the
     keys of bits 0-9 are down); if set, it uses an AND (raise if
     all of those keys are down).
-</tbody>
 </table>
 </div>
 

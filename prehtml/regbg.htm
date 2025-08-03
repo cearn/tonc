@@ -166,9 +166,8 @@ bytes) long, giving four blocks overall.
 </p>
 
 <div class="cblock">
-<table id="tbl-cbb-sbb"
-  border=1 cellpadding=3 rules=groups>
-<caption class="bottom">
+<table id="tbl-cbb-sbb" border=1 cellpadding=3 rules=groups>
+<caption>
   <b>Table <em>[[ref:tbl-cbb-sbb]]</em></b>:
   charblock and screenblock overlap.
 </caption>
@@ -271,9 +270,8 @@ on the <a href="affine.htm">affine matrix</a>.
 </p>
 
 <div class="lblock">
-<table id="tbl-bg-types"
-  border=1 cellpadding=2 >
-<caption class="bottom">
+<table id="tbl-bg-types" border=1>
+<caption>
   <b>Table <em>[[ref:tbl-bg-types]]</em></b>: video modes and 
   background type
 </caption>
@@ -308,8 +306,7 @@ pairs. These start at <code>0400:0010</code>
 </p>
 
 <div class="lblock">
-<table id="tbl-ctrl-ofs"
-  border=1 cellpadding=2 >
+<table id="tbl-ctrl-ofs" border=1>
 <caption align= bottom>
   <b>Table <em>[[ref:tbl-ctrl-ofs]]</em></b>: Background register 
     addresses
@@ -332,8 +329,7 @@ same bits you may have to be careful that you're using the right
 </p>
 
 <div class="reg">
-<table class="reg" id="tbl-reg-bgxcnt"
-  border=1 frame=void cellpadding=4 >
+<table class="reg" id="tbl-reg-bgxcnt" border=1>
 <caption class="reg">
   REG_BGxCNT @ <code>0400:0008</code> + 2<i>x</i>
 </caption>
@@ -352,11 +348,7 @@ same bits you may have to be careful that you're using the right
 </table>
 
 <table class="reg-desc">
-  <col class="bits" width=40>
-  <col class="bf" width="8%">
-  <col class="def" width="12%">
-<tr align="left"><th>bits<th>name<th>define<th>description
-<tbody valign="top">
+<tr><th>bits<th>name<th>define<th>description
 <tr class="bg0">	
   <td>0-1<td class="rclr4">Pr
   <td><i>BG_PRIO#</i>
@@ -392,7 +384,6 @@ same bits you may have to be careful that you're using the right
   <td><b>Background Size</b>. Regular and affine backgrounds have 
       different sizes available to them. The sizes, in tiles and in 
       pixels, can be found in table <em>[[ref:tbl-reg-size]]</em>.
-</tbody>
 </table>
 </div>
 
@@ -400,8 +391,8 @@ same bits you may have to be careful that you're using the right
 <table class="frame-group" width="100%">
 <tr align="center">
 <td>
-  <table id="tbl-reg-size" border=1 cellpadding=2>
-  <caption class="bottom">
+  <table id="tbl-reg-size" border=1>
+  <caption>
     <b>Table <em>[[ref:tbl-reg-size]]</em>a</b>: regular bg sizes
   </caption>
   <col><col class="def">
@@ -414,8 +405,8 @@ same bits you may have to be careful that you're using the right
   </tbody>
   </table>
 <td>
-  <table id="tbl-aff-size" border=1 cellpadding=2 >
-  <caption class="bottom">
+  <table id="tbl-aff-size" border=1>
+  <caption>
     <b>Table <em>[[ref:tbl-reg-size]]</em>b</b>: affine bg sizes
   </caption>
   <col><col class="def">
@@ -474,7 +465,7 @@ position <b>q</b>, then the following is true:
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-bgr-dx]]</em>)
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 >
+  <table class="eqtbl">
   <col align="right">
   <col align="center">
   <col align="left">
@@ -608,9 +599,8 @@ only 8 bits wide and just contain an 8bit tile index.
 </p>
 
 <div class="reg">
-<table class="reg" id="tbl-se"
-  border=1 frame=void cellpadding=4 >
-<caption class="reg">
+<table class="reg" id="tbl-se" border=1>
+<caption class="reg nowrap">
   Screen entry format for regular backgrounds
 </caption>
 <tr class="bits">
@@ -622,12 +612,8 @@ only 8 bits wide and just contain an 8bit tile index.
 	<td class="rclr0">TID
 </table>
 
-<table>
-  <col class="bits" width=40>
-  <col class="bf" width="8%">
-  <col class="def" width=12%>
-<tr align="left"><th>bits<th>name<th>define<th>description
-<tbody valign="top">
+<table class="reg-desc">
+<tr><th>bits<th>name<th>define<th>description
 <tr class="bg0">	
   <td>0-9<td class="rclr0">TID
   <td><i>SE_ID#</i>
@@ -641,7 +627,6 @@ only 8 bits wide and just contain an 8bit tile index.
   <td><i>SE_PALBANK#</i>
   <td><b>Palette bank</b> to use when in 16-color mode. Has no effect 
     for 256-color bgs (<code>REG_BGxCNT{6}</code> is set).
-</tbody>
 </table>
 </div>
 
@@ -673,10 +658,14 @@ you have to find out which screenblock you are in and then find
 the SE-number inside that screenblock. 
 </p>
 
+<!-- yes, this is stupid -->
+<style>
+  #tbl-reg-layout table td { padding: 16px; }
+</style>
+
 <div class="lblock">
-<table class="reg" id="tbl-reg-layout"
-  border=1 frame=void cellpadding=4 >
-<caption class="bottom">
+<table class="reg-like" id="tbl-reg-layout" border=1>
+<caption>
   <b>Table <em>[[ref:tbl-reg-layout]]</em></b>: screenblock layout of 
   regular backgrounds.
  </caption>
@@ -684,22 +673,22 @@ the SE-number inside that screenblock.
 <tr><th>32x32<th>64x32<th>32x64<th>64x64
 <tr>
 <td>
-  <table border=frame cellpadding= 8 >
-    <tr><td bgcolor=red><b>0</b>
+  <table border=frame>
+    <tr><td bgcolor="red"><b>0</b>
   </table>
 <td>
-  <table border=frame cellpadding= 8 >
-    <tr><td bgcolor=red><b>0</b><td bgcolor= green><b>1</b>
+  <table border=frame>
+    <tr><td bgcolor="red"><b>0</b><td bgcolor="green"><b>1</b>
   </table>
 <td>
-  <table border=frame cellpadding= 8 >
-    <tr><td bgcolor=red><b>0</b>
-    <tr><td bgcolor=blue><b>1</b>
+  <table border=frame>
+    <tr><td bgcolor="red"><b>0</b>
+    <tr><td bgcolor="steelblue"><b>1</b>
   </table>
 <td>
-  <table border=frame cellpadding= 8 >
-    <tr><td bgcolor=red><b>0</b><td bgcolor= green><b>1</b>
-    <tr><td bgcolor=blue><b>2</b><td bgcolor= gray><b>3</b>
+  <table border=frame>
+    <tr><td bgcolor="red"><b>0</b><td bgcolor="green"><b>1</b>
+    <tr><td bgcolor="steelblue"><b>2</b><td bgcolor="gray"><b>3</b>
   </table>
 </table>
 </div>
@@ -795,9 +784,8 @@ it starts at <i>id</i>&middot;20h for 4bit tiles, but at <i>id</i>&middot;40h fo
 </p>
 
 <div class="lblock">
-<table id="tbl-bg-tids"
-  border=1 cellpadding=2 >
-<caption class="bottom">
+<table id="tbl-bg-tids" border=1>
+<caption>
   <b>Table <em>[[ref:tbl-bg-tids]]</em></b>: tile counting 
   for backgrounds, sticks to its bit-depth.
 </caption>

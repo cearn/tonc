@@ -102,8 +102,7 @@ sender. With that in mind, let's check out the bit layout for
 </p>
 
 <div class="reg">
-<table class="reg" id="tbl-reg-ie"
-  border=1 frame=void cellpadding=4 >
+<table class="reg" id="tbl-reg-ie" border=1>
 <caption class="reg">
   REG_IE @ <code>0400:0200</code> and REG_IF @ <code>0400:0202</code>
 </caption>
@@ -123,11 +122,7 @@ sender. With that in mind, let's check out the bit layout for
 <br>
 
 <table class="reg-desc">
-  <col class="bits" width=40>
-  <col class="bf" width="8%">
-  <col class="def" width="12%">
-<tr align="left"><th>bits<th>name<th>define<th>description
-<tbody valign="top">
+<tr><th>bits<th>name<th>define<th>description
 <tr class="bg0">
   <td> 0 <td class="rclr0">Vbl
   <td>IRQ_VBLANK
@@ -176,7 +171,6 @@ sender. With that in mind, let's check out the bit layout for
   <td>IRQ_GAMEPAK
   <td><b>Cartridge</b> interrupt. Raised when the cart is removed from 
     the GBA.
-</tbody>
 </table>
 </div>
 
@@ -855,22 +849,23 @@ Today's demo shows a little bit of everything described above:
 <p>
 The controls are as follows:
 </p>
+
+<div class="lblock">
 <table class="controls-container">
-<tbody valign="top">
-<tr>
-  <th>A</th>
-  <td>Toggles between asm switchboard and C direct isr.</td>
-</tr>
-<tr>
-  <th>B</th>
-  <td>Toggles HBlank and VCount priorities.</td>
-</tr>
-<tr>
-  <th>L,R</th>
-  <td>Toggles VCount and HBlank irqs on and off.</td>
-</tr>
-</tbody>
+  <tr>
+    <th>A</th>
+    <td>Toggles between asm switchboard and C direct isr.</td>
+  </tr>
+  <tr>
+    <th>B</th>
+    <td>Toggles HBlank and VCount priorities.</td>
+  </tr>
+  <tr>
+    <th>L, R</th>
+    <td>Toggles VCount and HBlank irqs on and off.</td>
+  </tr>
 </table>
+</div>
 
 <pre class="proglist" id="cd-irq-demo">
 <span class="keyw">#include</span> &lt;stdio.h&gt;

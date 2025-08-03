@@ -922,8 +922,8 @@ into this category too. The rest, <b>r4-r11</b>, are also known as
 
 <div class="lblock">
 <table id="tbl-regnames"
-  border=1 cellpadding=1 >
-<caption class="bottom">
+  border=1 cellpadding=1>
+<caption>
   <b>Table <em>[[ref:tbl-regnames]]</em></b>. Standard and alternative 
   register names. 
 </caption>
@@ -1275,7 +1275,7 @@ both, the conditional affix always comes first.
 
 <div class="cblock">
 <table id="tbl-ins-data" class="frame-group">
-<caption class="bottom">
+<caption>
   <b><em>[[ref:tbl-ins-data]]</em></b>: Data processing instructions.
   Basic format <code>op{cond}{s} Rd, Rn, Op2</code>, 
   <code>cond</code> and <code>s</code> are the optional condition and 
@@ -1284,7 +1284,7 @@ both, the conditional affix always comes first.
 
 <tr>
 <td>
-  <table border=1 cellpadding=2 >
+  <table border=1>
     <tr align="center"><th>opcode		<th>operands	<th> function
     <tr><th colspan=3 align="center">Arithmetic				</tr>
     <tr><td>adc		<td>Rd, Rn, Op2 <td>Rd = Rn + Op2 + C	</tr>
@@ -1304,7 +1304,7 @@ both, the conditional affix always comes first.
 </td>
 <td width=10%>&nbsp;</td>
 <td>
-  <table border=1 cellpadding=2 >
+  <table border=1>
     <tr align="center"><th>opcode		<th>operands	<th> function
     <tr><th colspan=3 align="center">Status ops			</tr>
     <tr><td>cmp		<td>Rn, Op2		<td>Rn - Op2		</tr>
@@ -1475,7 +1475,7 @@ load and store words. Again, the most general form uses two
 registers and an <i>Op2</i>:
 </p>
 
-<table>
+<table class="eq-container">
 <tr>
   <td class="eqnrcell">
   <td class="eqcell">
@@ -1764,7 +1764,7 @@ register (with an optional exclamation mark for <code>Rd</code>
 write-back) and a list of registers between braces.
 </p>
 
-<table>
+<table class="eq-container">
 <tr>
   <td class="eqnrcell">
   <td class="eqcell">
@@ -1835,9 +1835,8 @@ which expand to &lsquo;<code>stmfd sp!,</code>&rsquo; and
 </p>
 
 <div class="lblock">
-<table id="tbl-block"
-  border=1 cellpadding=2 >
-<caption class="bottom">
+<table id="tbl-block" border=1>
+<caption>
   <b>Table <em>[[ref:tbl-block]]</em></b>: Block transfer 
   instructions.
 </caption>
@@ -1923,8 +1922,8 @@ is non-zero, and continue with the next instruction if it isn't.
 
 <div class="lblock">
 <table id="tbl-cnd-afx"
-  border=1 cellpadding=2 >
-<caption class="bottom">
+  border=1>
+<caption>
   <b>Table <em>[[ref:tbl-cnd-afx]]</em></b>: conditional affixes.
 </caption>
 <col span=2 align="center">
@@ -1993,13 +1992,13 @@ for numbers larger thatn the registers.
 
 <div class="lblock">
 <table id="tbl-carry">
-<caption class="bottom">
+<caption>
 <b>Table <em>[[ref:tbl-carry]]</em></b>: 
   carry bit in (unsigned) addition.
 </caption>
 <col width=160>
 <tr valign="bottom"><td>
-  <table class="eqtbl" cellpadding=2 >
+  <table class="eqtbl">
     <tr>
 	  <th>2<sup>31</sup> &nbsp;
 	  <td><code>&nbsp;&nbsp;8000 0000</code>
@@ -2049,12 +2048,12 @@ information to pick the right one.
 
 <div class="lblock">
 <table id="tbl-overflow">
-<caption class="bottom">
+<caption>
 <b>Table <em>[[ref:tbl-overflow]]</em></b>: sign overflow.
 </caption>
 <col width=160>
 <tr valign="bottom"><td>
-  <table class="eqtbl" cellpadding=2 >
+  <table class="eqtbl">
     <tr>
 	  <th>+2<sup>30</sup> &nbsp;
 	  <td><code>4000 0000</code>
@@ -2775,8 +2774,8 @@ it'll just have to wait. I-cycles do not suffer from waitstates.
 <table class="frame-group" width=80%>
 <tr>
 <td><table id="tbl-cycles"
-  border=1 cellpadding=2 >
-<caption class="bottom">
+  border=1>
+<caption>
   <b>Table <em>[[ref:tbl-cycles]]</em></b>: Cycle times for the most 
 important instructions.
 </caption>
@@ -2797,8 +2796,8 @@ important instructions.
 </table></td>
 
 <td><table id="tbl-waits" 
-  border=1 cellpadding=2 >
-<caption class="bottom">
+  border=1>
+<caption>
   <b>Table <em>[[ref:tbl-waits]]</em></b>: Section default timing details. 
   See also 
 <a href="http://nocash.emubase.de/gbatek.htm#memorymap" target="_blank">GBATek memory map</a>.
@@ -2914,8 +2913,7 @@ all <code>add</code> forms.
 </p>
 
 <div class="reg">
-<table class="reg" id="tbl-arm-add"
-  border=1 frame=void cellpadding=2 >
+<table class="reg" id="tbl-arm-add" border=1>
 <caption class="reg">
   <b>Table <em>[[ref:ssec-arm-add]]</em></b>: The <code>add</code> 
   instruction(s)
@@ -2955,80 +2953,72 @@ all <code>add</code> forms.
 </table>
 <br>
 
-<table>
+<table class="reg-desc">
 <caption class="top">
   Top 20 bits for <code>add</code>; denote instruction type, 
   status/conditional flags and destination and first operand 
   registers.
 </caption>
-  <col class="bits" width=40>
-  <col class="bf" width="8%">
-<tr align="left"><th>bits<th>name<th>description
-<tbody valign="top">
-<tr class="bg0">	
+<tr><th>bits<th>name<th>description
+<tr class="bg0">
   <td> C-F <td class="rclr4">Rd
   <td><b>Destination register</b>.
-<tr class="bg1">	
+<tr class="bg1">
   <td> 10-13 <td class="rclr3">Rn
   <td><b>First operand register</b>.
-<tr class="bg0">	
+<tr class="bg0">
   <td> 14 <td class="rclr2">S
   <td> Set <b>Status</b> bits (the <code>-s</code> affix).
-<tr class="bg1">	
+<tr class="bg1">
   <td> 15-18 <td class="rclr1">TB
   <td><b>Instruction-type</b> field. Must be 4 for <code>add</code> .
-<tr class="bg0">	
+<tr class="bg0">
   <td> 19 <td class="rclr2">IF
   <td><b>Immediate flag</b>. The second operand is an immediate value 
     if set, and a (shifted) register if clear.
-<tr class="bg1">	
+<tr class="bg1">
   <td> 1A-1C <td class="rclr1">TA
   <td> Another <b>instruction-type</b> field. Is zero for all data 
     instructions.
-<tr class="bg0">	
+<tr class="bg0">
   <td> 1D-1F <td class="rclr0">cnd
   <td><b>Condition</b> field.
-</tbody>
 </table><br>
 
-<table>
+<table class="reg-desc">
 <caption class="top">
   Lower 12 bits for <code>add</code>; these form the second operand.
 </caption>
-  <col class="bits" width=40>
-  <col class="bf" width="8%">
-<tbody valign="top">
-<tr align="left"><th>bits<th>name<th>description
-<tr class="bg0">	
+<tr><th>bits<th>name<th>description
+<tr class="bg0">
   <td> 0-7 <td class="rclr6">IN
   <td><b>Immediate Number</b> field. The second operand is 
 	<code>IN ror 2*IR</code>.
-<tr class="bg1">	
+<tr class="bg1">
   <td> 8-B <td class="rclr5">IR
   <td><b>Immediate Rotate</b> field. This denotes the 
     rotate-right amount applied to <i>IN</i>.
-<tr class="bg0">	
+<tr class="bg0">
   <td> 0-3 <td class="rclr6">Rm
   <td><b>Second operand</b> register.
-<tr class="bg1">	
+<tr class="bg1">
   <td> 4 <td class="rclr7">SF
   <td><b>Shift-operand flag</b>. If set, the shift is the immediate 
     value in <i>IS</i>; if clear, the shift comes from register 
     <i>Rs</i>.
-<tr class="bg0">	
+<tr class="bg0">
   <td> 5-6 <td class="rclr8">ST
   <td><b>Shift type</b>. 
    <b>0</b>: <code>lsl</code>, <b>1</b>: <code>lsr</code>
    <b>2</b>: <code>asr</code>, <b>3</b>: <code>ror</code>
-<tr class="bg1">	
+<tr class="bg1">
   <td> 7-B <td class="rclr5">IS
   <td><b>Immediate Shift</b> value. Second operand is 
     <code>Rm Op IS</code>.
-<tr class="bg0">	
+<tr class="bg0">
   <td> 8-B <td class="rclr5">Rs
   <td><b>Shift Register</b>. Second operand is 
     <code>Rm Op Rs</code>.
-</tbody>
 </table>
 </div>
 
@@ -3233,8 +3223,8 @@ itself.
   </p>
   <div style="margin:0.5em;">
   <table id="tbl-thumb-mem"
-    border=1 cellpadding=2 >
-  <caption class="bottom">
+    border=1>
+  <caption>
     <b>Table <em>[[ref:tbl-thumb-mem]]</em></b>. THUMB addressing mode 
     availability.
   </caption>

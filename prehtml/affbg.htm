@@ -77,34 +77,31 @@ table <em>[[ref:tbl-bga-size]]</em>.
 <div class="cblock">
 <table class="frame-group">
 <tr><td>
-  <table id="tbl-bg-types"
-    border=1 cellpadding=2 width=128>
+  <table id="tbl-bg-types" border=1 width=128>
   <caption>
     <b>Table <em>[[ref:tbl-bg-types]]</em></b>: video modes and 
 	background type
   </caption>
-  <tbody align="center">
+  <tbody style="text-align: center">
     <tr><th>mode	<th> 0	<th> 1	<th> 2
-    <tr><th>bg0		<td>reg	<td>reg	<td>-
-    <tr><th>bg1		<td>reg	<td>reg	<td>-
-    <tr><th>bg2		<td>reg	<td>aff	<td>aff
-    <tr><th>bg3		<td>reg	<td>-	<td>aff
+    <tr><td><b>bg0</b>		<td>reg	<td>reg	<td>-
+    <tr><td><b>bg1</b>		<td>reg	<td>reg	<td>-
+    <tr><td><b>bg2</b>		<td>reg	<td>aff	<td>aff
+    <tr><td><b>bg3</b>		<td>reg	<td>-	<td>aff
   </tbody>
   </table>
 <td width="10%">
 <td>
-  <table id="tbl-bga-size" 
-    border=1 cellpadding=2 width=144>
-  <caption class="bottom">
+  <table id="tbl-bga-size" border=1 width=144>
+  <caption>
     <b>Table <em>[[ref:tbl-bga-size]]</em></b>: affine bg sizes
   </caption>
-  <col><col class="def"><col><col>
-  <tbody align="center">
+  <tbody style="text-align: center">
     <tr><th>Sz	  </th><th>define         </th><th>(tiles) </th><th>(pixels) </th>
-    <tr><td> 00   </td><td>BG_AFF_16x16   </td><td> 16x16  </td><td> 128x128 </td>
-    <tr><td> 01   </td><td>BG_AFF_32x32   </td><td> 32x32  </td><td> 256x256 </td>
-    <tr><td> 10   </td><td>BG_AFF_64x64   </td><td> 64x64  </td><td> 512x512 </td>
-    <tr><td> 11   </td><td>BG_AFF_128x128 </td><td>128x128 </td><td>1024x1024</td>
+    <tr><td> 00   </td><td><code>BG_AFF_16x16</code>   </td><td> 16x16  </td><td> 128x128 </td>
+    <tr><td> 01   </td><td><code>BG_AFF_32x32</code>   </td><td> 32x32  </td><td> 256x256 </td>
+    <tr><td> 10   </td><td><code>BG_AFF_64x64</code>   </td><td> 64x64  </td><td> 512x512 </td>
+    <tr><td> 11   </td><td><code>BG_AFF_128x128</code> </td><td>128x128 </td><td>1024x1024</td>
   </tbody>
   </table>
 </table>
@@ -128,19 +125,16 @@ You can find their addresses in table <em>[[ref:tbl-aff-regs]]</em>.
 </p>
 
 <div class="lblock">
-<table id="tbl-aff-regs"
-  border=1 cellpadding=2 >
-<caption class="bottom">
+<table id="tbl-aff-regs" class="c1-l c2-c" border=1>
+<caption>
   <b>Table <em>[[ref:tbl-aff-regs]]</em></b>: Affine background 
   register addresses. Note that <i>x</i> is 2 or 3 only!
 </caption>
-<col span=2 align="right">
   <tr><th>Register      <th>length  <th>address
-  <tr><th>REG_BGxCNT    <td>2       <td>0400:0008h + 2&middot;x
-
-  <tr><th>REG_BGxPA-PD  <td>2       <td>0400:0020h + 10h&middot;(x-2)
-  <tr><th>REG_BGxX      <td>4       <td>0400:0028h + 10h&middot;(x-2)
-  <tr><th>REG_BGxY      <td>4       <td>0400:002ch + 10h&middot;(x-2)
+  <tr><td><b>REG_BGxCNT</b>    <td>2       <td>0400:0008h + 2&middot;x
+  <tr><td><b>REG_BGxPA-PD</b>  <td>2       <td>0400:0020h + 10h&middot;(x-2)
+  <tr><td><b>REG_BGxX</b>      <td>4       <td>0400:0028h + 10h&middot;(x-2)
+  <tr><td><b>REG_BGxY</b>      <td>4       <td>0400:002ch + 10h&middot;(x-2)
 </table>
 </div>
 
@@ -260,7 +254,7 @@ To put it mathematically, if we define
 
 <p>where</p>
 
-<table cellpadding=1 >
+<table class="controls-container">
 <tr><th>p	<td>is a point in texture space,
 <tr><th>q	<td>is a point in screen space,
 <tr><th>dx	<td>is the displacement vector
@@ -285,7 +279,7 @@ As it happens, translation goes first:
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-ofs]]</em>)
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 >
+  <table class="eqtbl">
   <col align="right">
   <col align="center">
   <col align="left">
@@ -319,7 +313,7 @@ transformation equation:
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-aff-ofs]]</em>)
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 >
+  <table class="eqtbl">
   <col align="right">
   <col align="center">
   <col align="left">
@@ -534,13 +528,13 @@ list of controls is.
 </p>
 
 <div class="lblock">
-<table class="controls-container" cellpadding=1 >
-<tr><th>D-pad	<td>move map rotation point, <b>p</b><sub>0</sub>
-<tr><th>D-pad + A<td>move screen rotation point, <b>q</b><sub>0</sub>
-<tr><th>L,R		<td>rotate the background.
-<tr><th>B(+Se)	<td>scale up and down.
-<tr><th>St		<td>Toggle wrapping flag.
-<tr><th>St+Se	<td>Reset anchors and <b>P</b>
+<table class="controls-container">
+  <tr><th>D-pad	<td>move map rotation point, <b>p</b><sub>0</sub>
+  <tr><th>D-pad + A<td>move screen rotation point, <b>q</b><sub>0</sub>
+  <tr><th>L,R		<td>rotate the background.
+  <tr><th>B(+Se)	<td>scale up and down.
+  <tr><th>St		<td>Toggle wrapping flag.
+  <tr><th>St+Se	<td>Reset anchors and <b>P</b>
 </table>
 </div>
 

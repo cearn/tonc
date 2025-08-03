@@ -323,9 +323,8 @@ shifts because they give a more consistent result.
 </p>
 
 <div class="cblock">
-<table id="tbl-neg-div"
-  border=1 cellpadding=2 >
-<caption class="bottom">
+<table id="tbl-neg-div" border=1>
+<caption>
   <b>Table <em>[[ref:tbl-neg-div]]</em></b>:
   Division and right-shifts around zero.
 </caption>
@@ -419,7 +418,7 @@ scaling factor, respectively.
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-fix-add]]</em>)
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 >
+  <table class="eqtbl">
   <col align="right">
   <col align="center">
   <col align="left">
@@ -440,7 +439,7 @@ scaling factor, respectively.
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-fix-mul]]</em>)
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 >
+  <table class="eqtbl">
   <col align="right">
   <col align="center">
   <col align="left">
@@ -735,8 +734,8 @@ that's rather monotonous). As you can see 1/7 in hex is
 
 <div class="lblock">
 <table id="tbl-hexfloat"
-  border=1 cellpadding=2 >
-<caption class="bottom">
+  border=1>
+<caption>
   <b>Table <em>[[ref:tbl-hexfloat]]</em></b>: 
   Floating-point representation of 1/7 in base <i>B</i>=16
 </caption>
@@ -762,8 +761,8 @@ the integer part, ignore the (hexi)decimals
 
 <div class="cblock">
 <table id="tbl-rmdiv-bad"
-  border=1 cellpadding=2 >
-<caption class="bottom">
+  border=1>
+<caption>
   <b>Table <em>[[ref:tbl-rmdiv-bad]]</em></b>: 
   <i>x</i>/3, using <i>m</i>= 256\3 = 0x55. Bad at 3, 6, &hellip;
 </caption>
@@ -800,8 +799,8 @@ safe. At least, for a while.
 
 <div class="cblock">
 <table id="tbl-rmdiv-good"
-  border=1 cellpadding=2 >
-<caption class="bottom">
+  border=1>
+<caption>
   <b>Table <em>[[ref:tbl-rmdiv-good]]</em></b>: 
   <i>x</i>/3, using <i>m</i>= (256+2)\3 = 0x56. Still good at 3, 6, &hellip;
 </caption>
@@ -954,7 +953,7 @@ The reciprocal multiplier <i>m</i> is <i>not</i> merely
 In other words:
 </p>
 
-<table>
+<table class="eq-container">
 <tr>
   <td class="fill">
   <td class="eqcell"><i>m</i> = (<i>n</i>+<i>A</i>&minus;1) \ <i>A</i>
@@ -972,7 +971,7 @@ actual numbers for failure may be a bit looser, but depend on the
 circumstances and as such, relations for those would be more complex.
 </p>
 
-<table>
+<table class="eq-container">
 <tr>
   <td rowspan=2 class="fill">
   <td class="eqcell"><i>x</i> &lt; <i>n</i> / 
@@ -996,7 +995,7 @@ There is an alternative method for reciprocal multiplication: instead of
 rounding <i>n</i>/<i>A</i> up, you can also add 1 to <i>x</i> for
 </p>
 
-<table>
+<table class="eq-container">
 <tr>
   <td class="fill">
   <td class="eqcell"><i>y</i> = <i>x</i> \ <i>A</i> 

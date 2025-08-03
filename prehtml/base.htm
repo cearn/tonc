@@ -45,8 +45,7 @@
 
 <!-- std reg table
 <div class="reg">
-<table class="reg" 
-  border=1 frame=void cellpadding=4 >
+<table class="reg" border=1>
 <caption class="reg">
   REG_<em>XXX</em> @ <code>0400:<em>[[0000]]</em>h</code>
 </caption>
@@ -66,23 +65,18 @@
 </table>
 <br>
 
-<table>
-  <col class="bits" width=40>
-  <col class="bf" width="8%">
-  <col class="def" width="12%">
+<table class="reg-desc">
 <tr align="left"><th>bits<th>name<th>define<th>description
-<tbody valign="top">
 <tr>
   <td>0 <td class="rclr0">
   <td>
   <td>
-</tbody>
 </table>
 </div>
 -->
 
 <!-- standard eq&nbsp;table
-<table id="eq-">
+<table id="eq-" class="eq-container">
 <tr>
   <td class="eqnrcell">()
   <td class="eqcell">
@@ -91,11 +85,11 @@
 -->
 
 <!-- multiline eq table
-<table>
+<table class="eq-container">
 <tr>
   <td class="eqnrcell">()
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 >
+  <table class="eqtbl">
   <col align="right">
   <col align="center">
   <col align="left">

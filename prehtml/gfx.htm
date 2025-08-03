@@ -90,8 +90,7 @@ enable mosaic. For individual sprites, set
 </p>
 
 <div class="reg">
-<table class="reg" id="tbl-reg-mosaic"
-  border=1 frame=void cellpadding=4 >
+<table class="reg" id="tbl-reg-mosaic" border=1>
 <caption class="reg">
   REG_MOSAIC @ <code>0400:004Ch</code>
 </caption>
@@ -106,28 +105,23 @@ enable mosaic. For individual sprites, set
 <br>
 
 <table class="reg-desc">
-  <col class="bits" width=40>
-  <col class="bf" width="8%">
-  <col class="def" width="12%">
-<tr align="left"><th>bits<th>name<th>define<th>description
-<tbody valign="top">
+<tr><th>bits<th>name<th>define<th>description
 <tr class="bg0">
   <td>0-3<td class="rclr0">Bh
   <td><i>MOS_BH#</i>
   <td>Horizontal BG stretch.
-<tr class="bg1">	
+<tr class="bg1">
   <td>4-7<td class="rclr1">Bv
   <td><i>MOS_BV#</i>
   <td>Vertical BG stretch.
-<tr class="bg0">	
+<tr class="bg0">
   <td>8-B<td class="rclr2">Oh
   <td><i>MOS_OH#</i>
   <td>Horizontal object stretch.
-<tr class="bg1">	
+<tr class="bg1">
   <td>C-F<td class="rclr3">Ov
   <td><i>MOS_OV#</i>
   <td>Vertical object stretch.
-</tbody>
 </table>
 </div>
 
@@ -389,8 +383,7 @@ levels.
 </p><br>
 
 <div class="reg">
-<table class="reg" id="tbl-reg-bldcnt"
-  border=1 frame=void cellpadding=4 >
+<table class="reg" id="tbl-reg-bldcnt" border=1>
 <caption class="reg">
   REG_BLDCNT (REG_BLDMOD) @ <code>0400:0050h</code>
 </caption>
@@ -416,11 +409,7 @@ levels.
 <br>
 
 <table class="reg-desc">
-  <col class="bits" width=40>
-  <col class="bf" width="8%">
-  <col class="def" width="12%">
-<tr align="left"><th>bits<th>name<th>define<th>description
-<tbody valign="top">
+<tr><th>bits<th>name<th>define<th>description
 <tr class="bg0">
   <td>0-5<td class="rclr0">aBG0-aBD
   <td><i>BLD_TOP#</i>
@@ -447,7 +436,6 @@ levels.
   <td>The B (bottom) layers. Use the B-weights. Note that these 
     layers must actually lie behind the A-layers, or the blend will
     not work.
-</tbody>
 </table>
 </div>
 
@@ -462,8 +450,7 @@ called that; they just are.
 </p>
 
 <div class="reg">
-<table class="reg" id="tbl-reg-bldalpha"
-  border=1 frame=void cellPadding=4 >
+<table class="reg" id="tbl-reg-bldalpha" border=1>
 <caption class="reg">
   REG_BLDALPHA (REG_COLEV) @ <code>0400:0052h</code>
 </caption>
@@ -478,11 +465,7 @@ called that; they just are.
 <br>
 
 <table class="reg-desc">
-  <col class="bits" width=40>
-  <col class="bf" width="8%">
-  <col class="def" width="12%">
-<tr align="left"><th>bits<th>name<th>define<th>description
-<tbody valign="top">
+<tr><th>bits<th>name<th>define<th>description
 <tr class="bg0">
   <td>0-4<td class="rclr0">eva
   <td><i>BLD_EVA#</i>
@@ -491,15 +474,13 @@ called that; they just are.
   <td>8-C<td class="rclr1">evb
   <td><i>BLD_EVB#</i>
   <td><b>Bottom blend weight</b>. Only used for normal blending
-</tbody>
 </table>
 </div>
 
 <br>
 
 <div class="reg">
-<table class="reg" id="tbl-reg-bldy"
-  border=1 frame=void cellpadding=4 >
+<table class="reg" id="tbl-reg-bldy" border=1>
 <caption class="reg">
   REG_BLDY (REG_COLEY) @ <code>0400:0054h</code>
 </caption>
@@ -512,16 +493,11 @@ called that; they just are.
 <br>
 
 <table class="reg-desc">
-  <col class="bits" width=40>
-  <col class="bf" width="8%">
-  <col class="def" width="12%">
-<tr align="left"><th>bits<th>name<th>define<th>description
-<tbody valign="top">
+<tr><th>bits<th>name<th>define<th>description
 <tr class="bg0">
   <td>0-4<td class="rclr2">ey
   <td><i>BLDY#</i>
   <td><b>Top blend fade</b>. Used for white and black fades.
-</tbody>
 </table>
 </div>
 
@@ -735,12 +711,11 @@ top left corner. The controls are:
 
 <div class="lblock">
 <table class="controls-container">
-<col valign="top">
 <tr><th>left, right<td> changes <code>eva</code>. Note that 
 	<code>eva</code> is at maximum initially.
-<tr><th>down,up<td> changes <code>evb</code>.
-<tr><th>B,A<td>Changes <code>ey</code>
-<tr><th>L,R<td>Changes mode.
+<tr><th>down, up<td> changes <code>evb</code>.
+<tr><th>B, A<td>Changes <code>ey</code>
+<tr><th>L, R<td>Changes mode.
 </table>
 </div>
 
@@ -823,8 +798,7 @@ following layout:
 </p>
 
 <div class="reg">
-<table class="reg" id="tbl-reg-winxy"
-  border=1 frame=void cellPadding=4 >
+<table class="reg" id="tbl-reg-winxy" border=1>
 <caption class="reg">
   REG_WINxH and REG_WINxV @ <code>0400:0040-0400:0047h</code>
 </caption>
@@ -843,11 +817,7 @@ following layout:
 <br>
 
 <table class="reg-desc">
-  <col class="bits" width=40>
-  <col class="bf" width=40>
-  <col class="def">
-<tr align="left"><th>bits<th>name<th><th>description
-<tbody valign="top">
+<tr><th>bits<th>name<th>define<th>description
 <tr class="bg0">
   <td>0-7<td class="rclr1">right
   <td>
@@ -865,7 +835,6 @@ following layout:
   <td>8-F<td class="rclr2">top
   <td>
   <td>Top side of window (inclusive)
-</tbody>
 </table>
 </div>
 
@@ -893,8 +862,7 @@ you intend to use blending on the contents of that particular window.
 </p>
 
 <div class="reg">
-<table class="reg" id="tbl-reg-winio"
-  border=1 frame=void cellpadding=4 >
+<table class="reg" id="tbl-reg-winio" border=1>
 <tr class="bits">
     <th>register
 	<td>F E<td>D<td>C<td>B<td>A<td>9<td>8
@@ -926,17 +894,12 @@ you intend to use blending on the contents of that particular window.
 </table><br>
 
 <table class="reg-desc">
-  <col class="bits" width=40>
-  <col class="bf" width="8%">
-  <col class="def" width="12%">
-<tr align="left"><th>bits<th>name<th>define<th>description
-<tbody valign="top">
+<tr><th>bits<th>name<th>define<th>description
 <tr class="bg0">
   <td>0-5<td class="rclr0">BGx, Obj, Bld
   <td>WIN_BGx, WIN_OBJ, WIN_BLD, <i>WIN_LAYER#</i>
   <td><b>Windowing flags</b>. To be used with all bytes in 
     REG_WININ and REG_WINOUT.
-</tbody>
 </table>
 </div>
 
@@ -1049,9 +1012,9 @@ exhibit at certain positions.
 
 <div class="lblock">
 <table class="controls-container">
-<tr><th width="10%">dir<td>Moves the rectangle.
-<tr><th>A + dir<td>Move rectangle by tapping for finer control.
-<tr><th>start<td>Randomly change the position of the rocket.
+  <tr><th>dir<td>Moves the rectangle.
+  <tr><th>A + dir<td>Move rectangle by tapping for finer control.
+  <tr><th>start<td>Randomly change the position of the rocket.
 </table>
 </div>
 

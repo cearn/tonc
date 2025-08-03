@@ -223,7 +223,7 @@ angle &alpha;, which again uses the range [0,&nbsp;0xFFFF] for
   <td class="eqnrcell">(<em>[[ref:eq-pswi]]</em>)
   <td class="eqcell"> <b>P</b> =
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 >
+  <table class="eqtbl">
   <tbody align="center">
   <tr>
     <td class="bdrLL" rowspan=2>&nbsp;
@@ -603,13 +603,15 @@ cosine. I've scaled them in such a way so that they fit nicely
 on the 240x160 screen. The definitions are
 </p>
 
+<div class="lblock">
 <table class="controls-container">
-<tr><td>division	<td><i>y</i>= 2560/<i>x</i>
-<tr><td>square root	<td><i>y</i>= 160*sqrt(<i>x</i>/240)
-<tr><td>arctan  	<td><i>y</i>= 80 + 64*(2/&pi;)*(arctan(<i>x</i>-120)/16))
-<tr><td>sine		<td><i>y</i>=  1*sy*sin(2&pi;&middot;<i>x</i>/240)	<td>; sy= 80
-<tr><td>cosine		<td><i>y</i>= 80*sx*cos(2&pi;&middot;<i>x</i>/240)	<td>; sx= 1
+  <tr><td>division	<td><i>y</i>= 2560/<i>x</i>
+  <tr><td>square root	<td><i>y</i>= 160*sqrt(<i>x</i>/240)
+  <tr><td>arctan  	<td><i>y</i>= 80 + 64*(2/&pi;)*(arctan(<i>x</i>-120)/16))
+  <tr><td>sine		<td><i>y</i>=  1*sy*sin(2&pi;&middot;<i>x</i>/240)	<td>; sy= 80
+  <tr><td>cosine		<td><i>y</i>= 80*sx*cos(2&pi;&middot;<i>x</i>/240)	<td>; sx= 1
 </table>
+</div>
 <p>
 and these functions have been plotted in fig&nbsp;1. If you're wondering
 how I got the sine and cosine values, as there are no calls for those, 

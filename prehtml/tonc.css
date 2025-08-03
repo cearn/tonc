@@ -65,6 +65,10 @@ tt		{ color: #400080; }
 dfn		{ font-style:italic; font-weight:bold; }
 em		{ font-weight:bold; font-style:normal; color:purple; }
 
+.nowrap {
+	white-space: nowrap;
+}
+
 /* === lists === */
 dd		{ margin-left: 1em; margin-bottom: 0.3em; }
 dt		{ font-weight:bold; font-size: 114%; }
@@ -130,7 +134,7 @@ td div.cpt, td div.dpt_fl, td div.cpt_fr {
 
 div.reg			{	margin: 8px auto;	text-align:center;	width: 90%;	}
 div.reg table	{	margin: 1px auto;	text-align:left;	}
-div.reg caption	{	margin: 1px auto;	text-align:left;	}
+div.reg caption	{	margin: 1px auto;	text-align:left; padding-left: 4px;	}
 
 div.cblock			{	margin: 6px auto;	text-align:center;	}
 div.cblock div		{	margin: 2px auto;	text-align:left;	}
@@ -151,7 +155,7 @@ div.cblock div.cpt	{ margin: 0.5em auto; }
 	background: #E0E0E0;
 	border-radius: 4px;
 	box-shadow: 2px 2px 4px #C0C0C0;
-	font: 500 90% "Courier New", monospace; 
+	font: 500 90% monospace; 
 }
 
 
@@ -159,28 +163,46 @@ div.cblock div.cpt	{ margin: 0.5em auto; }
 
 table {
 	border-spacing: 0;
-	td {
+	
+	th, td {
 		padding: 2px;
 	}
 }
 
+table.cp1 { th, td { padding: 1px !important; } }
+
 table.frame-group {
 	border-spacing: 4px;
 
-	td {
+	th, td {
 		vertical-align: top;
 	}
 }
 
+table.eq-container {
+
+}
+
+table.controls-container {
+	th, td {
+		padding: 2px;
+		vertical-align: top;
+	}
+	th:nth-child(1), td:nth-child(1) {
+		text-align: left;
+		white-space: nowrap;
+	}
+}
 
 td.fill, th.fill	{ width: 16px; }
 
 caption {
 	font-size: 80%;
-	text-align:left;
+	text-align: left;
+	
+	caption-side: bottom;
 	margin-left: 1em;
 	margin-top: 1px;
-	caption-side: bottom;
 }
 
 caption.top {
@@ -195,34 +217,99 @@ caption.reg {
 	margin-bottom: 1px;
 }
 
+/* Sigh. Since there's no way to style things by column anymore, I have to resort to this stuff  -_- */
+/* left-align */
+table.c1-l { td:nth-child(1) { text-align: left; } }
+table.c2-l { td:nth-child(2) { text-align: left; } }
+table.c3-l { td:nth-child(3) { text-align: left; } }
+table.c4-l { td:nth-child(4) { text-align: left; } }
+table.c5-l { td:nth-child(5) { text-align: left; } }
+table.c6-l { td:nth-child(6) { text-align: left; } }
+table.c7-l { td:nth-child(7) { text-align: left; } }
+table.c8-l { td:nth-child(8) { text-align: left; } }
+
+/* center align */
+table.c1-c { td:nth-child(1) { text-align: center; } }
+table.c2-c { td:nth-child(2) { text-align: center; } }
+table.c3-c { td:nth-child(3) { text-align: center; } }
+table.c4-c { td:nth-child(4) { text-align: center; } }
+table.c5-c { td:nth-child(5) { text-align: center; } }
+table.c6-c { td:nth-child(6) { text-align: center; } }
+table.c7-c { td:nth-child(7) { text-align: center; } }
+table.c8-c { td:nth-child(8) { text-align: center; } }
+
+/* right-align */
+table.c1-r { td:nth-child(1) { text-align: right; } }
+table.c2-r { td:nth-child(2) { text-align: right; } }
+table.c3-r { td:nth-child(3) { text-align: right; } }
+table.c4-r { td:nth-child(4) { text-align: right; } }
+table.c5-r { td:nth-child(5) { text-align: right; } }
+table.c6-r { td:nth-child(6) { text-align: right; } }
+table.c7-r { td:nth-child(7) { text-align: right; } }
+table.c8-r { td:nth-child(8) { text-align: right; } }
+
+
 /* --- reg table --- */
-table.reg {
-	font: 90% "Courier New", monospace;
+
+table.reg, table.reg-like {
+	font: 90% monospace;
 	background: #E0E0E0; 
 	border: solid #C0C0C0 1px;
 	page-break-inside: avoid;
+
+	td {
+		padding: 4px;
+	}
 }
 
 table.reg-desc {
-		border-spacing: 2px;
+	border-spacing: 2px;
+	th, td {
+		padding-inline: 4px;
+		vertical-align: top;
+	}
+
+	/* bits */
+	td:nth-child(1) {
+		width: 40px;
+		font: 90% monospace;
+		text-align: center;
+		padding-top: 0.4em;	/* to keep baseline aligned */
+	}
+	/* name */
+	td:nth-child(2) {
+		width: 8%; 
+		font-weight: bold;
+	}
+	/* define */
+	td:nth-child(3) {
+		width: 12%;
+		font: 90% monospace;
+		padding-top: 0.4em;	/* to keep baseline aligned */
+	}
+
+	/* Last. Needed to 3-col tables. */
+	td:last-child {
+		width: auto;
+	}
 }
 
 tr.bits, tr.bf, col.bits, col.bf, col.def { text-align:center; }
 
 col.bits, col.bf, col.def {	vertical-align:top; 	}
-tr.bits, col.bits		{	font: 90% "Courier New";	}
+tr.bits, col.bits		{	font: 90% monospace;	}
 tr.bf, col.bf			{	font-weight:bold;			}
-col.def					{	font: 90% "Courier New";	}
+col.def					{	font: 90% monospace;	}
 
-tr.bg0, tr.bg1	
+tr.bg0, tr.bg1
 {
 	border: #C0C0C0 solid 2px;
 /*	opacity: 0.75; filter:alpha(opacity=0);	*/
 }
 tr.bg0		{	background-color: #E0E0E0;			}
-tr.bg1		{	background-color: #C0C0C0;			} 
-tr.bg0 td	{	border-bottom: #C0C0C0 1px solid;	} 
-tr.bg1 td	{	border-bottom: #E0E0E0 1px solid;	} 
+tr.bg1		{	background-color: #C0C0C0;			}
+tr.bg0 td	{	border-bottom: #C0C0C0 1px solid;	}
+tr.bg1 td	{	border-bottom: #E0E0E0 1px solid;	}
 
 
 /* read only, write only */
@@ -244,10 +331,11 @@ tr.bg1 td	{	border-bottom: #E0E0E0 1px solid;	}
 /* --- 'equation tables' --- */
 .eqtbl		{ font-size: 100%;	page-break-inside:avoid;		}
 .eqcell		{ padding: 0.5em 0;	font-size: 115%;					}
-.eqnrcell
-{
-	padding-right: 8px; min-width: 2.5em; 
-	text-align:left; font-weight:bold;
+.eqnrcell {
+	padding-right: 8px; 
+	min-width: 2.5em; 
+	text-align: left; 
+	font-weight:bold;
 }
 
 /* --- header/footer cells --- */

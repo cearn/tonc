@@ -441,8 +441,8 @@ got in front of you.
 
 <div class="cpt_fr" style="width:220px;">
 <table id="tbl-endian"
-  border=1 cellpadding=2 >
-<caption class="bottom">
+  border=1>
+<caption>
   <b>Table <em>[[ref:tbl-endian]]</em></b>: Big endian vs little 
   endian interpretation of byte-sequence 01h, 02h, 03h, 04h
 </caption>
@@ -523,10 +523,9 @@ forget about that and think of bits in memory to walk through from 0 to
 
 <!-- frame -->
 <div class="cblock">
-<div class="cpt" style="width:512px;">
+<div class="cpt" style="width:48em;">
 
-<table id="img-fontpack"
-  border=0 cellpadding=4 >
+<table id="img-fontpack" border=0 cellpadding=4>
   <tbody align="center">
   <tr>
     <th>pixels
@@ -540,7 +539,7 @@ forget about that and think of bits in memory to walk through from 0 to
     <td>
     <img src="../img/font_pack.png" alt="pixels" width=133>
     <td> <!-- bits -->
-    <table class="reg" cellpadding=1 >
+    <table class="reg-like cp1">
       <tr>
         <td class="bdrLL">&nbsp;
         <th> 7 <th> 6 <th> 5 <th> 4 <th> 3 <th> 2 <th> 1 <th> 0
@@ -565,9 +564,7 @@ forget about that and think of bits in memory to walk through from 0 to
         <td> 0 <td> 0 <td> 0 <td> 0 <td> 0 <td> 0 <td> 0 <td> 0
     </table>
     <td> <!-- bytes -->
-    <table cellpadding=1 >
-      <tr>
-        <th colspan=3>&nbsp;
+    <table class="cp1">
       <tr>
         <td class="bdrLL" rowspan=4>&nbsp;
           <td> 0x7E
@@ -584,9 +581,7 @@ forget about that and think of bits in memory to walk through from 0 to
       <tr><td> 0x00
     </table>
     <td> <!-- words -->
-    <table cellpadding=1 >
-      <tr>
-        <th colspan=3>&nbsp;
+    <table class="cp1">
       <tr>
         <td class="bdrLL">&nbsp;
           <td> 0x1E06067E
@@ -1417,13 +1412,13 @@ class="num">112</span>, str, CLR_WHITE);
 Controls:
 </p>
 
+<div class="lblock">
 <table class="controls-container">
-<tbody valign="top">
-<tr><th>D-pad<td>Moves cursor.
-<tr><th>Start<td>Toggles string clearing.
-<tr><th>L, R<td>Decrease or increase mode.
-</tbody>
+  <tr><th>D-pad<td>Moves cursor.
+  <tr><th>Start<td>Toggles string clearing.
+  <tr><th>L, R<td>Decrease or increase mode.
 </table>
+</div>
 
 <p>
 Many things here should be either self explanatory or fairly 
@@ -1734,7 +1729,7 @@ vx= k;
 <span class="keyw">if</span>(x>xmax)  <span 
 class="cmt">// collision</span>
 {
-    <span class="keyw">if</span>(vx*vx > Q2)
+    <span class="keyw">if</span>(vx*vx> Q2)
     {   vx= -Sqrt(vx*vx-Q2); x= <span 
 class="num">2</span>*xmax-x; }
     <span class="keyw">else</span>
@@ -2101,8 +2096,8 @@ We've seen the same thing with the object text.
 <div class="cpt_fr" style="width:200px;">
 <center>
 <table id="tbl-bupshade"
-    cellpadding=2 bgcolor=#E0E0E0>
-<caption class="bottom">
+    bgcolor=#E0E0E0>
+<caption>
   <b>Table <em>[[ref:tbl-bupshade]]</em></b>: 
   bit-unpacking with with base <code>0xEE</code>.
 </caption>
@@ -2450,8 +2445,8 @@ class="num">16</span>)|REG_TM2D;
 
 <div class="lblock">
 <table id="tbl-txt-se2"
-  border=1 cellpadding=2 >
-<caption class="bottom">
+  border=1>
+<caption>
   <b>Table <em>[[ref:tbl-txt-se2]]</em></b>: timing results for hardware, 
   vba and no$gba.
 </caption>

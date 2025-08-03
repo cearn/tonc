@@ -85,8 +85,8 @@ offset of 12 (see table&nbsp;1).
 </p>
 
 <div class="lblock">
-<table id="tbl-dma-regs">
-<caption class="bottom">
+<table id="tbl-dma-regs" border=1>
+<caption>
   <b>Table <em>[[ref:tbl-dma-regs]]</em></b>: DMA register addresses
 </caption>
 <tr><th>reg<th>function<th>address
@@ -109,8 +109,7 @@ one for the actual control bits.
 </p>
 
 <div class="reg">
-<table class="reg" id="tbl-reg-dmaxcnt"
-  border=1 frame=void cellPadding=4 >
+<table class="reg" id="tbl-reg-dmaxcnt" border=1>
 <caption class="reg">
   REG_DMAxCNT @ <code>0400:00B8</code>+12<i>x</i>
 </caption>
@@ -133,11 +132,7 @@ one for the actual control bits.
 <br>
 
 <table class="reg-desc">
-  <col class="bits" width=56>
-  <col class="bf" width="8%">
-  <col class="def" width="12%">
 <tr align="left"><th>bits<th>name<th>define<th>description
-<tbody valign="top">
 <tr class="bg0">
   <td>00-0F<td class="rclr0">N
   <td> 
@@ -192,7 +187,6 @@ one for the actual control bits.
   <td> 1F  <td class="rclr1">En
   <td>DMA_ENABLE
   <td><b>Enable</b> the DMA transfer for this channel.
-</tbody>
 </table>
 </div>
 

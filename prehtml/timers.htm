@@ -98,9 +98,8 @@ on that later. It should be noted that the screen refreshes every
 </p>
 
 <div class="lblock">
-<table id="tbl-tmr-freq" 
-  border=1 cellpadding=2 >
-<caption class="bottom">
+<table id="tbl-tmr-freq" border=1>
+<caption>
   <b>Table <em>[[ref:tbl-tmr-freq]]</em></b>: Timer frequencies
 </caption>
 <col span=4 align="right">
@@ -122,8 +121,8 @@ found in table <em>[[ref:tbl-tmr-reg]]</em>.
 </p>
 
 <div class="lblock">
-<table id="tbl-tmr-reg">
-<caption class="bottom">
+<table id="tbl-tmr-reg" border=1>
+<caption>
   <b>Table <em>[[ref:tbl-tmr-reg]]</em></b>: Timer register addresses
 </caption>
 <tr><th>reg<th>function<th>address
@@ -138,8 +137,7 @@ found in table <em>[[ref:tbl-tmr-reg]]</em>.
   REG_TMxCNT</h3>
 
 <div class="reg">
-<table class="reg" id="tbl-reg-tmxcnt"
-  border=1 frame=void cellpadding=4 >
+<table class="reg" id="tbl-reg-tmxcnt" border=1>
 <caption class="reg">
   REG_TMxCNT @ <code>0400:0102</code> + 4<i>x</i>
 </caption>
@@ -154,12 +152,8 @@ found in table <em>[[ref:tbl-tmr-reg]]</em>.
   <td class="rclr2">Fr
 </table>
 
-<table>
-  <col class="bits" width=40>
-  <col class="bf" width="8%">
-  <col class="def" width="12%">
-<tr align="left"><th>bits<th>name<th>define<th>description
-<tbody valign="top">
+<table class="reg-desc">
+<tr><th>bits<th>name<th>define<th>description
 <tr class="bg0">
   <td>0-1<td class="rclr2">Fr
   <td>TM_FREQ_y
@@ -184,7 +178,6 @@ found in table <em>[[ref:tbl-tmr-reg]]</em>.
   <td> 7 <td class="rclr0">En
   <td>TM_ENABLE
   <td>Enable the timer.
-</tbody>
 </table>
 </div>
 
@@ -362,7 +355,7 @@ This was a rather simple use of timers. Of course, I could have just
 as easily used the VBlank to keep track of the seconds, which is how 
 it's usually done anyway. The hardware timers are usually reserved 
 for timed DMA's, which are used in 
-<a href="http://deku.gbadev.org" >sound mixers</a>, not for game timers. 
+<a href="http://deku.gbadev.org">sound mixers</a>, not for game timers. 
 There is one other use that comes to mind, though, namely
 profiling: examining how fast your functions are. One of the 
 <a href="text.htm#ssec-demo-se2">text system demos</a> uses that 

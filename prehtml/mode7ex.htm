@@ -90,8 +90,7 @@ time here.
 </p>
 
 <div class="cblock">
-<table class="bdr" id="img-m7-ex"
-  cellpadding=2 >
+<table class="bdr" id="img-m7-ex">
 <tbody align="center">
 <tr>
 <td><img src="../img/mode7/m7_ex_00.png" alt="full mode 7"></td>
@@ -121,13 +120,12 @@ The basic controls are as follows:
 </p>
 
 <div class="lblock">
-<table class="controls-container" cellpadding=2 >
-<col span=2 align="left" valign="top">
-<tr><th>D-pad	<td>Looking
-<tr><th>A/B		<td>Back/forward
-<tr><th>L/R		<td>Strafing
-<tr><th>Select+A/B	<td>Float up/down
-<tr><th>Start	<td>Menu
+<table class="controls-container">
+  <tr><th>D-pad	<td>Looking
+  <tr><th>A/B		<td>Back/forward
+  <tr><th>L/R		<td>Strafing
+  <tr><th>Select+A/B	<td>Float up/down
+  <tr><th>Start	<td>Menu
 </table>
 </div>
 
@@ -215,7 +213,7 @@ where
 </p>
 
 <div class="lblock">
-<table cellpadding=0>
+<table>
 <tr>
   <td><b>x</b><sub>i</sub>
   <td>the coordinate vector in system <i>S</i><sub>i</sub>;
@@ -334,7 +332,7 @@ following rotation matrices:
   <td class="eqcell">
     <b>R</b><sub>x</sub>(&theta;) =
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 >
+  <table class="eqtbl">
   <tbody align="center">
     <tr>
       <td class="bdrLL" rowspan=3>&ensp;
@@ -360,7 +358,7 @@ following rotation matrices:
   <td class="eqcell">
     <b>R</b><sub>y</sub>(&phi;) =
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 >
+  <table class="eqtbl">
   <tbody align="center">
     <tr>
       <td class="bdrLL" rowspan=3>&ensp;
@@ -403,7 +401,7 @@ camera matrix then becomes:
     <b>R</b><sub>y</sub>(&phi;) 
 	&middot; <b>R</b><sub>x</sub>(&theta;) =
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 >
+  <table class="eqtbl">
   <tbody align="center">
     <tr>
       <td class="bdrLL" rowspan=3>&ensp;
@@ -666,7 +664,7 @@ repeat the most important things. First, the main equations we need are:
 <p>where</p>
 
 <div class="lblock">
-<table cellpadding=0>
+<table>
 <tr><td width="8%"><b>x</b><sub>w</sub>
   <td>coordinates in world space;
 <tr><td><b>x</b><sub>p</sub>
@@ -765,7 +763,7 @@ rearrange the terms to get
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-horz-line]]</em>a)
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 >
+  <table class="eqtbl">
   <col align="right">
   <col align="center">
   <col align="left">
@@ -914,7 +912,7 @@ eq&nbsp;<em>[[ref:eq-fov-cam]]</em>. If all is right we should have
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-fov]]</em>)
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 >
+  <table class="eqtbl">
   <col align="right">
   <col align="center">
   <col align="left">
@@ -981,7 +979,7 @@ north. The final position of the backdrop is given in
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-bd-pos]]</em>)
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 >
+  <table class="eqtbl">
   <col align="right">
   <col align="center">
   <col align="left">
@@ -1018,7 +1016,7 @@ equations you need to solve, and hints on how to do that.
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-m7-set]]</em>)
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 >
+  <table class="eqtbl">
   <col align="right">
   <col align="center">
   <col align="left">
@@ -1180,7 +1178,7 @@ well enough.
 
 <div class="cblock">
 <table class="bdr" id="img-fog"
-  cellpadding=2 cellspacing=2>
+  cellspacing=2>
 <tr>
 <td> <img src="../img/mode7/fog_off.png" alt="fog off"> </td>
 <td> <img src="../img/mode7/fog_on.png" alt="fog on"> </td>
@@ -1266,9 +1264,7 @@ what I call object <b>normalization</b>: applying an extra scaling for
 objects so that they don't grow too big for their clipping rectangle.
 </p>
 
-<table id="img-m7-obj"
-  class="bdr" style="width:512px; margin:10px auto;"
-  cellpadding=2 >
+<table id="img-m7-obj" class="bdr" style="width:512px; margin:10px auto;">
 <tr>
   <td><img src="../img/mode7/obj_back.png" alt="normal view"></td>
   <td><img src="../img/mode7/obj_down.png" alt="looking down"></td>
@@ -1308,7 +1304,7 @@ That leads us to the following equations:
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-obj-w2s]]</em>)
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 >
+  <table class="eqtbl">
   <col align="right">
   <col align="center">
   <col align="left">
@@ -1337,7 +1333,7 @@ using <b>C</b>&nbsp;=&nbsp;[<b>u&nbsp;v&nbsp;w</b>], we find
 <tr>
   <td class="eqfill">&nbsp;
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 >
+  <table class="eqtbl">
   <col align="right">
   <col align="center">
   <col align="left">
@@ -1387,7 +1383,7 @@ objects.
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-anchor]]</em>)
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 >
+  <table class="eqtbl">
   <col align="right">
   <col align="center">
   <col align="left">
@@ -1465,9 +1461,8 @@ following rests to perform:
 </p>
 
 <div class="lblock">
-<table id="tbl-culltest"
-  border=1 cellpadding=2 >
-<caption class="bottom">
+<table id="tbl-culltest" border=1>
+<caption>
   <b>Table <em>[[ref:tbl-culltest]]</em></b>:
   Object rect and culling tests in camera space. Note the signs!
 </caption>
@@ -1546,7 +1541,7 @@ In other words:
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-psi]]</em>) </td>
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 >
+  <table class="eqtbl">
   <col align="right">
   <col align="center">
   <col align="left">
@@ -1606,9 +1601,7 @@ disconcerting. In the picture on the right, everything looks okay
 again, because steps were taken to ensure the correct object order.
 </p>
 
-<table id="img-obj-sort"
-  class="bdr" style="width:512px; margin:10px auto;"
-  cellpadding=2 cellspacing=2>
+<table id="img-obj-sort" class="bdr" style="width:512px; margin:10px auto;">
 <tr>
   <td><img src="../img/mode7/order_dflt.png" alt="default order"></td>
   <td><img src="../img/mode7/order_nosort.png" alt="non-sorted"></td>
@@ -1721,9 +1714,7 @@ I'd like to hear it.
 </p>
 
 <div class="cblock">
-<table id="img-obj-norm"
-  class="bdr" width=512
-  cellpadding=4 >
+<table id="img-obj-norm" class="bdr" width=512>
 <tr>
   <td><img src="../img/mode7/norm_1x.png" alt="norm 1x"></td>
   <td><img src="../img/mode7/norm_2x.png" alt="norm 2x"></td>
@@ -2854,9 +2845,8 @@ Experiment with them and see what you like.
 </p>
 
 <div class="cblock">
-<table id="tbl-motion"
-  border=1 cellpadding=2 >
-<caption class="bottom">
+<table id="tbl-motion" border=1>
+<caption>
   <b>Table <em>[[ref:tbl-motion]]</em></b>: 
   Movement methods and their associated transformations to world-space.
   New position of an object is given by 
