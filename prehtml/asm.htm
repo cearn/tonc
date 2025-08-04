@@ -1281,44 +1281,44 @@ both, the conditional affix always comes first.
 </caption>
 
 <tr>
-<td>
-  <table class="border-std">
-    <tr align="center"><th>opcode		<th>operands	<th> function
-    <tr><th colspan=3 align="center">Arithmetic				</tr>
-    <tr><td>adc		<td>Rd, Rn, Op2 <td>Rd = Rn + Op2 + C	</tr>
-    <tr><td>add		<td>Rd, Rn, Op2 <td>Rd = Rn + Op2		</tr>
-    <tr><td>rsb		<td>Rd, Rn, Op2 <td>Rd = Op2 - Rn		</tr>
-    <tr><td>rsc		<td>Rd, Rn, Op2 <td>Rd = Op2 - Rn - !C	</tr>
-    <tr><td>sbc		<td>Rd, Rn, Op2 <td>Rd = Rn - Op2 - !C	</tr>
-    <tr><td>sub		<td>Rd, Rn, Op2 <td>Rd = Rn - Op2		</tr>
-    <tr><th colspan=3 align="center">Logical ops				</tr>
-    <tr><td>and		<td>Rd, Rn, Op2 <td>Rd = Rn &amp; Op2	</tr>
-    <tr><td>bic		<td>Rd, Rn, Op2 <td>Rd = Rn &amp;~ Op2	</tr>
-    <tr><td>eor		<td>Rd, Rn, Op2 <td>Rd = Rn ^ Op2		</tr>
-    <tr><td>mov		<td>Rd, Op2		<td>Rd = Op2			</tr>
-    <tr><td>mvn		<td>Rd, Op2		<td>Rd = ~Op2			</tr>
-    <tr><td>orr		<td>Rd, Rn, Op2 <td>Rd = Rn | Op2		</tr>
-  </table>
-</td>
-<td width=10%>&nbsp;</td>
-<td>
-  <table class="border-std">
-    <tr align="center"><th>opcode		<th>operands	<th> function
-    <tr><th colspan=3 align="center">Status ops			</tr>
-    <tr><td>cmp		<td>Rn, Op2		<td>Rn - Op2		</tr>
-    <tr><td>cmn		<td>Rn, Op2		<td>Rn + Op2		</tr>
-    <tr><td>teq		<td>Rn, Op2		<td>Rn ^ Op2	</tr>
-    <tr><td>tst		<td>Rn, Op2		<td>Rn &amp; Op2		</tr>
+  <td>
+    <table class="border-std">
+      <tr align="center"><th>opcode		<th>operands	<th> function
+      <tr><th colspan=3 align="center">Arithmetic				</tr>
+      <tr><td>adc		<td>Rd, Rn, Op2 <td>Rd = Rn + Op2 + C	</tr>
+      <tr><td>add		<td>Rd, Rn, Op2 <td>Rd = Rn + Op2		</tr>
+      <tr><td>rsb		<td>Rd, Rn, Op2 <td>Rd = Op2 - Rn		</tr>
+      <tr><td>rsc		<td>Rd, Rn, Op2 <td>Rd = Op2 - Rn - !C	</tr>
+      <tr><td>sbc		<td>Rd, Rn, Op2 <td>Rd = Rn - Op2 - !C	</tr>
+      <tr><td>sub		<td>Rd, Rn, Op2 <td>Rd = Rn - Op2		</tr>
+      <tr><th colspan=3 align="center">Logical ops				</tr>
+      <tr><td>and		<td>Rd, Rn, Op2 <td>Rd = Rn &amp; Op2	</tr>
+      <tr><td>bic		<td>Rd, Rn, Op2 <td>Rd = Rn &amp;~ Op2	</tr>
+      <tr><td>eor		<td>Rd, Rn, Op2 <td>Rd = Rn ^ Op2		</tr>
+      <tr><td>mov		<td>Rd, Op2		<td>Rd = Op2			</tr>
+      <tr><td>mvn		<td>Rd, Op2		<td>Rd = ~Op2			</tr>
+      <tr><td>orr		<td>Rd, Rn, Op2 <td>Rd = Rn | Op2		</tr>
+    </table>
+  </td>
+  <td width=10%>&nbsp;</td>
+  <td>
+    <table class="border-std">
+      <tr align="center"><th>opcode		<th>operands	<th> function
+      <tr><th colspan=3 align="center">Status ops			</tr>
+      <tr><td>cmp		<td>Rn, Op2		<td>Rn - Op2		</tr>
+      <tr><td>cmn		<td>Rn, Op2		<td>Rn + Op2		</tr>
+      <tr><td>teq		<td>Rn, Op2		<td>Rn ^ Op2	</tr>
+      <tr><td>tst		<td>Rn, Op2		<td>Rn &amp; Op2		</tr>
 
-    <tr><th colspan=3 align="center">Multiplies			</tr>
-    <tr><td>mla		<td>Rd, Rm, Rs, Rn		<td>Rd = Rm * Rs + Rn	</tr>
-    <tr><td>mul		<td>Rd, Rm, Rs			<td>Rd = Rm * Rs		</tr>
-    <tr><td>smlal	<td>RdLo, RdHi, Rm, Rs	<td>RdHiLo += Rm * Rs	</tr>
-    <tr><td>smull	<td>RdLo, RdHi, Rm, Rs	<td>RdHiLo = Rm * Rs	</tr>
-    <tr><td>umlal	<td>RdLo, RdHi, Rm, Rs	<td>RdHiLo += Rm * Rs	</tr>
-    <tr><td>umull	<td>RdLo, RdHi, Rm, Rs	<td>RdHiLo = Rm * Rs	</tr>
-  </table>
-</td>
+      <tr><th colspan=3 align="center">Multiplies			</tr>
+      <tr><td>mla		<td>Rd, Rm, Rs, Rn		<td>Rd = Rm * Rs + Rn	</tr>
+      <tr><td>mul		<td>Rd, Rm, Rs			<td>Rd = Rm * Rs		</tr>
+      <tr><td>smlal	<td>RdLo, RdHi, Rm, Rs	<td>RdHiLo += Rm * Rs	</tr>
+      <tr><td>smull	<td>RdLo, RdHi, Rm, Rs	<td>RdHiLo = Rm * Rs	</tr>
+      <tr><td>umlal	<td>RdLo, RdHi, Rm, Rs	<td>RdHiLo += Rm * Rs	</tr>
+      <tr><td>umull	<td>RdLo, RdHi, Rm, Rs	<td>RdHiLo = Rm * Rs	</tr>
+    </table>
+  </td>
 </tr>
 </table>
 </div>
@@ -2001,7 +2001,7 @@ for numbers larger thatn the registers.
       <tr>
       <td class="bdrB"><b>2<sup>31</sup></b> &nbsp;
       <td class="bdrB"><code>&nbsp;&nbsp;8000 0000</code>
-      <td clas="bdrB"> +
+      <td class="bdrB"> +
       <tr>
       <td><b>2<sup>32</sup></b></td>
       <td><code><b>1</b> 0000 0000</code>
@@ -2771,47 +2771,49 @@ it'll just have to wait. I-cycles do not suffer from waitstates.
 <div class="cblock">
 <table class="frame-group" width=80%>
 <tr>
-<td><table id="tbl-cycles" class="border-std">
-<caption>
-  <b>Table <em>[[ref:tbl-cycles]]</em></b>: Cycle times for the most 
-important instructions.
-</caption>
-  <tr> <th>Instruction</th> <th>Cycles</th> </tr>
-  <tr> <td>Data</td> <td>1S</td> </tr>
-  <tr> <td>ldr(type)</td>   <td>1N + 1N<sub>d</sub> + 1I</td> </tr>
-  <tr> <td>str(type)</td>   <td>1N + 1N<sub>d</sub></td></tr>
-  <tr> <td>ldm {<i>n</i>}</td> 
-    <td>1N + 1N<sub>d</sub> + (<i>n</i>-1)S<sub>d</sub>+ 1I</td> </tr>
-  <tr> <td>stm {<i>n</i>}</td> 
-    <td>1N + 1N<sub>d</sub> + (<i>n</i>-1)S<sub>d</sub></td> </tr>
-  <tr> <td>b/bl/bx/swi</td> <td>2S + 1N</td></tr>
-  <tr> <td>THUMB bl</td> <td>3S + 1N</td></tr>
-  <tr> <td>mul</td> <td>1S + <i>m</i>I</td></tr>
-  <tr> <td>mla/mull</td> <td>1S + (<i>m</i>+1)I</td></tr>
-  <tr> <td>mlal</td> <td>1S + (<i>m</i>+2)I</td></tr>
-
-</table></td>
-
-<td><table id="tbl-waits" class="border-std">
-<caption>
-  <b>Table <em>[[ref:tbl-waits]]</em></b>: Section default timing details. 
-  See also 
-<a href="http://nocash.emubase.de/gbatek.htm#memorymap" target="_blank">GBATek memory map</a>.
-</caption>
-<col>
-<col span=3 align="center">
-<tbody align="center">
-  <tr> <th>Section</th> <th>Bus</th> <th>Wait (N/S)</th> <th>Access 8/16/32</tr>
-  <tr> <th>BIOS </th> <td>32</td> <td>0/0</td> <td>1/1/1</td> </tr>
-  <tr> <th>EWRAM</th> <td>16</td> <td>2/2</td> <td>3/3/6</td> </tr>
-  <tr> <th>IWRAM</th> <td>32</td> <td>0/0</td> <td>1/1/1</td> </tr>
-  <tr> <th>IO   </th> <td>32</td> <td>0/0</td> <td>1/1/1</td> </tr>
-  <tr> <th>PAL  </th> <td>16</td> <td>0/0</td> <td>1/1/2</td> </tr>
-  <tr> <th>VRAM </th> <td>16</td> <td>0/0</td> <td>1/1/2</td> </tr>
-  <tr> <th>OAM  </th> <td>32</td> <td>0/0</td> <td>1/1/1</td> </tr>
-  <tr> <th>ROM  </th> <td>16</td> <td>4/2</td> <td>5/5/8</td> </tr>
-</tbody>
-</table></td>
+  <td>
+    <table id="tbl-cycles" class="border-std">
+    <caption>
+      <b>Table <em>[[ref:tbl-cycles]]</em></b>: Cycle times for the most 
+    important instructions.
+    </caption>
+      <tr> <th>Instruction</th> <th>Cycles</th> </tr>
+      <tr> <td>Data</td> <td>1S</td> </tr>
+      <tr> <td>ldr(type)</td>   <td>1N + 1N<sub>d</sub> + 1I</td> </tr>
+      <tr> <td>str(type)</td>   <td>1N + 1N<sub>d</sub></td></tr>
+      <tr> <td>ldm {<i>n</i>}</td> 
+        <td>1N + 1N<sub>d</sub> + (<i>n</i>-1)S<sub>d</sub>+ 1I</td> </tr>
+      <tr> <td>stm {<i>n</i>}</td> 
+        <td>1N + 1N<sub>d</sub> + (<i>n</i>-1)S<sub>d</sub></td> </tr>
+      <tr> <td>b/bl/bx/swi</td> <td>2S + 1N</td></tr>
+      <tr> <td>THUMB bl</td> <td>3S + 1N</td></tr>
+      <tr> <td>mul</td> <td>1S + <i>m</i>I</td></tr>
+      <tr> <td>mla/mull</td> <td>1S + (<i>m</i>+1)I</td></tr>
+      <tr> <td>mlal</td> <td>1S + (<i>m</i>+2)I</td></tr>
+    </table>
+  </td>
+  <td>
+    <table id="tbl-waits" class="border-std">
+    <caption>
+      <b>Table <em>[[ref:tbl-waits]]</em></b>: Section default timing details. 
+      See also 
+    <a href="http://nocash.emubase.de/gbatek.htm#memorymap" target="_blank">GBATek memory map</a>.
+    </caption>
+    <col>
+    <col span=3 align="center">
+    <tbody align="center">
+      <tr> <th>Section</th> <th>Bus</th> <th>Wait (N/S)</th> <th>Access 8/16/32</tr>
+      <tr> <th>BIOS </th> <td>32</td> <td>0/0</td> <td>1/1/1</td> </tr>
+      <tr> <th>EWRAM</th> <td>16</td> <td>2/2</td> <td>3/3/6</td> </tr>
+      <tr> <th>IWRAM</th> <td>32</td> <td>0/0</td> <td>1/1/1</td> </tr>
+      <tr> <th>IO   </th> <td>32</td> <td>0/0</td> <td>1/1/1</td> </tr>
+      <tr> <th>PAL  </th> <td>16</td> <td>0/0</td> <td>1/1/2</td> </tr>
+      <tr> <th>VRAM </th> <td>16</td> <td>0/0</td> <td>1/1/2</td> </tr>
+      <tr> <th>OAM  </th> <td>32</td> <td>0/0</td> <td>1/1/1</td> </tr>
+      <tr> <th>ROM  </th> <td>16</td> <td>4/2</td> <td>5/5/8</td> </tr>
+    </tbody>
+    </table>
+  </td>
 </table>
 </div>
 

@@ -162,7 +162,7 @@ nothing shows up, it's possible you filled the wrong palette.
 </p>
 
 <div class="lblock">
-<table id="tbl-obj-tids" class="border-std" cellpadding=1>
+<table id="tbl-obj-tids" class="border-std">
 <caption>
   <b>Table <em>[[ref:tbl-obj-tids]]</em></b>: tile counting for sprites, 
   always per 32 bytes. (You can use odd numbers for 8bpp tiles, but 
@@ -368,7 +368,13 @@ and will save <a href="affobj.htm">affine sprites</a> for later.
   memory interlace of OBJ_ATTR and 
   OBJ_AFFINE structures.
  </caption>
-<tr align="left"><th>mem (u16)<th>0<th>3<th>4<th>7<th>8<th>b<th>c<th>f
+<colgroup span=1></colgroup>
+<colgroup span=2 style="background-color:#B0B0B0;"></colgroup>
+<colgroup span=2 style="background-color:#D0D0D0;"></colgroup>
+<colgroup span=2 style="background-color:#B0B0B0;"></colgroup>
+<colgroup span=2 style="background-color:#D0D0D0;"></colgroup>
+
+<tr class="align-l"><th>mem (u16)<th>0<th>3<th>4<th>7<th>8<th>b<th>c<th>f
 <tr><th>OBJ_ATTR
   <td>0 1 2<td>&nbsp;<td>0 1 2<td>&nbsp;
   <td>0 1 2<td>&nbsp;<td>0 1 2<td>&nbsp;
@@ -863,11 +869,10 @@ you screw around with various OBJ_ATTR bits like position and flipping
 flags. The controls are as follows:
 </p>
 
-<table>
-<tbody valign="top">
+<table class="controls-container">
 <tr><th>D-pad<td>Moves the sprite. Note that if you move far enough 
   off-screen, it'll come up on the other side. 
-<tr><th>A,B<td>Flips the sprite horizontally or vertically, 
+<tr><th>A, B<td>Flips the sprite horizontally or vertically, 
   respectively.
 <tr><th>Select<td>Make it glow. Well, makes it palette-swap, 
   actually. Handy for damage-flashing.
@@ -876,10 +881,8 @@ flags. The controls are as follows:
   should explain what happens. Since the sprite is in 1D mode,
   there's really not much to see when you switch to 2D mapping, but I 
   had a few buttons to spare, so I thought why not.
-
-<tr><th>L,R<td>Decreases or increase the starting tile, respectively. 
+<tr><th>L, R<td>Decreases or increase the starting tile, respectively. 
   Again, I had a few keys to spare. 
-</tbody>
 </table>
 
 <pre class="proglist">
