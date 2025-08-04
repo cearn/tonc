@@ -1,0 +1,45 @@
+{
+	"autoref": {
+		"srcdir": "../prehtml",
+		"dstdir": "../text",
+		"files": [
+			{ "fname": "bitmaps.htm", "ch": "5" }
+		],
+		"files2": [
+			{ "fname": "portal.htm", "ignore": true },
+			{ "fname": "toc.htm", "ch": "i" },
+			{ "fname": "intro.htm" },
+			{ "fname": "hardware.htm", "ch": "1" },
+			{ "fname": "setup.htm" },
+			{ "fname": "first.htm" },
+			{ "fname": "video.htm" },
+			{ "fname": "bitmaps.htm" },
+			{ "fname": "keys.htm" },
+			{ "fname": "objbg.htm" },
+			{ "fname": "regobj.htm" },
+			{ "fname": "regbg.htm" },
+			{ "fname": "affine.htm" },
+			{ "fname": "affobj.htm" },
+			{ "fname": "affbg.htm" },
+			{ "fname": "gfx.htm" },
+			{ "fname": "dma.htm" },
+			{ "fname": "timers.htm" },
+			{ "fname": "interrupts.htm" },
+			{ "fname": "swi.htm" },
+			{ "fname": "sndsqr.htm" },
+			{ "fname": "text.htm" },
+			{ "fname": "mode7.htm" },
+			{ "fname": "mode7ex.htm" },
+			{ "fname": "tte.htm" },
+			{ "fname": "asm.htm" },
+			{ "fname": "lab.htm" },
+			{ "fname": "numbers.htm", "ch": "A" },
+			{ "fname": "fixed.htm" },
+			{ "fname": "matrix.htm" },
+			{ "fname": "makefile.htm" },
+			{ "fname": "edmake.htm" },
+			{ "fname": "refs.htm" },
+			{ "fname": "log.htm" }
+		]
+	}
+}
