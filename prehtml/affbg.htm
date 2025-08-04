@@ -77,7 +77,7 @@ table <em>[[ref:tbl-bga-size]]</em>.
 <div class="cblock">
 <table class="frame-group">
 <tr><td>
-  <table id="tbl-bg-types" border=1 width=128>
+  <table id="tbl-bg-types" class="border-std" width=128>
   <caption>
     <b>Table <em>[[ref:tbl-bg-types]]</em></b>: video modes and 
 	background type
@@ -92,7 +92,7 @@ table <em>[[ref:tbl-bga-size]]</em>.
   </table>
 <td width="10%">
 <td>
-  <table id="tbl-bga-size" border=1 width=144>
+  <table id="tbl-bga-size" class="border-std" width=144>
   <caption>
     <b>Table <em>[[ref:tbl-bga-size]]</em></b>: affine bg sizes
   </caption>
@@ -125,12 +125,12 @@ You can find their addresses in table <em>[[ref:tbl-aff-regs]]</em>.
 </p>
 
 <div class="lblock">
-<table id="tbl-aff-regs" class="c1-l c2-c" border=1>
+<table id="tbl-aff-regs" class="border-std c1-l c2-c">
 <caption>
   <b>Table <em>[[ref:tbl-aff-regs]]</em></b>: Affine background 
   register addresses. Note that <i>x</i> is 2 or 3 only!
 </caption>
-  <tr><th>Register      <th>length  <th>address
+  <tr><th>register             <th>length  <th>address
   <tr><td><b>REG_BGxCNT</b>    <td>2       <td>0400:0008h + 2&middot;x
   <tr><td><b>REG_BGxPA-PD</b>  <td>2       <td>0400:0020h + 10h&middot;(x-2)
   <tr><td><b>REG_BGxX</b>      <td>4       <td>0400:0028h + 10h&middot;(x-2)

@@ -244,10 +244,9 @@ of course, we need the powers of two themselves. The first 11 are:
 </p>
 
 <div class="lblock">
-<table id="tbl-pot" border=1>
+<table id="tbl-pot" class="border-std align-r">
 <caption><b>Table <em>[[ref:[tbl-pot]]</em></b>: powers of two</caption>
-<col span=3 align="right">
-<tr align="center"><th>exponent<th>binary<th>decimal
+<tr class="align-c"><th>exponent<th>binary<th>decimal
 <tr><td> 0 <td>1			<td>1
 <tr><td> 1 <td>10			<td>2
 <tr><td> 2 <td>100			<td>4
@@ -311,15 +310,8 @@ will fit on your floppy disk or not.
 <h3 id="ssec-num-hex"><em>[[ref:ssec-num-hex]]</em>
   base-16, hexadecimal</h3>
 
-<div class="cpt_fr" style="width:160px">
-<p>
-<b>Table <em>[[ref:tbl-count]]</em></b>: counting to twenty in decimal, binary, hex and octal. 
-Note the alternating sequences in the binary column.
-</p>
-
-<div class="cblock">
-<table id="tbl-count" border=1 rules=cols>
-<col span=4 align="right">
+<div class="cpt_fr" style="width:160px;">
+<table id="tbl-count" class="align-r" border=1 rules=cols>
 <tr><th> dec	<th> bin	<th> hex	<th> oct
 <tr><td>   0	<td>    0	<td>   0    <td>   0
 <tr><td>   1	<td>    1	<td>   1    <td>   1
@@ -343,7 +335,11 @@ Note the alternating sequences in the binary column.
 <tr><td>  19	<td>10011	<td>  13    <td>  23
 <tr><td>  20	<td>10100	<td>  14    <td>  24
 </table>
-</div>
+<p>
+<b>Table <em>[[ref:tbl-count]]</em></b>: counting to twenty in decimal, binary, hex and octal. 
+Note the alternating sequences in the binary column.
+</p>
+
 </div>
 
 <p>
@@ -433,9 +429,9 @@ hexadecimal. I've also given the multiplication tables for convenience.
 </p>
 
 <div class="cblock">
-<table id="tbl-multiply">
+<table id="tbl-multiply" class="frame-group">
 <tr><td>
-  <table border=1>
+  <table class="border-std">
   <caption><b>Table <em>[[ref:tbl-multiply]]</em>a</b>: decimal multiplication table</caption>
   <col span=11 align="right">
   <tr><th> x
@@ -474,7 +470,7 @@ hexadecimal. I've also given the multiplication tables for convenience.
   </table>
 
 <td width=64><td>
-  <table border=1>
+  <table class="border-std">
   <caption><b>Table <em>[[ref:tbl-multiply]]</em>b</b>: hex multiplication table</caption>
   <col span=17 align="right">
   <tr><th> x
@@ -536,9 +532,8 @@ hexadecimal. I've also given the multiplication tables for convenience.
 <table>
 <tr>
   <td>
-  <table border=1>
+  <table class="align-r border-std">
   <caption>123 &times; 456, base ten</caption>
-  <col span=5 align="right">
   <tr><td>&times; <th> 100  <th>   20 <th>    3	<th> sum
   <tr><th> 400    <td>40000 <td> 8000 <td> 1200 <td> 49200
   <tr><th>  50    <td> 5000 <td> 1000 <td>  150 <td>  6150
@@ -546,11 +541,10 @@ hexadecimal. I've also given the multiplication tables for convenience.
   <tr><th colspan=4>Result                      <th> 56088
   </table>
 
-  <td width=32>
+  <td width="32">
   <td>
-  <table border=1>
+  <table class="align-r border-std">
   <caption>123 &times; 456, base 16</caption>
-  <col span=5 align="right">
   <tr><td>&times; <th> 100  <th>   20 <th>    3	<th> sum
   <tr><th> 400    <td>40000 <td> 8000 <td>  C00 <td> 48C00
   <tr><th>  50    <td> 5000 <td>  A00 <td>   F0 <td>  5AF0
@@ -600,7 +594,7 @@ example, &pi; can be broken down like this:
 </p>
 
 <div class="lblock">
-<table border=1>
+<table class="border-std">
 <col span=9 width=32>
 <tr align="center">
   <th>exp
@@ -631,7 +625,7 @@ as well in binary. &pi; in binary is:
 </p>
 
 <div class="lblock">
-<table border=1>
+<table class="border-std">
 <col span=9 width=16>
 <tr align="center">
   <th>exp
@@ -672,7 +666,7 @@ would go like this:
 </p>
 
 <div class="lblock">
-<table border=1 rules=cols>
+<table class="align-r" border=1 rules=cols>
 <tr><th> num  <th> / 16 <th> %16
 <tr><td> 1110 <td> 69   <td> 6
 <tr><td>   69 <td> 4    <td> 5
@@ -824,7 +818,7 @@ complement</dfn>. The table below shows how this works for 3 digits.
 </p>
 
 <div class="lblock">
-<table id="tbl-10cmpl" border=1>
+<table id="tbl-10cmpl" class="border-std">
 <caption>
   <b>Table <em>[[ref:tbl-10cmpl]]</em></b>: tens' complement for 3 digits
 </caption>
@@ -969,7 +963,7 @@ comparison and bit-operations. A byte <i>x</i> containing FFh could
 mean a signed &minus;1 or an unsigned 255. In that case:
 
 <div class="lblock">
-<table border=1>
+<table class="border-std">
 <tr><td>FFh	<th>signed 		<th>unsigned
 <tr><th>comparison x&lt;0
   <td>true <td> false
@@ -1052,7 +1046,7 @@ yourself warned.
 </p>
 
 <div class="cblock">
-<table id="tbl-ascii" border=1>
+<table id="tbl-ascii" class="border-std">
 <caption>
   <b>Table <em>[[ref-tbl-ascii]]</em></b>: ASCII 0-127
 </caption>
@@ -1163,7 +1157,7 @@ float
 </p>
 
 <div class="reg">
-<table class="reg" id="tbl-float-fmt" border=1>
+<table id="tbl-float-fmt" class="reg border-std">
 <caption class="reg">
   IEEE format for 32bit float
 </caption>
@@ -1212,7 +1206,7 @@ in a 2s' complement number). Two examples:
 </p>
 
 <div class="lblock">
-<table border=1>
+<table class="border-std">
 <tr align="center"><th>x <th>s <th> e <th> f
 <tr><th>1.0  <td>0 <td>01111111 <td> 000 0000 0000 0000 0000 0000
 <tr><th>&minus;1.0 <td>1 <td>01111111 <td> 000 0000 0000 0000 0000 0000
@@ -1294,8 +1288,7 @@ transfer that to a computer with a different endian-scheme.
 </p>
 
 <div class="lblock">
-<table id="tbl-endian"
-  border=1 width=30%>
+<table id="tbl-endian" class="border-std" width=30%>
 <caption>
   <b>Table <em>[[ref:tbl-endian]]</em></b>: storing 0x11223344
 </caption>
@@ -1578,7 +1571,7 @@ operators like '|='.
 <tr valign="bottom">
   <td>
   <table class="eqtbl c1-l">
-    <caption class="nowrap"><b>AND (keep bits)</b><br> <i>s &amp; m</i></caption>
+    <caption class="top nowrap"><b>AND (keep bits)</b><br> <i>s &amp; m</i></caption>
     <tr>
       <td><b><code>35h</code></b>&nbsp;
       <td><code>00110101</code>&nbsp;
@@ -1593,7 +1586,7 @@ operators like '|='.
   </td>
   <td>
   <table class="eqtbl c1-l">
-    <caption class="nowrap"><b>OR (set bits)</b> <br> <i>s | m</i></caption>
+    <caption class="top nowrap"><b>OR (set bits)</b> <br> <i>s | m</i></caption>
     <tr>
       <td><b><code>35h</code></b>&nbsp;
       <td><code>00110101</code>&nbsp;
@@ -1608,7 +1601,7 @@ operators like '|='.
   </td>
   <td>
   <table class="eqtbl c1-l">
-    <caption class="nowrap"><b>XOR (flip bits)</b> <br> <i>s ^ m</i></caption>
+    <caption class="top nowrap"><b>XOR (flip bits)</b> <br> <i>s ^ m</i></caption>
     <tr>
       <td><b><code>35h</code></b>&nbsp;
       <td><code>00110101</code>&nbsp;
@@ -1623,7 +1616,7 @@ operators like '|='.
   </td>
   <td>
   <table class="eqtbl c1-r">
-    <caption class="nowrap"><b>AND NOT (clear bits)</b> <br> <i>s &amp;~ m</i></caption>
+    <caption class="top nowrap"><b>AND NOT (clear bits)</b> <br> <i>s &amp;~ m</i></caption>
     <tr>
 	  <td><b><code>&nbsp;35h</code></b>
 	  <td><code>00110101</code>&nbsp;
@@ -1659,9 +1652,13 @@ variable, in pretty much the way you'd expect:
 </p>
 
 <div class="lblock">
-<table id="tbl-shift" border="1">
+<table id="tbl-shift" border="1" rules="groups" frame="void">
 <caption><b>Table <em>[[ref:tbl-shift]]</em></b>: shift / rotate operations on
   byte 35h (<code>00110101</code>)</caption>
+<colgroup></colgroup>
+<colgroup></colgroup>
+<colgroup></colgroup>
+<colgroup></colgroup>
 <tr>
   <th>name <th> symbol <th>example <th> result
 <tr>
@@ -1732,7 +1729,7 @@ you'd get by sign-bit extension or not.
 </p>
 
 <div class="lblock">
-<table id="tbl-sign" border=1>
+<table id="tbl-sign" class="border-std">
 <caption class="nowrap">
   <b>Table <em>[[ref:tbl-sign]]</em></b>: signed and unsigned <code>80h&gt;&gt;3</code>
 </caption>
@@ -1815,10 +1812,13 @@ constant is a power of two.
 </p>
 
 <div class="lblock">
-<table id="tbl-bitops-arith" class="align-c" border="1">
+<table id="tbl-bitops-arith" class="align-c" border="1" rules="groups" frame="void">
 <caption class="nowrap">
   <b>Table <em>[[ref:tbl-bitops-arith]]</em></b> Arithmetic bit-ops summary
 </caption>
+<colgroup></colgroup>
+<colgroup></colgroup>
+<colgroup></colgroup>
 <thead>
 <tr>
   <th>bit-op <th>arithmetic function <th>example
@@ -1857,10 +1857,13 @@ an 8bit computer, cool huh?
 </p>
 
 <div class="lblock">
-<table id="tbl-adder" class="align-c" border=1 width=10%>
+<table id="tbl-adder" class="align-c" width=10% border="1" rules="groups" frame="void">
 <caption class="nowrap">
   <b>Table <em>[[ref:tbl-adder]]</em></b>: 1-bit adder
 </caption>
+<colgroup></colgroup>
+<colgroup></colgroup>
+<colgroup></colgroup>
 <thead>
   <tr><th>a <th>b <th> a+b
 <tbody>

@@ -138,10 +138,10 @@ div.reg			{	margin: 8px auto;	text-align:center;	width: 90%;	}
 div.reg table	{	margin: 1px auto;	text-align:left;	}
 div.reg caption	{	margin: 1px auto;	text-align:left; padding-left: 4px;	}
 
-div.cblock			{	margin: 6px auto;	text-align:center;	}
-div.cblock div		{	margin: 2px auto;	text-align:left;	}
-div.cblock table	{	margin: 2px auto;	text-align:left;	}
-div.cblock caption	{	margin: 1px auto;	text-align:left;	}
+div.cblock			{	margin: 6px auto;	text-align: center;	}
+div.cblock div		{	margin: 2px auto;	text-align: left;	}
+div.cblock table	{	margin: 2px auto;	text-align: left;	}
+div.cblock caption	{	margin: 1px auto;	text-align: left;	}
 
 div.lblock			{	margin: 6px 3em;	}
 div.lblock table	{	margin: 2px 0;		}
@@ -165,26 +165,25 @@ div.cblock div.cpt	{ margin: 0.5em auto; }
 
 table {
 	border-spacing: 0;
-	
-	th, td {
-		padding: 2px;
-	}
+	th, td { padding: 2px 4px; }
 }
 
 table.cp-1 { th, td { padding: 1px !important; } }
 table.cp-4 { th, td { padding: 4px !important; } }
 table.cp-8 { th, td { padding: 8px !important; } }
 
+/* border=1 equivalent */
+table.border-std {
+	border: 1px outset;
+	>tbody>tr { >th, >td { border: 1px inset; } }
+}
+
 table.frame-group {
 	border-spacing: 4px;
-
-	th, td {
-		vertical-align: top;
-	}
+	th, td { vertical-align: top; }
 }
 
 table.eq-container {
-
 }
 
 table.controls-container {

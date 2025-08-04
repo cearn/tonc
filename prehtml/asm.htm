@@ -921,13 +921,11 @@ into this category too. The rest, <b>r4-r11</b>, are also known as
 </p>
 
 <div class="lblock">
-<table id="tbl-regnames"
-  border=1 cellpadding=1>
+<table id="tbl-regnames" class="border-std c1-c c2-c c3-c">
 <caption>
   <b>Table <em>[[ref:tbl-regnames]]</em></b>. Standard and alternative 
   register names. 
 </caption>
-<tbody align="center">
 <tr> <th>std</th><th>gcc</th> <th>arm</th><th>description</th> </tr>
 <tr> 
   <td>r0-r3</td> <td>r0-r3</td> <td>a1-a4</td> 
@@ -942,13 +940,13 @@ into this category too. The rest, <b>r4-r11</b>, are also known as
   <td rowspan=2>r8<br>r9</td> <td>v5</td>
   <td>variable</td> 
 </tr>
-  <tr> <td>v6/SB</td> <td>platform specific</td> </tr>
+  <tr> <td>v6/SB</td> <td style="text-align: left;">platform specific</td> </tr>
 <tr>
   <td rowspan=2>r10<br>r11</td>
   <td>sl</td> <td>v7</td> <td> variable </td>
 </tr>
   <tr> <td>fp</td> <td>v8</td> 
-  <td> variable / frame pointer</tr>
+  <td style="text-align: left;"> variable / frame pointer</tr>
 <tr>
   <td>r12</td> <td>ip</td> <td>IP</td> 
   <td>Intra-Procedure-call scratch</td>
@@ -1284,7 +1282,7 @@ both, the conditional affix always comes first.
 
 <tr>
 <td>
-  <table border=1>
+  <table class="border-std">
     <tr align="center"><th>opcode		<th>operands	<th> function
     <tr><th colspan=3 align="center">Arithmetic				</tr>
     <tr><td>adc		<td>Rd, Rn, Op2 <td>Rd = Rn + Op2 + C	</tr>
@@ -1304,7 +1302,7 @@ both, the conditional affix always comes first.
 </td>
 <td width=10%>&nbsp;</td>
 <td>
-  <table border=1>
+  <table class="border-std">
     <tr align="center"><th>opcode		<th>operands	<th> function
     <tr><th colspan=3 align="center">Status ops			</tr>
     <tr><td>cmp		<td>Rn, Op2		<td>Rn - Op2		</tr>
@@ -1835,7 +1833,7 @@ which expand to &lsquo;<code>stmfd sp!,</code>&rsquo; and
 </p>
 
 <div class="lblock">
-<table id="tbl-block" border=1>
+<table id="tbl-block" class="border-std">
 <caption>
   <b>Table <em>[[ref:tbl-block]]</em></b>: Block transfer 
   instructions.
@@ -1921,12 +1919,10 @@ is non-zero, and continue with the next instruction if it isn't.
 </p>
 
 <div class="lblock">
-<table id="tbl-cnd-afx"
-  border=1>
+<table id="tbl-cnd-afx" class="border-std">
 <caption>
   <b>Table <em>[[ref:tbl-cnd-afx]]</em></b>: conditional affixes.
 </caption>
-<col span=2 align="center">
 <tr> <th>Affix</th> <th>Flags</th> <th>Description</th> </tr>
 <tr> <td>eq</td> <td>Z=1</td>
   <td>Zero (EQual to 0)</td> </tr>
@@ -2775,8 +2771,7 @@ it'll just have to wait. I-cycles do not suffer from waitstates.
 <div class="cblock">
 <table class="frame-group" width=80%>
 <tr>
-<td><table id="tbl-cycles"
-  border=1>
+<td><table id="tbl-cycles" class="border-std">
 <caption>
   <b>Table <em>[[ref:tbl-cycles]]</em></b>: Cycle times for the most 
 important instructions.
@@ -2797,8 +2792,7 @@ important instructions.
 
 </table></td>
 
-<td><table id="tbl-waits" 
-  border=1>
+<td><table id="tbl-waits" class="border-std">
 <caption>
   <b>Table <em>[[ref:tbl-waits]]</em></b>: Section default timing details. 
   See also 
@@ -2915,7 +2909,7 @@ all <code>add</code> forms.
 </p>
 
 <div class="reg">
-<table class="reg" id="tbl-arm-add" border=1>
+<table id="tbl-arm-add" class="reg border-std">
 <caption class="reg">
   <b>Table <em>[[ref:ssec-arm-add]]</em></b>: The <code>add</code> 
   instruction(s)
@@ -3224,8 +3218,7 @@ itself.
   Table <em>[[ref:tbl-thumb-mem]]</em> gives an overview.
   </p>
   <div style="margin:0.5em;">
-  <table id="tbl-thumb-mem"
-    border=1>
+  <table id="tbl-thumb-mem" class="border-std">
   <caption>
     <b>Table <em>[[ref:tbl-thumb-mem]]</em></b>. THUMB addressing mode 
     availability.
