@@ -75,36 +75,34 @@ give the following matrix for rotation and scaling:
   <td class="eqnrcell">(<em>[[ref:eq-prs-bad]]</em>)
   <td class="eqcell"> <b>P</b> &nbsp;=&nbsp;
   <td class="eqcell">
-  <table class="eqtbl">
-  <tbody align="center">
-  <tr>
-    <td class="bdrLL" rowspan=2>&nbsp;
-    <td><i>p</i><sub>a</sub>
-    <td>&nbsp;
-    <td><i>p</i><sub>b</sub>
-    <td class="bdrRR" rowspan=2>&nbsp;
-  <tr>
-    <td><i>p</i><sub>c</sub>
-    <td>&nbsp;
-    <td><i>p</i><sub>d</sub>
-  </tbody>
-  </table>
+    <table class="eqtbl matrix">
+    <tr>
+      <td class="bdrLL" rowspan=2>&nbsp;
+      <td><i>p</i><sub>a</sub>
+      <td>&nbsp;
+      <td><i>p</i><sub>b</sub>
+      <td class="bdrRR" rowspan=2>&nbsp;
+    <tr>
+      <td><i>p</i><sub>c</sub>
+      <td>&nbsp;
+      <td><i>p</i><sub>d</sub>
+    </table>
   <td class="eqcell"> &nbsp;=&nbsp;
-  <td class="eqcell">
-  <table class="eqtbl">
-  <tbody align="center">
-  <tr>
-    <td class="bdrLL" rowspan=2>&nbsp;
-    <td><i>s</i><sub>x</sub>&middot;cos(&alpha;)
-    <td>&nbsp;
-    <td><i>s</i><sub>y</sub>&middot;sin(&alpha;)
-    <td class="bdrRR" rowspan=2>&nbsp;
-  <tr>
-    <td>&minus;<i>s</i><sub>x</sub>&middot;sin(&alpha;)
-    <td>&nbsp;
-    <td><i>s</i><sub>y</sub>&middot;cos(&alpha;)
-  </tbody>
-  </table>
+   <td class="eqcell">
+    <table class="eqtbl matrix">
+    <tr>
+      <td class="bdrLL" rowspan=2>&nbsp;
+      <td><i>s</i><sub>x</sub>&middot;cos(&alpha;)
+      <td>&nbsp;
+      <td><i>s</i><sub>y</sub>&middot;sin(&alpha;)
+      <td class="bdrRR" rowspan=2>&nbsp;
+    <tr>
+      <td>&minus;<i>s</i><sub>x</sub>&middot;sin(&alpha;)
+      <td>&nbsp;
+      <td><i>s</i><sub>y</sub>&middot;cos(&alpha;)
+    </tbody>
+    </table>
+  </td>
 </table>
 
 <p>
@@ -224,10 +222,9 @@ dimensions, btw), so that gives us:
 <table class="eq-container">
 <tr>
   <td class="fill">
-  <td class="eqcell"> <b>A</b> =
+  <td class="eqcell"> <b>A</b>&nbsp;=&nbsp;
   <td class="eqcell">
-  <table class="eqtbl">
-  <tbody align="center">
+  <table class="eqtbl matrix">
   <tr>
     <td class="bdrLL" rowspan=2>&nbsp;
     <td><i>u</i><sub>x</sub>
@@ -300,8 +297,7 @@ matrix and inverse matrix of each transformation. Why? You'll see.
   <td class="eqnrcell">(<em>[[ref:eq-2d-inv]]</em>)
   <td class="eqcell"> <b>A</b> &nbsp;=&nbsp;
   <td class="eqcell">
-  <table class="eqtbl">
-  <tbody align="center">
+  <table class="eqtbl matrix">
   <tr>
     <td class="bdrLL" rowspan=2>&nbsp;
     <td><i>a</i>
@@ -317,29 +313,28 @@ matrix and inverse matrix of each transformation. Why? You'll see.
   <td width=32>&nbsp;
   <td class="eqcell"> <b>A</b><sup>&minus;1</sup> &nbsp;&equiv;&nbsp;
   <td class="eqcell">
-  <table class="eqtbl">
-  <tbody align="center">
-  <tr>
-    <td class="bdrB"> 1
-  <tr>
-    <td><i>ad &minus; bc</i>
-  </tbody>
-  </table>
+    <table class="eqtbl matrix">
+    <tr>
+      <td class="bdrB"> 1
+    <tr>
+      <td><i>ad &minus; bc</i>
+    </table>
+  </td>
+  <td>&nbsp;</td>
   <td class="eqcell">
-  <table class="eqtbl">
-  <tbody align="center">
-  <tr>
-    <td class="bdrLL" rowspan=2>&nbsp;
-    <td><i>d</i>
-	<td>&nbsp;
-	<td><i>&minus;b</i>
-    <td class="bdrRR" rowspan=2>&nbsp;
-  <tr>
-    <td><i>&minus;c</i>
-	<td>&nbsp;
-	<td><i>a</i>
-  </tbody>
-  </table>
+    <table class="eqtbl matrix">
+    <tr>
+      <td class="bdrLL" rowspan=2>&nbsp;
+      <td><i>d</i>
+    <td>&nbsp;
+    <td><i>&minus;b</i>
+      <td class="bdrRR" rowspan=2>&nbsp;
+    <tr>
+      <td><i>&minus;c</i>
+    <td>&nbsp;
+    <td><i>a</i>
+    </table>
+  </td>
 </table>
 
 <div class="cblock">
@@ -361,82 +356,78 @@ matrix and inverse matrix of each transformation. Why? You'll see.
   <tr>
     <td class="eqcell"> <b>I</b> =
     <td>
-    <table class="eqtbl">
-    <tbody align="center">
-    <tr>
-      <td class="bdrLL" rowspan=2>&nbsp;
-      <td>1
-      <td>&nbsp;
-      <td>0
-      <td class="bdrRR" rowspan=2>&nbsp;
-    <tr>
-      <td>0
-      <td>&nbsp;
-      <td>1
-    </tbody>
-    </table>
+      <table class="eqtbl matrix">
+      <tr>
+        <td class="bdrLL" rowspan=2>&nbsp;
+        <td>1
+        <td>&nbsp;
+        <td>0
+        <td class="bdrRR" rowspan=2>&nbsp;
+      <tr>
+        <td>0
+        <td>&nbsp;
+        <td>1
+      </table>
+    </td>
   </table>
 <td> <!-- Rotation -->
   <table class="eq-container">
   <tr>
     <td class="eqcell"> <b>R</b>(&theta;) =
     <td>
-    <table class="eqtbl">
-    <tbody align="center">
-    <tr>
-      <td class="bdrLL" rowspan=2>&nbsp;
-      <td> cos(&theta;)
-      <td>&nbsp;
-      <td> &minus;sin(&theta;)
-      <td class="bdrRR" rowspan=2>&nbsp;
-    <tr>
-      <td> sin(&theta;)
-      <td>&nbsp;
-      <td> cos(&theta;)
-    </tbody>
-    </table>
+      <table class="eqtbl matrix">
+      <tr>
+        <td class="bdrLL" rowspan=2>&nbsp;
+        <td> cos(&theta;)
+        <td>&nbsp;
+        <td> &minus;sin(&theta;)
+        <td class="bdrRR" rowspan=2>&nbsp;
+      <tr>
+        <td> sin(&theta;)
+        <td>&nbsp;
+        <td> cos(&theta;)
+      </table>
+    </td>
   </table>
 <td> <!-- Scaling -->
   <table class="eq-container">
   <tr>
     <td class="eqcell">
-	  <b>S</b>(<i>s</i><sub>x</sub> , <i>s</i><sub>y</sub>) =
+	  <b>S</b>(<i>s</i><sub>x</sub>, <i>s</i><sub>y</sub>) =
     <td>
-    <table class="eqtbl">
-    <tbody align="center">
-    <tr>
-      <td class="bdrLL" rowspan=2>&nbsp;
-      <td> <i>s</i><sub>x</sub>
-      <td>&nbsp;
-      <td> 0
-      <td class="bdrRR" rowspan=2>&nbsp;
-    <tr>
-      <td> 0
-      <td>&nbsp;
-      <td> <i>s</i><sub>y</sub>
-    </tbody>
-    </table>
+      <table class="eqtbl matrix">
+      <tr>
+        <td class="bdrLL" rowspan=2>&nbsp;
+        <td> <i>s</i><sub>x</sub>
+        <td>&nbsp;
+        <td> 0
+        <td class="bdrRR" rowspan=2>&nbsp;
+      <tr>
+        <td> 0
+        <td>&nbsp;
+        <td> <i>s</i><sub>y</sub>
+      </table>
+    </td>
   </table>
 <td> <!-- Shear -->
   <table class="eq-container">
   <tr>
     <td class="eqcell">
-	  <b>H</b>(<i>h</i><sub>x</sub> , <i>h</i><sub>y</sub>) =
+	  <b>H</b>(<i>h</i><sub>x</sub>, <i>h</i><sub>y</sub>) =
     <td>
-    <table class="eqtbl">
-    <tbody align="center">
-    <tr>
-      <td class="bdrLL" rowspan=2>&nbsp;
-      <td> 1
-      <td>&nbsp;
-      <td> <i>h</i><sub>x</sub>
-      <td class="bdrRR" rowspan=2>&nbsp;
-    <tr>
-      <td> <i>h</i><sub>y</sub>
-      <td>&nbsp;
-      <td> 1
-    </tbody>
-    </table>
+      <table class="eqtbl matrix">
+      <tr>
+        <td class="bdrLL" rowspan=2>&nbsp;
+        <td> 1
+        <td>&nbsp;
+        <td> <i>h</i><sub>x</sub>
+        <td class="bdrRR" rowspan=2>&nbsp;
+      <tr>
+        <td> <i>h</i><sub>y</sub>
+        <td>&nbsp;
+        <td> 1
+      </table>
+    </td>
   </table>
 <tr>
   <td class="eqcell">
@@ -466,22 +457,21 @@ matrix multiplication.
   <td class="eqnrcell">(<em>[[ref:eq-ars-good]]</em>)
   <td class="eqcell">
     <b>A</b> = <b>R</b>(-&alpha;) &middot;
-    <b>S</b>(s<sub>x</sub> , s<sub>y</sub>) =
+    <b>S</b>(s<sub>x</sub>, s<sub>y</sub>) =
   <td class="eqcell">
-  <table class="eqtbl">
-  <tbody align="center">
-  <tr>
-    <td class="bdrLL" rowspan=2>&nbsp;
-    <td><i>s</i><sub>x</sub>&middot;cos(&alpha;)
-    <td>&nbsp;
-    <td><i>s</i><sub>y</sub>&middot;sin(&alpha;)
-    <td class="bdrRR" rowspan=2>&nbsp;
-  <tr>
-    <td>&minus;<i>s</i><sub>x</sub>&middot;sin(&alpha;)
-    <td>&nbsp;
-    <td><i>s</i><sub>y</sub>&middot;cos(&alpha;)
-  </tbody>
-  </table>
+    <table class="eqtbl matrix">
+    <tr>
+      <td class="bdrLL" rowspan=2>&nbsp;
+      <td><i>s</i><sub>x</sub>&middot;cos(&alpha;)
+      <td>&nbsp;
+      <td><i>s</i><sub>y</sub>&middot;sin(&alpha;)
+      <td class="bdrRR" rowspan=2>&nbsp;
+    <tr>
+      <td>&minus;<i>s</i><sub>x</sub>&middot;sin(&alpha;)
+      <td>&nbsp;
+      <td><i>s</i><sub>y</sub>&middot;cos(&alpha;)
+    </table>
+  </td>
 </table>
 
 <p>
@@ -619,31 +609,29 @@ counter-clockwise rotation by &alpha; is:
 <tr>
   <td class="fill">
   <td class="eqcell">
-  <table class="eqtbl">
-  <col align="right">
-  <col align="center">
-  <col align="left">
-  <tr>
-    <td> <b>A</b>
-    <td> =
-    <td> <b>R</b>(&minus;&alpha;) &middot; <b>S</b>(<i>s</i><sub>x</sub> ,
-    <i>s</i><sub>y</sub>)
-  <tr>
-    <td> <b>P</b> 
-	<td> = 
-	<td> <b>A</b><sup>&minus;1</sup>
-  <tr>
-    <td>&nbsp;
-	<td> =
-	<td> ( <b>R</b>(&minus;&alpha;) &middot; <b>S</b>(<i>s</i><sub>x</sub> ,
-      <i>s</i><sub>y</sub>) )<sup>&minus;1</sup>
-  <tr>
-    <td>&nbsp;
+    <table class="eqtbl basic">
+    <tr>
+      <td> <b>A</b>
+      <td> =
+      <td> <b>R</b>(&minus;&alpha;) &middot; <b>S</b>(<i>s</i><sub>x</sub> ,
+      <i>s</i><sub>y</sub>)
+    <tr>
+      <td> <b>P</b> 
     <td> = 
-    <td> <b>S</b>(<i>s</i><sub>x</sub>,
-      <i>s</i><sub>y</sub>)<sup>&minus;1</sup>
-	  &middot; <b>R</b>(&minus;&alpha;)<sup>&minus;1</sup>
-  </table>
+    <td> <b>A</b><sup>&minus;1</sup>
+    <tr>
+      <td>&nbsp;
+    <td> =
+    <td> ( <b>R</b>(&minus;&alpha;) &middot; <b>S</b>(<i>s</i><sub>x</sub> ,
+        <i>s</i><sub>y</sub>) )<sup>&minus;1</sup>
+    <tr>
+      <td>&nbsp;
+      <td> = 
+      <td> <b>S</b>(<i>s</i><sub>x</sub>,
+        <i>s</i><sub>y</sub>)<sup>&minus;1</sup>
+      &middot; <b>R</b>(&minus;&alpha;)<sup>&minus;1</sup>
+    </table>
+  </td>
 </table>
 
 <p>
@@ -653,38 +641,36 @@ Using the inverse matrices given earlier, we find
 <table id="eq-prs-good">
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-prs-good]]</em>)
-  <td class="eqcell"> <b>P</b> =
+  <td class="eqcell"> <b>P</b>&nbsp;=&nbsp;
   <td class="eqcell">
-  <table class="eqtbl">
-  <tbody align="center">
-  <tr>
-    <td class="bdrLL" rowspan=2>&nbsp;
-    <td><i>p</i><sub>a</sub>
-    <td>&nbsp;
-    <td><i>p</i><sub>b</sub>
-    <td class="bdrRR" rowspan=2>&nbsp;
-  <tr>
-    <td><i>p</i><sub>c</sub>
-    <td>&nbsp;
-    <td><i>p</i><sub>d</sub>
-  </tbody>
-  </table>
-  <td class="eqcell"> = 
+    <table class="eqtbl matrix">
+    <tr>
+      <td class="bdrLL" rowspan=2>&nbsp;
+      <td><i>p</i><sub>a</sub>
+      <td>&nbsp;
+      <td><i>p</i><sub>b</sub>
+      <td class="bdrRR" rowspan=2>&nbsp;
+    <tr>
+      <td><i>p</i><sub>c</sub>
+      <td>&nbsp;
+      <td><i>p</i><sub>d</sub>
+    </table>
+  </td>
+  <td class="eqcell">&nbsp;=&nbsp;
   <td class="eqcell">
-  <table class="eqtbl">
-  <tbody align="center">
-  <tr>
-    <td class="bdrLL" rowspan=2>&nbsp;
-    <td>cos(&alpha;) / <i>s</i><sub>x</sub>
-    <td>&nbsp;
-    <td>&minus;sin(&alpha;) / <i>s</i><sub>x</sub>
-    <td class="bdrRR" rowspan=2>&nbsp;
-  <tr>
-    <td>sin(&alpha;) / <i>s</i><sub>y</sub>
-    <td>&nbsp;
-    <td>cos(&alpha;) / <i>s</i><sub>y</sub>
-  </tbody>
-  </table>
+    <table class="eqtbl matrix">
+    <tr>
+      <td class="bdrLL" rowspan=2>&nbsp;
+      <td>cos(&alpha;)/<i>s</i><sub>x</sub>
+      <td>&nbsp;
+      <td>&minus;sin(&alpha;)/<i>s</i><sub>x</sub>
+      <td class="bdrRR" rowspan=2>&nbsp;
+    <tr>
+      <td>sin(&alpha;)/<i>s</i><sub>y</sub>
+      <td>&nbsp;
+      <td>cos(&alpha;)/<i>s</i><sub>y</sub>
+    </table>
+  </td>
 </table>
 
 <div class="note">
@@ -692,9 +678,9 @@ Just to make it perfectly clear:
 <p>
 The affine matrix <b>P</b> maps from screen space <i>to</i> texture 
 space, not the other way around!
-</p>
+</p><br>
 
-In other words:<br>
+<p class="ni">In other words:</p>
 <p><i>p</i><sub>a</sub> : texture <i>x</i>-increment / pixel</p>
 <p><i>p</i><sub>b</sub> : texture <i>x</i>-increment / scanline</p>
 <p><i>p</i><sub>c</sub> : texture <i>y</i>-increment / pixel</p>

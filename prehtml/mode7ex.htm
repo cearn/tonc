@@ -330,10 +330,9 @@ following rotation matrices:
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-mat-rot]]</em>a)
   <td class="eqcell">
-    <b>R</b><sub>x</sub>(&theta;) =
+    <b>R</b><sub>x</sub>(&theta;)&nbsp;=&nbsp;
   <td class="eqcell">
-  <table class="eqtbl">
-  <tbody align="center">
+  <table class="eqtbl matrix">
     <tr>
       <td class="bdrLL" rowspan=3>&ensp;
       <td> 1 <td>&nbsp; 
@@ -348,34 +347,33 @@ following rotation matrices:
       <td> 0 <td>&nbsp;
 	  <td>&minus;sin(&theta;) 
 	  <td>&nbsp; <td>cos(&theta;)
-  </tbody>
-  </table> 
+  </table>
+  </td>
 </table>
 
 <table class="eq-container">
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-mat-rot]]</em>b)
   <td class="eqcell">
-    <b>R</b><sub>y</sub>(&phi;) =
+    <b>R</b><sub>y</sub>(&phi;)&nbsp;=&nbsp;
   <td class="eqcell">
-  <table class="eqtbl">
-  <tbody align="center">
-    <tr>
-      <td class="bdrLL" rowspan=3>&ensp;
-      <td>cos(&phi;) <td>&nbsp; 
-	  <td> 0 <td>&nbsp; 
-	  <td>&minus;sin(&phi;)
-      <td class="bdrRR" rowspan=3>&ensp;
-    <tr>
+    <table class="eqtbl matrix">
+      <tr>
+        <td class="bdrLL" rowspan=3>&ensp;
+        <td>cos(&phi;) <td>&nbsp; 
       <td> 0 <td>&nbsp; 
-	  <td> 1 <td>&nbsp; 
-	  <td> 0
-    <tr>
-      <td>sin(&phi;) <td>&nbsp; 
-	  <td> 0 <td>&nbsp;
-	  <td>cos(&phi;)
-  </tbody>
-  </table> 
+      <td>&minus;sin(&phi;)
+        <td class="bdrRR" rowspan=3>&ensp;
+      <tr>
+        <td> 0 <td>&nbsp; 
+      <td> 1 <td>&nbsp; 
+      <td> 0
+      <tr>
+        <td>sin(&phi;) <td>&nbsp; 
+      <td> 0 <td>&nbsp;
+      <td>cos(&phi;)
+    </table>
+  </td>
 </table>
 
 <p>
@@ -399,26 +397,25 @@ camera matrix then becomes:
   <td class="eqcell">
     <b>C</b>(&theta;, &phi;) = 
     <b>R</b><sub>y</sub>(&phi;) 
-	&middot; <b>R</b><sub>x</sub>(&theta;) =
+    &middot; <b>R</b><sub>x</sub>(&theta;)&nbsp;=&nbsp;
   <td class="eqcell">
-  <table class="eqtbl">
-  <tbody align="center">
-    <tr>
-      <td class="bdrLL" rowspan=3>&ensp;
-      <td>cos(&phi;) <td>&nbsp;
-      <td>sin(&phi;)&middot;sin(&theta;) <td>&nbsp;
-      <td>&minus;sin(&phi;)&middot;cos(&theta;)
-      <td class="bdrRR" rowspan=3>&ensp;
-    <tr>
-      <td> 0 <td>&nbsp; 
-	  <td>cos(&theta;) <td>&nbsp; 
-	  <td>sin(&theta;)
-    <tr>
-      <td>sin(&phi;) <td>&nbsp;
-      <td>&minus;cos(&phi;)&middot;sin(&theta;) <td>&nbsp;
-      <td>cos(&phi;)&middot;cos(&theta;)
-  </tbody>
-  </table>
+    <table class="eqtbl matrix">
+      <tr>
+        <td class="bdrLL" rowspan=3>&ensp;
+        <td>cos(&phi;) <td>&nbsp;
+        <td>sin(&phi;)&middot;sin(&theta;) <td>&nbsp;
+        <td>&minus;sin(&phi;)&middot;cos(&theta;)
+        <td class="bdrRR" rowspan=3>&ensp;
+      <tr>
+        <td> 0 <td>&nbsp; 
+      <td>cos(&theta;) <td>&nbsp; 
+      <td>sin(&theta;)
+      <tr>
+        <td>sin(&phi;) <td>&nbsp;
+        <td>&minus;cos(&phi;)&middot;sin(&theta;) <td>&nbsp;
+        <td>cos(&phi;)&middot;cos(&theta;)
+    </table>
+  </td>
 </table>
 
 <p>
@@ -763,21 +760,19 @@ rearrange the terms to get
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-horz-line]]</em>a)
   <td class="eqcell">
-  <table class="eqtbl">
-  <col align="right">
-  <col align="center">
-  <col align="left">
-  <tr>
-    <td> &lambda; (<i>v</i><sub>y</sub> <i>y</i><sub>p,h</sub> &minus;
-      <i>w</i><sub>y</sub> D) 
-	<td> = 
-	<td>&minus;<i>a</i><sub>cw,y</sub>
-  <tr>
-    <td> <i>y</i><sub>p,h</sub>
-    <td>=
-    <td> (<i>w</i><sub>y</sub>D &minus;
-      <i>a</i><sub>cw,y</sub> / &lambda;) / <i>v</i><sub>y</sub>
-  </table>
+    <table class="eqtbl basic">
+    <tr>
+      <td> &lambda; (<i>v</i><sub>y</sub> <i>y</i><sub>p,h</sub> &minus;
+        <i>w</i><sub>y</sub> D) 
+    <td> = 
+    <td>&minus;<i>a</i><sub>cw,y</sub>
+    <tr>
+      <td> <i>y</i><sub>p,h</sub>
+      <td>=
+      <td> (<i>w</i><sub>y</sub>D &minus;
+        <i>a</i><sub>cw,y</sub> / &lambda;) / <i>v</i><sub>y</sub>
+    </table>
+  </td>
 </table>
 
 <p>
@@ -912,28 +907,26 @@ eq&nbsp;<em>[[ref:eq-fov-cam]]</em>. If all is right we should have
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-fov]]</em>)
   <td class="eqcell">
-  <table class="eqtbl">
-  <col align="right">
-  <col align="center">
-  <col align="left">
-  <tr>
-    <td> &alpha;
-    <td>=
-    <td> 2 arctan(&frac12;<i>W</i>/<i>D</i>)
-  <tr>
-    <td> &alpha;
-    <td>=
-    <td> <i>W</i>/<i>R</i>
-  <tr>
-    <td> <i>R</i>
-    <td>=
-    <td> &frac12;<i>W</i> / arctan(&frac12;<i>W</i>/<i>D</i>)
-  <tr>
-    <td> &nbsp;
-    <td>&asymp;
-    <td> <i>D</i> <big>/ (</big> 1 &minus; 
-	  (&frac12;<i>W</i>/<i>D</i>)<sup>2</sup>/3 <big>)</big>
-  </table>
+    <table class="eqtbl basic">
+    <tr>
+      <td> &alpha;
+      <td>=
+      <td> 2 arctan(&frac12;<i>W</i>/<i>D</i>)
+    <tr>
+      <td> &alpha;
+      <td>=
+      <td> <i>W</i>/<i>R</i>
+    <tr>
+      <td> <i>R</i>
+      <td>=
+      <td> &frac12;<i>W</i> / arctan(&frac12;<i>W</i>/<i>D</i>)
+    <tr>
+      <td> &nbsp;
+      <td>&asymp;
+      <td> <i>D</i> <big>/ (</big> 1 &minus; 
+      (&frac12;<i>W</i>/<i>D</i>)<sup>2</sup>/3 <big>)</big>
+    </table>
+  </td>
 </table>
 
 <p>
@@ -979,19 +972,17 @@ north. The final position of the backdrop is given in
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-bd-pos]]</em>)
   <td class="eqcell">
-  <table class="eqtbl">
-  <col align="right">
-  <col align="center">
-  <col align="left">
-  <tr>
-    <td><i>dx</i>
-    <td>=
-    <td>&phi;/64 + <i>L</i>
-  <tr>
-    <td> <i>dy</i>
-    <td>=
-    <td> &minus;<i>y</i><sub>s,h</sub>
-  </table>
+    <table class="eqtbl basic">
+    <tr>
+      <td><i>dx</i>
+      <td>=
+      <td>&phi;/64 + <i>L</i>
+    <tr>
+      <td> <i>dy</i>
+      <td>=
+      <td> &minus;<i>y</i><sub>s,h</sub>
+    </table>
+  </td>
 </table>
 
 <!-- ============================================================== -->
@@ -1016,23 +1007,21 @@ equations you need to solve, and hints on how to do that.
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-m7-set]]</em>)
   <td class="eqcell">
-  <table class="eqtbl">
-  <col align="right">
-  <col align="center">
-  <col align="left">
-  <tr>
-    <td> &lambda;<b>C</b> &middot; <b>x</b><sub>p</sub>
-    <td>=
-    <td> <b>x</b><sub>w</sub> &minus; <b>a</b><sub>cw</sub>
-  <tr>
-    <td> <b>S</b>(1,&minus;1,1) &middot; <b>x</b><sub>s</sub>
-    <td>=
-    <td> (<b>x</b><sub>p</sub> &minus; <b>a</b><sub>sp</sub>)
-  <tr>
-    <td> <b>P &middot; q</b>
-    <td>=
-    <td> <b>p &minus; dx</b>
-  </table>
+    <table class="eqtbl basic">
+    <tr>
+      <td> &lambda;<b>C</b> &middot; <b>x</b><sub>p</sub>
+      <td>=
+      <td> <b>x</b><sub>w</sub> &minus; <b>a</b><sub>cw</sub>
+    <tr>
+      <td> <b>S</b>(1,&minus;1,1) &middot; <b>x</b><sub>s</sub>
+      <td>=
+      <td> (<b>x</b><sub>p</sub> &minus; <b>a</b><sub>sp</sub>)
+    <tr>
+      <td> <b>P &middot; q</b>
+      <td>=
+      <td> <b>p &minus; dx</b>
+    </table>
+  </td>
 </table>
 
 <p>
@@ -1069,12 +1058,12 @@ summed up by:
 <p>where</p>
 
 <div class="lblock">
-<table class="eq-container">
-<col align="right">
-<tr><td><b>dx'</b> <td>= (<i>dx</i>, 0, <i>dy</i>)
-<tr><td><b>b</b>   <td>= (<i>L</i>, 
-  <i>T&minus;y</i><sub>s</sub>, &minus;<i>D</i>)
-</table>
+  <table class="eqtbl basic">
+  <col align="right">
+  <tr><td><b>dx'</b> <td>= <td> (<i>dx</i>, 0, <i>dy</i>)
+  <tr><td><b>b</b>   <td>= <td> (<i>L</i>, 
+    <i>T&minus;y</i><sub>s</sub>, &minus;<i>D</i>)
+  </table>
 </div>
 
 <p>
@@ -1095,25 +1084,38 @@ myself.
 <table id="eq-m7-sum" class="eq-container">
 <col span=2 align="right">
 <tr>
-  <td rowspan=5 class="eqnrcell">(<em>[[ref:eq-m7-sum]]</em>)
-  <td> &lambda;
-  <td>= <i>a</i><sub>cw,y</sub> / 
-    ( (<i>y</i><sub>s</sub>&minus;<i>T</i>)<i>v</i><sub>y</sub> +
-	 <i>Dw</i><sub>y</sub> )
-<tr><td><i>p</i><sub>a</sub>
-  <td>= &lambda; <i>u</i><sub>x</sub>
-<tr><td><i>p</i><sub>c</sub>
-  <td>= &lambda; <i>u</i><sub>z</sub>
-<tr><td><i>dx</i>
-  <td>= <i>a</i><sub>cw,x</sub> + &lambda;
-    ( <i>Lu</i><sub>x</sub> +
-     (<i>T&minus;y</i><sub>s</sub>)<i>v</i><sub>x</sub> &minus;
-	 <i>Dw</i><sub>x</sub> )
-<tr><td><i>dy</i>
-  <td>= <i>a</i><sub>cw,z</sub> + &lambda;
-    ( <i>Lu</i><sub>z</sub> +
-     (<i>T&minus;y</i><sub>s</sub>)<i>v</i><sub>z</sub> &minus;
-	 <i>Dw</i><sub>z</sub> )
+  <td class="eqnrcell">(<em>[[ref:eq-m7-sum]]</em>)
+  <td>
+    <table class="eqtbl basic">
+    <tr>
+      <td> &lambda;
+      <td>= 
+      <td><i>a</i><sub>cw,y</sub> / 
+        ( (<i>y</i><sub>s</sub>&minus;<i>T</i>)<i>v</i><sub>y</sub> +
+      <i>Dw</i><sub>y</sub> )
+    <tr>
+      <td><i>p</i><sub>a</sub>
+      <td>=
+      <td>&lambda; <i>u</i><sub>x</sub>
+    <tr>
+      <td><i>p</i><sub>c</sub>
+      <td>=
+      <td>&lambda; <i>u</i><sub>z</sub>
+    <tr><td><i>dx</i>
+      <td>=
+      <td><i>a</i><sub>cw,x</sub> + &lambda;
+        ( <i>Lu</i><sub>x</sub> +
+        (<i>T&minus;y</i><sub>s</sub>)<i>v</i><sub>x</sub> &minus;
+      <i>Dw</i><sub>x</sub> )
+    <tr>
+      <td><i>dy</i>
+      <td>=
+      <td><i>a</i><sub>cw,z</sub> + &lambda;
+        ( <i>Lu</i><sub>z</sub> +
+        (<i>T&minus;y</i><sub>s</sub>)<i>v</i><sub>z</sub> &minus;
+      <i>Dw</i><sub>z</sub> )
+      </table>
+   </td>
 </table>
 
 <p>
@@ -1304,21 +1306,19 @@ That leads us to the following equations:
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-obj-w2s]]</em>)
   <td class="eqcell">
-  <table class="eqtbl">
-  <col align="right">
-  <col align="center">
-  <col align="left">
-  <tr>
-    <td><b>x</b><sub>p</sub>
-    <td>=
-    <td> <b>C</b><sup>T</sup> &middot; 
-	  (<b>x</b><sub>w</sub> &minus; <b>a</b><sub>cw</sub>) / &lambda;
-  <tr>
-    <td> <b>x</b><sub>s</sub>
-    <td>=
-    <td> <b>S</b>(1, &minus;1, 1) &middot; 
-	  (<b>x</b><sub>p</sub> &minus; <b>a</b><sub>sp</sub>)
-  </table>
+    <table class="eqtbl basic">
+    <tr>
+      <td><b>x</b><sub>p</sub>
+      <td>=
+      <td> <b>C</b><sup>T</sup> &middot; 
+      (<b>x</b><sub>w</sub> &minus; <b>a</b><sub>cw</sub>) / &lambda;
+    <tr>
+      <td> <b>x</b><sub>s</sub>
+      <td>=
+      <td> <b>S</b>(1, &minus;1, 1) &middot; 
+      (<b>x</b><sub>p</sub> &minus; <b>a</b><sub>sp</sub>)
+    </table>
+  </td>
 </table>
 
 <p>
@@ -1333,23 +1333,21 @@ using <b>C</b>&nbsp;=&nbsp;[<b>u&nbsp;v&nbsp;w</b>], we find
 <tr>
   <td class="eqfill">&nbsp;
   <td class="eqcell">
-  <table class="eqtbl">
-  <col align="right">
-  <col align="center">
-  <col align="left">
-  <tr>
-    <td>&lambda;
-    <td>=
-    <td>&minus;<b>w</b>&middot;<b>r</b> / <i>D</i>
-  <tr>
-    <td><i>x</i><sub>p</sub>
-    <td>= 
-    <td><b>u</b>&middot;<b>r</b> / &lambda;
-  <tr>
-    <td><i>y</i><sub>p</sub>
-    <td>= 
-    <td><b>v</b>&middot;<b>r</b> / &lambda;
-  </table>
+    <table class="eqtbl basic">
+    <tr>
+      <td>&lambda;
+      <td>=
+      <td>&minus;<b>w</b>&middot;<b>r</b> / <i>D</i>
+    <tr>
+      <td><i>x</i><sub>p</sub>
+      <td>= 
+      <td><b>u</b>&middot;<b>r</b> / &lambda;
+    <tr>
+      <td><i>y</i><sub>p</sub>
+      <td>= 
+      <td><b>v</b>&middot;<b>r</b> / &lambda;
+    </table>
+  </td>
 </table>
 
 <div class="cpt_fr" style="width:88px;">
@@ -1383,19 +1381,15 @@ objects.
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-anchor]]</em>)
   <td class="eqcell">
-  <table class="eqtbl">
-  <col align="right">
-  <col align="center">
-  <col align="left">
-  <tbody valign="middle">
-  <tr>
-    <td> <b>x</b>
-    <td>=
-    <td> <b>q</b><sub>0</sub> &minus; <i>m</i><b>s</b> &minus; 
-	  <b>P</b><sup>&minus;1</sup> &middot; 
-	  (<b>p</b><sub>0</sub> &minus; &frac12;<b>s</b>)
-  </tbody>
-  </table>
+    <table class="eqtbl basic">
+    <tr>
+      <td> <b>x</b>
+      <td>=
+      <td> <b>q</b><sub>0</sub> &minus; <i>m</i><b>s</b> &minus; 
+      <b>P</b><sup>&minus;1</sup> &middot; 
+      (<b>p</b><sub>0</sub> &minus; &frac12;<b>s</b>)
+    </table>
+  </td>
 </table>
 
 
@@ -1541,10 +1535,7 @@ In other words:
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-psi]]</em>) </td>
   <td class="eqcell">
-  <table class="eqtbl">
-  <col align="right">
-  <col align="center">
-  <col align="left">
+  <table class="eqtbl basic">
   <tr>
     <td>&psi;
     <td>=
@@ -1556,6 +1547,7 @@ In other words:
     <td>&phi;<sub>o</sub> &minus; &phi;<sub>c</sub> 
     &minus; arctan(<i>x</i><sub>c</sub> / &minus;<i>z</i><sub>c</sub>) 
   </table>
+  </td>
 </table>
 
 <p>

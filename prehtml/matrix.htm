@@ -68,26 +68,25 @@ when we get to matrices.
   <td class="eqnrcell">(<em>[[ref:eq-vec-def]]</em>)
   <td class="eqcell"> <b>u</b> &nbsp;&equiv;&nbsp;
   <td class="eqcell">
-  <table class="eqtbl">
-  <tbody align="center">
-  <tr>
-    <td class="bdrLL" rowspan=3>&nbsp;
-    <td><i>u</i><sub>1</sub>
-    <td class="bdrRR" rowspan=3>&nbsp;
-  <tr>
-    <td> <b>:</b>
-  <tr>
-    <td><i>u</i><sub>m</sub>
-  </tbody>
-  </table>
+    <table class="eqtbl matrix">
+    <tr>
+      <td class="bdrLL" rowspan=3>&nbsp;
+      <td><i>u</i><sub>1</sub>
+      <td class="bdrRR" rowspan=3>&nbsp;
+    <tr>
+      <td> <b>:</b>
+    <tr>
+      <td><i>u</i><sub>m</sub>
+    </table>
+  </td>
   <td class="eqcell">
     &nbsp;&equiv;&nbsp; 
 	  <big>(</big>
-	  <i>u</i><sub>1</sub> , &hellip; , <i>u</i><sub>m</sub>
+	  <i>u</i><sub>1</sub>, &hellip; , <i>u</i><sub>m</sub>
 	  <big>)</big>
     &nbsp;&ne;&nbsp;
 	  <big>[</big>
-	  <i>u</i><sub>1</sub>  &hellip;  <i>u</i><sub>m</sub>
+	  <i>u</i><sub>1</sub> &hellip;  <i>u</i><sub>m</sub>
 	  <big>]</big>
 </table>
 
@@ -157,18 +156,18 @@ with <b>w = u + v</b> we have
   <td class="eqcell"> 
     <b>w</b> &nbsp;=&nbsp; <b>u</b> + <b>v</b> &nbsp;&equiv;&nbsp;
   <td class="eqcell">
-  <table class="eqtbl">
-  <tbody align="center">
-  <tr>
-    <td class="bdrLL" rowspan=3>&nbsp;
-    <td><i>u</i><sub>1</sub> + <i>v</i><sub>1</sub>
-    <td class="bdrRR" rowspan=3>&nbsp;
-  <tr>
-    <td> <b>:</b>
-  <tr>
-    <td><i>u</i><sub>m</sub> + <i>v</i><sub>m</sub>
-  </tbody>
-  </table>
+    <table class="eqtbl matrix">
+    <tr>
+      <td class="bdrLL" rowspan=3>&nbsp;
+      <td><i>u</i><sub>1</sub> + <i>v</i><sub>1</sub>
+      <td class="bdrRR" rowspan=3>&nbsp;
+    <tr>
+      <td> <b>:</b>
+    <tr>
+      <td><i>u</i><sub>m</sub> + <i>v</i><sub>m</sub>
+    </tbody>
+    </table>
+  </td>
 </table>
 
 <h3 id="ssec-vec-scale"><em>[[ref:ssec-vec-scale]]</em>
@@ -191,18 +190,17 @@ note that subtraction can also be written as
   <td class="eqcell"> 
     <b>v</b> &nbsp;=&nbsp; <i>c</i><b>u</b> &nbsp;&equiv;&nbsp;
   <td class="eqcell">
-  <table class="eqtbl">
-  <tbody align="center">
-  <tr>
-    <td class="bdrLL" rowspan=3>&nbsp;
-    <td><i>c&middot;u</i><sub>1</sub>
-    <td class="bdrRR" rowspan=3>&nbsp;
-  <tr>
-    <td> <b>:</b>
-  <tr>
-    <td><i>c&middot;u</i><sub>m</sub>
-  </tbody>
-  </table>
+  <table class="eqtbl matrix">
+    <tr>
+      <td class="bdrLL" rowspan=3>&nbsp;
+      <td><i>c&middot;u</i><sub>1</sub>
+      <td class="bdrRR" rowspan=3>&nbsp;
+    <tr>
+      <td> <b>:</b>
+    <tr>
+      <td><i>c&middot;u</i><sub>m</sub>
+    </table>
+  </td>
 </table>
 
 <h3 id="ssec-vec-dot"><em>[[ref:ssec-vec-dot]]</em>
@@ -250,16 +248,15 @@ the angle between the two, the cosine can be found via
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-vec-cos]]</em>)
   <td class="eqcell"> 
-    cos(&alpha;) &nbsp;=&nbsp;
+    cos(&alpha;)&nbsp;=&nbsp;
   <td class="eqcell">
-  <table class="eqtbl">
-  <tbody align="center">
-  <tr>
-    <td class="bdrB"><b>u &middot; v</b>
-  <tr>
-    <td> |<b>u</b>| |<b>v</b>|
-  </tbody>
-  </table>
+    <table class="eqtbl c1-c">
+    <tr>
+      <td class="bdrB"><b>u &middot; v</b>
+    <tr>
+      <td> |<b>u</b>| |<b>v</b>|
+    </table>
+  </td>
 </table>
 
 <p>
@@ -332,23 +329,22 @@ eq&nbsp;<em>[[ref:img-vec-cross]]</em>.
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-vec-cross]]</em>)
   <td class="eqcell"> 
-    <b>w</b> &nbsp;=&nbsp; <b>u</b> &times; <b>v</b> &nbsp;&equiv;&nbsp;
+    <b>w</b>&nbsp;=&nbsp;<b>u</b> &times; <b>v</b>&nbsp;&equiv;&nbsp;
   <td class="eqcell">
-  <table class="eqtbl">
-  <tbody align="center">
-  <tr>
-    <td class="bdrLL" rowspan=3>&nbsp;
-    <td><i>u</i><sub>y</sub><i>v</i><sub>z</sub> &minus; 
-      <i>u</i><sub>z</sub><i>v</i><sub>y</sub>
-    <td class="bdrRR" rowspan=3>&nbsp;
-  <tr>
-    <td><i>u</i><sub>z</sub><i>v</i><sub>x</sub> &minus;
-      <i>u</i><sub>x</sub><i>v</i><sub>z</sub>
-  <tr>
-    <td><i>u</i><sub>x</sub><i>v</i><sub>y</sub> &minus;
-      <i>u</i><sub>y</sub><i>v</i><sub>x</sub>
-  </tbody>
-  </table>
+  <table class="eqtbl matrix">
+    <tr>
+      <td class="bdrLL" rowspan=3>&nbsp;
+      <td><i>u</i><sub>y</sub><i>v</i><sub>z</sub> &minus; 
+        <i>u</i><sub>z</sub><i>v</i><sub>y</sub>
+      <td class="bdrRR" rowspan=3>&nbsp;
+    <tr>
+      <td><i>u</i><sub>z</sub><i>v</i><sub>x</sub> &minus;
+        <i>u</i><sub>x</sub><i>v</i><sub>z</sub>
+    <tr>
+      <td><i>u</i><sub>x</sub><i>v</i><sub>y</sub> &minus;
+        <i>u</i><sub>y</sub><i>v</i><sub>x</sub>
+    </table>
+  </td>
 </table>
 
 
@@ -506,20 +502,18 @@ For example, the system using variables <i>x, y, z</i>:
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-eqset]]</em>a)
   <td class="eqcell">
-  <table class="eqtbl">
-  <tbody align="right">
-  <tr>
-    <td>  <i>x</i> <td>&minus; <td>2<i>y</i> <td>+ <td>  <i>z</i> 
-	<td>= <td>0
-  <tr>
-    <td>&nbsp;     <td>  <td>2<i>y</i> <td>&minus; <td> 8<i>z</i>
-	<td>= <td>8
-  <tr>
-    <td>&minus;4<i>x</i> <td>+ <td>5<i>y</i> <td>+ <td> 9<i>z</i>
-	<td>= <td>&minus;9
-
-  </tbody>
-  </table>
+    <table class="eqtbl c1-r c3-r c5-r c7-r">
+    <tr>
+      <td>  <i>x</i> <td>&minus; <td>2<i>y</i> <td>+ <td>  <i>z</i> 
+    <td>= <td>0
+    <tr>
+      <td>&nbsp;     <td>  <td>2<i>y</i> <td>&minus; <td> 8<i>z</i>
+    <td>= <td>8
+    <tr>
+      <td>&minus;4<i>x</i> <td>+ <td>5<i>y</i> <td>+ <td> 9<i>z</i>
+    <td>= <td>&minus;9
+    </table>
+  </td>
 </table>
 
 <p>
@@ -530,36 +524,34 @@ can be written down more succinctly using matrices as:
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-eqset]]</em>b)
   <td class="eqcell">
-  <table class="eqtbl">
-  <tbody align="right">
-  <tr>
-    <td class="bdrLL" rowspan=3>&nbsp;
-    <td> 1 <td>&nbsp; <td> &minus;2 <td>&nbsp; <td> 1
-    <td class="bdrRR" rowspan=3>&nbsp;
-  <tr>
-    <td> 0 <td>&nbsp; <td> 2 <td>&nbsp; <td> &minus;8
-  <tr>
-    <td> &minus;4 <td>&nbsp; <td> 5 <td>&nbsp; <td> 9
-  </tbody>
-  </table>
-  <td width=64 align="center">or
-  <td class="eqnrcell">(9c)
+    <table class="eqtbl align-r">
+    <tr>
+      <td class="bdrLL" rowspan=3>&nbsp;
+      <td> 1 <td>&nbsp; <td> &minus;2 <td>&nbsp; <td> 1
+      <td class="bdrRR" rowspan=3>&nbsp;
+    <tr>
+      <td> 0 <td>&nbsp; <td> 2 <td>&nbsp; <td> &minus;8
+    <tr>
+      <td> &minus;4 <td>&nbsp; <td> 5 <td>&nbsp; <td> 9
+    </table>
+  </td>
+  <td style="padding-inline: 20px;">or
+  <td class="eqnrcell">(<em>[[ref:eq-eqset]]</em>c)
   <td class="eqcell">
-  <table class="eqtbl">
-  <tbody align="right">
-  <tr>
-    <td class="bdrLL" rowspan=3>&nbsp;
-    <td> 1 <td>&nbsp; <td> &minus;2 <td>&nbsp; <td> 1 
-	<td>&nbsp; <td> 0
-    <td class="bdrRR" rowspan=3>&nbsp;
-  <tr>
-    <td> 0 <td>&nbsp; <td> 2 <td>&nbsp; <td> &minus;8 
-	<td>&nbsp; <td> 8
-  <tr>
-    <td> &minus;4 <td>&nbsp; <td> 5 <td>&nbsp; <td> 9
-	<td>&nbsp; <td> &minus;9
-  </tbody>
-  </table>
+    <table class="eqtbl align-r">
+    <tr>
+      <td class="bdrLL" rowspan=3>&nbsp;
+      <td> 1 <td>&nbsp; <td> &minus;2 <td>&nbsp; <td> 1 
+    <td>&nbsp; <td> 0
+      <td class="bdrRR" rowspan=3>&nbsp;
+    <tr>
+      <td> 0 <td>&nbsp; <td> 2 <td>&nbsp; <td> &minus;8 
+    <td>&nbsp; <td> 8
+    <tr>
+      <td> &minus;4 <td>&nbsp; <td> 5 <td>&nbsp; <td> 9
+    <td>&nbsp; <td> &minus;9
+    </table>
+  </td>
 </table>
 
 <p>
@@ -594,27 +586,25 @@ double index.
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-mat-def]]</em>)
   <td class="eqcell">
-    <b>A</b> &nbsp;=&nbsp;
-	<big>[</big> 
+    <b>A</b>&nbsp;=&nbsp;<big>[</big> 
 	  <b>a</b><sub>1</sub> <b>&hellip; a</b><sub>n</sub>
-	<big>]</big> &nbsp;&equiv;&nbsp;
+	<big>]</big>&nbsp;&equiv;&nbsp;
   <td class="eqcell">
-  <table class="eqtbl">
-  <tbody align="right">
-  <tr>
-    <td class="bdrLL" rowspan=3>&nbsp;
-    <td> <i>a</i><sub>11</sub> <td>&nbsp;
-	<td> <b>&hellip;</b> <td>&nbsp;
-	<td> <i>a</i><sub>1n</sub>
-    <td class="bdrRR" rowspan=3>&nbsp;
-  <tr>
-    <td> <b>:</b> <td>&nbsp; <td> &nbsp; <td>&nbsp; <td> <b>:</b>
-  <tr>
-    <td> <i>a</i><sub>m1</sub> <td>&nbsp;
-	<td> <b>&hellip;</b> <td>&nbsp;
-	<td> <i>a</i><sub>mn</sub>
-</tbody>
-  </table>
+    <table class="eqtbl align-r">
+    <tr>
+      <td class="bdrLL" rowspan=3>&nbsp;
+      <td> <i>a</i><sub>11</sub> <td>&nbsp;
+    <td> <b>&hellip;</b> <td>&nbsp;
+    <td> <i>a</i><sub>1n</sub>
+      <td class="bdrRR" rowspan=3>&nbsp;
+    <tr>
+      <td> <b>:</b> <td>&nbsp; <td> &nbsp; <td>&nbsp; <td> <b>:</b>
+    <tr>
+      <td> <i>a</i><sub>m1</sub> <td>&nbsp;
+    <td> <b>&hellip;</b> <td>&nbsp;
+    <td> <i>a</i><sub>mn</sub>
+    </table>
+  </td>
 </table>
 
 <p>
@@ -649,8 +639,7 @@ coefficient matrix, we can rewrite eq&nbsp;<em>[[ref:eq-eqset]]</em>a to
   <td class="eqcell">
     <b>a</b><sub>1</sub>&middot;x +
     <b>a</b><sub>2</sub>&middot;y +
-    <b>a</b><sub>3</sub>&middot;z &nbsp;=&nbsp; <b>b</b> &nbsp;=&nbsp;
-    <b>A &middot; x</b>
+    <b>a</b><sub>3</sub>&middot;z&nbsp;=&nbsp;<b>b</b>&nbsp;=&nbsp;<b>A &middot; x</b>
 </table>
 
 <p>
@@ -717,9 +706,8 @@ the elements of <b>C</b> are given by
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-mat-mul-elem]]</em>)
   <td class="eqcell">
-    <i>c</i><sub>ij</sub> &nbsp;&equiv;&nbsp;
-    <big>&Sigma;<sub>k</sub></big> 
-	<i>a</i><sub>ik</sub>&middot;<i>b</i><sub>kj</sub>
+    <i>c</i><sub>ij</sub>&nbsp;&equiv;&nbsp;<big
+    >&Sigma;<sub>k</sub></big><i>a</i><sub>ik</sub>&middot;<i>b</i><sub>kj</sub>
 </table>
 
 <p>
@@ -763,7 +751,7 @@ the transposed of the first vector:
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-vec-mul]]</em>)
   <td class="eqcell">
-    <i>c</i> = <b>u &middot; v</b> = [<b>u</b>]<sup>T</sup> &middot; [<b>v</b>].
+    <i>c</i> = <b>u</b> &middot; <b>v</b> = [<b>u</b>]<sup>T</sup> &middot; [<b>v</b>].
 </table>
 
 <p>
@@ -860,46 +848,44 @@ formula for one, namely the 2x2 case:
   <td class="eqnrcell">(<em>[[ref:eq-2d-inv]]</em>)
   <td class="eqcell"> <b>A</b> &nbsp;=&nbsp;
   <td class="eqcell">
-  <table class="eqtbl">
-  <tbody align="center">
-  <tr>
-    <td class="bdrLL" rowspan=2>&nbsp;
-    <td><i>a</i>
-	<td>&nbsp;
-	<td><i>b</i>
-    <td class="bdrRR" rowspan=2>&nbsp;
-  <tr>
-    <td><i>c</i>
-	<td>&nbsp;
-	<td><i>d</i>
-  </tbody>
-  </table>
+    <table class="eqtbl matrix">
+    <tr>
+      <td class="bdrLL" rowspan=2>&nbsp;
+      <td><i>a</i>
+    <td>&nbsp;
+    <td><i>b</i>
+      <td class="bdrRR" rowspan=2>&nbsp;
+    <tr>
+      <td><i>c</i>
+    <td>&nbsp;
+    <td><i>d</i>
+    </table>
+  </td>
   <td width=32>&nbsp;
   <td class="eqcell"> <b>A</b><sup>&minus;1</sup> &nbsp;&equiv;&nbsp;
   <td class="eqcell">
-  <table class="eqtbl">
-  <tbody align="center">
-  <tr>
-    <td class="bdrB"> 1
-  <tr>
-    <td><i>ad &minus; bc</i>
-  </tbody>
-  </table>
+    <table class="eqtbl matrix">
+    <tr>
+      <td class="bdrB"> 1
+    <tr>
+      <td><i>ad &minus; bc</i>
+    </table>
+  </td>
+  <td></td>
   <td class="eqcell">
-  <table class="eqtbl">
-  <tbody align="center">
-  <tr>
-    <td class="bdrLL" rowspan=2>&nbsp;
-    <td><i>d</i>
-	<td>&nbsp;
-	<td><i>&minus;b</i>
-    <td class="bdrRR" rowspan=2>&nbsp;
-  <tr>
-    <td><i>&minus;c</i>
-	<td>&nbsp;
-	<td><i>a</i>
-  </tbody>
-  </table>
+    <table class="eqtbl matrix">
+    <tr>
+      <td class="bdrLL" rowspan=2>&nbsp;
+      <td><i>d</i>
+    <td>&nbsp;
+    <td><i>&minus;b</i>
+      <td class="bdrRR" rowspan=2>&nbsp;
+    <tr>
+      <td><i>&minus;c</i>
+    <td>&nbsp;
+    <td><i>a</i>
+    </table>
+  </td>
 </table>
 
 <p>
@@ -1085,73 +1071,68 @@ we get
 <tr>
   <td class="fill">&nbsp;
   <td class="eqcell"> 
-    <b>M</b> &nbsp;=&nbsp;
-	<big>[</big> <b>i &nbsp; j</b> <big>]</big> &nbsp;=&nbsp;
+    <b>M</b>&nbsp;=&nbsp;<big>[</big> <b>i &nbsp; j</b> <big>]</big>&nbsp;=&nbsp;
   <td class="eqcell">
-  <table class="eqtbl">
-  <tbody align="center">
-  <tr>
-    <td class="bdrLL" rowspan=2>&nbsp;
-    <td>1
-	<td>&nbsp;
-	<td>0
-    <td class="bdrRR" rowspan=2>&nbsp;
-  <tr>
+    <table class="eqtbl matrix">
+    <tr>
+      <td class="bdrLL" rowspan=2>&nbsp;
+      <td>1
+    <td>&nbsp;
     <td>0
-	<td>&nbsp;
-	<td>1
-  </tbody>
-  </table>
-  <td class="eqcell">&nbsp; , &nbsp; <b>x</b> &nbsp;=&nbsp;
+      <td class="bdrRR" rowspan=2>&nbsp;
+    <tr>
+      <td>0
+    <td>&nbsp;
+    <td>1
+    </table>
+  </td>
+  <td class="eqcell">&nbsp;,&nbsp; <b>x</b> &nbsp;=&nbsp;
   <td class="eqcell">
-  <table class="eqtbl">
-  <tbody align="center">
-  <tr>
-    <td class="bdrLL" rowspan=2>&nbsp;
-    <td><i>x</i>
-    <td class="bdrRR" rowspan=2>&nbsp;
-  <tr>
-    <td><i>y</i>
-  </tbody>
-  </table>
+    <table class="eqtbl matrix">
+    <tr>
+      <td class="bdrLL" rowspan=2>&nbsp;
+      <td><i>x</i>
+      <td class="bdrRR" rowspan=2>&nbsp;
+    <tr>
+      <td><i>y</i>
+    </table>
+  </td>
   <td width=32 align="center">;
   <td class="eqcell">
-    <b>M</b>&prime; &nbsp;=&nbsp;
-	<big>[</big> <b>u &nbsp; v</b> <big>]</big> &nbsp;=&nbsp;
+    <b>M</b>&prime;&nbsp;=&nbsp;
+	<big>[</big> <b>u &nbsp; v</b> <big>]</big>&nbsp;=&nbsp;
   <td class="eqcell">
-  <table class="eqtbl">
-  <tbody align="center">
-  <tr>
-    <td class="bdrLL" rowspan=2>&nbsp;
+    <table class="eqtbl matrix">
+    <tr>
+      <td class="bdrLL" rowspan=2>&nbsp;
+      <td>1
+    <td>&nbsp;
     <td>1
-	<td>&nbsp;
-	<td>1
-    <td class="bdrRR" rowspan=2>&nbsp;
-  <tr>
-    <td>0
-	<td>&nbsp;
-	<td>1
-  </tbody>
-  </table>
-  <td class="eqcell">&nbsp; , &nbsp; <b>x</b>&prime; &nbsp;=&nbsp;
+      <td class="bdrRR" rowspan=2>&nbsp;
+    <tr>
+      <td>0
+    <td>&nbsp;
+    <td>1
+    </table>
+  </td>
+  <td class="eqcell">&nbsp;, &nbsp; <b>x</b>&prime;&nbsp;=&nbsp;
   <td class="eqcell">
-  <table class="eqtbl">
-  <tbody align="center">
-  <tr>
-    <td class="bdrLL" rowspan=2>&nbsp;
-    <td><i>x</i>&prime;
-    <td class="bdrRR" rowspan=2>&nbsp;
-  <tr>
-    <td><i>y</i>&prime;
-  </tbody>
-  </table>
+    <table class="eqtbl matrix">
+    <tr>
+      <td class="bdrLL" rowspan=2>&nbsp;
+      <td><i>x</i>&prime;
+      <td class="bdrRR" rowspan=2>&nbsp;
+    <tr>
+      <td><i>y</i>&prime;
+    </table>
+  </td>
 </table>
 
 <table class="eq-container">
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-coords]]</em>c)
   <td class="eqcell">
-  <i>P</i> = <b>M &middot; x</b> = <b>M&prime;</b> &middot; <b>x&prime;</b>
+  <i>P</i> = <b>M</b> &middot; <b>x</b> = <b>M</b>&prime; &middot; <b>x</b>&prime;
 </table>
 
 <p>

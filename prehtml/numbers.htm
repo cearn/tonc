@@ -867,24 +867,22 @@ otherwise it won't work. The actual representation of -<i>x</i> using
 <tr>
   <td class="eqnrcell">(3)
   <td class="eqcell">
-  <table class="eqtbl">
-  <col align="right">
-  <col align="center">
-  <col align="left">
-  <tr>
-    <td> 0
-    <td>=
-    <td> <i>x</i> + (&minus;<i>x</i>)
-  <tr><td colspan=3 align="center">is equivalent to
-  <tr>
-    <td> 10<sup>m</sup>
-    <td>=
-    <td> <i>x</i> + (&minus;<i>x</i>)
-  <tr>
-    <td> (10<sup>m</sup>&minus;1) &minus; x + 1
-    <td>=
-    <td> (&minus;<i>x</i>)
-  </table>
+    <table class="eqtbl basic">
+    <tr>
+      <td>0
+      <td>=
+      <td> <i>x</i> + (&minus;<i>x</i>)
+    <tr><td colspan=3 align="center">is equivalent to
+    <tr>
+      <td> 10<sup>m</sup>
+      <td>=
+      <td> <i>x</i> + (&minus;<i>x</i>)
+    <tr>
+      <td> (10<sup>m</sup>&minus;1) &minus; x + 1
+      <td>=
+      <td> (&minus;<i>x</i>)
+    </table>
+  </td>
 </table>
 
 <p>
@@ -911,20 +909,18 @@ just the inversion of all the bits of <i>x</i>. Take 76, for example:
 <tr>
   <td class="fill">&nbsp;
   <td class="eqcell">
-  <table class="eqtbl">
-  <col align="right">
-  <col align="center">
-  <col align="left">
-  <tr>
-    <th>255: <td>1111 1111 <td>
-  <tr>
-    <th class="bdrB">76:
-	<td class="bdrB">0100 1100 
-	<td class="bdrB">&minus;
-  <tr>
-    <th>179:
-    <td>1011 0011
-  </table>
+    <table class="eqtbl basic">
+    <tr>
+      <td><b>255:</b> <td>1111 1111 <td>
+    <tr>
+      <td class="bdrB"><b>76:</b>
+      <td class="bdrB">0100 1100 
+      <td class="bdrB">&minus;
+    <tr>
+      <td><b>179:</b>
+      <td>1011 0011
+    </table>
+  </td>
 </table>
 
 <p>
@@ -1470,63 +1466,67 @@ Table 8 shows examples of these operators on bytes 0Fh and 35h.
 <!-- frame for masked results -->
 <table id="tbl-bitops-eg">
 <caption class="top">
-  <b>Table <em>[[ref:tbl-bitops-eg]]a</em></b>: bit-ops examples
+  <b>Table <em>[[ref:tbl-bitops-eg]]</em>a</b>: bit-ops examples
 </caption>
   <col span=4 width=144>
   <tr valign="bottom"><td>
-  <table class="eqtbl">
-    <tr><th align="center" colspan=3>AND
+  <table class="eqtbl c1-l">
+    <tr><th colspan=3>AND
     <tr>
-	  <th><code>0Fh</code>
-	  <td><code>0000<font color=blue><b>1111</b></font></code>
+      <td><b><code>35h</code></b>&nbsp;
+      <td><code>00110101</code>&nbsp;
     <tr>
-	  <th class="bdrB"><code>35h</code>&nbsp;
-	  <td class="bdrB"><code>00110101</code>&nbsp;
-	  <td class="bdrB"> &amp;
+      <td class="bdrB"><b><code>0Fh</code></b>
+      <td class="bdrB"><code>0000<font color=blue><b>1111</b></font></code>
+      <td class="bdrB"> &amp;
     <tr>
-	  <th><code>05h</code>
-	  <td><code><font color=red><b>0000</b></font>0101</code>
+      <td><b><code>05h</code></b>
+      <td><code><font color=red><b>0000</b></font>0101</code>
   </table>
+  </td>
   <td>
-  <table class="eqtbl">
-    <tr><th align="center" colspan=3>OR
+  <table class="eqtbl c1-l">
+    <tr><th colspan=3>OR
     <tr>
-	  <th><code>0Fh</code>
-	  <td><code>0000<font color=blue><b>1111</b></font></code>
+      <td><b><code>35h</code></b>&nbsp;
+      <td><code>00110101</code>&nbsp;
     <tr>
-	  <th class="bdrB"><code>35h</code>&nbsp;
-	  <td class="bdrB"><code>00110101</code>&nbsp;
-	  <td class="bdrB"> |
+      <td class="bdrB"><b><code>0Fh</code></b>
+      <td class="bdrB"><code>0000<font color=blue><b>1111</b></font></code>
+      <td class="bdrB"> |
     <tr>
-	  <th><code>3Fh</code>
-	  <td><code>0011<font color=red><b>1111</b></font></code>
+      <th><code>3Fh</code>
+      <td><code>0011<font color=red><b>1111</b></font></code>
   </table>
+  </td>
   <td>
-  <table class="eqtbl">
-    <tr><th align="center" colspan=3>XOR
+  <table class="eqtbl c1-l">
+    <tr><th colspan=3>XOR
     <tr>
-	  <th><code>0Fh</code>
-	  <td><code>0000<font color=blue><b>1111</b></font></code>
+      <td><b><code>35h</code></b>&nbsp;
+      <td><code>00110101</code>&nbsp;
     <tr>
-	  <th class="bdrB"><code>35h</code>&nbsp;
-	  <td class="bdrB"><code>00110101</code>&nbsp;
-	  <td class="bdrB"> ^
+      <td class="bdrB"><b><code>0Fh</code></b>
+      <td class="bdrB"><code>0000<font color=blue><b>1111</b></font></code>
+      <td class="bdrB"> ^
     <tr>
-	  <th><code>3Ah</code>
-	  <td><code>0011<font color=red><b>1010</b></font></code>
+      <td><b><code>3Ah</code></b>
+      <td><code>0011<font color=red><b>1010</b></font></code>
   </table>
+  </td>
   <td>
-  <table class="eqtbl">
-    <tr><th align="center" colspan=3>NOT
+  <table class="eqtbl c1-l">
+    <tr><th colspan=3>NOT
     <tr><td>&nbsp;
     <tr>
-	  <th class="bdrB"><code>0Fh</code>&nbsp;
-	  <td class="bdrB"><code>00001111</code>&nbsp;
-	  <td class="bdrB"> ~
+      <td class="bdrB"><b><code>0Fh</code></b>&nbsp;
+      <td class="bdrB"><code>00001111</code>&nbsp;
+      <td class="bdrB"> ~
     <tr>
-	  <th><code>F0h</code>
-	  <td><code><font color=red><b>11110000</b></font></code>
+      <td><b><code>F0h</code></b>
+      <td><code><font color=red><b>11110000</b></font></code>
   </table>
+  </td>
 </table>  <!-- /frame for masked results -->
 </div>
 
@@ -1551,7 +1551,7 @@ If you look at the truth tables and the examples, you may already see
 how this can work. OR, AND, XOR are binary operators, and you can 
 think of the two operands as a source variable <i>s</i> and a 
 <dfn>mask</dfn> variable <i>m</i> which tells you which of the bits are 
-affected. In table 8a I used <i>s</i>=35h and <i>m</i>=0Fh; the mask
+affected. In table <em>[[ref:tbl-bitops-reg]]</em>a I used <i>s</i>=35h and <i>m</i>=0Fh; the mask
 consists of the set bits (in blue), the red bits were the ones that were 
 affected. If you examine the table, you'll see that an OR sets bits, a 
 XOR toggles it and an AND keeps bits (i.e., clears the unmasked bits). 
@@ -1577,61 +1577,65 @@ operators like '|='.
 <col span=4 width=144>
 <tr valign="bottom">
   <td>
-  <table class="eqtbl">
-    <caption><b>AND (keep bits)</b><br> <i>s &amp; m</i></caption>
+  <table class="eqtbl c1-l">
+    <caption class="nowrap"><b>AND (keep bits)</b><br> <i>s &amp; m</i></caption>
     <tr>
-	  <th><code>35h</code>&nbsp;
-	  <td><code>00110101</code>&nbsp;
+      <td><b><code>35h</code></b>&nbsp;
+      <td><code>00110101</code>&nbsp;
     <tr>
-	  <th class="bdrB"><code>0Fh</code>
-	  <td class="bdrB"><code>0000<font color=blue><b>1111</b></font></code>
-	  <td class="bdrB"> &amp;
+      <td class="bdrB"><b><code>0Fh</code></b>
+      <td class="bdrB"><code>0000<font color=blue><b>1111</b></font></code>
+      <td class="bdrB"> &amp;
     <tr>
-	  <th><code>05h</code>
-	  <td><code><font color=red><b>0000</b></font>0101</code>
+      <td><b><code>05h</code></b>
+      <td><code><font color=red><b>0000</b></font>0101</code>
   </table>
+  </td>
   <td>
-  <table class="eqtbl">
-    <caption><b>OR (set bits)</b> <br> <i>s | m</i></caption>
+  <table class="eqtbl c1-l">
+    <caption class="nowrap"><b>OR (set bits)</b> <br> <i>s | m</i></caption>
     <tr>
-	  <th><code>35h</code>&nbsp;
-	  <td><code>00110101</code>&nbsp;
+      <td><b><code>35h</code></b>&nbsp;
+      <td><code>00110101</code>&nbsp;
     <tr>
-	  <th class="bdrB"><code>0Fh</code>
-	  <td class="bdrB"><code>0000<font color=blue><b>1111</b></font></code>
-	  <td class="bdrB"> |
+      <td class="bdrB"><b><code>0Fh</code></b>
+      <td class="bdrB"><code>0000<font color=blue><b>1111</b></font></code>
+      <td class="bdrB"> |
     <tr>
-	  <th><code>3Fh</code>
-	  <td><code>0011<font color=red><b>1111</b></font></code>
+      <th><code>3Fh</code>
+      <td><code>0011<font color=red><b>1111</b></font></code>
   </table>
+  </td>
   <td>
-  <table class="eqtbl">
-    <caption><b>XOR (flip bits)</b> <br> <i>s ^ m</i></caption>
+  <table class="eqtbl c1-l">
+    <caption class="nowrap"><b>XOR (flip bits)</b> <br> <i>s ^ m</i></caption>
     <tr>
-	  <th><code>35h</code>&nbsp;
-	  <td><code>00110101</code>&nbsp;
+      <td><b><code>35h</code></b>&nbsp;
+      <td><code>00110101</code>&nbsp;
     <tr>
-	  <th class="bdrB"><code>0Fh</code>
-	  <td class="bdrB"><code>0000<font color=blue><b>1111</b></font></code>
-	  <td class="bdrB"> ^
+      <td class="bdrB"><b><code>0Fh</code></b>
+      <td class="bdrB"><code>0000<font color=blue><b>1111</b></font></code>
+      <td class="bdrB"> ^
     <tr>
-	  <th><code>3Ah</code>
-	  <td><code>0011<font color=red><b>1010</b></font></code>
+      <td><b><code>3Ah</code></b>
+      <td><code>0011<font color=red><b>1010</b></font></code>
   </table>
+  </td>
   <td>
-  <table class="eqtbl">
-    <caption><b>AND NOT (clear bits)</b> <br> <i>s &amp;~ m</i></caption>
+  <table class="eqtbl c1-r">
+    <caption class="nowrap"><b>AND NOT (clear bits)</b> <br> <i>s &amp;~ m</i></caption>
     <tr>
-	  <th><code>&nbsp;35h</code>&nbsp;
+	  <td><b><code>&nbsp;35h</code></b>
 	  <td><code>00110101</code>&nbsp;
     <tr>
-	  <th class="bdrB"><code>~0Fh</code>
+	  <td class="bdrB"><b><code>~0Fh</code></b>
 	  <td class="bdrB"><code>1111<font color=blue><b>0000</b></font></code>
 	  <td class="bdrB"> &amp;
     <tr>
-	  <th><code>&nbsp;30h</code>
+	  <td><b><code>&nbsp;30h</code></b>
 	  <td><code>0011<font color=red><b>0000</b></font></code>
   </table>
+  </td>
 </table>  <!-- /frame for masked results -->
 </div>
 
@@ -1655,17 +1659,11 @@ variable, in pretty much the way you'd expect:
 </p>
 
 <div class="lblock">
-<table id="tbl-shift" cellpadding=4 frame=void rules=groups>
+<table id="tbl-shift" border="1">
 <caption><b>Table <em>[[ref:tbl-shift]]</em></b>: shift / rotate operations on
   byte 35h (<code>00110101</code>)</caption>
-<colgroup>
-<colgroup>
-<colgroup>
-<colgroup>
-<thead>
-<tr align="center">
+<tr>
   <th>name <th> symbol <th>example <th> result
-<tbody>
 <tr>
   <th>shift left <td> SL, &lt;&lt;
   <td> <code>00<font color=red><b>110101</b></font></code> &lt;&lt; 2
@@ -1735,7 +1733,7 @@ you'd get by sign-bit extension or not.
 
 <div class="lblock">
 <table id="tbl-sign" border=1>
-<caption>
+<caption class="nowrap">
   <b>Table <em>[[ref:tbl-sign]]</em></b>: signed and unsigned <code>80h&gt;&gt;3</code>
 </caption>
 <col span=3 align="center">
@@ -1817,13 +1815,10 @@ constant is a power of two.
 </p>
 
 <div class="lblock">
-<table id="tbl-bitops-arith" cellpadding=4 frame=void rules=groups>
-<caption>
+<table id="tbl-bitops-arith" class="align-c" border="1">
+<caption class="nowrap">
   <b>Table <em>[[ref:tbl-bitops-arith]]</em></b> Arithmetic bit-ops summary
 </caption>
-<colgroup valign="bottom">
-<colgroup align="center" valign="bottom">
-<colgroup align="center" valign="bottom">
 <thead>
 <tr>
   <th>bit-op <th>arithmetic function <th>example
@@ -1862,20 +1857,17 @@ an 8bit computer, cool huh?
 </p>
 
 <div class="lblock">
-<table id="tbl-adder" border=1 frame=void rules=groups width=10%>
-<caption>
+<table id="tbl-adder" class="align-c" border=1 width=10%>
+<caption class="nowrap">
   <b>Table <em>[[ref:tbl-adder]]</em></b>: 1-bit adder
 </caption>
-<colgroup align="center">
-<colgroup align="center">
-<colgroup align="center">
 <thead>
-  <tr><th>a b <th> a+b
+  <tr><th>a <th>b <th> a+b
 <tbody>
-  <tr><td>0 0 <td> 00
-  <tr><td>0 1 <td> 01
-  <tr><td>1 0 <td> 01
-  <tr><td>1 1 <td> 10
+  <tr><td>0 <td>0 <td> 00
+  <tr><td>0 <td>1 <td> 01
+  <tr><td>1 <td>0 <td> 01
+  <tr><td>1 <td>1 <td> 10
 </table>
 </div>
 

@@ -353,19 +353,17 @@ operation. Given a scanline <i>h</i>, here's what we do:
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-post-ofs]]</em>)
   <td class="eqcell">
-  <table class="eqtbl">
-  <col align="right">
-  <col align="center">
-  <col align="left">
-  <tr>
-    <td><i>x</i><sub>s</sub>
-    <td>=
-    <td><i>W</i>/2 = 120<br>
-  <tr>
-    <td><i>y</i><sub>s</sub>
-    <td> =
-    <td>(<i>D+h</i>)
-  </table>
+    <table class="eqtbl basic">
+    <tr>
+      <td><i>x</i><sub>s</sub>
+      <td>=
+      <td><i>W</i>/2 = 120<br>
+    <tr>
+      <td><i>y</i><sub>s</sub>
+      <td> =
+      <td>(<i>D+h</i>)
+    </table>
+  </td>
 </table>
 </ol>
 
@@ -406,23 +404,22 @@ to do. So what you should use is:
   <td class="eqnrcell">(<em>[[ref:eq-prs]]</em>)
   <td class="eqcell">
     <b>P</b> &nbsp;=&nbsp;
-    <b>S</b>(&lambda;) &middot; <b>R</b>(&alpha;) 
+    <b>S</b>(&lambda;)&middot;<b>R</b>(&alpha;) 
     &nbsp;=&nbsp;
   <td class="eqcell">
-  <table class="eqtbl">
-  <tbody align="center">
-  <tr>
-    <td class="bdrLL" rowspan=2>&nbsp;
-    <td>&lambda;&middot;cos(&alpha;)
-    <td>&nbsp;
-    <td>&minus;&lambda;&middot;sin(&alpha;)
-    <td class="bdrRR" rowspan=2>&nbsp;
-  <tr>
-    <td>&lambda;&middot;sin(&alpha;)
-    <td>&nbsp;
-    <td>&lambda;&middot;cos(&alpha;)
-  </tbody>
-  </table>
+    <table class="eqtbl matrix">
+    <tr>
+      <td class="bdrLL" rowspan=2>&nbsp;
+      <td>&lambda;&middot;cos(&alpha;)
+      <td>&nbsp;
+      <td>&minus;&lambda;&middot;sin(&alpha;)
+      <td class="bdrRR" rowspan=2>&nbsp;
+    <tr>
+      <td>&lambda;&middot;sin(&alpha;)
+      <td>&nbsp;
+      <td>&lambda;&middot;cos(&alpha;)
+    </table>
+  </td>
 </table>
 
 <p>
@@ -436,7 +433,7 @@ background point <b>p</b>:
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-ofs-base]]</em>)
   <td class="eqcell">
-    <b>dx</b> + <b>P</b> &middot; <b>q</b> = <b>p</b> ,
+    <b>dx</b> + <b>P</b>&middot;<b>q</b> = <b>p</b> ,
 </table>
 
 <p>
@@ -451,27 +448,24 @@ is:
 <tr>
   <td class="eqnrcell">(<em>[[ref:eq-aff-ofs]]</em>)
   <td class="eqcell">
-  <table class="eqtbl">
-  <col align="right">
-  <col align="center">
-  <col align="left">
+  <table class="eqtbl basic">
   <tr>
-    <td> <b>dx + P &middot; q</b>
+    <td> <b>dx</b> + <b>P</b>&middot;<b>q</b>
 	<td> =
 	<td> <b>p</b>
   <tr>
-    <td class="bdrB"> <b>P</b> &middot; (<b>q &minus; x</b><sub>s</sub>)
+    <td class="bdrB"> <b>P</b>&middot;(<b>q &minus; x</b><sub>s</sub>)
     <td class="bdrB">=
 	<td class="bdrB"> <b>p &minus; a</b>
     <td class="bdrB">&minus;
   <tr>
-    <td> <b>dx + P &middot; x</b><sub>s</sub>
+    <td> <b>dx + P</b>&middot;<b>x</b><sub>s</sub>
 	<td> =
 	<td> <b>a</b>
   <tr>
     <td><b>dx</b>
 	<td> = 
-	<td> <b>a</b> &minus; <b>P &middot; x</b><sub>s</sub>
+	<td> <b>a</b> &minus; <b>P</b>&middot;<b>x</b><sub>s</sub>
   </table>
 </table>
 

@@ -65,9 +65,11 @@ tt		{ color: #400080; }
 dfn		{ font-style:italic; font-weight:bold; }
 em		{ font-weight:bold; font-style:normal; color:purple; }
 
-.nowrap {
-	white-space: nowrap;
-}
+.nowrap { white-space: nowrap; }
+.align-l { text-align: left; }
+.align-c { text-align: center; }
+.align-r { text-align: right; }
+
 
 /* === lists === */
 dd		{ margin-left: 1em; margin-bottom: 0.3em; }
@@ -169,7 +171,9 @@ table {
 	}
 }
 
-table.cp1 { th, td { padding: 1px !important; } }
+table.cp-1 { th, td { padding: 1px !important; } }
+table.cp-4 { th, td { padding: 4px !important; } }
+table.cp-8 { th, td { padding: 8px !important; } }
 
 table.frame-group {
 	border-spacing: 4px;
@@ -330,6 +334,18 @@ tr.bg1 td	{	border-bottom: #E0E0E0 1px solid;	}
 
 /* --- 'equation tables' --- */
 .eqtbl		{ font-size: 100%;	page-break-inside:avoid;		}
+
+/* basic A = B equation */
+.eqtbl.basic {
+	td:nth-child(1) { text-align: right; }
+	td:nth-child(2) { text-align: center; }
+	td:nth-child(3) { text-align: left; }
+}
+
+.eqtbl.matrix {
+	text-align: center;
+}
+
 .eqcell		{ padding: 0.5em 0;	font-size: 115%;					}
 .eqnrcell {
 	padding-right: 8px; 
@@ -349,9 +365,9 @@ td.hdr_r	{ width: 40%; text-align:right;	}
 /* (Table) border styles */
 .bdr
 { border: 1px black solid;		}
-.bdrT, .bdrTL, .bdrTR, 
-.bdrLL, .bdrRR,
-.bdrB, .bdrBL, .bdrBR { padding: 0; }
+.bdrTL, .bdrTR, 
+.bdrLL, .bdrRR, 
+.bdrBL, .bdrBR { padding: 0; }
 
 .bdrT, .bdrTL, .bdrTR, .bdrLL, .bdrRR
 { border-top: 1px black solid;		}
