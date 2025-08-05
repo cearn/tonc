@@ -153,7 +153,7 @@ class AutoReffer:
 			label = rule["fmt"].format(**counters)
 			labels[id] = label
 
-			# print(f"{id} -> {label}")
+			print(f"{id} -> {label}")
 		return labels
 	
 	def _single_find_sections(self, soup:BeautifulSoup):
