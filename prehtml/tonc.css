@@ -10,7 +10,7 @@ body
 
 body, table {
 	font-family: tahoma, verdana, sans-serif;
-	font-size: 15px;
+	font-size: 16px;
 	line-height: 1.3;
 }
 
@@ -190,6 +190,7 @@ table.controls-container {
 	th, td {
 		padding: 2px;
 		vertical-align: top;
+		text-align: left;
 	}
 	th:nth-child(1), td:nth-child(1) {
 		text-align: left;
