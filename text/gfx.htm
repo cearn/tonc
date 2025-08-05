@@ -1,7 +1,7 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+  <meta charset="utf-8">
   <meta name="generator" content="Context">
   <meta name="Author" content="Cearn">
   <meta name="Created" content="20031013">
@@ -9,9 +9,11 @@
 
   <title>Tonc: Graphic effects</title>
   <link rel="stylesheet" type="text/css" href="tonc.css">
-  <script type="text/javascript" src="tonc.js"></script>
+  <script src="tonc.js"></script>
 </head>
 <body onload="main();">
+<div class="main-container">
+
 <!--567890123456789012345678901234567890123456789012345678901234567-->
 
 <!-- [[header]] -->
@@ -31,10 +33,10 @@
 
 <!-- [[toc]] -->
 <ul>
-  <li><a href="#sec-mos">Mosaic</a>.
-  <li><a href="#sec-blend">Blending</a>.
-  <li><a href="#sec-win">Windowing</a>.
-  <li><a href="#sec-conc">Conclusions</a>.
+  <li><a href="#sec-mos">Mosaic</a>
+  <li><a href="#sec-blend">Blending</a>
+  <li><a href="#sec-win">Windowing</a>
+  <li><a href="#sec-conc">Conclusions</a>
 </ul>
 <!-- [[/toc]] -->
 
@@ -88,8 +90,7 @@ enable mosaic. For individual sprites, set
 </p>
 
 <div class="reg">
-<table class="reg" id="tbl-reg-mosaic"
-  border=1 frame=void cellpadding=4 cellspacing=0>
+<table id="tbl-reg-mosaic" class="reg border-std">
 <caption class="reg">
   REG_MOSAIC @ <code>0400:004Ch</code>
 </caption>
@@ -103,29 +104,24 @@ enable mosaic. For individual sprites, set
 </table>
 <br>
 
-<table>
-  <col class="bits" width=40>
-  <col class="bf" width="8%">
-  <col class="def" width="12%">
-<tr align="left"><th>bits<th>name<th>define<th>description
-<tbody valign="top">
-<tr class="bg0">	
+<table class="reg-desc">
+<tr><th>bits<th>name<th>define<th>description
+<tr class="bg0">
   <td>0-3<td class="rclr0">Bh
   <td><i>MOS_BH#</i>
   <td>Horizontal BG stretch.
-<tr class="bg1">	
+<tr class="bg1">
   <td>4-7<td class="rclr1">Bv
   <td><i>MOS_BV#</i>
   <td>Vertical BG stretch.
-<tr class="bg0">	
+<tr class="bg0">
   <td>8-B<td class="rclr2">Oh
   <td><i>MOS_OH#</i>
   <td>Horizontal object stretch.
-<tr class="bg1">	
+<tr class="bg1">
   <td>C-F<td class="rclr3">Ov
   <td><i>MOS_OV#</i>
   <td>Vertical object stretch.
-</tbody>
 </table>
 </div>
 
@@ -335,11 +331,11 @@ that overlap each other. Consider A to be on top of B. The color-value
 of the a pixel in this region is defined as
 </p>
 
-<table id="eq-blend">
+<table id="eq-blend" class="eq-container">
 <tr>
   <td class="eqnrcell">(13.1)
   <td class="eqcell">
-    C = w<sub>A</sub>·A + w<sub>B</sub>·B,
+    C = w<sub>A</sub>&middot;A + w<sub>B</sub>&middot;B,
 </table>
 
 <p>
@@ -387,8 +383,7 @@ levels.
 </p><br>
 
 <div class="reg">
-<table class="reg" id="tbl-reg-bldcnt"
-  border=1 frame=void cellpadding=4 cellspacing=0>
+<table id="tbl-reg-bldcnt" class="reg border-std">
 <caption class="reg">
   REG_BLDCNT (REG_BLDMOD) @ <code>0400:0050h</code>
 </caption>
@@ -413,12 +408,8 @@ levels.
 </table>
 <br>
 
-<table>
-  <col class="bits" width=40>
-  <col class="bf" width="8%">
-  <col class="def" width="12%">
-<tr align="left"><th>bits<th>name<th>define<th>description
-<tbody valign="top">
+<table class="reg-desc">
+<tr><th>bits<th>name<th>define<th>description
 <tr class="bg0">
   <td>0-5<td class="rclr0">aBG0-aBD
   <td><i>BLD_TOP#</i>
@@ -445,7 +436,6 @@ levels.
   <td>The B (bottom) layers. Use the B-weights. Note that these 
     layers must actually lie behind the A-layers, or the blend will
     not work.
-</tbody>
 </table>
 </div>
 
@@ -460,8 +450,7 @@ called that; they just are.
 </p>
 
 <div class="reg">
-<table class="reg" id="tbl-reg-bldalpha"
-  border=1 frame=void cellPadding=4 cellSpacing=0>
+<table id="tbl-reg-bldalpha" class="reg border-std">
 <caption class="reg">
   REG_BLDALPHA (REG_COLEV) @ <code>0400:0052h</code>
 </caption>
@@ -475,12 +464,8 @@ called that; they just are.
 </table>
 <br>
 
-<table>
-  <col class="bits" width=40>
-  <col class="bf" width="8%">
-  <col class="def" width="12%">
-<tr align="left"><th>bits<th>name<th>define<th>description
-<tbody valign="top">
+<table class="reg-desc">
+<tr><th>bits<th>name<th>define<th>description
 <tr class="bg0">
   <td>0-4<td class="rclr0">eva
   <td><i>BLD_EVA#</i>
@@ -489,15 +474,13 @@ called that; they just are.
   <td>8-C<td class="rclr1">evb
   <td><i>BLD_EVB#</i>
   <td><b>Bottom blend weight</b>. Only used for normal blending
-</tbody>
 </table>
 </div>
 
 <br>
 
 <div class="reg">
-<table class="reg" id="tbl-reg-bldy"
-  border=1 frame=void cellpadding=4 cellspacing=0>
+<table id="tbl-reg-bldy" class="reg border-std">
 <caption class="reg">
   REG_BLDY (REG_COLEY) @ <code>0400:0054h</code>
 </caption>
@@ -509,17 +492,12 @@ called that; they just are.
 </table>
 <br>
 
-<table>
-  <col class="bits" width=40>
-  <col class="bf" width="8%">
-  <col class="def" width="12%">
-<tr align="left"><th>bits<th>name<th>define<th>description
-<tbody valign="top">
+<table class="reg-desc">
+<tr><th>bits<th>name<th>define<th>description
 <tr class="bg0">
   <td>0-4<td class="rclr2">ey
   <td><i>BLDY#</i>
   <td><b>Top blend fade</b>. Used for white and black fades.
-</tbody>
 </table>
 </div>
 
@@ -732,13 +710,12 @@ top left corner. The controls are:
 </p>
 
 <div class="lblock">
-<table>
-<col valign="top">
+<table class="controls-container">
 <tr><th>left, right<td> changes <code>eva</code>. Note that 
 	<code>eva</code> is at maximum initially.
-<tr><th>down,up<td> changes <code>evb</code>.
-<tr><th>B,A<td>Changes <code>ey</code>
-<tr><th>L,R<td>Changes mode.
+<tr><th>down, up<td> changes <code>evb</code>.
+<tr><th>B, A<td>Changes <code>ey</code>
+<tr><th>L, R<td>Changes mode.
 </table>
 </div>
 
@@ -790,8 +767,7 @@ winIn = win0 | win1 <br>
 winOut = ~(winIn)
 </table>
 
-<table id="img-win-dgrm">
-<tbody valign="top">
+<table id="img-win-dgrm" class="frame-group">
 <tr>
 <td>
   <div class="cpt" style="width:240px;">
@@ -807,7 +783,6 @@ winOut = ~(winIn)
     win0 in red, win1 in green, winIn is win0 | win1 (blue edge), 
 	winOut in grey.
   </div>
-</tbody>
 </table>
 </div>
 
@@ -823,8 +798,7 @@ following layout:
 </p>
 
 <div class="reg">
-<table class="reg" id="tbl-reg-winxy"
-  border=1 frame=void cellPadding=4 cellSpacing=0>
+<table id="tbl-reg-winxy" class="reg border-std">
 <caption class="reg">
   REG_WINxH and REG_WINxV @ <code>0400:0040-0400:0047h</code>
 </caption>
@@ -842,12 +816,8 @@ following layout:
 </table>
 <br>
 
-<table>
-  <col class="bits" width=40>
-  <col class="bf" width=40>
-  <col class="def">
-<tr align="left"><th>bits<th>name<th><th>description
-<tbody valign="top">
+<table class="reg-desc">
+<tr><th>bits<th>name<th>define<th>description
 <tr class="bg0">
   <td>0-7<td class="rclr1">right
   <td>
@@ -865,7 +835,6 @@ following layout:
   <td>8-F<td class="rclr2">top
   <td>
   <td>Top side of window (inclusive)
-</tbody>
 </table>
 </div>
 
@@ -893,8 +862,7 @@ you intend to use blending on the contents of that particular window.
 </p>
 
 <div class="reg">
-<table class="reg" id="tbl-reg-winio"
-  border=1 frame=void cellpadding=4 cellspacing=0>
+<table id="tbl-reg-winio" class="reg border-std">
 <tr class="bits">
     <th>register
 	<td>F E<td>D<td>C<td>B<td>A<td>9<td>8
@@ -925,18 +893,13 @@ you intend to use blending on the contents of that particular window.
   <td>-<td colspan=6>winOut
 </table><br>
 
-<table>
-  <col class="bits" width=40>
-  <col class="bf" width="8%">
-  <col class="def" width="12%">
-<tr align="left"><th>bits<th>name<th>define<th>description
-<tbody valign="top">
+<table class="reg-desc">
+<tr><th>bits<th>name<th>define<th>description
 <tr class="bg0">
   <td>0-5<td class="rclr0">BGx, Obj, Bld
   <td>WIN_BGx, WIN_OBJ, WIN_BLD, <i>WIN_LAYER#</i>
   <td><b>Windowing flags</b>. To be used with all bytes in 
     REG_WININ and REG_WINOUT.
-</tbody>
 </table>
 </div>
 
@@ -1048,10 +1011,10 @@ exhibit at certain positions.
 </p>
 
 <div class="lblock">
-<table>
-<tr><th width="10%">dir<td>Moves the rectangle.
-<tr><th>A + dir<td>Move rectangle by tapping for finer control.
-<tr><th>start<td>Randomly change the position of the rocket.
+<table class="controls-container">
+  <tr><th>dir<td>Moves the rectangle.
+  <tr><th>A + dir<td>Move rectangle by tapping for finer control.
+  <tr><th>start<td>Randomly change the position of the rocket.
 </table>
 </div>
 
@@ -1390,7 +1353,7 @@ Get all Tonc files <a href="http://www.coranac.com/projects/#tonc" target="_blan
 </table>
 <!-- [[/footer]] -->
 
+</div> <!-- main-container -->
 </body>
 </html>
-
 

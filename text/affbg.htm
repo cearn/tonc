@@ -1,17 +1,19 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+  <meta charset="utf-8">
   <meta name="generator" content="Context">
-    <meta name="Author" content="Cearn">
-    <meta name="Created" content="20040307">
-    <meta name="Modified" content="20130324">
+  <meta name="Author" content="Cearn">
+  <meta name="Created" content="20040307">
+  <meta name="Modified" content="20130324">
 
-    <title>Tonc: affine backgrounds</title>
-    <link rel="stylesheet" type="text/css" href="tonc.css">
-  <script type="text/javascript" src="tonc.js"></script>
+  <title>Tonc: affine backgrounds</title>
+  <link rel="stylesheet" type="text/css" href="tonc.css">
+  <script src="tonc.js"></script>
 </head>
 <body onload="main();">
+<div class="main-container">
+
 
 <!--567890123456789012345678901234567890123456789012345678901234567-->
 
@@ -32,12 +34,11 @@
 
 <!-- [[toc]] -->
 <ul>
-  <li><a href="#sec-intro">Introduction</a>.
-  <li><a href="#sec-regs">Affine background registers</a>.
-  <li><a href="#sec-aff-ofs">Positioning and transforming affine 
-    backgrounds</a>.
-  <li><a href="#sec-map">Mapping format</a>.
-  <li><a href="#sec-demo"><tt>sbb_aff</tt> demo</a>.
+  <li><a href="#sec-intro">Introduction</a>
+  <li><a href="#sec-regs">Affine background registers</a>
+  <li><a href="#sec-aff-ofs">Positioning and transforming affine backgrounds</a>
+  <li><a href="#sec-map">Mapping format</a>
+  <li><a href="#sec-demo"><tt>sbb_aff</tt> demo</a>
 </ul>
 <!-- [[/toc]] -->
 
@@ -73,36 +74,33 @@ table 12.2.
 </p>
 
 <div class="cblock">
-<table>
+<table class="frame-group">
 <tr><td>
-  <table id="tbl-bg-types"
-    border=1 cellpadding=2 cellspacing=0 width=128>
-  <caption align="bottom">
+  <table id="tbl-bg-types" class="border-std" width=128>
+  <caption>
     <b>Table 12.1</b>: video modes and 
 	background type
   </caption>
-  <tbody align="center">
+  <tbody style="text-align: center">
     <tr><th>mode	<th> 0	<th> 1	<th> 2
-    <tr><th>bg0		<td>reg	<td>reg	<td>-
-    <tr><th>bg1		<td>reg	<td>reg	<td>-
-    <tr><th>bg2		<td>reg	<td>aff	<td>aff
-    <tr><th>bg3		<td>reg	<td>-	<td>aff
+    <tr><td><b>bg0</b>		<td>reg	<td>reg	<td>-
+    <tr><td><b>bg1</b>		<td>reg	<td>reg	<td>-
+    <tr><td><b>bg2</b>		<td>reg	<td>aff	<td>aff
+    <tr><td><b>bg3</b>		<td>reg	<td>-	<td>aff
   </tbody>
   </table>
 <td width="10%">
 <td>
-  <table id="tbl-bga-size" 
-    border=1 cellpadding=2 cellspacing=0 width=144>
-  <caption align="bottom">
+  <table id="tbl-bga-size" class="border-std" width=144>
+  <caption>
     <b>Table 12.2</b>: affine bg sizes
   </caption>
-  <col><col class="def">
-  <tbody align="center">
-    <tr><th>Sz	  <th>define    <th>(tiles) <th>(pixels)
-    <tr><td> 00   <td>BG_AFF_16x16  <td> 16x16  <td> 128x128 
-    <tr><td> 01   <td>BG_AFF_32x32  <td> 32x32  <td> 256x256 
-    <tr><td> 10   <td>BG_AFF_64x64  <td> 64x64  <td> 512x512 
-    <tr><td> 11   <td>BG_AFF_128x128 <td>128x128 <td>1024x1024
+  <tbody style="text-align: center">
+    <tr><th>Sz	  </th><th>define         </th><th>(tiles) </th><th>(pixels) </th>
+    <tr><td> 00   </td><td><code>BG_AFF_16x16</code>   </td><td> 16x16  </td><td> 128x128 </td>
+    <tr><td> 01   </td><td><code>BG_AFF_32x32</code>   </td><td> 32x32  </td><td> 256x256 </td>
+    <tr><td> 10   </td><td><code>BG_AFF_64x64</code>   </td><td> 64x64  </td><td> 512x512 </td>
+    <tr><td> 11   </td><td><code>BG_AFF_128x128</code> </td><td>128x128 </td><td>1024x1024</td>
   </tbody>
   </table>
 </table>
@@ -126,19 +124,16 @@ You can find their addresses in table 12.3.
 </p>
 
 <div class="lblock">
-<table id="tbl-aff-regs"
-  border=1 cellpadding=2 cellspacing=0>
-<caption align="bottom">
+<table id="tbl-aff-regs" class="border-std c1-l c2-c">
+<caption>
   <b>Table 12.3</b>: Affine background 
   register addresses. Note that <i>x</i> is 2 or 3 only!
 </caption>
-<col span=2 align="right">
-  <tr><th>Register      <th>length  <th>address
-  <tr><th>REG_BGxCNT    <td>2       <td>0400:0008h + 2·x
-
-  <tr><th>REG_BGxPA-PD  <td>2       <td>0400:0020h + 10h·(x-2)
-  <tr><th>REG_BGxX      <td>4       <td>0400:0028h + 10h·(x-2)
-  <tr><th>REG_BGxY      <td>4       <td>0400:002ch + 10h·(x-2)
+  <tr><th>register             <th>length  <th>address
+  <tr><td><b>REG_BGxCNT</b>    <td>2       <td>0400:0008h + 2&middot;x
+  <tr><td><b>REG_BGxPA-PD</b>  <td>2       <td>0400:0020h + 10h&middot;(x-2)
+  <tr><td><b>REG_BGxX</b>      <td>4       <td>0400:0028h + 10h&middot;(x-2)
+  <tr><td><b>REG_BGxY</b>      <td>4       <td>0400:002ch + 10h&middot;(x-2)
 </table>
 </div>
 
@@ -231,7 +226,7 @@ describes the transformation from screen space to texture space.
 To put it mathematically, if we define
 </p>
 
-<table id="eq-defs">
+<table id="eq-defs" class="eq-container">
 <tr>
   <td class="eqnrcell">(12.1a)
   <td class="eqcell">
@@ -245,7 +240,7 @@ To put it mathematically, if we define
 
 <p>then</p>
 
-<table id="eq-aff-defs">
+<table id="eq-aff-defs" class="eq-container">
 <tr>
   <td class="eqnrcell">(12.2a)
   <td class="eqcell">
@@ -258,7 +253,7 @@ To put it mathematically, if we define
 
 <p>where</p>
 
-<table cellpadding=1 cellspacing=0>
+<table class="controls-container">
 <tr><th>p	<td>is a point in texture space,
 <tr><th>q	<td>is a point in screen space,
 <tr><th>dx	<td>is the displacement vector
@@ -279,27 +274,25 @@ is true for the order of transformation and displacement as well.
 As it happens, translation goes first:
 </p>
 
-<table id="eq-ofs">
+<table id="eq-ofs" class="eq-container">
 <tr>
-  <td class="eqnrcell">(12.3)
+  <td class="eqnrcell">(12.3)</td>
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 cellspacing=0>
-  <col align="right">
-  <col align="center">
-  <col align="left">
-  <tr>
-    <td> <b>q</b>
-    <td>=
-    <td> <b>A</b> &middot; T(&minus;<b>dx</b>) <b>p</b>
-  <tr>
-    <td> T(<b>dx</b>) <b>P</b> &middot; <b>q</b>
-    <td>=
-    <td> <b>p</b>
-  <tr>
-    <td> <b>dx</b> + <b>P</b> &middot; <b>q</b>
-    <td>=
-    <td> <b>p</b>
-  </table>
+    <table class="eqtbl basic">
+    <tr>
+      <td> <b>q</b>
+      <td>=
+      <td> <b>A</b> &middot; T(&minus;<b>dx</b>) <b>p</b>
+    <tr>
+      <td> T(<b>dx</b>) <b>P</b> &middot; <b>q</b>
+      <td>=
+      <td> <b>p</b>
+    <tr>
+      <td> <b>dx</b> + <b>P</b> &middot; <b>q</b>
+      <td>=
+      <td> <b>p</b>
+    </table>
+  </td>
 </table>
 
 <p>
@@ -313,32 +306,30 @@ eq&nbsp;12.3 and the general coordinate
 transformation equation:
 </p>
 
-<table id="eq-aff-ofs">
+<table id="eq-aff-ofs" class="eq-container">
 <tr>
   <td class="eqnrcell">(12.4)
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 cellspacing=0>
-  <col align="right">
-  <col align="center">
-  <col align="left">
-  <tr>
-    <td> <b>dx + P &middot; q</b>
-	<td> =
-	<td> <b>p</b>
-  <tr>
-    <td class="bdrB"> <b>P</b> &middot; (<b>q &minus; q</b><sub>0</sub>)
-    <td class="bdrB">=
-	<td class="bdrB"> <b>p &minus; p</b><sub>0</sub>
-    <td class="bdrB">&minus;
-  <tr>
-    <td> <b>dx + P &middot; q</b><sub>0</sub>
-	<td> =
-	<td> <b>p</b><sub>0</sub>
-  <tr>
-    <td><b>dx</b>
-	<td> = 
-	<td> <b>p</b><sub>0</sub> &minus; <b>P &middot; q</b><sub>0</sub>
-  </table>
+    <table class="eqtbl basic">
+    <tr>
+      <td> <b>dx + P &middot; q</b>
+    <td>=
+    <td> <b>p</b>
+    <tr>
+      <td class="bdrB"> <b>P</b> &middot; (<b>q &minus; q</b><sub>0</sub>)
+      <td class="bdrB">=
+    <td class="bdrB"> <b>p &minus; p</b><sub>0</sub>
+      <td class="bdrB">&minus;
+    <tr>
+      <td> <b>dx + P &middot; q</b><sub>0</sub>
+    <td>=
+    <td> <b>p</b><sub>0</sub>
+    <tr>
+      <td><b>dx</b>
+    <td>=
+    <td> <b>p</b><sub>0</sub> &minus; <b>P &middot; q</b><sub>0</sub>
+    </table>
+  </td>
 </table>
 
 <p>
@@ -450,11 +441,11 @@ getting a screenentry-number <i>n</i> works, making things a whole
 lot easier. 
 </p>
 
-<table id="eq-aff-sid">
+<table id="eq-aff-sid" class="eq-container">
 <tr>
   <td class="eqnrcell">(12.5)
   <td class="eqcell">
-    <i>n</i> = <i>tx</i> + <i>ty</i>·<i>tw</i>
+    <i>n</i> = <i>tx</i> + <i>ty</i>&middot;<i>tw</i>
 </table>
 
 <p>
@@ -520,7 +511,7 @@ the map anchor to a specific location on the screen, you need an anchor
 there as well. This is <b>q</b><sub>0</sub>. Fill both into 
 eq&nbsp;12.4 to find the displacement vector you 
 need: 
-<b>dx</b>&nbsp;=&nbsp;<b>p</b><sub>0</sub>&minus;<b>P·q</b><sub>0</sub>.
+<b>dx</b>&nbsp;=&nbsp;<b>p</b><sub>0</sub>&minus;<b>P&middot;q</b><sub>0</sub>.
 This <b>dx</b> is going to be quite different from both 
 <b>p</b><sub>0</sub> and <b>q</b><sub>0</sub>. Its path is 
 indicated by the black crosshairs.
@@ -532,13 +523,13 @@ list of controls is.
 </p>
 
 <div class="lblock">
-<table cellpadding=1 cellspacing=0>
-<tr><th>D-pad	<td>move map rotation point, <b>p</b><sub>0</sub>
-<tr><th>D-pad + A<td>move screen rotation point, <b>q</b><sub>0</sub>
-<tr><th>L,R		<td>rotate the background.
-<tr><th>B(+Se)	<td>scale up and down.
-<tr><th>St		<td>Toggle wrapping flag.
-<tr><th>St+Se	<td>Reset anchors and <b>P</b>
+<table class="controls-container">
+  <tr><th>D-pad	<td>move map rotation point, <b>p</b><sub>0</sub>
+  <tr><th>D-pad + A<td>move screen rotation point, <b>q</b><sub>0</sub>
+  <tr><th>L,R		<td>rotate the background.
+  <tr><th>B(+Se)	<td>scale up and down.
+  <tr><th>St		<td>Toggle wrapping flag.
+  <tr><th>St+Se	<td>Reset anchors and <b>P</b>
 </table>
 </div>
 
@@ -727,9 +718,6 @@ class="num">232</span>, <span class="num">156</span>, <span class="num">8</span>
 }
 </pre>
 
-
-
-
 <br>
 
 <div class="endtag">
@@ -739,7 +727,6 @@ Get all Tonc files <a href="http://www.coranac.com/projects/#tonc" target="_blan
 </div>
 
 <hr>
-
 
 <!-- [[footer]] -->
 <table class="footer">
@@ -756,7 +743,7 @@ Get all Tonc files <a href="http://www.coranac.com/projects/#tonc" target="_blan
 </table>
 <!-- [[/footer]] -->
 
+</div> <!-- main-container -->
 </body>
 </html>
-
 

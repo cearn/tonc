@@ -1,7 +1,7 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+  <meta charset="utf-8">
   <meta name="generator" content="Context">
   <meta name="Author" content="Cearn">
   <meta name="Created" content="20040301">
@@ -9,9 +9,11 @@
 
   <title>Tonc: Sprite and Background Overview</title>
   <link rel="stylesheet" type="text/css" href="tonc.css">
-  <script type="text/javascript" src="tonc.js"></script>
+  <script src="tonc.js"></script>
 </head>
 <body onload="main();">
+<div class="main-container">
+
 
 <!--567890123456789012345678901234567890123456789012345678901234567-->
 
@@ -33,11 +35,11 @@
 
 <!-- [[toc]] -->
 <ul>
-  <li><a href="#sec-intro">Sprites and backgrounds introduction</a>.
-  <li><a href="#sec-ctrl">Sprite and background control</a>.
-  <li><a href="#sec-map">Sprite and background mapping</a>.
-  <li><a href="#sec-img">Sprite and background image data</a>.
-  <li><a href="#sec-summary">Summary</a>.
+  <li><a href="#sec-intro">Sprites and backgrounds introduction</a>
+  <li><a href="#sec-ctrl">Sprite and background control</a>
+  <li><a href="#sec-map">Sprite and background mapping</a>
+  <li><a href="#sec-img">Sprite and background image data</a>
+  <li><a href="#sec-summary">Summary</a>
   <li><a href="#sec-name">What's in a name?</a>
 </ul>
 <!-- [[/toc]] -->
@@ -184,34 +186,38 @@ checked for yourself -->
 </p>
 
 <div class="cblock">
-<table id="img-tile-use">
-<col span=2>
-<tr valign="top">
-<td>
-  <div class="cpt" style="width:200px">
-  <img src="../img/tile_gfx_render.png" 
-    alt="Example of both sprites and background"
-    width=192><br>
-  <b>Fig 7.1a</b>: 2 sprites on a background.
-  </div>
-<td rowspan=2>
-  <div class="cpt" style="width:384px">
-  <img src="../img/tile_gfx_map.png" 
-    alt="Tile usage" width=384><br>
-  <b>Fig 7.1c</b>: tile usage by bgs and 
-    sprites. One tile per SE for 
-    bgs, and the top-left tile for sprites. Default tiles (with 
-	index 0 are omitted for clarity's sake.
-  </div>
+<table class="frame-group" id="img-tile-use">
 <tr>
-<td>
-  <div class="cpt" style="width:200px">
-  <img src="../img/tile_gfx_tileset.png" 
-    alt="The bg and sprite tiles"><br>
-  <b>Fig 7.1b</b>: background (above) and
-    sprite (below) tiles. 
-  <!--Note the 'interesting' division of the sprite tiles.-->
-  </div>
+  <td>
+    <div class="cpt" style="width:200px">
+    <img src="../img/tile_gfx_render.png" 
+      alt="Example of both sprites and background"
+      width=192><br>
+    <b>Fig 7.1a</b>: 2 sprites on a background.
+    </div>
+  </td>
+  <td rowspan=2>
+    <div class="cpt" style="width:384px">
+    <img src="../img/tile_gfx_map.png" 
+      alt="Tile usage" width=384><br>
+    <b>Fig 7.1c</b>: tile usage by bgs and 
+      sprites. One tile per SE for 
+      bgs, and the top-left tile for sprites. Default tiles (with 
+    index 0 are omitted for clarity's sake.
+    </div>
+  </td>
+</tr>
+<tr>
+  <td>
+    <div class="cpt" style="width:200px">
+    <img src="../img/tile_gfx_tileset.png" 
+      alt="The bg and sprite tiles"><br>
+    <b>Fig 7.1b</b>: background (above) and
+      sprite (below) tiles. 
+    <!--Note the 'interesting' division of the sprite tiles.-->
+    </div>
+  </td>
+</tr>
 </table>
 </div>
 
@@ -278,32 +284,34 @@ conversion option is all it takes.
 </p>
 
 <div class="cblock">
-<table id="img-bad-bpp">
-<tr valign="top">
-<td>
-  <div class="cpt" style="width:192px">
-  <img src="../img/tile_8as8.png" width=192 
-    alt="8 bpp tiles">
-  <b>Fig 7.2a</b>: 8bpp tiles.
-  </div>
-</td>
-<td>
-  <div class="cpt" style="width:192px">
-  <img src="../img/tile_as_bm.png" width=192 
-    alt="8 bpp tiles as bitmap">
-  <b>Fig 7.2b</b>: 8bpp tiles as bitmap.
-  </div>
-</td>
+<table class="frame-group" id="img-bad-bpp">
 <tr>
-<td colspan=2>
-  <div class="cpt" style="width:384px">
-  <img src="../img/tile_8as4.png" width=384
-    alt="as before, but interpreted as 4 bpp">
-  <b>Fig 7.2c</b>: the data of 
-    fig&nbsp;7.2a, interpreted as 4bpp data. 
-    If you see something like this (and you will), you now know why.
-  </div>
-</td>
+  <td>
+    <div class="cpt" style="width:192px">
+    <img src="../img/tile_8as8.png" width=192 
+      alt="8 bpp tiles">
+    <b>Fig 7.2a</b>: 8bpp tiles.
+    </div>
+  </td>
+  <td>
+    <div class="cpt" style="width:192px">
+    <img src="../img/tile_as_bm.png" width=192 
+      alt="8 bpp tiles as bitmap">
+    <b>Fig 7.2b</b>: 8bpp tiles as bitmap.
+    </div>
+  </td>
+</tr>
+<tr>
+  <td colspan=2>
+    <div class="cpt" style="width:384px">
+    <img src="../img/tile_8as4.png" width=384
+      alt="as before, but interpreted as 4 bpp">
+    <b>Fig 7.2c</b>: the data of 
+      fig&nbsp;7.2a, interpreted as 4bpp data. 
+      If you see something like this (and you will), you now know why.
+    </div>
+  </td>
+</tr>
 </table>
 </div>
 
@@ -478,8 +486,7 @@ It's alright if you don't understand it right away; I'll explain in
 more detail in the following pages.
 </p>
 <div class="cblock">
-<table id="tbl-sum"
-  border=1 cellspacing=0 cellpadding=2 width="70%">
+<table id="tbl-sum" class="border-std" width="70%">
 <col span=3 valign="top">
 <tr><th width="30%">Subject		<th>Backgrounds		<th>Sprites
 <tr><td>Number		<td>4 (2 affine)	<td>128	(32 affine)
@@ -538,8 +545,7 @@ list of differences in names.
 </p>
 
 <div class="cblock">
-<table id="tbl-name" 
-  border=1 cellspacing=0 cellpadding=2 width="70%">
+<table id="tbl-name" class="border-std" width="70%">
 <col span=3 valign="top">
 <tr><th>Subject		<th>Traditional		<th>Tonc
 <tr>
@@ -592,7 +598,7 @@ Get all Tonc files <a href="http://www.coranac.com/projects/#tonc" target="_blan
 </table>
 <!-- [[/footer]] -->
 
+</div> <!-- main-container -->
 </body>
 </html>
-
 

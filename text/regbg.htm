@@ -1,7 +1,7 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+  <meta charset="utf-8">
   <meta name="generator" content="Context">
   <meta name="Author" content="Cearn">
   <meta name="Created" content="20040302">
@@ -9,9 +9,11 @@
 
   <title>Tonc: Regular tiled backgrounds</title>
   <link rel="stylesheet" type="text/css" href="tonc.css">
-  <script type="text/javascript" src="tonc.js"></script>
+  <script src="tonc.js"></script>
 </head>
 <body onload="main();">
+<div class="main-container">
+
 
 <!--567890123456789012345678901234567890123456789012345678901234567-->
 
@@ -32,11 +34,11 @@
 
 <!-- [[toc]] -->
 <ul>
-  <li><a href="#sec-intro">Tilemap introduction</a>.
-  <li><a href="#sec-ctrl">Background control</a>.
-  <li><a href="#sec-map">Regular background tile-maps</a>.
-  <li><a href="#sec-demo">Tilemap demos</a>.
-  <li><a href="#sec-conc">In conclusion</a>.
+  <li><a href="#sec-intro">Tilemap introduction</a>
+  <li><a href="#sec-ctrl">Background control</a>
+  <li><a href="#sec-map">Regular background tile-maps</a>
+  <li><a href="#sec-demo">Tilemap demos</a>
+  <li><a href="#sec-conc">In conclusion</a>
 </ul>
 <!-- [[/toc]] -->
 
@@ -85,8 +87,7 @@ of a factor 28.
 
 
 <div class="cblock">
-<table width=70% id="img-map">
-<tbody valign="top">
+<table class="frame-group" width=70% id="img-map">
 <tr>
 <td colspan=2 align="center">
   <div class="cpt" style="width:512px">
@@ -113,7 +114,6 @@ of a factor 28.
   <b>Fig 9.1c</b>: the tile map (with the proper 
     tiles as a backdrop).
   </div>
-</tbody>
 </table></div>
 
 <p>
@@ -166,9 +166,8 @@ bytes) long, giving four blocks overall.
 </p>
 
 <div class="cblock">
-<table id="tbl-cbb-sbb"
-  border=1 cellpadding=3 cellspacing=0 rules=groups>
-<caption align="bottom">
+<table id="tbl-cbb-sbb" class="border-std" cellpadding=3 rules=groups>
+<caption>
   <b>Table 9.1</b>:
   charblock and screenblock overlap.
 </caption>
@@ -271,9 +270,8 @@ on the <a href="affine.htm">affine matrix</a>.
 </p>
 
 <div class="lblock">
-<table id="tbl-bg-types"
-  border=1 cellpadding=2 cellspacing=0>
-<caption align="bottom">
+<table id="tbl-bg-types" class="border-std">
+<caption>
   <b>Table 9.2</b>: video modes and 
   background type
 </caption>
@@ -308,17 +306,16 @@ pairs. These start at <code>0400:0010</code>
 </p>
 
 <div class="lblock">
-<table id="tbl-ctrl-ofs"
-  border=1 cellpadding=2 cellspacing=0>
+<table id="tbl-ctrl-ofs" class="border-std">
 <caption align= bottom>
   <b>Table 9.3</b>: Background register 
     addresses
 </caption>
 <col span=2 align="right">
   <tr><th>Register      <th>length  <th>address
-  <tr><th>REG_BGxCNT    <td>2       <td>0400:0008h + 2·<i>x</i>
-  <tr><th>REG_BGxHOFS   <td>2       <td>0400:0010h + 4·<i>x</i>
-  <tr><th>REG_BGxVOFS   <td>2       <td>0400:0012h + 4·<i>x</i>
+  <tr><th>REG_BGxCNT    <td>2       <td>0400:0008h + 2&middot;<i>x</i>
+  <tr><th>REG_BGxHOFS   <td>2       <td>0400:0010h + 4&middot;<i>x</i>
+  <tr><th>REG_BGxVOFS   <td>2       <td>0400:0012h + 4&middot;<i>x</i>
 </table>
 </div>
 
@@ -332,8 +329,7 @@ same bits you may have to be careful that you're using the right
 </p>
 
 <div class="reg">
-<table class="reg" id="tbl-reg-bgxcnt"
-  border=1 frame=void cellpadding=4 cellspacing=0>
+<table id="tbl-reg-bgxcnt" class="reg border-std">
 <caption class="reg">
   REG_BGxCNT @ <code>0400:0008</code> + 2<i>x</i>
 </caption>
@@ -351,12 +347,8 @@ same bits you may have to be careful that you're using the right
 	<td class="rclr4">Pr
 </table>
 
-<table>
-  <col class="bits" width=40>
-  <col class="bf" width="8%">
-  <col class="def" width="12%">
-<tr align="left"><th>bits<th>name<th>define<th>description
-<tbody valign="top">
+<table class="reg-desc">
+<tr><th>bits<th>name<th>define<th>description
 <tr class="bg0">	
   <td>0-1<td class="rclr4">Pr
   <td><i>BG_PRIO#</i>
@@ -392,16 +384,15 @@ same bits you may have to be careful that you're using the right
   <td><b>Background Size</b>. Regular and affine backgrounds have 
       different sizes available to them. The sizes, in tiles and in 
       pixels, can be found in table 9.5.
-</tbody>
 </table>
 </div>
 
 <div class="cblock">
-<table width="100%">
+<table class="frame-group" width="100%">
 <tr align="center">
 <td>
-  <table id="tbl-reg-size" border=1 cellpadding=2  cellspacing=0>
-  <caption align="bottom">
+  <table id="tbl-reg-size" class="border-std">
+  <caption>
     <b>Table 9.5a</b>: regular bg sizes
   </caption>
   <col><col class="def">
@@ -414,8 +405,8 @@ same bits you may have to be careful that you're using the right
   </tbody>
   </table>
 <td>
-  <table id="tbl-aff-size" border=1 cellpadding=2 cellspacing=0>
-  <caption align="bottom">
+  <table id="tbl-aff-size" class="border-std">
+  <caption>
     <b>Table 9.5b</b>: affine bg sizes
   </caption>
   <col><col class="def">
@@ -474,19 +465,17 @@ position <b>q</b>, then the following is true:
 <tr>
   <td class="eqnrcell">(9.1)
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 cellspacing=0>
-  <col align="right">
-  <col align="center">
-  <col align="left">
-  <tr>
-    <td><b>q + dx</b>
-	<td>=
-	<td><b>p</b>
-  <tr>
-    <td><b>q</b>
-	<td>= 
-	<td><b>p &minus; dx</b>
-  </table>
+    <table class="eqtbl basic">
+    <tr>
+      <td><b>q + dx</b>
+    <td>=
+    <td><b>p</b>
+    <tr>
+      <td><b>q</b>
+    <td>=
+    <td><b>p &minus; dx</b>
+    </table>
+  </td>
 </table>
 
 <div class="note">
@@ -608,9 +597,8 @@ only 8 bits wide and just contain an 8bit tile index.
 </p>
 
 <div class="reg">
-<table class="reg" id="tbl-se"
-  border=1 frame=void cellpadding=4 cellspacing=0>
-<caption class="reg">
+<table id="tbl-se" class="reg border-std">
+<caption class="reg nowrap">
   Screen entry format for regular backgrounds
 </caption>
 <tr class="bits">
@@ -622,12 +610,8 @@ only 8 bits wide and just contain an 8bit tile index.
 	<td class="rclr0">TID
 </table>
 
-<table>
-  <col class="bits" width=40>
-  <col class="bf" width="8%">
-  <col class="def" width=12%>
-<tr align="left"><th>bits<th>name<th>define<th>description
-<tbody valign="top">
+<table class="reg-desc">
+<tr><th>bits<th>name<th>define<th>description
 <tr class="bg0">	
   <td>0-9<td class="rclr0">TID
   <td><i>SE_ID#</i>
@@ -641,7 +625,6 @@ only 8 bits wide and just contain an 8bit tile index.
   <td><i>SE_PALBANK#</i>
   <td><b>Palette bank</b> to use when in 16-color mode. Has no effect 
     for 256-color bgs (<code>REG_BGxCNT{6}</code> is set).
-</tbody>
 </table>
 </div>
 
@@ -659,7 +642,7 @@ the tilemap.
 <p>Now, suppose you have a tilemap that's <i>tw</i>&times;<i>th</i> 
 tiles/SEs in size. You might expect that the screen entry 
 at tile-coordinates (<i>tx</i>,&nbsp;<i>ty</i>) could be found 
-at SE-number <i>n</i>&nbsp;=&nbsp;<i>tx</i>+<i>ty</i>·<i>tw</i>, 
+at SE-number <i>n</i>&nbsp;=&nbsp;<i>tx</i>+<i>ty</i>&thinsp;&middot;<i>tw</i>, 
 because that's how matrices always work, right? Well, you'd be wrong.
 At least, you'd be <i>partially</i> wrong.
 </p>
@@ -673,10 +656,14 @@ you have to find out which screenblock you are in and then find
 the SE-number inside that screenblock. 
 </p>
 
+<!-- yes, this is stupid -->
+<style>
+  #tbl-reg-layout table td { padding: 16px; }
+</style>
+
 <div class="lblock">
-<table class="reg" id="tbl-reg-layout"
-  border=1 frame=void cellpadding=4 cellspacing=0>
-<caption align="bottom">
+<table id="tbl-reg-layout" class="reg-like border-std">
+<caption>
   <b>Table 9.8</b>: screenblock layout of 
   regular backgrounds.
  </caption>
@@ -684,22 +671,22 @@ the SE-number inside that screenblock.
 <tr><th>32x32<th>64x32<th>32x64<th>64x64
 <tr>
 <td>
-  <table border=frame cellpadding= 8 cellspacing=0>
-    <tr><td bgcolor=red><b>0</b>
+  <table border=frame>
+    <tr><td bgcolor="red"><b>0</b>
   </table>
 <td>
-  <table border=frame cellpadding= 8 cellspacing=0>
-    <tr><td bgcolor=red><b>0</b><td bgcolor= green><b>1</b>
+  <table border=frame>
+    <tr><td bgcolor="red"><b>0</b><td bgcolor="green"><b>1</b>
   </table>
 <td>
-  <table border=frame cellpadding= 8 cellspacing=0>
-    <tr><td bgcolor=red><b>0</b>
-    <tr><td bgcolor=blue><b>1</b>
+  <table border=frame>
+    <tr><td bgcolor="red"><b>0</b>
+    <tr><td bgcolor="steelblue"><b>1</b>
   </table>
 <td>
-  <table border=frame cellpadding= 8 cellspacing=0>
-    <tr><td bgcolor=red><b>0</b><td bgcolor= green><b>1</b>
-    <tr><td bgcolor=blue><b>2</b><td bgcolor= gray><b>3</b>
+  <table border=frame>
+    <tr><td bgcolor="red"><b>0</b><td bgcolor="green"><b>1</b>
+    <tr><td bgcolor="steelblue"><b>2</b><td bgcolor="gray"><b>3</b>
   </table>
 </table>
 </div>
@@ -789,15 +776,14 @@ numbering went according to 4bit tiles (s-tiles); for 8bit tiles
 always multiples of 2 in memory). In tile-maps, however, d-tiles are 
 numbered by the d-tile. To put it in other words, for sprites, using
 index <i>id</i> indicates the same tile for both 4 and 8bit tiles, 
-namely the one that starts at <i>id</i>·20h. For tile-maps, however, 
-it starts at <i>id</i>·20h for 4bit tiles, but at <i>id</i>·40h for 
+namely the one that starts at <i>id</i>&middot;20h. For tile-maps, however, 
+it starts at <i>id</i>&middot;20h for 4bit tiles, but at <i>id</i>&middot;40h for 
 8bit tiles.
 </p>
 
 <div class="lblock">
-<table id="tbl-bg-tids"
-  border=1 cellpadding=2 cellspacing=0>
-<caption align="bottom">
+<table id="tbl-bg-tids" class="border-std">
+<caption>
   <b>Table 9.9</b>: tile counting 
   for backgrounds, sticks to its bit-depth.
 </caption>
@@ -938,7 +924,7 @@ after a conversion you'd have a palette, a tileset and a tilemap.
 </p>
 
 <div class="cblock">
-<table id="img-brin" width=100%>
+<table id="img-brin" class="frame-group" width=100%>
 <tr>
   <td valign="top" width=160>
     <div class="cpt">
@@ -1099,22 +1085,25 @@ class="num">192</span>, y= <span class="num">64</span>;
 </pre>
 
 <div class="cblock">
-<table id="img-brin-demo">
+<table id="img-brin-demo" class="frame-group">
 <tr>
   <td>
-	<div class="cpt" style="width:240px;">
-	  <img src="../img/demo/brin_demo.png"
-		alt=""><br>
-	  <b>Fig 9.4a</b>: <tt>brin_demo</tt> 
-	    at <b>dx</b>=(192, 64).
-	</div>
+    <div class="cpt" style="width:240px;">
+      <img src="../img/demo/brin_demo.png"
+      alt=""><br>
+      <b>Fig 9.4a</b>: <tt>brin_demo</tt> 
+        at <b>dx</b>=(192, 64).
+    </div>
+  </td>
   <td>
-	<div class="cpt" style="width:240px;">
-	  <img src="../img/demo/brin_demo0.png"
-		alt=""><br>
-	  <b>Fig 9.4b</b>: <tt>brin_demo</tt> 
-	    at <b>dx</b>=(0, 0).
-	</div>
+    <div class="cpt" style="width:240px;">
+      <img src="../img/demo/brin_demo0.png"
+      alt=""><br>
+      <b>Fig 9.4b</b>: <tt>brin_demo</tt> 
+        at <b>dx</b>=(0, 0).
+    </div>
+  </td>
+</tr>
 </table>
 </div>
 
@@ -1131,12 +1120,12 @@ fig&nbsp;9.5).
 </p>
 
 <div class="lblock">
-	<div class="cpt" style="width:512px;">
-	  <img src="../img/demo/brin_demo_bad.png" id="img-brin-bad"
-		alt=""><br>
-	  <b>Fig 9.5</b> <tt>brin_demo</tt> 
-	  without blocking out into SBB's first.
-	</div>
+  <div class="cpt" style="width:512px;">
+    <img src="../img/demo/brin_demo_bad.png" id="img-brin-bad"
+    alt=""><br>
+    <b>Fig 9.5</b> <tt>brin_demo</tt> 
+    without blocking out into SBB's first.
+  </div>
 </div>
 
 <p>
@@ -1561,20 +1550,23 @@ be wary of the code that produced it.
 </p>
 
 <div class="lblock">
-<table id="img-cbb-demo">
-<tr valign="top">
-<td>
-  <div class="cpt" style="width:240px">
-  <img src="../img/demo/cbb_demo_vba.png" alt="cbb_demo on VBA"><br>
-  <b>Fig 9.7a</b>: <tt>cbb_demo</tt> on 
-  VBA (and Boycott Adv and Mappy well, almost) ).
-  </div>
-<td>
-  <div class="cpt" style="width:240px">
-  <img src="../img/demo/cbb_demo_hw.png" alt="cbb_demo on hardware"><br>
-  <b>Fig 9.7b</b>: <tt>cbb_demo</tt> on 
-    hardware. Spot the differences!
-  </div>
+<table id="img-cbb-demo" class="frame-group">
+<tr>
+  <td>
+    <div class="cpt" style="width:240px">
+    <img src="../img/demo/cbb_demo_vba.png" alt="cbb_demo on VBA"><br>
+    <b>Fig 9.7a</b>: <tt>cbb_demo</tt> on 
+    VBA (and Boycott Adv and Mappy well, almost) ).
+    </div>
+  </td>
+  <td>
+    <div class="cpt" style="width:240px">
+    <img src="../img/demo/cbb_demo_hw.png" alt="cbb_demo on hardware"><br>
+    <b>Fig 9.7b</b>: <tt>cbb_demo</tt> on 
+      hardware. Spot the differences!
+    </div>
+  </td>
+</tr>
 </table>
 </div>
 
@@ -1631,20 +1623,21 @@ class="cmt">// Print &quot;Hello world!&quot;</span>
 
 
 <div class="lblock">
-<table id="img-hello">
-<tbody valign="top">
+<table id="img-hello" class="frame-group">
 <tr>
   <td>
     <div class="cpt" style="width:112px;">
       <img src="../img/demo/hello.png" alt=""><br>
       <b>Fig 9.8a</b>: <tt>hello</tt> demo.
     </div>
+  </td>
   <td>
     <div class="cpt" style="width:256px;">
       <img src="../img/demo/hello_tiles.png" alt=""><br>
       <b>Fig 9.8b</b>: tileset of the <tt>hello</tt> demo.
     </div>
-</tbody>
+  </td>
+</tr>
 </table>
 </div>
 
@@ -1846,7 +1839,7 @@ Get all Tonc files <a href="http://www.coranac.com/projects/#tonc" target="_blan
 </table>
 <!-- [[/footer]] -->
 
+</div> <!-- main-container -->
 </body>
 </html>
-
 

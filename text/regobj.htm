@@ -1,7 +1,7 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+  <meta charset="utf-8">
   <meta name="generator" content="Context">
   <meta name="Author" content="Cearn">
   <meta name="Created" content="20030301">
@@ -9,9 +9,11 @@
 
   <title>Tonc: Regular sprites</title>
   <link rel="stylesheet" type="text/css" href="tonc.css">
-  <script type="text/javascript" src="tonc.js"></script>
+  <script src="tonc.js"></script>
 </head>
 <body onload="main();">
+<div class="main-container">
+
 
 <!--567890123456789012345678901234567890123456789012345678901234567-->
 
@@ -32,12 +34,12 @@
 
 <!-- [[toc]] -->
 <ul>
-  <li><a href="#sec-intro">Sprite introduction</a>.
-  <li><a href="#sec-tiles">Sprite image data and mapping mode</a>.
-  <li><a href="#sec-oam">Sprite control: Object Attribute Memory</a>.
-  <li><a href="#sec-oam-entry">Object attributes: OBJ_ATTR</a>.
-  <li><a href="#sec-macro">Bitfield macros (OAM or otherwise)</a>.
-  <li><a href="#sec-obj-demo">Demo time</a>.
+  <li><a href="#sec-intro">Sprite introduction</a>
+  <li><a href="#sec-tiles">Sprite image data and mapping mode</a>
+  <li><a href="#sec-oam">Sprite control: Object Attribute Memory</a>
+  <li><a href="#sec-oam-entry">Object attributes: OBJ_ATTR</a>
+  <li><a href="#sec-macro">Bitfield macros (OAM or otherwise)</a>
+  <li><a href="#sec-obj-demo">Demo time</a>
 </ul>
 <!-- [[/toc]] -->
 
@@ -160,9 +162,8 @@ nothing shows up, it's possible you filled the wrong palette.
 </p>
 
 <div class="lblock">
-<table id="tbl-obj-tids"
-  border=1 cellspacing=0 cellpadding=1>
-<caption align="bottom">
+<table id="tbl-obj-tids" class="border-std">
+<caption>
   <b>Table 8.1</b>: tile counting for sprites, 
   always per 32 bytes. (You can use odd numbers for 8bpp tiles, but 
   be sure you fill the VRAM accordingly.)
@@ -223,9 +224,8 @@ for you. You can do this with
 </p>
 
 <div class="lblock">
-<table id="img-obj-map"
-  cellpadding=4 cellspacing=0>
-<tr valign="top">
+<table class="frame-group" id="img-obj-map">
+<tr>
 <td>
   <div class="cpt" style="width:200px">
   <img src="../img/metr/tile_1d2d.png" alt="a metroid divided into tiles">
@@ -234,7 +234,7 @@ for you. You can do this with
     indicate mapping mode: red for 2d, cyan for 1d.
   </div>
 <td>
-  <div class="cpt" style="width:297px">
+  <div class="cpt" style="width:296px">
   <img src="../img/metr/tile_2d.png" alt="2d mapping">
   <b>Fig 8.2b</b>: how 
     fig&nbsp;8.2a should be stored in memory when 
@@ -245,7 +245,7 @@ for you. You can do this with
   <img src="../img/metr/tile_1d.png" alt="1d mapping">
   <b>Fig 8.2c</b>: how 
     fig&nbsp;8.2a should be stored in memory when using 
-	1d mapping.
+    1d mapping.
   </div>
 </table>
 </div>
@@ -362,14 +362,19 @@ and will save <a href="affobj.htm">affine sprites</a> for later.
 </p>
 
 <div class="lblock">
-<table id="tbl-obj-weave"
-  class="reg" border=1 frame=void cellpadding=4 cellspacing=0>
-<caption align= bottom>
+<table id="tbl-obj-weave" class="reg border-std">
+<caption>
   <b>Table 8.2</b>: 
   memory interlace of OBJ_ATTR and 
   OBJ_AFFINE structures.
  </caption>
-<tr align="left"><th>mem (u16)<th>0<th>3<th>4<th>7<th>8<th>b<th>c<th>f
+<colgroup span=1></colgroup>
+<colgroup span=2 style="background-color:#B0B0B0;"></colgroup>
+<colgroup span=2 style="background-color:#D0D0D0;"></colgroup>
+<colgroup span=2 style="background-color:#B0B0B0;"></colgroup>
+<colgroup span=2 style="background-color:#D0D0D0;"></colgroup>
+
+<tr class="align-l"><th>mem (u16)<th>0<th>3<th>4<th>7<th>8<th>b<th>c<th>f
 <tr><th>OBJ_ATTR
   <td>0 1 2<td>&nbsp;<td>0 1 2<td>&nbsp;
   <td>0 1 2<td>&nbsp;<td>0 1 2<td>&nbsp;
@@ -416,8 +421,7 @@ palette).
 </p>
 
 <div class="reg">
-<table class="reg" id="tbl-oe-attr0"
-  border=1 frame=void cellpadding=4 cellspacing=0>
+<table id="tbl-oe-attr0" class="reg border-std">
 <caption class="reg">
   <code>OBJ_ATTR.attr0</code>
 </caption>
@@ -432,12 +436,8 @@ palette).
 	<td class="rclr0">Y
 </table>
 
-<table>
-  <col class="bits" width=40>
-  <col class="bf" width="8%">
-  <col class="def" width="12%">
-<tr align="left"><th>bits<th>name<th>define<th>description
-<tbody valign="top">
+<table class="reg-desc">
+<tr><th>bits<th>name<th>define<th>description
 <tr class="bg0">	
   <td>0-7<td class="rclr0">Y
   <td><i>ATTR0_Y#</i>
@@ -484,7 +484,6 @@ palette).
   <td><b>Sprite shape</b>. This and the sprite's size 
     (<code>attr1{E-F}</code>) determines the sprite's real size, see 
     <a href="#tbl-obj-size">table 8.4</a>.
-</tbody>
 </table>
 </div>
 
@@ -503,9 +502,8 @@ that.
 </p>
 
 <div class="lblock">
-<table id="tbl-obj-size"
-  class="reg" border=1 cellpadding=2 cellspacing=0>
-<caption align="bottom">
+<table id="tbl-obj-size" class="reg border-std">
+<caption>
   <b>Table 8.4</b>: GBA sprite sizes
 </caption>
 <tr><td>shape\size <th>00    <th>01    <th>10    <th>11
@@ -526,8 +524,7 @@ should be used. If not, they hold flipping flags.
 </p>
 
 <div class="reg">
-<table class="reg" id="tbl-oe-attr1"
-  border=1 frame=void cellPadding=4 cellSpacing=0>
+<table id="tbl-oe-attr1" class="reg border-std">
 <caption class="reg">
   <code>OBJ_ATTR.attr1</code>
 </caption>
@@ -545,12 +542,8 @@ should be used. If not, they hold flipping flags.
     <td>-
 </table>
 
-<table>
-  <col class="bits" width=40>
-  <col class="bf" width="8%">
-  <col class="def" width="12%">
-<tr align="left"><th>bits<th>name<th>define<th>description
-<tbody valign="top">
+<table class="reg-desc">
+<tr><th>bits<th>name<th>define<th>description
 <tr class="bg0">	
   <td>0-8<td class="rclr0">X
   <td><i>ATTR1_X#</i>
@@ -573,7 +566,6 @@ should be used. If not, they hold flipping flags.
   <td><b>Sprite size</b>. Kinda. Together with the shape bits
     (<code>attr0</code>{E-F}) these determine the sprite's real size, 
     see <a href="#tbl-obj-size">table 8.4</a>.
-</tbody>
 </table>
 </div>
 
@@ -594,8 +586,7 @@ say what sub-palette should be used.
 </p>
 
 <div class="reg">
-<table class="reg" id="tbl-oe-attr2"
-  border=1 frame=void cellpadding=4 cellspacing=0>
+<table id="tbl-oe-attr2" class="reg border-std">
 <caption class="reg">
   <code>OBJ_ATTR.attr2</code>
 </caption>
@@ -607,12 +598,8 @@ say what sub-palette should be used.
 	<td class="rclr0">TID
 </table>
 
-<table>
-  <col class="bits" width=40>
-  <col class="bf" width="8%">
-  <col class="def">
-<tr align="left"><th>bits<th>name<th>&nbsp;<th>description
-<tbody valign="top">
+<table class="reg-desc">
+<tr><th>bits<th>name<th>define<th>description
 <tr class="bg0">	
   <td>0-9<td class="rclr0">TID
   <td><i>ATTR2_ID#</i>
@@ -630,7 +617,6 @@ say what sub-palette should be used.
   <td><i>ATTR2_PALBANK#</i>
   <td><b>Palette-bank</b> to use when in 16-color mode. Has no effect if
 	the color mode flag (<code>attr0</code>{C}) is set.
-</tbody>
 </table>
 </div>
 
@@ -883,11 +869,10 @@ you screw around with various OBJ_ATTR bits like position and flipping
 flags. The controls are as follows:
 </p>
 
-<table>
-<tbody valign="top">
+<table class="controls-container">
 <tr><th>D-pad<td>Moves the sprite. Note that if you move far enough 
   off-screen, it'll come up on the other side. 
-<tr><th>A,B<td>Flips the sprite horizontally or vertically, 
+<tr><th>A, B<td>Flips the sprite horizontally or vertically, 
   respectively.
 <tr><th>Select<td>Make it glow. Well, makes it palette-swap, 
   actually. Handy for damage-flashing.
@@ -896,10 +881,8 @@ flags. The controls are as follows:
   should explain what happens. Since the sprite is in 1D mode,
   there's really not much to see when you switch to 2D mapping, but I 
   had a few buttons to spare, so I thought why not.
-
-<tr><th>L,R<td>Decreases or increase the starting tile, respectively. 
+<tr><th>L, R<td>Decreases or increase the starting tile, respectively. 
   Again, I had a few keys to spare. 
-</tbody>
 </table>
 
 <pre class="proglist">
@@ -1395,7 +1378,7 @@ Get all Tonc files <a href="http://www.coranac.com/projects/#tonc" target="_blan
 </table>
 <!-- [[/footer]] -->
 
+</div> <!-- main-container -->
 </body>
 </html>
-
 

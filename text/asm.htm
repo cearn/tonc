@@ -1,7 +1,7 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+  <meta charset="utf-8">
   <meta name="generator" content="Context">
   <meta name="Author" content="Cearn">
   <meta name="Created" content="20060505">
@@ -9,9 +9,11 @@
 
   <title>Tonc: Whirlwind Tour of ARM Assembly</title>
   <link rel="stylesheet" type="text/css" href="tonc.css">
-  <script type="text/javascript" src="tonc.js"></script>
+  <script src="tonc.js"></script>
 </head>
 <body onload="main();">
+<div class="main-container">
+
 
 <!--567890123456789012345678901234567890123456789012345678901234567-->
 <!-- [[header]] -->
@@ -919,13 +921,11 @@ into this category too. The rest, <b>r4-r11</b>, are also known as
 </p>
 
 <div class="lblock">
-<table id="tbl-regnames"
-  border=1 cellpadding=1 cellspacing=0>
-<caption align="bottom">
+<table id="tbl-regnames" class="border-std c1-c c2-c c3-c">
+<caption>
   <b>Table 23.1</b>. Standard and alternative 
   register names. 
 </caption>
-<tbody align="center">
 <tr> <th>std</th><th>gcc</th> <th>arm</th><th>description</th> </tr>
 <tr> 
   <td>r0-r3</td> <td>r0-r3</td> <td>a1-a4</td> 
@@ -940,13 +940,13 @@ into this category too. The rest, <b>r4-r11</b>, are also known as
   <td rowspan=2>r8<br>r9</td> <td>v5</td>
   <td>variable</td> 
 </tr>
-  <tr> <td>v6/SB</td> <td>platform specific</td> </tr>
+  <tr> <td>v6/SB</td> <td style="text-align: left;">platform specific</td> </tr>
 <tr>
   <td rowspan=2>r10<br>r11</td>
   <td>sl</td> <td>v7</td> <td> variable </td>
 </tr>
   <tr> <td>fp</td> <td>v8</td> 
-  <td> variable / frame pointer</tr>
+  <td style="text-align: left;"> variable / frame pointer</tr>
 <tr>
   <td>r12</td> <td>ip</td> <td>IP</td> 
   <td>Intra-Procedure-call scratch</td>
@@ -1272,8 +1272,8 @@ both, the conditional affix always comes first.
 </p>
 
 <div class="cblock">
-<table id="tbl-ins-data">
-<caption align="bottom">
+<table id="tbl-ins-data" class="frame-group">
+<caption>
   <b>23.2</b>: Data processing instructions.
   Basic format <code>op{cond}{s} Rd, Rn, Op2</code>, 
   <code>cond</code> and <code>s</code> are the optional condition and 
@@ -1281,44 +1281,44 @@ both, the conditional affix always comes first.
 </caption>
 
 <tr>
-<td>
-  <table border=1 cellpadding=2 cellspacing=0>
-    <tr align="center"><th>opcode		<th>operands	<th> function
-    <tr><th colspan=3 align="center">Arithmetic				</tr>
-    <tr><td>adc		<td>Rd, Rn, Op2 <td>Rd = Rn + Op2 + C	</tr>
-    <tr><td>add		<td>Rd, Rn, Op2 <td>Rd = Rn + Op2		</tr>
-    <tr><td>rsb		<td>Rd, Rn, Op2 <td>Rd = Op2 - Rn		</tr>
-    <tr><td>rsc		<td>Rd, Rn, Op2 <td>Rd = Op2 - Rn - !C	</tr>
-    <tr><td>sbc		<td>Rd, Rn, Op2 <td>Rd = Rn - Op2 - !C	</tr>
-    <tr><td>sub		<td>Rd, Rn, Op2 <td>Rd = Rn - Op2		</tr>
-    <tr><th colspan=3 align="center">Logical ops				</tr>
-    <tr><td>and		<td>Rd, Rn, Op2 <td>Rd = Rn &amp; Op2	</tr>
-    <tr><td>bic		<td>Rd, Rn, Op2 <td>Rd = Rn &amp;~ Op2	</tr>
-    <tr><td>eor		<td>Rd, Rn, Op2 <td>Rd = Rn ^ Op2		</tr>
-    <tr><td>mov		<td>Rd, Op2		<td>Rd = Op2			</tr>
-    <tr><td>mvn		<td>Rd, Op2		<td>Rd = ~Op2			</tr>
-    <tr><td>orr		<td>Rd, Rn, Op2 <td>Rd = Rn | Op2		</tr>
-  </table>
-</td>
-<td width=10%>&nbsp;</td>
-<td>
-  <table border=1 cellpadding=2 cellspacing=0>
-    <tr align="center"><th>opcode		<th>operands	<th> function
-    <tr><th colspan=3 align="center">Status ops			</tr>
-    <tr><td>cmp		<td>Rn, Op2		<td>Rn - Op2		</tr>
-    <tr><td>cmn		<td>Rn, Op2		<td>Rn + Op2		</tr>
-    <tr><td>teq		<td>Rn, Op2		<td>Rn ^ Op2	</tr>
-    <tr><td>tst		<td>Rn, Op2		<td>Rn &amp; Op2		</tr>
+  <td>
+    <table class="border-std">
+      <tr align="center"><th>opcode		<th>operands	<th> function
+      <tr><th colspan=3 align="center">Arithmetic				</tr>
+      <tr><td>adc		<td>Rd, Rn, Op2 <td>Rd = Rn + Op2 + C	</tr>
+      <tr><td>add		<td>Rd, Rn, Op2 <td>Rd = Rn + Op2		</tr>
+      <tr><td>rsb		<td>Rd, Rn, Op2 <td>Rd = Op2 - Rn		</tr>
+      <tr><td>rsc		<td>Rd, Rn, Op2 <td>Rd = Op2 - Rn - !C	</tr>
+      <tr><td>sbc		<td>Rd, Rn, Op2 <td>Rd = Rn - Op2 - !C	</tr>
+      <tr><td>sub		<td>Rd, Rn, Op2 <td>Rd = Rn - Op2		</tr>
+      <tr><th colspan=3 align="center">Logical ops				</tr>
+      <tr><td>and		<td>Rd, Rn, Op2 <td>Rd = Rn &amp; Op2	</tr>
+      <tr><td>bic		<td>Rd, Rn, Op2 <td>Rd = Rn &amp;~ Op2	</tr>
+      <tr><td>eor		<td>Rd, Rn, Op2 <td>Rd = Rn ^ Op2		</tr>
+      <tr><td>mov		<td>Rd, Op2		<td>Rd = Op2			</tr>
+      <tr><td>mvn		<td>Rd, Op2		<td>Rd = ~Op2			</tr>
+      <tr><td>orr		<td>Rd, Rn, Op2 <td>Rd = Rn | Op2		</tr>
+    </table>
+  </td>
+  <td width=10%>&nbsp;</td>
+  <td>
+    <table class="border-std">
+      <tr align="center"><th>opcode		<th>operands	<th> function
+      <tr><th colspan=3 align="center">Status ops			</tr>
+      <tr><td>cmp		<td>Rn, Op2		<td>Rn - Op2		</tr>
+      <tr><td>cmn		<td>Rn, Op2		<td>Rn + Op2		</tr>
+      <tr><td>teq		<td>Rn, Op2		<td>Rn ^ Op2	</tr>
+      <tr><td>tst		<td>Rn, Op2		<td>Rn &amp; Op2		</tr>
 
-    <tr><th colspan=3 align="center">Multiplies			</tr>
-    <tr><td>mla		<td>Rd, Rm, Rs, Rn		<td>Rd = Rm * Rs + Rn	</tr>
-    <tr><td>mul		<td>Rd, Rm, Rs			<td>Rd = Rm * Rs		</tr>
-    <tr><td>smlal	<td>RdLo, RdHi, Rm, Rs	<td>RdHiLo += Rm * Rs	</tr>
-    <tr><td>smull	<td>RdLo, RdHi, Rm, Rs	<td>RdHiLo = Rm * Rs	</tr>
-    <tr><td>umlal	<td>RdLo, RdHi, Rm, Rs	<td>RdHiLo += Rm * Rs	</tr>
-    <tr><td>umull	<td>RdLo, RdHi, Rm, Rs	<td>RdHiLo = Rm * Rs	</tr>
-  </table>
-</td>
+      <tr><th colspan=3 align="center">Multiplies			</tr>
+      <tr><td>mla		<td>Rd, Rm, Rs, Rn		<td>Rd = Rm * Rs + Rn	</tr>
+      <tr><td>mul		<td>Rd, Rm, Rs			<td>Rd = Rm * Rs		</tr>
+      <tr><td>smlal	<td>RdLo, RdHi, Rm, Rs	<td>RdHiLo += Rm * Rs	</tr>
+      <tr><td>smull	<td>RdLo, RdHi, Rm, Rs	<td>RdHiLo = Rm * Rs	</tr>
+      <tr><td>umlal	<td>RdLo, RdHi, Rm, Rs	<td>RdHiLo += Rm * Rs	</tr>
+      <tr><td>umull	<td>RdLo, RdHi, Rm, Rs	<td>RdHiLo = Rm * Rs	</tr>
+    </table>
+  </td>
 </tr>
 </table>
 </div>
@@ -1473,7 +1473,7 @@ load and store words. Again, the most general form uses two
 registers and an <i>Op2</i>:
 </p>
 
-<table>
+<table class="eq-container">
 <tr>
   <td class="eqnrcell">
   <td class="eqcell">
@@ -1762,7 +1762,7 @@ register (with an optional exclamation mark for <code>Rd</code>
 write-back) and a list of registers between braces.
 </p>
 
-<table>
+<table class="eq-container">
 <tr>
   <td class="eqnrcell">
   <td class="eqcell">
@@ -1833,9 +1833,8 @@ which expand to &lsquo;<code>stmfd sp!,</code>&rsquo; and
 </p>
 
 <div class="lblock">
-<table id="tbl-block"
-  border=1 cellpadding=2 cellspacing=0>
-<caption align="bottom">
+<table id="tbl-block" class="border-std">
+<caption>
   <b>Table 23.3</b>: Block transfer 
   instructions.
 </caption>
@@ -1920,12 +1919,10 @@ is non-zero, and continue with the next instruction if it isn't.
 </p>
 
 <div class="lblock">
-<table id="tbl-cnd-afx"
-  border=1 cellpadding=2 cellspacing=0>
-<caption align="bottom">
+<table id="tbl-cnd-afx" class="border-std">
+<caption>
   <b>Table 23.4</b>: conditional affixes.
 </caption>
-<col span=2 align="center">
 <tr> <th>Affix</th> <th>Flags</th> <th>Description</th> </tr>
 <tr> <td>eq</td> <td>Z=1</td>
   <td>Zero (EQual to 0)</td> </tr>
@@ -1991,24 +1988,25 @@ for numbers larger thatn the registers.
 
 <div class="lblock">
 <table id="tbl-carry">
-<caption align="bottom">
+<caption>
 <b>Table 23.5</b>: 
   carry bit in (unsigned) addition.
 </caption>
-<col width=160>
-<tr valign="bottom"><td>
-  <table class="eqtbl" cellpadding=2 cellspacing=0>
-    <tr>
-	  <th>2<sup>31</sup> &nbsp;
-	  <td><code>&nbsp;&nbsp;8000 0000</code>
-    <tr>
-	  <th class="bdrB">2<sup>31</sup> &nbsp;
-	  <td class="bdrB"><code>&nbsp;&nbsp;8000 0000</code>&nbsp;
-	  <td class="bdrB"> +
-    <tr>
-	  <th>2<sup>32</sup>
-	  <td><code><b>1</b> 0000 0000</code>
-  </table>
+<tr>
+  <td>
+    <table class="eqtbl c1-l c2-r">
+      <tr>
+      <td><b>2<sup>31</sup></b> &nbsp;
+      <td><code>&nbsp;&nbsp;8000 0000</code>
+      <tr>
+      <td class="bdrB"><b>2<sup>31</sup></b> &nbsp;
+      <td class="bdrB"><code>&nbsp;&nbsp;8000 0000</code>
+      <td class="bdrB"> +
+      <tr>
+      <td><b>2<sup>32</sup></b></td>
+      <td><code><b>1</b> 0000 0000</code>
+    </table>
+  </td>
 </table>
 </div>
 
@@ -2047,23 +2045,24 @@ information to pick the right one.
 
 <div class="lblock">
 <table id="tbl-overflow">
-<caption align="bottom">
+<caption>
 <b>Table 23.6</b>: sign overflow.
 </caption>
-<col width=160>
-<tr valign="bottom"><td>
-  <table class="eqtbl" cellpadding=2 cellspacing=0>
-    <tr>
-	  <th>+2<sup>30</sup> &nbsp;
-	  <td><code>4000 0000</code>
-    <tr>
-	  <th class="bdrB">+2<sup>30</sup> &nbsp;
-	  <td class="bdrB"><code>4000 0000</code>&nbsp;
-	  <td class="bdrB"> +
-    <tr>
-	  <th><b>&minus;</b>2<sup>31</sup>
-	  <td><code>8000 0000</code>
-  </table>
+<tr>
+  <td>
+    <table class="eqtbl c1-r c2-r">
+      <tr>
+      <td><b>+2<sup>30</sup></b> &nbsp;
+      <td><code>4000 0000</code>
+      <tr>
+      <td class="bdrB"><b>+2<sup>30</sup></b> &nbsp;
+      <td class="bdrB"><code>4000 0000</code>
+      <td class="bdrB"> +
+      <tr>
+      <td><b>&minus;2<sup>31</sup></b> &nbsp;
+      <td><code>8000 0000</code>
+    </table>
+  </td>
 </table>
 </div>
 
@@ -2770,51 +2769,51 @@ it'll just have to wait. I-cycles do not suffer from waitstates.
 </p>
 
 <div class="cblock">
-<table width=80% align="center">
+<table class="frame-group" width=80%>
 <tr>
-<td><table id="tbl-cycles"
-  border=1 cellpadding=2 cellspacing=0>
-<caption align="bottom">
-  <b>Table 23.7</b>: Cycle times for the most 
-important instructions.
-</caption>
-<tr> <th>Instruction</th> <th>Cycles</th> </tr>
-<tr> <td>Data</td> <td>1S</td> </tr>
-<tr> <td>ldr(type)</td>   <td>1N + 1N<sub>d</sub> + 1I</td> </tr>
-<tr> <td>str(type)</td>   <td>1N + 1N<sub>d</sub></td></tr>
-<tr> <td>ldm {<i>n</i>}</td> 
-  <td>1N + 1N<sub>d</sub> + (<i>n</i>-1)S<sub>d</sub>+ 1I</td> </tr>
-<tr> <td>stm {<i>n</i>}</td> 
-  <td>1N + 1N<sub>d</sub> + (<i>n</i>-1)S<sub>d</sub></td> </tr>
-<tr> <td>b/bl/bx/swi</td> <td>2S + 1N</td></tr>
-<tr> <td>THUMB bl</td> <td>3S + 1N</td></tr>
-<tr> <td>mul</td> <td>1S + <i>m</i>I</td></tr>
-<tr> <td>mla/mull</td> <td>1S + (<i>m</i>+1)I</td></tr>
-<tr> <td>mlal</td> <td>1S + (<i>m</i>+2)I</td></tr>
-
-</table></td>
-
-<td><table id="tbl-waits" 
-  border=1 cellpadding=2 cellspacing=0>
-<caption align="bottom">
-  <b>Table 23.8</b>: Section default timing details. 
-  See also 
-<a href="http://nocash.emubase.de/gbatek.htm#memorymap" target="_blank">GBATek memory map</a>.
-</caption>
-<col>
-<col span=3 align="center">
-<tbody align="center">
-<tr> <th>Section</th> <th>Bus</th> <th>Wait (N/S)</th> <th>Access 8/16/32</tr>
-<tr> <th>BIOS </th> <td>32</td> <td>0/0</td> <td>1/1/1</td> </tr>
-<tr> <th>EWRAM</th> <td>16</td> <td>2/2</td> <td>3/3/6</td> </tr>
-<tr> <th>IWRAM</th> <td>32</td> <td>0/0</td> <td>1/1/1</td> </tr>
-<tr> <th>IO   </th> <td>32</td> <td>0/0</td> <td>1/1/1</td> </tr>
-<tr> <th>PAL  </th> <td>16</td> <td>0/0</td> <td>1/1/2</td> </tr>
-<tr> <th>VRAM </th> <td>16</td> <td>0/0</td> <td>1/1/2</td> </tr>
-<tr> <th>OAM  </th> <td>32</td> <td>0/0</td> <td>1/1/1</td> </tr>
-<tr> <th>ROM  </th> <td>16</td> <td>4/2</td> <td>5/5/8</td> </tr>
-</tbody>
-</table></td>
+  <td>
+    <table id="tbl-cycles" class="border-std">
+    <caption>
+      <b>Table 23.7</b>: Cycle times for the most 
+    important instructions.
+    </caption>
+      <tr> <th>Instruction</th> <th>Cycles</th> </tr>
+      <tr> <td>Data</td> <td>1S</td> </tr>
+      <tr> <td>ldr(type)</td>   <td>1N + 1N<sub>d</sub> + 1I</td> </tr>
+      <tr> <td>str(type)</td>   <td>1N + 1N<sub>d</sub></td></tr>
+      <tr> <td>ldm {<i>n</i>}</td> 
+        <td>1N + 1N<sub>d</sub> + (<i>n</i>-1)S<sub>d</sub>+ 1I</td> </tr>
+      <tr> <td>stm {<i>n</i>}</td> 
+        <td>1N + 1N<sub>d</sub> + (<i>n</i>-1)S<sub>d</sub></td> </tr>
+      <tr> <td>b/bl/bx/swi</td> <td>2S + 1N</td></tr>
+      <tr> <td>THUMB bl</td> <td>3S + 1N</td></tr>
+      <tr> <td>mul</td> <td>1S + <i>m</i>I</td></tr>
+      <tr> <td>mla/mull</td> <td>1S + (<i>m</i>+1)I</td></tr>
+      <tr> <td>mlal</td> <td>1S + (<i>m</i>+2)I</td></tr>
+    </table>
+  </td>
+  <td>
+    <table id="tbl-waits" class="border-std">
+    <caption>
+      <b>Table 23.8</b>: Section default timing details. 
+      See also 
+    <a href="http://nocash.emubase.de/gbatek.htm#memorymap" target="_blank">GBATek memory map</a>.
+    </caption>
+    <col>
+    <col span=3 align="center">
+    <tbody align="center">
+      <tr> <th>Section</th> <th>Bus</th> <th>Wait (N/S)</th> <th>Access 8/16/32</tr>
+      <tr> <th>BIOS </th> <td>32</td> <td>0/0</td> <td>1/1/1</td> </tr>
+      <tr> <th>EWRAM</th> <td>16</td> <td>2/2</td> <td>3/3/6</td> </tr>
+      <tr> <th>IWRAM</th> <td>32</td> <td>0/0</td> <td>1/1/1</td> </tr>
+      <tr> <th>IO   </th> <td>32</td> <td>0/0</td> <td>1/1/1</td> </tr>
+      <tr> <th>PAL  </th> <td>16</td> <td>0/0</td> <td>1/1/2</td> </tr>
+      <tr> <th>VRAM </th> <td>16</td> <td>0/0</td> <td>1/1/2</td> </tr>
+      <tr> <th>OAM  </th> <td>32</td> <td>0/0</td> <td>1/1/1</td> </tr>
+      <tr> <th>ROM  </th> <td>16</td> <td>4/2</td> <td>5/5/8</td> </tr>
+    </tbody>
+    </table>
+  </td>
 </table>
 </div>
 
@@ -2912,8 +2911,7 @@ all <code>add</code> forms.
 </p>
 
 <div class="reg">
-<table class="reg" id="tbl-arm-add"
-  border=1 frame=void cellpadding=2 cellspacing=0>
+<table id="tbl-arm-add" class="reg border-std">
 <caption class="reg">
   <b>Table 23.3.6.</b>: The <code>add</code> 
   instruction(s)
@@ -2953,80 +2951,72 @@ all <code>add</code> forms.
 </table>
 <br>
 
-<table>
-<caption>
+<table class="reg-desc">
+<caption class="top">
   Top 20 bits for <code>add</code>; denote instruction type, 
   status/conditional flags and destination and first operand 
   registers.
 </caption>
-  <col class="bits" width=40>
-  <col class="bf" width="8%">
-<tr align="left"><th>bits<th>name<th>description
-<tbody valign="top">
-<tr class="bg0">	
+<tr><th>bits<th>name<th>description
+<tr class="bg0">
   <td> C-F <td class="rclr4">Rd
   <td><b>Destination register</b>.
-<tr class="bg1">	
+<tr class="bg1">
   <td> 10-13 <td class="rclr3">Rn
   <td><b>First operand register</b>.
-<tr class="bg0">	
+<tr class="bg0">
   <td> 14 <td class="rclr2">S
   <td> Set <b>Status</b> bits (the <code>-s</code> affix).
-<tr class="bg1">	
+<tr class="bg1">
   <td> 15-18 <td class="rclr1">TB
   <td><b>Instruction-type</b> field. Must be 4 for <code>add</code> .
-<tr class="bg0">	
+<tr class="bg0">
   <td> 19 <td class="rclr2">IF
   <td><b>Immediate flag</b>. The second operand is an immediate value 
     if set, and a (shifted) register if clear.
-<tr class="bg1">	
+<tr class="bg1">
   <td> 1A-1C <td class="rclr1">TA
   <td> Another <b>instruction-type</b> field. Is zero for all data 
     instructions.
-<tr class="bg0">	
+<tr class="bg0">
   <td> 1D-1F <td class="rclr0">cnd
   <td><b>Condition</b> field.
-</tbody>
 </table><br>
 
-<table>
-<caption>
+<table class="reg-desc">
+<caption class="top">
   Lower 12 bits for <code>add</code>; these form the second operand.
 </caption>
-  <col class="bits" width=40>
-  <col class="bf" width="8%">
-<tbody valign="top">
-<tr align="left"><th>bits<th>name<th>description
-<tr class="bg0">	
+<tr><th>bits<th>name<th>description
+<tr class="bg0">
   <td> 0-7 <td class="rclr6">IN
   <td><b>Immediate Number</b> field. The second operand is 
 	<code>IN ror 2*IR</code>.
-<tr class="bg1">	
+<tr class="bg1">
   <td> 8-B <td class="rclr5">IR
   <td><b>Immediate Rotate</b> field. This denotes the 
     rotate-right amount applied to <i>IN</i>.
-<tr class="bg0">	
+<tr class="bg0">
   <td> 0-3 <td class="rclr6">Rm
   <td><b>Second operand</b> register.
-<tr class="bg1">	
+<tr class="bg1">
   <td> 4 <td class="rclr7">SF
   <td><b>Shift-operand flag</b>. If set, the shift is the immediate 
     value in <i>IS</i>; if clear, the shift comes from register 
     <i>Rs</i>.
-<tr class="bg0">	
+<tr class="bg0">
   <td> 5-6 <td class="rclr8">ST
   <td><b>Shift type</b>. 
    <b>0</b>: <code>lsl</code>, <b>1</b>: <code>lsr</code>
    <b>2</b>: <code>asr</code>, <b>3</b>: <code>ror</code>
-<tr class="bg1">	
+<tr class="bg1">
   <td> 7-B <td class="rclr5">IS
   <td><b>Immediate Shift</b> value. Second operand is 
     <code>Rm Op IS</code>.
-<tr class="bg0">	
+<tr class="bg0">
   <td> 8-B <td class="rclr5">Rs
   <td><b>Shift Register</b>. Second operand is 
     <code>Rm Op Rs</code>.
-</tbody>
 </table>
 </div>
 
@@ -3230,9 +3220,8 @@ itself.
   Table 23.10 gives an overview.
   </p>
   <div style="margin:0.5em;">
-  <table id="tbl-thumb-mem"
-    border=1 cellpadding=2 cellspacing=0>
-  <caption align="bottom">
+  <table id="tbl-thumb-mem" class="border-std">
+  <caption>
     <b>Table 23.10</b>. THUMB addressing mode 
     availability.
   </caption>
@@ -4346,7 +4335,7 @@ Get all Tonc files <a href="http://www.coranac.com/projects/#tonc" target="_blan
 </table>
 <!-- [[/footer]] -->
 
+</div> <!-- main-container -->
 </body>
 </html>
-
 

@@ -1,16 +1,18 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+  <meta charset="utf-8">
   <meta name="Author" content="Cearn">
   <meta name="Created" content="20041112">
   <meta name="Modified" content="20130324">
 
   <title>Tonc: Numbers, bits and bit-ops</title>
   <link rel="stylesheet" type="text/css" href="tonc.css">
-  <script type="text/javascript" src="tonc.js"></script>
+  <script src="tonc.js"></script>
 </head>
 <body onload="main();">
+<div class="main-container">
+
 
 <!--567890123456789012345678901234567890123456789012345678901234567-->
 
@@ -173,15 +175,15 @@ possible. Now, for our sample string of numerals, consider
 <div class="lblock">
 <table>
 <tr><td>1025<sub>ten</sub>
-  <td>=<td> 1·10<sup>3</sup><sub>ten</sub>
-  <td>+<td> 0·10<sup>2</sup><sub>ten</sub>
-  <td>+<td> 2·10<sup>1</sup><sub>ten</sub>
-  <td>+<td> 5·10<sup>0</sup><sub>ten</sub>
+  <td>=<td> 1&middot;10<sup>3</sup><sub>ten</sub>
+  <td>+<td> 0&middot;10<sup>2</sup><sub>ten</sub>
+  <td>+<td> 2&middot;10<sup>1</sup><sub>ten</sub>
+  <td>+<td> 5&middot;10<sup>0</sup><sub>ten</sub>
 <tr><td>
-  <td>=<td> 1·1000<sub>ten</sub>
-  <td>+<td> 0·100<sub>ten</sub>
-  <td>+<td> 2·10<sub>ten</sub>
-  <td>+<td>5·1
+  <td>=<td> 1&middot;1000<sub>ten</sub>
+  <td>+<td> 0&middot;100<sub>ten</sub>
+  <td>+<td> 2&middot;10<sub>ten</sub>
+  <td>+<td>5&middot;1
 <tr><td><td>=<td colspan=7> one thousand twenty five
 </table>
 </div>
@@ -242,11 +244,9 @@ of course, we need the powers of two themselves. The first 11 are:
 </p>
 
 <div class="lblock">
-<table id="tbl-pot"
-  border=1 cellpadding=2 cellspacing=0>
-<caption align="bottom"><b>Table 1</b>: powers of two</caption>
-<col span=3 align="right">
-<tr align="center"><th>exponent<th>binary<th>decimal
+<table id="tbl-pot" class="border-std align-r">
+<caption><b>Table A.1</b>: powers of two</caption>
+<tr class="align-c"><th>exponent<th>binary<th>decimal
 <tr><td> 0 <td>1			<td>1
 <tr><td> 1 <td>10			<td>2
 <tr><td> 2 <td>100			<td>4
@@ -310,16 +310,8 @@ will fit on your floppy disk or not.
 <h3 id="ssec-num-hex">A.1.4.
   base-16, hexadecimal</h3>
 
-<div class="cpt_fr" style="width:160px">
-<p>
-<b>Table 2</b>: counting to twenty in decimal, binary, hex and octal. 
-Note the alternating sequences in the binary column.
-</p>
-
-<div class="cblock">
-<table id="tbl-count"
-  border=1 cellpadding=2 cellspacing=0 rules=cols>
-<col span=4 align="right">
+<div class="cpt_fr" style="width:160px;">
+<table id="tbl-count" class="align-r" border=1 rules=cols>
 <tr><th> dec	<th> bin	<th> hex	<th> oct
 <tr><td>   0	<td>    0	<td>   0    <td>   0
 <tr><td>   1	<td>    1	<td>   1    <td>   1
@@ -343,7 +335,11 @@ Note the alternating sequences in the binary column.
 <tr><td>  19	<td>10011	<td>  13    <td>  23
 <tr><td>  20	<td>10100	<td>  14    <td>  24
 </table>
-</div>
+<p>
+<b>Table A.2</b>: counting to twenty in decimal, binary, hex and octal. 
+Note the alternating sequences in the binary column.
+</p>
+
 </div>
 
 <p>
@@ -374,7 +370,7 @@ and convert those to hex.
 <tr><td>1025<sub>ten</sub>
   <td>=<td colspan=4>100,0000,0001<sub>bin</sub>
 <tr><td>
-  <td>=<td>401<sub>bin</sub>·16<sup>2</sup> <td>+<td>1·16<sup>0</sup>
+  <td>=<td>401<sub>bin</sub>&middot;16<sup>2</sup> <td>+<td>1&middot;16<sup>0</sup>
 <tr><td>
   <td>=<td colspan=4>401<sub>hex</sub>
 </table>
@@ -433,10 +429,10 @@ hexadecimal. I've also given the multiplication tables for convenience.
 </p>
 
 <div class="cblock">
-<table id="tbl-multiply">
+<table id="tbl-multiply" class="frame-group">
 <tr><td>
-  <table border=1 cellpadding=2 cellspacing=0>
-  <caption><b>Table 3a</b>: decimal multiplication table</caption>
+  <table class="border-std">
+  <caption><b>Table A.3a</b>: decimal multiplication table</caption>
   <col span=11 align="right">
   <tr><th> x
     <th> 1 <th> 2 <th> 3 <th> 4 <th> 5
@@ -474,8 +470,8 @@ hexadecimal. I've also given the multiplication tables for convenience.
   </table>
 
 <td width=64><td>
-  <table border=1 cellpadding=2 cellspacing=0>
-  <caption><b>Table 3b</b>: hex multiplication table</caption>
+  <table class="border-std">
+  <caption><b>Table A.3b</b>: hex multiplication table</caption>
   <col span=17 align="right">
   <tr><th> x
     <th> 1 <th> 2 <th> 3 <th> 4 <th> 5 <th> 6 <th> 7 <th> 8
@@ -536,9 +532,8 @@ hexadecimal. I've also given the multiplication tables for convenience.
 <table>
 <tr>
   <td>
-  <table border=1 cellpadding=2 cellspacing=0>
+  <table class="align-r border-std">
   <caption>123 &times; 456, base ten</caption>
-  <col span=5 align="right">
   <tr><td>&times; <th> 100  <th>   20 <th>    3	<th> sum
   <tr><th> 400    <td>40000 <td> 8000 <td> 1200 <td> 49200
   <tr><th>  50    <td> 5000 <td> 1000 <td>  150 <td>  6150
@@ -546,11 +541,10 @@ hexadecimal. I've also given the multiplication tables for convenience.
   <tr><th colspan=4>Result                      <th> 56088
   </table>
 
-  <td width=32>
+  <td width="32">
   <td>
-  <table border=1 cellpadding=2 cellspacing=0>
+  <table class="align-r border-std">
   <caption>123 &times; 456, base 16</caption>
-  <col span=5 align="right">
   <tr><td>&times; <th> 100  <th>   20 <th>    3	<th> sum
   <tr><th> 400    <td>40000 <td> 8000 <td>  C00 <td> 48C00
   <tr><th>  50    <td> 5000 <td>  A00 <td>   F0 <td>  5AF0
@@ -600,7 +594,7 @@ example, &pi; can be broken down like this:
 </p>
 
 <div class="lblock">
-<table border=1 cellpadding=2 cellspacing=0>
+<table class="border-std">
 <col span=9 width=32>
 <tr align="center">
   <th>exp
@@ -631,7 +625,7 @@ as well in binary. &pi; in binary is:
 </p>
 
 <div class="lblock">
-<table border=1 cellpadding=2 cellspacing=0>
+<table class="border-std">
 <col span=9 width=16>
 <tr align="center">
   <th>exp
@@ -672,7 +666,7 @@ would go like this:
 </p>
 
 <div class="lblock">
-<table border=1 cellpadding=2 cellspacing=0 rules=cols>
+<table class="align-r" border=1 rules=cols>
 <tr><th> num  <th> / 16 <th> %16
 <tr><td> 1110 <td> 69   <td> 6
 <tr><td>   69 <td> 4    <td> 5
@@ -724,9 +718,9 @@ the number is just too damn long to write!
 The scientific notation solves both problems. Multiplying with a power
 of 10 effectively moves the floating point around and thus can
 rid you of the zeros. The mass of the Earth can then be written
-concisely as 5.9742·10<sup>24</sup>, that is, 5.9742 times 10 to the
+concisely as 5.9742&middot;10<sup>24</sup>, that is, 5.9742 times 10 to the
 power 24. You can also come across the even shorter notation of 
-5.9742e+24, where the &ldquo;·10^&rdquo; is replaced by an 
+5.9742e+24, where the &ldquo;&middot;10^&rdquo; is replaced by an 
 &lsquo;e&rsquo; for exponent. Don't misread it as a hexadecimal number. 
 And yes, I am aware that this is a shorthand notation of a shorthand 
 notation. What can I say, math people are lazy bastards. Additionally, 
@@ -824,10 +818,9 @@ complement</dfn>. The table below shows how this works for 3 digits.
 </p>
 
 <div class="lblock">
-<table id="tbl-10cmpl"
-  border=1 cellpadding=2 cellspacing=0>
-<caption align="bottom">
-  <b>Table 4</b>: tens' complement for 3 digits
+<table id="tbl-10cmpl" class="border-std">
+<caption>
+  <b>Table A.4</b>: tens' complement for 3 digits
 </caption>
 <tbody align="center">
 <tr><th>Number
@@ -868,24 +861,22 @@ otherwise it won't work. The actual representation of -<i>x</i> using
 <tr>
   <td class="eqnrcell">(3)
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 cellspacing=0>
-  <col align="right">
-  <col align="center">
-  <col align="left">
-  <tr>
-    <td> 0
-    <td>=
-    <td> <i>x</i> + (&minus;<i>x</i>)
-  <tr><td colspan=3 align="center">is equivalent to
-  <tr>
-    <td> 10<sup>m</sup>
-    <td>=
-    <td> <i>x</i> + (&minus;<i>x</i>)
-  <tr>
-    <td> (10<sup>m</sup>&minus;1) &minus; x + 1
-    <td>=
-    <td> (&minus;<i>x</i>)
-  </table>
+    <table class="eqtbl basic">
+    <tr>
+      <td>0
+      <td>=
+      <td> <i>x</i> + (&minus;<i>x</i>)
+    <tr><td colspan=3 align="center">is equivalent to
+    <tr>
+      <td> 10<sup>m</sup>
+      <td>=
+      <td> <i>x</i> + (&minus;<i>x</i>)
+    <tr>
+      <td> (10<sup>m</sup>&minus;1) &minus; x + 1
+      <td>=
+      <td> (&minus;<i>x</i>)
+    </table>
+  </td>
 </table>
 
 <p>
@@ -908,24 +899,22 @@ other cases: the subtraction of 10<sup>m</sup>&minus;1 by <i>x</i> is
 just the inversion of all the bits of <i>x</i>. Take 76, for example:
 </p>
 
-<table>
+<table class="eq-container">
 <tr>
   <td class="fill">&nbsp;
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 cellspacing=0>
-  <col align="right">
-  <col align="center">
-  <col align="left">
-  <tr>
-    <th>255: <td>1111 1111 <td>
-  <tr>
-    <th class="bdrB">76:
-	<td class="bdrB">0100 1100 
-	<td class="bdrB">&minus;
-  <tr>
-    <th>179:
-    <td>1011 0011
-  </table>
+    <table class="eqtbl basic">
+    <tr>
+      <td><b>255:</b> <td>1111 1111 <td>
+    <tr>
+      <td class="bdrB"><b>76:</b>
+      <td class="bdrB">0100 1100 
+      <td class="bdrB">&minus;
+    <tr>
+      <td><b>179:</b>
+      <td>1011 0011
+    </table>
+  </td>
 </table>
 
 <p>
@@ -974,7 +963,7 @@ comparison and bit-operations. A byte <i>x</i> containing FFh could
 mean a signed &minus;1 or an unsigned 255. In that case:
 
 <div class="lblock">
-<table border=1 cellspacing=0 cellpadding=2>
+<table class="border-std">
 <tr><td>FFh	<th>signed 		<th>unsigned
 <tr><th>comparison x&lt;0
   <td>true <td> false
@@ -1057,10 +1046,9 @@ yourself warned.
 </p>
 
 <div class="cblock">
-<table id="tbl-ascii"
-  border=1 cellpadding=2 cellspacing=0>
-<caption align="bottom">
-  <b>Table 5</b>: ASCII 0-127
+<table id="tbl-ascii" class="border-std">
+<caption>
+  <b>Table <em>[[ref-tbl-ascii]]</em></b>: ASCII 0-127
 </caption>
 <tr><td>
   <table><tr><th>dec <th>hex <th>Char
@@ -1169,8 +1157,7 @@ float
 </p>
 
 <div class="reg">
-<table class="reg" id="tbl-float-fmt"
-  border=1 frame=void cellpadding=4 cellspacing=0>
+<table id="tbl-float-fmt" class="reg border-std">
 <caption class="reg">
   IEEE format for 32bit float
 </caption>
@@ -1184,25 +1171,17 @@ float
 </table>
 <br>
 
-<table>
-  <col class="bits" width=40>
-  <col class="bf" width="8%">
-  <col class="def">
-<tr align="left"><th>bits<th>name<th>&nbsp;<th>description
-<tbody valign="top">
-<tr class="bg0">	
+<table class="reg-desc">
+<tr><th>bits<th>name<th>description
+<tr class="bg0">
   <td>00-16<td class="rclr0">f
-  <td>&nbsp;
   <td><b>Fractional</b> part (23 bits)
-<tr class="bg1">	
+<tr class="bg1">
   <td>17-1E<td class="rclr1">e
-  <td>&nbsp;
   <td><b>Exponent</b> (8 bits)
-<tr class="bg0">	
+<tr class="bg0">
   <td>1F<td class="rclr2">s
-  <td>&nbsp;
   <td><b>Sign</b> bit.
-</tbody>
 </table>
 </div>
 
@@ -1227,7 +1206,7 @@ in a 2s' complement number). Two examples:
 </p>
 
 <div class="lblock">
-<table border=1 cellpadding=2 cellspacing=0>
+<table class="border-std">
 <tr align="center"><th>x <th>s <th> e <th> f
 <tr><th>1.0  <td>0 <td>01111111 <td> 000 0000 0000 0000 0000 0000
 <tr><th>&minus;1.0 <td>1 <td>01111111 <td> 000 0000 0000 0000 0000 0000
@@ -1309,10 +1288,9 @@ transfer that to a computer with a different endian-scheme.
 </p>
 
 <div class="lblock">
-<table id="tbl-endian"
-  border=1 cellpadding=2 cellspacing=0 width=30%>
-<caption align="bottom">
-  <b>Table 6</b>: storing 0x11223344
+<table id="tbl-endian" class="border-std" width=30%>
+<caption>
+  <b>Table A.7</b>: storing 0x11223344
 </caption>
 <col span=5 align="center">
 <tr><th>memory <th> 00 <th> 01 <th> 02 <th> 03
@@ -1445,11 +1423,11 @@ Table 8 shows examples of these operators on bytes 0Fh and 35h.
 
 <div class="lblock">
 <table id="tbl-bitops-truth">
-<caption align="bottom">
-  <b>Table 7</b>: bit operations
+<caption>
+  <b>Table A.8</b>: bit operations
 </caption>
   <tr valign="top"><td>
-    <table border=1 cellpadding=2 cellspacing=0 frame=void rules=groups>
+    <table border=1 frame=void rules=groups>
     <colgroup align="center">
     <colgroup align="center">
     <colgroup align="center">
@@ -1464,7 +1442,7 @@ Table 8 shows examples of these operators on bytes 0Fh and 35h.
     </table>
   <td width=32>
   <td>
-    <table border=1 cellpadding=2 cellspacing=0 frame=void rules=groups>
+    <table border=1 frame=void rules=groups>
     <colgroup align="center">
     <colgroup align="center">
     <thead>
@@ -1480,64 +1458,68 @@ Table 8 shows examples of these operators on bytes 0Fh and 35h.
 
 <!-- frame for masked results -->
 <table id="tbl-bitops-eg">
-<caption>
-  <b>Table 8a</b>: bit-ops examples
+<caption class="top">
+  <b>Table A.9a</b>: bit-ops examples
 </caption>
   <col span=4 width=144>
   <tr valign="bottom"><td>
-  <table class="eqtbl" cellpadding=2 cellspacing=0>
-    <tr><th align="center" colspan=3>AND
+  <table class="eqtbl c1-l">
+    <tr><th colspan=3>AND
     <tr>
-	  <th><code>0Fh</code>
-	  <td><code>0000<font color=blue><b>1111</b></font></code>
+      <td><b><code>35h</code></b>&nbsp;
+      <td><code>00110101</code>&nbsp;
     <tr>
-	  <th class="bdrB"><code>35h</code>&nbsp;
-	  <td class="bdrB"><code>00110101</code>&nbsp;
-	  <td class="bdrB"> &amp;
+      <td class="bdrB"><b><code>0Fh</code></b>
+      <td class="bdrB"><code>0000<font color=blue><b>1111</b></font></code>
+      <td class="bdrB"> &amp;
     <tr>
-	  <th><code>05h</code>
-	  <td><code><font color=red><b>0000</b></font>0101</code>
+      <td><b><code>05h</code></b>
+      <td><code><font color=red><b>0000</b></font>0101</code>
   </table>
+  </td>
   <td>
-  <table class="eqtbl" cellpadding=2 cellspacing=0>
-    <tr><th align="center" colspan=3>OR
+  <table class="eqtbl c1-l">
+    <tr><th colspan=3>OR
     <tr>
-	  <th><code>0Fh</code>
-	  <td><code>0000<font color=blue><b>1111</b></font></code>
+      <td><b><code>35h</code></b>&nbsp;
+      <td><code>00110101</code>&nbsp;
     <tr>
-	  <th class="bdrB"><code>35h</code>&nbsp;
-	  <td class="bdrB"><code>00110101</code>&nbsp;
-	  <td class="bdrB"> |
+      <td class="bdrB"><b><code>0Fh</code></b>
+      <td class="bdrB"><code>0000<font color=blue><b>1111</b></font></code>
+      <td class="bdrB"> |
     <tr>
-	  <th><code>3Fh</code>
-	  <td><code>0011<font color=red><b>1111</b></font></code>
+      <th><code>3Fh</code>
+      <td><code>0011<font color=red><b>1111</b></font></code>
   </table>
+  </td>
   <td>
-  <table class="eqtbl" cellpadding=2 cellspacing=0>
-    <tr><th align="center" colspan=3>XOR
+  <table class="eqtbl c1-l">
+    <tr><th colspan=3>XOR
     <tr>
-	  <th><code>0Fh</code>
-	  <td><code>0000<font color=blue><b>1111</b></font></code>
+      <td><b><code>35h</code></b>&nbsp;
+      <td><code>00110101</code>&nbsp;
     <tr>
-	  <th class="bdrB"><code>35h</code>&nbsp;
-	  <td class="bdrB"><code>00110101</code>&nbsp;
-	  <td class="bdrB"> ^
+      <td class="bdrB"><b><code>0Fh</code></b>
+      <td class="bdrB"><code>0000<font color=blue><b>1111</b></font></code>
+      <td class="bdrB"> ^
     <tr>
-	  <th><code>3Ah</code>
-	  <td><code>0011<font color=red><b>1010</b></font></code>
+      <td><b><code>3Ah</code></b>
+      <td><code>0011<font color=red><b>1010</b></font></code>
   </table>
+  </td>
   <td>
-  <table class="eqtbl" cellpadding=2 cellspacing=0>
-    <tr><th align="center" colspan=3>NOT
+  <table class="eqtbl c1-l">
+    <tr><th colspan=3>NOT
     <tr><td>&nbsp;
     <tr>
-	  <th class="bdrB"><code>0Fh</code>&nbsp;
-	  <td class="bdrB"><code>00001111</code>&nbsp;
-	  <td class="bdrB"> ~
+      <td class="bdrB"><b><code>0Fh</code></b>&nbsp;
+      <td class="bdrB"><code>00001111</code>&nbsp;
+      <td class="bdrB"> ~
     <tr>
-	  <th><code>F0h</code>
-	  <td><code><font color=red><b>11110000</b></font></code>
+      <td><b><code>F0h</code></b>
+      <td><code><font color=red><b>11110000</b></font></code>
   </table>
+  </td>
 </table>  <!-- /frame for masked results -->
 </div>
 
@@ -1562,7 +1544,7 @@ If you look at the truth tables and the examples, you may already see
 how this can work. OR, AND, XOR are binary operators, and you can 
 think of the two operands as a source variable <i>s</i> and a 
 <dfn>mask</dfn> variable <i>m</i> which tells you which of the bits are 
-affected. In table 8a I used <i>s</i>=35h and <i>m</i>=0Fh; the mask
+affected. In table A.9a I used <i>s</i>=35h and <i>m</i>=0Fh; the mask
 consists of the set bits (in blue), the red bits were the ones that were 
 affected. If you examine the table, you'll see that an OR sets bits, a 
 XOR toggles it and an AND keeps bits (i.e., clears the unmasked bits). 
@@ -1581,68 +1563,72 @@ operators like '|='.
 
 <!-- frame for masked results -->
 <table>
-<caption align="bottom">
-  <b>Table 8b</b>: bit-ops examples encore,
+<caption>
+  <b>Table A.9b</b>: bit-ops examples encore,
   using source <i>s</i>=35h and mask <i>m</i>=0Fh
 </caption>
 <col span=4 width=144>
 <tr valign="bottom">
   <td>
-  <table class="eqtbl" cellpadding=2 cellspacing=0>
-    <caption><b>AND (keep bits)</b><br> <i>s &amp; m</i></caption>
+  <table class="eqtbl c1-l">
+    <caption class="top nowrap"><b>AND (keep bits)</b><br> <i>s &amp; m</i></caption>
     <tr>
-	  <th><code>35h</code>&nbsp;
-	  <td><code>00110101</code>&nbsp;
+      <td><b><code>35h</code></b>&nbsp;
+      <td><code>00110101</code>&nbsp;
     <tr>
-	  <th class="bdrB"><code>0Fh</code>
-	  <td class="bdrB"><code>0000<font color=blue><b>1111</b></font></code>
-	  <td class="bdrB"> &amp;
+      <td class="bdrB"><b><code>0Fh</code></b>
+      <td class="bdrB"><code>0000<font color=blue><b>1111</b></font></code>
+      <td class="bdrB"> &amp;
     <tr>
-	  <th><code>05h</code>
-	  <td><code><font color=red><b>0000</b></font>0101</code>
+      <td><b><code>05h</code></b>
+      <td><code><font color=red><b>0000</b></font>0101</code>
   </table>
+  </td>
   <td>
-  <table class="eqtbl" cellpadding=2 cellspacing=0>
-    <caption><b>OR (set bits)</b> <br> <i>s | m</i></caption>
+  <table class="eqtbl c1-l">
+    <caption class="top nowrap"><b>OR (set bits)</b> <br> <i>s | m</i></caption>
     <tr>
-	  <th><code>35h</code>&nbsp;
-	  <td><code>00110101</code>&nbsp;
+      <td><b><code>35h</code></b>&nbsp;
+      <td><code>00110101</code>&nbsp;
     <tr>
-	  <th class="bdrB"><code>0Fh</code>
-	  <td class="bdrB"><code>0000<font color=blue><b>1111</b></font></code>
-	  <td class="bdrB"> |
+      <td class="bdrB"><b><code>0Fh</code></b>
+      <td class="bdrB"><code>0000<font color=blue><b>1111</b></font></code>
+      <td class="bdrB"> |
     <tr>
-	  <th><code>3Fh</code>
-	  <td><code>0011<font color=red><b>1111</b></font></code>
+      <th><code>3Fh</code>
+      <td><code>0011<font color=red><b>1111</b></font></code>
   </table>
+  </td>
   <td>
-  <table class="eqtbl" cellpadding=2 cellspacing=0>
-    <caption><b>XOR (flip bits)</b> <br> <i>s ^ m</i></caption>
+  <table class="eqtbl c1-l">
+    <caption class="top nowrap"><b>XOR (flip bits)</b> <br> <i>s ^ m</i></caption>
     <tr>
-	  <th><code>35h</code>&nbsp;
-	  <td><code>00110101</code>&nbsp;
+      <td><b><code>35h</code></b>&nbsp;
+      <td><code>00110101</code>&nbsp;
     <tr>
-	  <th class="bdrB"><code>0Fh</code>
-	  <td class="bdrB"><code>0000<font color=blue><b>1111</b></font></code>
-	  <td class="bdrB"> ^
+      <td class="bdrB"><b><code>0Fh</code></b>
+      <td class="bdrB"><code>0000<font color=blue><b>1111</b></font></code>
+      <td class="bdrB"> ^
     <tr>
-	  <th><code>3Ah</code>
-	  <td><code>0011<font color=red><b>1010</b></font></code>
+      <td><b><code>3Ah</code></b>
+      <td><code>0011<font color=red><b>1010</b></font></code>
   </table>
+  </td>
   <td>
-  <table class="eqtbl" cellpadding=2 cellspacing=0>
-    <caption><b>AND NOT (clear bits)</b> <br> <i>s &amp;~ m</i></caption>
+  <table class="eqtbl c1-r">
+    <caption class="top nowrap"><b>AND NOT (clear bits)</b> <br> <i>s &amp;~ m</i></caption>
     <tr>
-	  <th><code>&nbsp;35h</code>&nbsp;
+	  <td><b><code>&nbsp;35h</code></b>
 	  <td><code>00110101</code>&nbsp;
     <tr>
-	  <th class="bdrB"><code>~0Fh</code>
+	  <td class="bdrB"><b><code>~0Fh</code></b>
 	  <td class="bdrB"><code>1111<font color=blue><b>0000</b></font></code>
 	  <td class="bdrB"> &amp;
     <tr>
-	  <th><code>&nbsp;30h</code>
+	  <td><b><code>&nbsp;30h</code></b>
 	  <td><code>0011<font color=red><b>0000</b></font></code>
   </table>
+  </td>
 </table>  <!-- /frame for masked results -->
 </div>
 
@@ -1666,18 +1652,15 @@ variable, in pretty much the way you'd expect:
 </p>
 
 <div class="lblock">
-<table id="tbl-shift"
-  cellpadding=4 cellspacing=0 frame=void rules=groups>
-<caption align="bottom"><b>Table 9</b>: shift / rotate operations on
+<table id="tbl-shift" border="1" rules="groups" frame="void">
+<caption><b>Table A.10</b>: shift / rotate operations on
   byte 35h (<code>00110101</code>)</caption>
-<colgroup>
-<colgroup>
-<colgroup>
-<colgroup>
-<thead>
-<tr align="center">
+<colgroup></colgroup>
+<colgroup></colgroup>
+<colgroup></colgroup>
+<colgroup></colgroup>
+<tr>
   <th>name <th> symbol <th>example <th> result
-<tbody>
 <tr>
   <th>shift left <td> SL, &lt;&lt;
   <td> <code>00<font color=red><b>110101</b></font></code> &lt;&lt; 2
@@ -1746,10 +1729,9 @@ you'd get by sign-bit extension or not.
 </p>
 
 <div class="lblock">
-<table id="tbl-sign"
-  border=1 cellspacing=0 cellpadding=2>
-<caption align="bottom">
-  <b>Table 10</b>: signed and unsigned <code>80h&gt;&gt;3</code>
+<table id="tbl-sign" class="border-std">
+<caption class="nowrap">
+  <b>Table A.11</b>: signed and unsigned <code>80h&gt;&gt;3</code>
 </caption>
 <col span=3 align="center">
 <tr><th>type <b>char</b><th> unsigned <th> signed
@@ -1830,14 +1812,13 @@ constant is a power of two.
 </p>
 
 <div class="lblock">
-<table id="tbl-bitops-arith"
-  cellpadding=4 cellspacing=0 frame=void rules=groups>
-<caption align="bottom">
-  <b>Table 11</b> Arithmetic bit-ops summary
+<table id="tbl-bitops-arith" class="align-c" border="1" rules="groups" frame="void">
+<caption class="nowrap">
+  <b>Table A.12</b> Arithmetic bit-ops summary
 </caption>
-<colgroup valign="bottom">
-<colgroup align="center" valign="bottom">
-<colgroup align="center" valign="bottom">
+<colgroup></colgroup>
+<colgroup></colgroup>
+<colgroup></colgroup>
 <thead>
 <tr>
   <th>bit-op <th>arithmetic function <th>example
@@ -1876,21 +1857,20 @@ an 8bit computer, cool huh?
 </p>
 
 <div class="lblock">
-<table id="tbl-adder"
-  border=1 cellspacing=0 cellpadding=2 frame=void rules=groups width=10%>
-<caption align="bottom">
-  <b>Table 12</b>: 1&minus;bit adder
+<table id="tbl-adder" class="align-c" width=10% border="1" rules="groups" frame="void">
+<caption class="nowrap">
+  <b>Table A.13</b>: 1-bit adder
 </caption>
-<colgroup align="center">
-<colgroup align="center">
-<colgroup align="center">
+<colgroup></colgroup>
+<colgroup></colgroup>
+<colgroup></colgroup>
 <thead>
-  <tr><th>a b <th> a+b
+  <tr><th>a <th>b <th> a+b
 <tbody>
-  <tr><td>0 0 <td> 00
-  <tr><td>0 1 <td> 01
-  <tr><td>1 0 <td> 01
-  <tr><td>1 1 <td> 10
+  <tr><td>0 <td>0 <td> 00
+  <tr><td>0 <td>1 <td> 01
+  <tr><td>1 <td>0 <td> 01
+  <tr><td>1 <td>1 <td> 10
 </table>
 </div>
 
@@ -1937,6 +1917,6 @@ Get all Tonc files <a href="http://www.coranac.com/projects/#tonc" target="_blan
 </table>
 <!-- [[/footer]] -->
 
+</div> <!-- main-container -->
 </body>
 </html>
-

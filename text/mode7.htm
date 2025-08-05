@@ -1,7 +1,7 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+  <meta charset="utf-8">
   <meta name="generator" content="Context">
   <meta name="Author" content="Cearn">
   <meta name="Created" content="20031127">
@@ -9,9 +9,11 @@
 
   <title>Tonc: Mode 7 Part 1</title>
   <link rel="stylesheet" type="text/css" href="tonc.css">
-  <script type="text/javascript" src="tonc.js"></script>
+  <script src="tonc.js"></script>
 </head>
 <body onload="main();">
+<div class="main-container">
+
 
 <!--567890123456789012345678901234567890123456789012345678901234567-->
 
@@ -37,12 +39,12 @@
 
 <!-- [[toc]] -->
 <ul>
-  <li><a href="#sec-intro">Introduction</a>.
-  <li><a href="#sec-persp">Getting a sense of perspective</a>.
-  <li><a href="#sec-m7-math">Enter Mode 7</a>.
-  <li><a href="#sec-demo">Threefold demo</a>.
-  <li><a href="#sec-order">Order, order!</a>.
-  <li><a href="#sec-final">Final thoughts</a>.
+  <li><a href="#sec-intro">Introduction</a>
+  <li><a href="#sec-persp">Getting a sense of perspective</a>
+  <li><a href="#sec-m7-math">Enter Mode 7</a>
+  <li><a href="#sec-demo">Threefold demo</a>
+  <li><a href="#sec-order">Order, order!</a>
+  <li><a href="#sec-final">Final thoughts</a>
 </ul>
 <!-- [[/toc]] -->
 
@@ -143,20 +145,23 @@ be to hard.
 </p>
 
 <div class="lblock">
-<table>
-<tr valign="top">
-<td>
-  <div class="cpt" style="width:256px;">
-  <img src="../img/mode7/m7_map.png" id="img-m7-map"
-    alt="This is your map."><br>
-  <b>Fig 20.1</b>: this is your map (well, kinda)
-  </div>
-<td>
-  <div class="cpt" style="width:240px;">
-  <img src="../img/mode7/m7_persp.png" id="img-m7-persp"
-    alt="This is your map in mode7."><br>
-  <b>Fig 20.2</b>: this is your map in mode7.
-  </div>
+<table class="frame-group">
+<tr>
+  <td>
+    <div class="cpt" style="width:256px;">
+    <img src="../img/mode7/m7_map.png" id="img-m7-map"
+      alt="This is your map."><br>
+    <b>Fig 20.1</b>: this is your map (well, kinda)
+    </div>
+  </td>
+  <td>
+    <div class="cpt" style="width:240px;">
+    <img src="../img/mode7/m7_persp.png" id="img-m7-persp"
+      alt="This is your map in mode7."><br>
+    <b>Fig 20.2</b>: this is your map in mode7.
+    </div>
+  </td>
+</tr>
 </table>
 </div>
 
@@ -211,11 +216,11 @@ projected <i>y</i>-coordinate is the intersection of the projection
 plane and the line passing through the viewer and the original point: 
 </p>
 
-<table id="eq-persp">
+<table id="eq-persp" class="eq-container">
 <tr>
   <td class="eqnrcell">(20.1)
   <td class="eqcell">
-    <i>y</i><sub>p</sub> = <i>y</i>·D/z
+    <i>y</i><sub>p</sub> = <i>y</i> &middot; D/z
 </table>
 
 <p>
@@ -223,7 +228,7 @@ Basically, you divide by <i>z/D</i>. Since it is so important a factor
 it has is own variable: the <dfn>zoom factor</dfn> &lambda;:
 </p>
 
-<table id="eq-lambda">
+<table id="eq-lambda" class="eq-container">
 <tr>
   <td class="eqnrcell">(20.2)
   <td class="eqcell">
@@ -236,26 +241,29 @@ be enlarged, and everything behind it (&lambda;&gt;1) is shrunk.
 </p>
 
 <div class="cblock">
-<table>
-<tr valign="top">
+<table class="frame-group">
+<tr>
 <td>
-  <div class="cpt" style="width:256px;">
-  <img src="../img/mode7/m7_3dview.png" id="img-3dview"
-    alt="3D coordinate system"><br>
-  <b>Fig 20.3</b>: 
-  3D coordinate system showing the viewing pyramid 
-  defined by the origin, and the screen rectangle 
-  (<i>W</i>&times;<i>H</i>) at <i>z</i>= &minus;<i>D</i>
-  </div>
-<td>
-  <div class="cpt" style="width:320px;">
-  <img src="../img/mode7/m7_side1.png" id="img-side1"
-    alt="projection step, side view"><br>
-  <b>Fig 20.4</b>: 
-  Side view; point (<i>y, z</i>) is projected onto the 
-  (<i>z</i> = &minus;<i>D</i> plane. The projected point is 
-  <i>y</i><sub>p</sub> =  <i>y·D/z</i>
-  </div>
+    <div class="cpt" style="width:256px;">
+    <img src="../img/mode7/m7_3dview.png" id="img-3dview"
+      alt="3D coordinate system"><br>
+    <b>Fig 20.3</b>: 
+    3D coordinate system showing the viewing pyramid 
+    defined by the origin, and the screen rectangle 
+    (<i>W</i>&times;<i>H</i>) at <i>z</i>= &minus;<i>D</i>
+    </div>
+  </td>
+  <td>
+    <div class="cpt" style="width:320px;">
+    <img src="../img/mode7/m7_side1.png" id="img-side1"
+      alt="projection step, side view"><br>
+    <b>Fig 20.4</b>: 
+    Side view; point (<i>y, z</i>) is projected onto the 
+    (<i>z</i> = &minus;<i>D</i> plane. The projected point is 
+    <i>y</i><sub>p</sub> =  <i>y&middot;D/z</i>
+    </div>
+  </td>
+</tr>
 </table>
 </div>
 
@@ -320,7 +328,7 @@ Green figures indicate the original map; red is the map after the
 operation. Given a scanline <i>h</i>, here's what we do:
 </p>
 
-<ol type=a>
+<ol type="a">
   <li><b>Pre-translation</b> by <b>a</b>= (<i>a</i><sub>x</sub>, 
     <i>a</i><sub>z</sub>). This places the viewer at the origin, which 
     is where we need it for steps b and c.
@@ -341,30 +349,27 @@ operation. Given a scanline <i>h</i>, here's what we do:
 	position (the beige area). For obvious reasons the horizontal
 	component should be half the screen width. The vertical move 
 	should move the floor-line to the scanline, so the vector is:
-<table id="eq-post-ofs">
+<table id="eq-post-ofs" class="eq-container">
 <tr>
   <td class="eqnrcell">(20.3)
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 cellspacing=0>
-  <col align="right">
-  <col align="center">
-  <col align="left">
-  <tr>
-    <td><i>x</i><sub>s</sub>
-    <td>=
-    <td><i>W</i>/2 = 120<br>
-  <tr>
-    <td><i>y</i><sub>s</sub>
-    <td> =
-    <td>(<i>D+h</i>)
-  </table>
+    <table class="eqtbl basic">
+    <tr>
+      <td><i>x</i><sub>s</sub>
+      <td>=
+      <td><i>W</i>/2 = 120<br>
+    <tr>
+      <td><i>y</i><sub>s</sub>
+      <td> =
+      <td>(<i>D+h</i>)
+    </table>
+  </td>
 </table>
 </ol>
 
 <div class="cblock">
-<table id="img-steps"
-  border=1 cellpadding=4 cellspacing=0>
-<caption align="bottom">
+<table id="img-steps" class="border-std">
+<caption>
   Fig 20.6a-d: The 4 steps of mode 7
 </caption>
 <tr>
@@ -394,28 +399,27 @@ background space, which is actually the inverse of what you're trying
 to do. So what you should use is:
 </p>
 
-<table id="eq-prs">
+<table id="eq-prs" class="eq-container">
 <tr>
   <td class="eqnrcell">(20.4)
   <td class="eqcell">
     <b>P</b> &nbsp;=&nbsp;
-    <b>S</b>(&lambda;) &middot; <b>R</b>(&alpha;) 
+    <b>S</b>(&lambda;)&middot;<b>R</b>(&alpha;) 
     &nbsp;=&nbsp;
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 cellspacing=0>
-  <tbody align="center">
-  <tr>
-    <td class="bdrLL" rowspan=2>&nbsp;
-    <td>&lambda;&middot;cos(&alpha;)
-    <td>&nbsp;
-    <td>&minus;&lambda;&middot;sin(&alpha;)
-    <td class="bdrRR" rowspan=2>&nbsp;
-  <tr>
-    <td>&lambda;&middot;sin(&alpha;)
-    <td>&nbsp;
-    <td>&lambda;&middot;cos(&alpha;)
-  </tbody>
-  </table>
+    <table class="eqtbl matrix">
+    <tr>
+      <td class="bdrLL" rowspan=2>&nbsp;
+      <td>&lambda;&middot;cos(&alpha;)
+      <td>&nbsp;
+      <td>&minus;&lambda;&middot;sin(&alpha;)
+      <td class="bdrRR" rowspan=2>&nbsp;
+    <tr>
+      <td>&lambda;&middot;sin(&alpha;)
+      <td>&nbsp;
+      <td>&lambda;&middot;cos(&alpha;)
+    </table>
+  </td>
 </table>
 
 <p>
@@ -425,11 +429,11 @@ GBA uses the following relation between screen point <b>q</b> and
 background point <b>p</b>:
 </p>
 
-<table id="eq-ofs-base">
+<table id="eq-ofs-base" class="eq-container">
 <tr>
   <td class="eqnrcell">(20.5)
   <td class="eqcell">
-    <b>dx</b> + <b>P</b> &middot; <b>q</b> = <b>p</b> ,
+    <b>dx</b> + <b>P</b>&middot;<b>q</b> = <b>p</b> ,
 </table>
 
 <p>
@@ -440,31 +444,31 @@ background page</a>, only with different names. Anyway, what you need
 is:
 </p>
 
-<table id="eq-aff-ofs">
+<table id="eq-aff-ofs" class="eq-container">
 <tr>
   <td class="eqnrcell">(20.6)
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 cellspacing=0>
-  <col align="right">
-  <col align="center">
-  <col align="left">
+  <table class="eqtbl basic">
   <tr>
-    <td> <b>dx + P &middot; q</b>
-	<td> =
-	<td> <b>p</b>
+    <td> <b>dx</b> + <b>P</b>&middot;<b>q</b>
+    <td> =
+    <td> <b>p</b>
+    <td></td>
   <tr>
-    <td class="bdrB"> <b>P</b> &middot; (<b>q &minus; x</b><sub>s</sub>)
+    <td class="bdrB"> <b>P</b>&middot;(<b>q</b>&minus;<b>x</b><sub>s</sub>)
     <td class="bdrB">=
-	<td class="bdrB"> <b>p &minus; a</b>
+    <td class="bdrB"> <b>p</b> &minus; <b>a</b>
     <td class="bdrB">&minus;
   <tr>
-    <td> <b>dx + P &middot; x</b><sub>s</sub>
-	<td> =
-	<td> <b>a</b>
+    <td> <b>dx + P</b>&middot;<b>x</b><sub>s</sub>
+    <td> =
+    <td> <b>a</b>
+    <td></td>
   <tr>
     <td><b>dx</b>
-	<td> = 
-	<td> <b>a</b> &minus; <b>P &middot; x</b><sub>s</sub>
+    <td> = 
+    <td> <b>a</b> &minus; <b>P</b>&middot;<b>x</b><sub>s</sub>
+    <td></td>
   </table>
 </table>
 
@@ -473,7 +477,7 @@ is:
 So for each scanline you do the calculations for the zoom, put the
 <b>P</b> matrix of eq&nbsp;20.4 into 
 <code>REG_BGxPA-REG_BGxPD</code>, and
-<b>a&minus;P·x</b><sub>s</sub> into <code>REG_BGxX</code> and
+<b>a&minus;P&middot;x</b><sub>s</sub> into <code>REG_BGxX</code> and
 <code>REG_BGxY</code> and presto! Instant Mode 7.
 </p>
 <p>
@@ -486,7 +490,7 @@ the true <i>y</i><sub>s</sub> to <i>y</i><sub>s0</sub>, what
 you <i>should</i> use is 
 </p>
 
-<table id="eq-yofs">
+<table id="eq-yofs" class="eq-container">
 <tr>
   <td class="eqnrcell">(20.7)
   <td class="eqcell">
@@ -527,16 +531,17 @@ but that's not important right now. The demo is called <tt>m7_demo</tt>
 and the controls are:
 </p>
 
-<table>
-<col valign="top">
-<tr><th>D-pad<td>Strafe.
-<tr><th>L, R<td>turn left and right (i.e., rotate map right and left, 
-	respectively)
-<tr><th>A, B<td>Move up and down, though I forget which is which.
-<tr><th>Select<td>Switch between 3 different Mode7 types (A, B, C)
-<tr><th>Start<td>Resets all values (<b>a</b>= (256, 32, 256), 
-	&alpha;= 0)
+<div class="lblock">
+<table class="controls-container">
+  <tr><th>D-pad<td>Strafe.
+  <tr><th>L, R<td>turn left and right (i.e., rotate map right and left, 
+    respectively)
+  <tr><th>A, B<td>Move up and down, though I forget which is which.
+  <tr><th>Select<td>Switch between 3 different Mode7 types (A, B, C)
+  <tr><th>Start<td>Resets all values (<b>a</b>= (256, 32, 256), 
+    &alpha;= 0)
 </table>
+</div>
 
 <p>
 &ldquo;Switch between 3 different Mode7 types&rdquo;?  That's what I 
@@ -545,23 +550,27 @@ a label in the top-left corner indicating the current type.
 </p>
 
 <div class="cblock">
-<table id="img-types">
+<table id="img-types" class="frame-group">
 <tr>
-<td>
-  <div class="cpt" style="width:240px;">
-  <img src="../img/demo/m7_demo_a.png" alt="blocky"><br>
-  <b>Fig 20.7a</b>: Type A: blocked.
-  </div>
-<td>
-  <div class="cpt" style="width:240px;">
-  <img src="../img/demo/m7_demo_b.png" alt="sawtooth"><br>
-  <b>Fig 20.7b</b>: Type B: sawtooth.
-  </div>
-<tr><td colspan=2 align="center">
-  <div class="cpt" style="width:240px;">
-  <img src="../img/demo/m7_demo_c.png" alt="smooth"><br>
-  <b>Fig 20.7c</b>: Type C: smooth.
-  </div>
+  <td>
+    <div class="cpt" style="width:240px;">
+    <img src="../img/demo/m7_demo_a.png" alt="blocky"><br>
+    <b>Fig 20.7a</b>: Type A: blocked.
+    </div>
+  </td>
+  <td>
+    <div class="cpt" style="width:240px;">
+    <img src="../img/demo/m7_demo_b.png" alt="sawtooth"><br>
+    <b>Fig 20.7b</b>: Type B: sawtooth.
+    </div>
+    </td>
+  <td>
+    <div class="cpt" style="width:240px;">
+    <img src="../img/demo/m7_demo_c.png" alt="smooth"><br>
+    <b>Fig 20.7c</b>: Type C: smooth.
+    </div>
+  </td>
+</tr>
 </table>
 </div>
 
@@ -727,9 +736,8 @@ are the differences:
 </ol>
 
 <div class="cpt_fr">
-<table id="tbl-divs"
-  border=1 cellpadding=2 cellspacing=0>
-<caption align= bottom>
+<table id="tbl-divs" class="border-std">
+<caption>
   <b>Table 20.1</b>: division tables and zoom 
 	factors. <i>a</i><sub>y</sub>=32
 </caption>
@@ -785,7 +793,7 @@ The problem, or at least part of it, is the basic algorithm used in
 types A and B. If you look back to the theory, you'll see that the 
 affine matrix is calculated first, then the offsets. In other words, 
 first combine the scale and rotation, then calculate the 
-offset-correction, <b>P</b>·<b>x</b><sub>s</sub>. This is how the 
+offset-correction, <b>P</b>&middot;<b>x</b><sub>s</sub>. This is how the 
 affine parameters in the GBA work anyway.
 However, this is actually only the first step. If you follow that 
 procedure, you'd still get the jagged result. The <i>real</i> reason 
@@ -803,7 +811,7 @@ class="num">4</span>);
 </pre>
 
 <p>
-Getting <code>lxr</code>&nbsp;=&nbsp;<i>p</i><sub>a/c</sub>·<i>x</i><sub>s</sub> 
+Getting <code>lxr</code>&nbsp;=&nbsp;<i>p</i><sub>a/c</sub>&middot;<i>x</i><sub>s</sub> 
 requires two parts: multiplication with <b>P</b> elements and the
 shift down to .8 fixeds. You might expect doing the shift last would 
 be better because it has a higher precision. The funny thing is that 
@@ -894,7 +902,7 @@ Get all Tonc files <a href="http://www.coranac.com/projects/#tonc" target="_blan
 </table>
 <!-- [[/footer]] -->
 
+</div> <!-- main-container -->
 </body>
 </html>
-
 

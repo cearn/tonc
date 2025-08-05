@@ -1,7 +1,7 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+  <meta charset="utf-8">
   <meta name="generator" content="Context">
   <meta name="Author" content="Cearn">
   <meta name="Created" content="20031223">
@@ -9,9 +9,11 @@
 
   <title>Tonc: Interrupts</title>
   <link rel="stylesheet" type="text/css" href="tonc.css">
-  <script type="text/javascript" src="tonc.js"></script>
+  <script src="tonc.js"></script>
 </head>
 <body onload="main();">
+<div class="main-container">
+
 
 <!--567890123456789012345678901234567890123456789012345678901234567-->
 
@@ -100,8 +102,7 @@ sender. With that in mind, let's check out the bit layout for
 </p>
 
 <div class="reg">
-<table class="reg" id="tbl-reg-ie"
-  border=1 frame=void cellpadding=4 cellspacing=0>
+<table id="tbl-reg-ie" class="reg border-std">
 <caption class="reg">
   REG_IE @ <code>0400:0200</code> and REG_IF @ <code>0400:0202</code>
 </caption>
@@ -120,12 +121,8 @@ sender. With that in mind, let's check out the bit layout for
 </table>
 <br>
 
-<table>
-  <col class="bits" width=40>
-  <col class="bf" width="8%">
-  <col class="def" width="12%">
-<tr align="left"><th>bits<th>name<th>define<th>description
-<tbody valign="top">
+<table class="reg-desc">
+<tr><th>bits<th>name<th>define<th>description
 <tr class="bg0">
   <td> 0 <td class="rclr0">Vbl
   <td>IRQ_VBLANK
@@ -174,7 +171,6 @@ sender. With that in mind, let's check out the bit layout for
   <td>IRQ_GAMEPAK
   <td><b>Cartridge</b> interrupt. Raised when the cart is removed from 
     the GBA.
-</tbody>
 </table>
 </div>
 
@@ -853,22 +849,23 @@ Today's demo shows a little bit of everything described above:
 <p>
 The controls are as follows:
 </p>
-<table>
-<tbody valign="top">
-<tr>
-  <th>A</th>
-  <td>Toggles between asm switchboard and C direct isr.</td>
-</tr>
-<tr>
-  <th>B</th>
-  <td>Toggles HBlank and VCount priorities.</td>
-</tr>
-<tr>
-  <th>L,R</th>
-  <td>Toggles VCount and HBlank irqs on and off.</td>
-</tr>
-</tbody>
+
+<div class="lblock">
+<table class="controls-container">
+  <tr>
+    <th>A</th>
+    <td>Toggles between asm switchboard and C direct isr.</td>
+  </tr>
+  <tr>
+    <th>B</th>
+    <td>Toggles HBlank and VCount priorities.</td>
+  </tr>
+  <tr>
+    <th>L, R</th>
+    <td>Toggles VCount and HBlank irqs on and off.</td>
+  </tr>
 </table>
+</div>
 
 <pre class="proglist" id="cd-irq-demo">
 <span class="keyw">#include</span> &lt;stdio.h&gt;
@@ -1047,33 +1044,33 @@ chooses between the nested and non-nested VCount routine.
 </p>
 
 <div class="cblock">
-<table id="img-irq-demo">
-<tbody align="center"><tr>
-<td>
-<div class="cpt" style="width:192px;">
-  <img src="../img/demo/irq_demo_hbl.png"
-    alt="Gradient hbl&gt;vct"><br>
-  <b>Fig 16.1a</b>: Gradient; nested 
-  <code>vct_wait_nested</code>.
-</div>
-</td>
-<td>
-<div class="cpt" style="width:192px;">
-  <img src="../img/demo/irq_demo_vct.png"
-    alt="Gradient vct&gt;hbl"><br>
-  <b>Fig 16.1b</b>: Gradient; non-nested 
-  <code>vct_wait</code>.
-</div>
-</td>
-<td>
-<div class="cpt" style="width:192px;">
-  <img src="../img/demo/irq_demo_c.png"
-    alt="Gradient hbl in C"><br>
-  <b>Fig 16.1c</b>: Gradient; HBlank in 
-  master ISR in C.
-</div>
-</td>
-</tr></tbody>
+<table id="img-irq-demo" class="frame-group">
+<tr>
+  <td>
+  <div class="cpt" style="width:192px;">
+    <img src="../img/demo/irq_demo_hbl.png"
+      alt="Gradient hbl&gt;vct"><br>
+    <b>Fig 16.1a</b>: Gradient; nested 
+    <code>vct_wait_nested</code>.
+  </div>
+  </td>
+  <td>
+  <div class="cpt" style="width:192px;">
+    <img src="../img/demo/irq_demo_vct.png"
+      alt="Gradient vct&gt;hbl"><br>
+    <b>Fig 16.1b</b>: Gradient; non-nested 
+    <code>vct_wait</code>.
+  </div>
+  </td>
+  <td>
+  <div class="cpt" style="width:192px;">
+    <img src="../img/demo/irq_demo_c.png"
+      alt="Gradient hbl in C"><br>
+    <b>Fig 16.1c</b>: Gradient; HBlank in 
+    master ISR in C.
+  </div>
+  </td>
+</tr>
 </table>
 </div>
 
@@ -1262,7 +1259,7 @@ Get all Tonc files <a href="http://www.coranac.com/projects/#tonc" target="_blan
 </table>
 <!-- [[/footer]] -->
 
+</div> <!-- main-container -->
 </body>
 </html>
-
 

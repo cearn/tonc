@@ -1,7 +1,7 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+  <meta charset="utf-8">
   <meta name="generator" content="Context">
   <meta name="Author" content="Cearn">
   <meta name="Created" content="20031003">
@@ -9,9 +9,10 @@
 
   <title>Tonc: Bitmap Modes</title>
   <link rel="stylesheet" type="text/css" href="tonc.css">
-  <script type="text/javascript" src="tonc.js"></script>
+  <script src="tonc.js"></script>
 </head>
 <body onload="main();">
+<div class="main-container">
 
 <!--567890123456789012345678901234567890123456789012345678901234567-->
 
@@ -32,11 +33,11 @@
 
 <!-- [[toc]] -->
 <ul>
-  <li><a href="#sec-intro">Introduction</a>.
+  <li><a href="#sec-intro">Introduction</a>
   <li><a href="#sec-modes">GBA bitmap modes, for real</a>
-  <li><a href="#sec-page">Page flipping</a>.
-  <li><a href="#sec-data">On data and how to use it</a>.
-  <li><a href="ssec-conc">Conclusions</a>.
+  <li><a href="#sec-page">Page flipping</a>
+  <li><a href="#sec-data">On data and how to use it</a>
+  <li><a href="#sec-conc">Conclusions</a>
 </ul>
 <!-- [[/toc]] -->
 
@@ -123,7 +124,7 @@ the last pixel at <i>w&times;h</i>&minus;1.
 </p>
 
 <div class="cblock">
-<table id="img-link-big">
+<table class="frame-group" id="img-link-big">
 <tr><td>
   <div class="cpt" style="width:310px">
   <img src="../img/bitmaps/link_lttp.png"
@@ -144,7 +145,6 @@ the last pixel at <i>w&times;h</i>&minus;1.
 </tr>
 </table>
 </div>
-
 
 Note, however, that when you use another bitdepth, the addresses change 
 too. For example, at 16bpp (2 bytes per pixel), you'd
@@ -190,9 +190,8 @@ The bitmap modes have the following characteristics:
 </p>
 
 <div class="lblock">
-<table id="tbl-bm-types"
-  border=1 cellpadding=2 cellspacing=0>
-<caption align="bottom">
+<table id="tbl-bm-types" class="border-std">
+<caption>
   <b>Table 5.1</b>: Bitmap mode 
   characteristics
 </caption>
@@ -1244,14 +1243,12 @@ Look in their respective readme's for more details.
 </pre>
 </div>
 
-<div class="cpt_fr" style="width:222px;">
-<table id="tbl-endian"
-  border=1 cellpadding=2 cellspacing=0>
-<caption align="bottom">
+<div class="cpt_fr">
+<table id="tbl-endian" class="border-std align-c">
+<caption>
   <b>Table 5.2</b>: Big endian vs little 
   endian interpretation of byte-sequence 01h, 02h, 03h, 04h
 </caption>
-<tbody align="center">
 <tr>
   <th>big u32     <td colspan=4> 0x01020304
 <tr>
@@ -2325,26 +2322,28 @@ class="num">5</span>)
 }
 </pre>
 
-<div class="lblock">
+<div class="cblock">
 <table id="img-bm-modes">
 <tr>
-<td>
-  <div class="cpt" style="width:240px">
-  <img src="../img/demo/bm_modes_3.png" alt="mode3 screen">
-  <b>Fig 5.7a</b>: <tt>bm_modes</tt> in mode 3.
-  </div>
-<td>
-  <div class="cpt" style="width:240px">
-  <img src="../img/demo/bm_modes_4.png" alt="mode4 screen">
-  <b>Fig 5.7b</b>: <tt>bm_modes</tt> in mode 4.
-  </div>
-<tr>
-<td>
-  <div class="cpt" style="width:240px">
-<img src="../img/demo/bm_modes_5.png" alt="mode5 screen">
-  <b>Fig 5.7c</b>: <tt>bm_modes</tt> in mode 5.
-  </div>
-<td>&nbsp;
+  <td>
+    <div class="cpt" style="width:240px">
+    <img src="../img/demo/bm_modes_3.png" alt="mode3 screen">
+    <b>Fig 5.7a</b>: <tt>bm_modes</tt> in mode 3.
+    </div>
+  </td>
+  <td>
+    <div class="cpt" style="width:240px">
+    <img src="../img/demo/bm_modes_4.png" alt="mode4 screen">
+    <b>Fig 5.7b</b>: <tt>bm_modes</tt> in mode 4.
+    </div>
+  </td>
+  <td>
+    <div class="cpt" style="width:240px">
+    <img src="../img/demo/bm_modes_5.png" alt="mode5 screen">
+    <b>Fig 5.7c</b>: <tt>bm_modes</tt> in mode 5.
+    </div>
+  </td>
+</tr>
 </table>
 </div>
 
@@ -2386,7 +2385,6 @@ longer with that; or at least until we've covered basic input, which
 allows for much more interesting things than just passive images.
 </p>
 
-
 <br>
 
 <div class="endtag">
@@ -2413,7 +2411,7 @@ Get all Tonc files <a href="http://www.coranac.com/projects/#tonc" target="_blan
 </table>
 <!-- [[/footer]] -->
 
+</div> <!-- main-container -->
 </body>
 </html>
-
 

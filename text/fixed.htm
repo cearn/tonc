@@ -1,7 +1,7 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+  <meta charset="utf-8">
   <meta name="generator" content="Context">
   <meta name="Author" content="Cearn">
   <meta name="Created" content="20031101">
@@ -9,9 +9,11 @@
 
   <title>Tonc: Fixed-Point Numbers and LUTs</title>
   <link rel="stylesheet" type="text/css" href="tonc.css">
-  <script type="text/javascript" src="tonc.js"></script>
+  <script src="tonc.js"></script>
 </head>
 <body onload="main();">
+<div class="main-container">
+
 
 <!--567890123456789012345678901234567890123456789012345678901234567-->
 
@@ -32,10 +34,10 @@
 
 <!-- [[/toc]] -->
 <ul>
-  <li><a href="#sec-intro">What are fixed-point numbers</a>.
-  <li><a href="#sec-fmath">Fixed-point math</a>.
-  <li><a href="#sec-rmdiv">Faking division</a>.
-  <li><a href="#sec-lut">Look-up Tables</a>.
+  <li><a href="#sec-intro">What are fixed-point numbers</a>
+  <li><a href="#sec-fmath">Fixed-point math</a>
+  <li><a href="#sec-rmdiv">Faking division</a>
+  <li><a href="#sec-lut">Look-up Tables</a>
 </ul>
 <!-- [[/toc]] -->
 
@@ -321,9 +323,8 @@ shifts because they give a more consistent result.
 </p>
 
 <div class="cblock">
-<table id="tbl-neg-div"
-  border=1 cellpadding=2 cellspacing=0>
-<caption align="bottom">
+<table id="tbl-neg-div" class="border-std">
+<caption>
   <b>Table B.1</b>:
   Division and right-shifts around zero.
 </caption>
@@ -417,12 +418,7 @@ scaling factor, respectively.
 <tr>
   <td class="eqnrcell">(B.1)
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 cellspacing=0>
-  <col align="right">
-  <col align="center">
-  <col align="left">
-  <col align="center">
-  <col align="left">
+  <table class="eqtbl basic">
   <tr>
     <td> <i>fa</i>
     <td>=
@@ -438,18 +434,13 @@ scaling factor, respectively.
 <tr>
   <td class="eqnrcell">(B.2)
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 cellspacing=0>
-  <col align="right">
-  <col align="center">
-  <col align="left">
-  <col align="center">
-  <col align="left">
+  <table class="eqtbl c1-l c2-c c3-c c4-c c5-l">
   <tr>
     <td> <i>fc</i>
     <td>=
     <td> <i>fa + fb</i>
-	<td>=
-	<td>(<i>a + b</i>) &middot; <i>M</i>
+    <td>=
+    <td>(<i>a + b</i>) &middot; <i>M</i>
   <tr>
     <td> <i>fd</i>
     <td>=
@@ -460,14 +451,14 @@ scaling factor, respectively.
     <td> <i>fe</i>
     <td>=
     <td> <i>fa &middot; fb</i>
-	<td>=
-	<td>(<i>a + b</i>) &middot; <i>M</i> &sup2;
+    <td>=
+    <td>(<i>a + b</i>) &middot; <i>M</i>&thinsp;&sup2;
   <tr>
     <td> <i>ff</i>
     <td>=
     <td> <i>fa</i> / <i>fb</i>
-	<td>=
-	<td>(<i>a</i> / <i>b</i>)
+    <td>=
+    <td>(<i>a</i> / <i>b</i>)
   </table>
 </table>
 
@@ -732,9 +723,8 @@ that's rather monotonous). As you can see 1/7 in hex is
 </p>
 
 <div class="lblock">
-<table id="tbl-hexfloat"
-  border=1 cellpadding=2 cellspacing=0>
-<caption align="bottom">
+<table id="tbl-hexfloat" class="border-std">
+<caption>
   <b>Table B.2</b>: 
   Floating-point representation of 1/7 in base <i>B</i>=16
 </caption>
@@ -759,9 +749,8 @@ the integer part, ignore the (hexi)decimals
 </p>
 
 <div class="cblock">
-<table id="tbl-rmdiv-bad"
-  border=1 cellpadding=2 cellspacing=0>
-<caption align="bottom">
+<table id="tbl-rmdiv-bad" class="border-std">
+<caption>
   <b>Table B.3</b>: 
   <i>x</i>/3, using <i>m</i>= 256\3 = 0x55. Bad at 3, 6, &hellip;
 </caption>
@@ -797,9 +786,8 @@ safe. At least, for a while.
 </table>
 
 <div class="cblock">
-<table id="tbl-rmdiv-good"
-  border=1 cellpadding=2 cellspacing=0>
-<caption align="bottom">
+<table id="tbl-rmdiv-good" class="border-std">
+<caption>
   <b>Table B.4</b>: 
   <i>x</i>/3, using <i>m</i>= (256+2)\3 = 0x56. Still good at 3, 6, &hellip;
 </caption>
@@ -952,7 +940,7 @@ The reciprocal multiplier <i>m</i> is <i>not</i> merely
 In other words:
 </p>
 
-<table>
+<table class="eq-container">
 <tr>
   <td class="fill">
   <td class="eqcell"><i>m</i> = (<i>n</i>+<i>A</i>&minus;1) \ <i>A</i>
@@ -970,7 +958,7 @@ actual numbers for failure may be a bit looser, but depend on the
 circumstances and as such, relations for those would be more complex.
 </p>
 
-<table>
+<table class="eq-container">
 <tr>
   <td rowspan=2 class="fill">
   <td class="eqcell"><i>x</i> &lt; <i>n</i> / 
@@ -994,7 +982,7 @@ There is an alternative method for reciprocal multiplication: instead of
 rounding <i>n</i>/<i>A</i> up, you can also add 1 to <i>x</i> for
 </p>
 
-<table>
+<table class="eq-container">
 <tr>
   <td class="fill">
   <td class="eqcell"><i>y</i> = <i>x</i> \ <i>A</i> 
@@ -1442,7 +1430,7 @@ Get all Tonc files <a href="http://www.coranac.com/projects/#tonc" target="_blan
 </table>
 <!-- [[/footer]] -->
 
+</div> <!-- main-container -->
 </body>
 </html>
-
 

@@ -1,7 +1,7 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+  <meta charset="utf-8">
   <meta name="generator" content="Context">
   <meta name="Author" content="Cearn">
   <meta name="Created" content="20031229">
@@ -9,9 +9,11 @@
 
   <title>Tonc: Software Interrupts</title>
   <link rel="stylesheet" type="text/css" href="tonc.css">
-  <script type="text/javascript" src="tonc.js"></script>
+  <script src="tonc.js"></script>
 </head>
 <body onload="main();">
+<div class="main-container">
+
 
 <!--567890123456789012345678901234567890123456789012345678901234567-->
 
@@ -109,7 +111,7 @@ taste of how they work.
 <h3 id="ssec-funs-list">17.2.1.
   Full list</h3>
 
-<center>
+<div class="cblock">
 <table width="70%">
 <col span=5 align="left">
 <tr><th>id		<th width="30%">Name  <th width="10%">	<th>id		<th>Name
@@ -142,65 +144,68 @@ taste of how they work.
 <tr><td>0x26	<td>HardReset
 <tr><td>0x27	<td>CustomHalt
 </table>
-</center>
+</div>
 
 <h3 id="ssec-funs-smpl">17.2.2.
   Div, Sqrt, Arctan2 and  ObjAffineSet descriptions</h3>
 
 <dl>
-<dt>0x06: Div</dt>
-<dd>
-Input:
-  <p>r0: numerator</p>
-  <p>r1: denominator</p>
- Output:
-  <p>r0: numerator / denominator</p>
-  <p>r1: numerator % denominator</p>
-  <p>r3: abs(numerator / denominator)</p>
- Note: do NOT divide by zero!
-<br>
-</dd>
+  <dt>0x06: Div</dt>
+  <dd>
+    Input:
+      <p>r0: numerator</p>
+      <p>r1: denominator</p>
+    Output:
+      <p>r0: numerator / denominator</p>
+      <p>r1: numerator % denominator</p>
+      <p>r3: abs(numerator / denominator)</p>
+    <p class="ni">Note: do NOT divide by zero!</p>
+    <br>
+  </dd>
 
-<dt>0x08: Sqrt</dt>
-<dd>
-Input:
-  <p>r0: num, a unsigned 32-bit integer</p>
-Output:
-  <p>r1: sqrt(num)</p>
-<br>
-</dd>
+  <dt>0x08: Sqrt</dt>
+  <dd>
+    Input:
+      <p>r0: num, a unsigned 32-bit integer</p>
+    Output:
+      <p>r1: sqrt(num)</p>
+    <br>
+  </dd>
 
-<dt>0x0a: ArcTan2</dt>
-<dd>
-Input:
-  <p>r0: <i>x</i>, a <b>signed 16bit</b> number (<code>s16</code>)</p>
-  <p>r1: <i>y</i>, a <b>signed 16bit</b> number (<code>s16</code>)</p>
-Output:
-  <p>r0: 
-    <i>x</i>&ge;0 : <i>&theta;</i>= arctan(<i>y/x</i>) &or;
-    <i>x</i>&lt;0 : <i>&theta;</i>= 
-      sign(<i>y</i>)*(&pi; &minus; arctan(|<i>y/x</i>|).<br>
-  </p>
-    This does the full inverse of <i>y</i> = <i>x</i>*tan(&theta;).
-    The problem with the tangent is that the domain is a semi-circle,
-    as is the range of arc tangent. To get the full circle range, both
-    <i>x</i> and <i>y</i> values are required for not only their 
-    quotient, but their signs as well. The mathematical range of
-    <i>&theta;</i> is [&minus;&pi;,&nbsp;&pi;&rang;, which corresponds
-    to [&minus;0x8000,&nbsp;0x8000&rang; (or
-    [0,&nbsp;2&pi;&rang; and [0,&nbsp;0xFFFF] if you like)
-<br>
-</dd>
+  <dt>0x0a: ArcTan2</dt>
+  <dd>
+    Input:
+      <p>r0: <i>x</i>, a <b>signed 16bit</b> number (<code>s16</code>)</p>
+      <p>r1: <i>y</i>, a <b>signed 16bit</b> number (<code>s16</code>)</p>
+    Output:
+      <p>r0: 
+        <i>x</i>&ge;0 : <i>&theta;</i>= arctan(<i>y/x</i>) &or;
+        <i>x</i>&lt;0 : <i>&theta;</i>= 
+          sign(<i>y</i>)*(&pi; &minus; arctan(|<i>y/x</i>|).<br>
+      </p>
+      <p class="ni">
+        This does the full inverse of <i>y</i> = <i>x</i>*tan(&theta;).
+        The problem with the tangent is that the domain is a semi-circle,
+        as is the range of arc tangent. To get the full circle range, both
+        <i>x</i> and <i>y</i> values are required for not only their 
+        quotient, but their signs as well. The mathematical range of
+        <i>&theta;</i> is [&minus;&pi;,&nbsp;&pi;&rang;, which corresponds
+        to [&minus;0x8000,&nbsp;0x8000&rang; (or
+        [0,&nbsp;2&pi;&rang; and [0,&nbsp;0xFFFF] if you like)
+      </p>
+    <br>
+  </dd>
 
-<dt>0x0f: ObjAffineSet</dt>
-<dd>
-Input:
-  <p>r0: source address</p>
-  <p>r1: destination address</p>
-  <p>r2: number of calculations</p>
-  <p>r3: Offset of <b>P</b> matrix elements (2 for bgs,
-    8 for objects)</p>
-</dd>
+  <dt>0x0f: ObjAffineSet</dt>
+  <dd>
+    Input:
+      <p>r0: source address</p>
+      <p>r1: destination address</p>
+      <p>r2: number of calculations</p>
+      <p>r3: Offset of <b>P</b> matrix elements (2 for bgs,
+        8 for objects)</p>
+      <br>
+  </dd>
 </dl>
 
 <p>
@@ -213,25 +218,24 @@ angle &alpha;, which again uses the range [0,&nbsp;0xFFFF] for
 2&pi;. The resulting <b>P</b>:
 </p>
 
-<table id="eq-pswi">
+<table id="eq-pswi" class="eq-container">
 <tr>
   <td class="eqnrcell">(17.1)
-  <td class="eqcell"> <b>P</b> =
+  <td class="eqcell"> <b>P</b>&nbsp;=&nbsp;
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 cellspacing=0>
-  <tbody align="center">
-  <tr>
-    <td class="bdrLL" rowspan=2>&nbsp;
-    <td><i>s</i><sub>x</sub>&middot;cos(&alpha;)
-    <td>&nbsp;
-    <td>&minus;<i>s</i><sub>x</sub>&middot;sin(&alpha;)
-    <td class="bdrRR" rowspan=2>&nbsp;
-  <tr>
-    <td><i>s</i><sub>y</sub>&middot;sin(&alpha;)
-    <td>&nbsp;
-    <td><i>s</i><sub>y</sub>&middot;cos(&alpha;)
-  </tbody>
-  </table>
+    <table class="eqtbl matrix">
+    <tr>
+      <td class="bdrLL" rowspan=2>&nbsp;
+      <td><i>s</i><sub>x</sub>&middot;cos(&alpha;)
+      <td>&nbsp;
+      <td>&minus;<i>s</i><sub>x</sub>&middot;sin(&alpha;)
+      <td class="bdrRR" rowspan=2>&nbsp;
+    <tr>
+      <td><i>s</i><sub>y</sub>&middot;sin(&alpha;)
+      <td>&nbsp;
+      <td><i>s</i><sub>y</sub>&middot;cos(&alpha;)
+    </table>
+  </td>
 </table>
 
 <p>
@@ -588,7 +592,7 @@ ASM_CMT("<span class="str">Hi, I'm here!</span>");
 <div class="cpt_fr" style="width:240px;">
 <img src="../img/demo/swi_demo.png" id="img-swi-demo" 
   alt="Fig 1: math graphs"><br>
-<b>Fig 1</b>: div, sqrt, arctan2, sin and cos graphs, courtesy of BIOS.
+<b>Fig 17.1</b>: div, sqrt, arctan2, sin and cos graphs, courtesy of BIOS.
 </div>
 
 <p>
@@ -598,13 +602,15 @@ cosine. I've scaled them in such a way so that they fit nicely
 on the 240x160 screen. The definitions are
 </p>
 
-<table>
-<tr><td>division	<td><i>y</i>= 2560/<i>x</i>
-<tr><td>square root	<td><i>y</i>= 160*sqrt(<i>x</i>/240)
-<tr><td>arctan  	<td><i>y</i>= 80 + 64*(2/&pi;)*(arctan(<i>x</i>-120)/16))
-<tr><td>sine		<td><i>y</i>=  1*sy*sin(2&pi;·<i>x</i>/240)	<td>; sy= 80
-<tr><td>cosine		<td><i>y</i>= 80*sx*cos(2&pi;·<i>x</i>/240)	<td>; sx= 1
+<div class="lblock">
+<table class="controls-container">
+  <tr><td>division	<td><i>y</i>= 2560/<i>x</i>
+  <tr><td>square root	<td><i>y</i>= 160*sqrt(<i>x</i>/240)
+  <tr><td>arctan  	<td><i>y</i>= 80 + 64*(2/&pi;)*(arctan(<i>x</i>-120)/16))
+  <tr><td>sine		<td><i>y</i>=  1*sy*sin(2&pi;&middot;<i>x</i>/240)	<td>; sy= 80
+  <tr><td>cosine		<td><i>y</i>= 80*sx*cos(2&pi;&middot;<i>x</i>/240)	<td>; sx= 1
 </table>
+</div>
 <p>
 and these functions have been plotted in fig&nbsp;1. If you're wondering
 how I got the sine and cosine values, as there are no calls for those, 
@@ -770,7 +776,7 @@ of which slurp battery power.
 <div class="cpt_fr" style="width:240px;">
 <img src="../img/demo/swi_vsync.png" id="img-swi-vsync" 
   alt="Fig 2: swi_vsync"><br>
-<b>Fig 2</b>: <tt>swi_vsync</tt> demo.
+<b>Fig 17.2</b>: <tt>swi_vsync</tt> demo.
 </div>
 
 <p>
@@ -899,7 +905,7 @@ Get all Tonc files <a href="http://www.coranac.com/projects/#tonc" target="_blan
 </table>
 <!-- [[/footer]] -->
 
+</div> <!-- main-container -->
 </body>
 </html>
-
 

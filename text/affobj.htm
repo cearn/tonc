@@ -1,7 +1,7 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+  <meta charset="utf-8">
   <meta name="generator" content="Context">
   <meta name="Author" content="Cearn">
   <meta name="Created" content="20040301">
@@ -9,9 +9,11 @@
 
   <title>Tonc: Affine Sprites</title>
   <link rel="stylesheet" type="text/css" href="tonc.css">
-  <script type="text/javascript" src="tonc.js"></script>
+  <script src="tonc.js"></script>
 </head>
 <body onload="main();">
+<div class="main-container">
+
 
 <!--567890123456789012345678901234567890123456789012345678901234567-->
 
@@ -32,12 +34,11 @@
 
 <!-- [[toc]] -->
 <ul>
-  <li><a href="#sec-intro">Affine sprite introduction</a>.</li>
-  <li><a href="#sec-init">Affine sprite initialization</a>.</li>
-  <li><a href="#sec-artifact">Graphical artifacts</a>.</li>
-  <li><a href="#sec-demo">A very (af)fine demo</a>.</li>
-  <li><a href="#sec-combo">Off-center reference points and object 
-    combo's</a>.</li>
+  <li><a href="#sec-intro">Affine sprite introduction</a></li>
+  <li><a href="#sec-init">Affine sprite initialization</a></li>
+  <li><a href="#sec-artifact">Graphical artifacts</a></li>
+  <li><a href="#sec-demo">A very (af)fine demo</a></li>
+  <li><a href="#sec-combo">Off-center reference points and object combo's</a></li>
 </ul>
 <!-- [[/toc]] -->
 
@@ -120,41 +121,39 @@ followed by a counter-clockwise rotation by &alpha;, the correct
 matrix is this:
 </p>
 
-<table>
+<table class="eq-container">
 <tr>
   <td class="fill">&nbsp;
-  <td class="eqcell"> <b>P</b> =
+  <td class="eqcell"> <b>P</b>&nbsp;=&nbsp;
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 cellspacing=0>
-  <tbody align="center">
-  <tr>
-    <td class="bdrLL" rowspan=2>&nbsp;
-    <td><i>p</i><sub>a</sub>
-    <td>&nbsp;
-    <td><i>p</i><sub>b</sub>
-    <td class="bdrRR" rowspan=2>&nbsp;
-  <tr>
-    <td><i>p</i><sub>c</sub>
-    <td>&nbsp;
-    <td><i>p</i><sub>d</sub>
-  </tbody>
-  </table>
-  <td class="eqcell"> =
+    <table class="eqtbl matrix">
+    <tr>
+      <td class="bdrLL" rowspan=2>&nbsp;
+      <td><i>p</i><sub>a</sub>
+      <td>&nbsp;
+      <td><i>p</i><sub>b</sub>
+      <td class="bdrRR" rowspan=2>&nbsp;
+    <tr>
+      <td><i>p</i><sub>c</sub>
+      <td>&nbsp;
+      <td><i>p</i><sub>d</sub>
+    </table>
+  </td>
+  <td class="eqcell">&nbsp;=&nbsp;
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 cellspacing=0>
-  <tbody align="center">
-  <tr>
-    <td class="bdrLL" rowspan=2>&nbsp;
-    <td>cos(&alpha;) / <i>s</i><sub>x</sub>
-    <td>&nbsp;
-    <td>&minus;sin(&alpha;) / <i>s</i><sub>x</sub>
-    <td class="bdrRR" rowspan=2>&nbsp;
-  <tr>
-    <td>sin(&alpha;) / <i>s</i><sub>y</sub>
-    <td>&nbsp;
-    <td>cos(&alpha;) / <i>s</i><sub>y</sub>
-  </tbody>
-  </table>
+    <table class="eqtbl matrix">
+    <tr>
+      <td class="bdrLL" rowspan=2>&nbsp;
+      <td>cos(&alpha;)/<i>s</i><sub>x</sub>
+      <td>&nbsp;
+      <td>&minus;sin(&alpha;)/<i>s</i><sub>x</sub>
+      <td class="bdrRR" rowspan=2>&nbsp;
+    <tr>
+      <td>sin(&alpha;)/<i>s</i><sub>y</sub>
+      <td>&nbsp;
+      <td>cos(&alpha;)/<i>s</i><sub>y</sub>
+    </table>
+  </td>
 </table>
 
 <p>
@@ -192,12 +191,12 @@ paint the screen pixels in that area (<b>q</b>) uses texture-pixel
 <b>p</b>, which is calculated via:
 </p>
 
-<table id="eq-aff-ofs">
+<table id="eq-aff-ofs" class="eq-container">
 <tr>
   <td class="eqnrcell">(11.1)
   <td class="eqcell">
-    <b>p &minus; p</b><sub>0</sub> =
-	<b>P</b> · (<b>q &minus; q</b><sub>0</sub>),
+    <b>p&minus;p</b><sub>0</sub> =
+	<b>P</b> &middot; (<b>q&minus;q</b><sub>0</sub>),
 </table>
 <p>
 where <b>p</b><sub>0</sub> and <b>q</b><sub>0</sub> are the centers
@@ -311,25 +310,25 @@ out of the designated 16x16 box of the sprite (the dashed lines).
 </p>
 
 <div class="cblock">
-<table>
-<tbody valign="top">
+<table class="frame-group">
 <tr>
   <td>
-  <div class="cpt_fr" style="width:288px;">
-  <img src="../img/affine/numline.png" id="img-numline" width="288"
-    alt="Numbers vs pixels"><br>
-  <b>Fig 11.2</b>: pixels are between, 
-    not on, coordinates.
-  </div></td>
+    <div class="cpt_fr" style="width:288px;">
+    <img src="../img/affine/numline.png" id="img-numline" width="288"
+        alt="Numbers vs pixels"><br>
+    <b>Fig 11.2</b>: pixels are between, 
+        not on, coordinates.
+    </div>
+  </td>
   <td>
-  <div class="cpt_fr" style="width:320px;">
-  <img src="../img/affine/numalgor.png" id="img-aff-algor" width="320"
-    alt="Rotations"><br>
-  <b>Fig 11.3</b>: Rotations in 90&deg; 
-    increments.
-  </div></td>
+    <div class="cpt_fr" style="width:320px;">
+    <img src="../img/affine/numalgor.png" id="img-aff-algor" width="320"
+        alt="Rotations"><br>
+    <b>Fig 11.3</b>: Rotations in 90&deg; 
+        increments.
+    </div>
+  </td>
 </tr>
-</tbody>
 </table>
 </div>
 
@@ -416,8 +415,7 @@ the different matrices. The controls are as follows:
 </p>
 
 <div class="lblock">
-<table cellspacing=0>
-<col valign="top">
+<table class="controls-container">
 <tr><th>L,R<td>Rotates the sprite CCW and CW, respectively.
 <tr><th>D-pad<td>Shears the sprite.
 <tr><th>D-pad+Sel<td>Moves sprite around.
@@ -445,22 +443,25 @@ double-size flag here.
 </p>
 
 <div class="cblock">
-<table>
+<table class="frame-group">
 <tr>
-<td>
-<div class="cpt_fr" style="width:240px;">
-<img src="../img/demo/obj_aff_rs.png" id="img-obj-aff-rs" 
-  alt="R*S affine object."><br>
-<b>Fig 11.4</b>: 
-  <tt>obj_aff</tt>, via <b>S</b>(1,2), then <b>R</b>(45&deg;)
-</div>
-<td>
-<div class="cpt_fr" style="width:240px;">
-<img src="../img/demo/obj_aff_sr.png" id="img-obj-aff-sr"
-  alt="S*R affine object."><br>
-<b>Fig 11.5</b>: 
-  <tt>obj_aff</tt>, via <b>R</b>(45&deg;), then <b>S</b>(1,2)
-</div>
+  <td>
+    <div class="cpt_fr" style="width:240px;">
+    <img src="../img/demo/obj_aff_rs.png" id="img-obj-aff-rs" 
+    alt="R*S affine object."><br>
+    <b>Fig 11.4</b>: 
+    <tt>obj_aff</tt>, via <b>S</b>(1,2), then <b>R</b>(45&deg;)
+    </div>
+  </td>
+  <td>
+    <div class="cpt_fr" style="width:240px;">
+    <img src="../img/demo/obj_aff_sr.png" id="img-obj-aff-sr"
+    alt="S*R affine object."><br>
+    <b>Fig 11.5</b>: 
+    <tt>obj_aff</tt>, via <b>R</b>(45&deg;), then <b>S</b>(1,2)
+    </div>
+  </td>
+</tr>
 </table>
 </div>
 
@@ -741,12 +742,12 @@ pressing a button (or not), a small transformation of the current
 state will be performed, via matrix multiplication. 
 </p>
 
-<table>
+<table class="eq-container">
 <tr>
   <td class="fill">&nbsp;
   <td class="eqcell">
     <b>P</b><sub>new</sub> =
-    <b>P</b><sub>old</sub> · <b>D</b><sup>&minus;1</sup>,
+    <b>P</b><sub>old</sub>&middot;<b>D</b><sup>&minus;1</sup>,
 </table>
 
 <p>
@@ -758,11 +759,11 @@ result in unacceptable round-off errors very very quickly. Fortunately,
 all these transformations have the convenient property that
 </p>
 
-<table>
+<table class="eq-container">
 <tr>
   <td class="fill">&nbsp;
   <td class="eqcell">
-    <b>D</b>(a)·<b>D</b>(b) = <b>D</b>(c).
+    <b>D</b>(a)&middot;<b>D</b>(b) = <b>D</b>(c).
 </table>
 
 <p>
@@ -816,10 +817,8 @@ the table below.
 </p>
 
 <div class="lblock">
-
-<table border=0 cellpadding=1 cellspacing=0>
-<tbody valign="top">
-<tr align="left"> <th width=48>point</th>		<th>description</th> </tr>
+<table class="controls-container">
+<tr> <th>point</th>		<th>description</th> </tr>
 <tr>
   <td> <b>p</b><sub>0</sub>, <b>q</b><sub>0</sub> </td>
   <td> Anchors in texture and screen space. </td>
@@ -837,12 +836,11 @@ the table below.
 <tr>
   <td> <b>r</b><sub>p</sub>, <b>r</b><sub>q</sub> </td>
   <td> Distances between object centers and anchors. By definition, 
-	<b>r</b><sub>p</sub> = <b>P</b>·<b>r</b><sub>q</sub></td>
+	<b>r</b><sub>p</sub> = <b>P</b>&middot;<b>r</b><sub>q</sub></td>
 </tr>
 <tr>
   <td> <b>x</b> </td>	<td>Desired object coordinates.</td>
 </tr>
-</tbody>
 </table>
 </div>
 
@@ -862,26 +860,23 @@ equations.
 <tr>
   <td class="eqnrcell">(11.2)</td>
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 cellspacing=0>
-  <col align="right">
-  <col align="center">
-  <col align="left">
-  <tr>
-    <td> <b>x</b> + <b>c</b><sub>q</sub> + <b>r</b><sub>q</sub> </td>
-    <td> = </td>
-    <td> <b>q</b><sub>0</sub> </td>
-  </tr>
-  <tr>
-    <td> <b>c</b><sub>p</sub> + <b>r</b><sub>p</sub> </td>
-    <td> = </td>
-    <td> <b>p</b><sub>0</sub> </td>
-  </tr>
-  <tr>
-    <td> <b>r</b><sub>p</sub> </td>
-    <td> = </td>
-    <td> <b>P</b>·<b>r</b><sub>q</sub> </td>
-  </tr>
-  </table>
+    <table class="eqtbl basic">
+    <tr>
+        <td> <b>x</b> + <b>c</b><sub>q</sub> + <b>r</b><sub>q</sub> </td>
+        <td> = </td>
+        <td> <b>q</b><sub>0</sub> </td>
+    </tr>
+    <tr>
+        <td> <b>c</b><sub>p</sub> + <b>r</b><sub>p</sub> </td>
+        <td> = </td>
+        <td> <b>p</b><sub>0</sub> </td>
+    </tr>
+    <tr>
+        <td> <b>r</b><sub>p</sub> </td>
+        <td> = </td>
+        <td> <b>P</b>&middot;<b>r</b><sub>q</sub> </td>
+    </tr>
+    </table>
   </td>
 </tr>
 </table>
@@ -893,23 +888,19 @@ what you see in eq&nbsp;11.3 is the end result
 in the most usable form.
 </p>
 
-<table id="eq-aff-ex">
+<table id="eq-aff-ex" class="eq-container">
 <tr>
   <td class="eqnrcell">(11.3)
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 cellspacing=0>
-  <col align="right">
-  <col align="center">
-  <col align="left">
-  <tbody valign="middle">
-  <tr>
-    <td> <b>x</b>
-    <td>=
-    <td> <b>q</b><sub>0</sub> &minus; <i>m</i><b>s</b> &minus; 
-	  <b>P</b><sup>&minus;1</sup>·
-	  (<b>p</b><sub>0</sub> &minus; &frac12;<b>s</b>)
-  </tbody>
-  </table>
+    <table class="eqtbl basic">
+    <tr>
+        <td> <b>x</b>
+        <td>=
+        <td> <b>q</b><sub>0</sub> &minus; <i>m</i><b>s</b> &minus; 
+        <b>P</b><sup>&minus;1</sup> &middot; 
+        (<b>p</b><sub>0</sub> &minus; &frac12;<b>s</b>)
+    </table>
+  </td>
 </table>
 
 <p>
@@ -1452,7 +1443,7 @@ Get all Tonc files <a href="http://www.coranac.com/projects/#tonc" target="_blan
 </table>
 <!-- [[/footer]] -->
 
+</div> <!-- main-container -->
 </body>
 </html>
-
 

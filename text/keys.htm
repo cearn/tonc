@@ -1,7 +1,7 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+  <meta charset="utf-8">
   <meta name="generator" content="Context">
   <meta name="Author" content="Cearn">
   <meta name="Created" content="20030928">
@@ -9,9 +9,11 @@
 
   <title>Tonc: Keys</title>
   <link rel="stylesheet" type="text/css" href="tonc.css">
-  <script type="text/javascript" src="tonc.js"></script>
+  <script src="tonc.js"></script>
 </head>
 <body onload="main();">
+<div class="main-container">
+
 
 <!--567890123456789012345678901234567890123456789012345678901234567-->
 
@@ -33,9 +35,9 @@
 <!-- [[toc]] -->
 <ul>
   <li><a href="#sec-intro">Introduction</a>
-  <li><a href="#sec-regs">Key registers</a>.
-  <li><a href="#sec-adv-keys">Beyond basic button states</a>.
-  <li><a href="#sec-demo">A simple key demo</a>.
+  <li><a href="#sec-regs">Key registers</a>
+  <li><a href="#sec-adv-keys">Beyond basic button states</a>
+  <li><a href="#sec-demo">A simple key demo</a>
 </ul>
 <!-- [[/toc]] -->
 
@@ -76,8 +78,7 @@ name of the button, in caps.
 </p>
 
 <div class="reg">
-<table class="reg" id="tbl-reg-keys"
-  border=1 frame=void cellpadding=4 cellspacing=0>
+<table id="tbl-reg-keys" class="reg border-std">
 <caption class="reg">
   REG_KEYINPUT (REG_P1) @ <code>0400:0130h</code>
 </caption>
@@ -153,8 +154,7 @@ of this register you need to know how to work with
 </p><br>
 
 <div class="reg">
-<table class="reg" id="tbl-reg-keycnt"
-  border=1 frame=void cellpadding=4 cellspacing=0>
+<table id="tbl-reg-keycnt" class="reg border-std">
 <caption class="reg">
   REG_KEYCNT (REG_P1CNT) @ <code>0400:0132h</code>
 </caption>
@@ -177,12 +177,8 @@ of this register you need to know how to work with
   <td class="rclr9">A
 </table><br>
 
-<table>
-  <col class="bits" width=40>
-  <col class="bf" width="8%">
-  <col class="def" width="12%">
-<tr align="left"><th>bits<th>name<th>define<th>description
-<tbody valign="top">
+<table class="reg-desc">
+<tr><th>bits<th>name<th>define<th>description
 <tr class="bg0">
   <td>0-9<td class="rclr9">keys
   <td>KEY_<i>x</i>
@@ -198,7 +194,6 @@ of this register you need to know how to work with
     interrupt or not. If clear, it uses an OR (raise if any of the
     keys of bits 0-9 are down); if set, it uses an AND (raise if
     all of those keys are down).
-</tbody>
 </table>
 </div>
 
@@ -622,7 +617,7 @@ Get all Tonc files <a href="http://www.coranac.com/projects/#tonc" target="_blan
 </tr>
 </table>
 <!-- [[/footer]] -->
+</div> <!-- main-container -->
 </body>
 </html>
-
 

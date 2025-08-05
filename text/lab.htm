@@ -1,7 +1,7 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+  <meta charset="utf-8">
   <meta name="generator" content="Context">
   <meta name="Author" content="Cearn">
   <meta name="Created" content="20060421">
@@ -9,9 +9,11 @@
 
   <title>Tonc: The Lab</title>
   <link rel="stylesheet" type="text/css" href="tonc.css">
-  <script type="text/javascript" src="tonc.js"></script>
+  <script src="tonc.js"></script>
 </head>
 <body onload="main();">
+<div class="main-container">
+
 
 <!--567890123456789012345678901234567890123456789012345678901234567-->
 
@@ -32,8 +34,8 @@
 
 <!-- [[toc]] -->
 <ul>
-  <li><a href="#sec-intro">Lab introduction</a>.</li>
-  <li><a href="#sec-prio">Priority and drawing order</a>.</li>
+  <li><a href="#sec-intro">Lab introduction</a></li>
+  <li><a href="#sec-prio">Priority and drawing order</a></li>
 </ul>
 <!-- [[/toc]] -->
 
@@ -331,8 +333,7 @@ fig&nbsp;24.1b; table
 </p>
 
 <div class="cblock">
-<table id="img-prio-demo"
-  border=0 cellpadding=2 cellspacing=0>
+<table id="img-prio-demo" class="frame-group">
 <tbody valign="top">
 <tr>
 <td>
@@ -352,9 +353,8 @@ fig&nbsp;24.1b; table
 </tbody>
 </table>
 
-<table id="tbl-prio-demo-x"
-  border=1 cellpadding=2 cellspacing=0>
-<caption align="bottom">
+<table id="tbl-prio-demo-x" class="border-std">
+<caption>
   <b>Table 24.1</b>: legend for 
   24.1b.
 </caption>
@@ -416,23 +416,22 @@ axes, and <i>z</i> pointing into the screen. A helix rotating around
 the <i>y</i>-axis can be described by the following relation:
 </p>
 
-<table id="eq-helix">
+<table id="eq-helix" class="eq-container">
 <tr>
   <td class="eqnrcell">(24.1)
-  <td class="eqcell"> <b>x</b>(t) &nbsp;=&nbsp;
+  <td class="eqcell"> <b>x</b>(t)&nbsp;=&nbsp;
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 cellspacing=0>
-  <tbody align="center">
-  <tr>
-    <td class="bdrLL" rowspan=3>&nbsp;
-    <td><i>A</i>·cos(<i>k</i>·<i>y</i>+&omega;<i>t</i>)
-    <td class="bdrRR" rowspan=3>&nbsp;
-  <tr>
-    <td> <i>y</i>
-  <tr>
-    <td><i>A</i>sin(<i>k</i>·<i>y</i>+&omega;<i>t</i>)
-  </tbody>
-  </table>
+    <table class="eqtbl matrix">
+    <tr>
+      <td class="bdrLL" rowspan=3>&nbsp;
+      <td><i>A</i>&middot;cos(<i>k</i>&middot;<i>y</i>+&omega;<i>t</i>)
+      <td class="bdrRR" rowspan=3>&nbsp;
+    <tr>
+      <td> <i>y</i>
+    <tr>
+      <td><i>A</i>&middot;sin(<i>k</i>&middot;<i>y</i>+&omega;<i>t</i>)
+    </table>
+  </td>
 </table>
 
 <p>
@@ -581,10 +580,9 @@ pillar), and 2 if it's on the far side (behind the pillar). It
 hack in the function, shortly followed by the second one.
 </p>
 
-<div class="cpt_fr"  style="width:120px;">
-<table id="tbl-prio-hack1"
-  border=1 cellpadding=2 cellspacing=0>
-<caption align="bottom">
+<div class="cpt_fr" style="width:120px;">
+<table id="tbl-prio-hack1" class="border-std">
+<caption>
   <b>Table 24.2</b>: object palette banks.
 </caption>
 <tr><th>bank	<th>color
@@ -832,8 +830,7 @@ faster. but the final implementation will be up to you.
 
 <!-- std reg table
 <div class="reg">
-<table class="reg" 
-  border=1 frame=void cellpadding=4 cellspacing=0>
+<table  class="reg border-std">
 <caption class="reg">
   REG_<em>XXX</em> @ <code>0400:<em>[[0000]]</em>h</code>
 </caption>
@@ -853,17 +850,12 @@ faster. but the final implementation will be up to you.
 </table>
 <br>
 
-<table>
-  <col class="bits" width=40>
-  <col class="bf" width="8%">
-  <col class="def" width="12%">
-<tr align="left"><th>bits<th>name<th>define<th>description
-<tbody valign="top">
+<table class="reg-desc">
+<tr><th>bits<th>name<th>define<th>description
 <tr>
   <td>0 <td class="rclr0">
   <td>
   <td>
-</tbody>
 </table>
 </div>
 -->
@@ -882,15 +874,13 @@ faster. but the final implementation will be up to you.
 <tr>
   <td class="eqnrcell">()
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 cellspacing=0>
-  <col align="right">
-  <col align="center">
-  <col align="left">
-  <tr>
-    <td>
-    <td>=
-    <td>
-  </table>
+    <table class="eqtbl basic">
+    <tr>
+      <td>
+      <td>=
+      <td>
+    </table>
+  </td>
 </table>
 -->
 
@@ -927,7 +917,7 @@ Get all Tonc files <a href="http://www.coranac.com/projects/#tonc" target="_blan
 </table>
 <!-- [[/footer]] -->
 
+</div> <!-- main-container -->
 </body>
 </html>
-
 

@@ -1,7 +1,7 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+  <meta charset="utf-8">
   <meta name="generator" content="Context">
   <meta name="Author" content="Cearn">
   <meta name="Created" content="20040303">
@@ -9,9 +9,11 @@
 
   <title>Tonc: Mode 7 Part 2</title>
   <link rel="stylesheet" type="text/css" href="tonc.css">
-  <script type="text/javascript" src="tonc.js"></script>
+  <script src="tonc.js"></script>
 </head>
 <body onload="main();">
+<div class="main-container">
+
 
 <!--567890123456789012345678901234567890123456789012345678901234567-->
 
@@ -31,13 +33,13 @@
 
 <!-- [[toc]] -->
 <ul>
-  <li><a href="#sec-intro">Introduction</a>.
-  <li><a href="#sec-theory">Basic mode 7 theory</a>.
-  <li><a href="#sec-horz">Horizon and backdrop</a>.
-  <li><a href="#sec-flr">The floor</a>.
-  <li><a href="#sec-objs">Sprites</a>.
-  <li><a href="#sec-code">Implementation</a>.
-  <li><a href="#sec-conc">Concluding remarks</a>.
+  <li><a href="#sec-intro">Introduction</a>
+  <li><a href="#sec-theory">Basic mode 7 theory</a>
+  <li><a href="#sec-horz">Horizon and backdrop</a>
+  <li><a href="#sec-flr">The floor</a>
+  <li><a href="#sec-objs">Sprites</a>
+  <li><a href="#sec-code">Implementation</a>
+  <li><a href="#sec-conc">Concluding remarks</a>
 </ul>
 <!-- [[/toc]] -->
 
@@ -88,8 +90,7 @@ time here.
 </p>
 
 <div class="cblock">
-<table class="bdr" id="img-m7-ex"
-  cellpadding=2 cellspacing=0>
+<table class="bdr" id="img-m7-ex">
 <tbody align="center">
 <tr>
 <td><img src="../img/mode7/m7_ex_00.png" alt="full mode 7"></td>
@@ -119,13 +120,12 @@ The basic controls are as follows:
 </p>
 
 <div class="lblock">
-<table cellpadding=2 cellspacing=0>
-<col span=2 align="left" valign="top">
-<tr><th>D-pad	<td>Looking
-<tr><th>A/B		<td>Back/forward
-<tr><th>L/R		<td>Strafing
-<tr><th>Select+A/B	<td>Float up/down
-<tr><th>Start	<td>Menu
+<table class="controls-container">
+  <tr><th>D-pad	<td>Looking
+  <tr><th>A/B		<td>Back/forward
+  <tr><th>L/R		<td>Strafing
+  <tr><th>Select+A/B	<td>Float up/down
+  <tr><th>Start	<td>Menu
 </table>
 </div>
 
@@ -200,11 +200,11 @@ Now, for every transformation between systems <i>S</i><sub>i</sub> and
 <i>S</i><sub>j</sub> the following relation holds:
 </p>
 
-<table id="eq-crd-transf">
+<table id="eq-crd-transf" class="eq-container">
 <tr>
   <td class="eqnrcell">(21.1)
   <td class="eqcell">
-    <b>M</b><sub>ij</sub>·<b>x</b><sub>j</sub>
+    <b>M</b><sub>ij</sub>&middot;<b>x</b><sub>j</sub>
     = <b>x</b><sub>i</sub> &minus; <b>a</b><sub>ji</sub>
 </table>
 
@@ -213,7 +213,7 @@ where
 </p>
 
 <div class="lblock">
-<table cellpadding=0>
+<table>
 <tr>
   <td><b>x</b><sub>i</sub>
   <td>the coordinate vector in system <i>S</i><sub>i</sub>;
@@ -240,7 +240,7 @@ sense. If you don't get it right away, think of them as arrays and
 matrices. An observant reader will also recognise the structure 
 in the <a href="affbg.htm#sec-aff-ofs">screen&harr;map 
 transformation</a> we had for affine maps: 
-<b>P·q</b>&nbsp;=&nbsp;<b>p &minus; dx</b>. 
+<b>P&middot;q</b>&nbsp;=&nbsp;<b>p &minus; dx</b>. 
 Eq 21.1 is a very 
 general equation, by the way, it holds for every kind of linear 
 coordinate transformation. In fact, systems <i>S</i><sub>i</sub> and 
@@ -292,7 +292,7 @@ Rewriting eq&nbsp;21.1, the transformation
 between camera and world space is given by
 </p>
 
-<table id="eq-w2c">
+<table id="eq-w2c" class="eq-container">
 <tr>
    <td class="eqnrcell">(21.2)
    <td class="eqcell">
@@ -326,14 +326,13 @@ and &phi; to the view down and right, respectively, meaning I need the
 following rotation matrices:
 </p>
 
-<table id="eq-mat-rot">
+<table id="eq-mat-rot" class="eq-container">
 <tr>
   <td class="eqnrcell">(21.3a)
   <td class="eqcell">
-    <b>R</b><sub>x</sub>(&theta;) =
+    <b>R</b><sub>x</sub>(&theta;)&nbsp;=&nbsp;
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 cellspacing=0>
-  <tbody align="center">
+  <table class="eqtbl matrix">
     <tr>
       <td class="bdrLL" rowspan=3>&ensp;
       <td> 1 <td>&nbsp; 
@@ -348,34 +347,33 @@ following rotation matrices:
       <td> 0 <td>&nbsp;
 	  <td>&minus;sin(&theta;) 
 	  <td>&nbsp; <td>cos(&theta;)
-  </tbody>
-  </table> 
+  </table>
+  </td>
 </table>
 
-<table>
+<table class="eq-container">
 <tr>
   <td class="eqnrcell">(21.3b)
   <td class="eqcell">
-    <b>R</b><sub>y</sub>(&phi;) =
+    <b>R</b><sub>y</sub>(&phi;)&nbsp;=&nbsp;
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 cellspacing=0>
-  <tbody align="center">
-    <tr>
-      <td class="bdrLL" rowspan=3>&ensp;
-      <td>cos(&phi;) <td>&nbsp; 
-	  <td> 0 <td>&nbsp; 
-	  <td>&minus;sin(&phi;)
-      <td class="bdrRR" rowspan=3>&ensp;
-    <tr>
+    <table class="eqtbl matrix">
+      <tr>
+        <td class="bdrLL" rowspan=3>&ensp;
+        <td>cos(&phi;) <td>&nbsp; 
       <td> 0 <td>&nbsp; 
-	  <td> 1 <td>&nbsp; 
-	  <td> 0
-    <tr>
-      <td>sin(&phi;) <td>&nbsp; 
-	  <td> 0 <td>&nbsp;
-	  <td>cos(&phi;)
-  </tbody>
-  </table> 
+      <td>&minus;sin(&phi;)
+        <td class="bdrRR" rowspan=3>&ensp;
+      <tr>
+        <td> 0 <td>&nbsp; 
+      <td> 1 <td>&nbsp; 
+      <td> 0
+      <tr>
+        <td>sin(&phi;) <td>&nbsp; 
+      <td> 0 <td>&nbsp;
+      <td>cos(&phi;)
+    </table>
+  </td>
 </table>
 
 <p>
@@ -393,32 +391,31 @@ feel for this: stand up, tilt your head down (pitch
 camera matrix then becomes:
 </p>
 
-<table id="eq-rotxy">
+<table id="eq-rotxy" class="eq-container">
 <tr>
   <td class="eqnrcell">(21.4)
   <td class="eqcell">
     <b>C</b>(&theta;, &phi;) = 
     <b>R</b><sub>y</sub>(&phi;) 
-	&middot; <b>R</b><sub>x</sub>(&theta;) =
+    &middot; <b>R</b><sub>x</sub>(&theta;)&nbsp;=&nbsp;
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 cellspacing=0>
-  <tbody align="center">
-    <tr>
-      <td class="bdrLL" rowspan=3>&ensp;
-      <td>cos(&phi;) <td>&nbsp;
-      <td>sin(&phi;)&middot;sin(&theta;) <td>&nbsp;
-      <td>&minus;sin(&phi;)&middot;cos(&theta;)
-      <td class="bdrRR" rowspan=3>&ensp;
-    <tr>
-      <td> 0 <td>&nbsp; 
-	  <td>cos(&theta;) <td>&nbsp; 
-	  <td>sin(&theta;)
-    <tr>
-      <td>sin(&phi;) <td>&nbsp;
-      <td>&minus;cos(&phi;)&middot;sin(&theta;) <td>&nbsp;
-      <td>cos(&phi;)&middot;cos(&theta;)
-  </tbody>
-  </table>
+    <table class="eqtbl matrix">
+      <tr>
+        <td class="bdrLL" rowspan=3>&ensp;
+        <td>cos(&phi;) <td>&nbsp;
+        <td>sin(&phi;)&middot;sin(&theta;) <td>&nbsp;
+        <td>&minus;sin(&phi;)&middot;cos(&theta;)
+        <td class="bdrRR" rowspan=3>&ensp;
+      <tr>
+        <td> 0 <td>&nbsp; 
+      <td>cos(&theta;) <td>&nbsp; 
+      <td>sin(&theta;)
+      <tr>
+        <td>sin(&phi;) <td>&nbsp;
+        <td>&minus;cos(&phi;)&middot;sin(&theta;) <td>&nbsp;
+        <td>cos(&phi;)&middot;cos(&theta;)
+    </table>
+  </td>
 </table>
 
 <p>
@@ -460,7 +457,7 @@ operation, but not the one that the math requires.
 </p>
 <p>
 I know it's a subtle point, but there really is an important 
-difference. Try visualizing it with a 90° rotation in both orders, 
+difference. Try visualizing it with a 90&deg; rotation in both orders, 
 maybe that'd help. 
 </p>
 </div>
@@ -491,7 +488,7 @@ origin, the relation between <b>x</b><sub>c</sub> and
 <b>x</b><sub>p</sub> is
 </p>
 
-<table id="eq-c2p">
+<table id="eq-c2p" class="eq-container">
 <tr>
   <td class="eqnrcell">(21.5)
   <td class="eqcell">
@@ -568,7 +565,7 @@ Another point is the notion of the <dfn>field of view</dfn> (FOV).
 This is the horizontal angle &alpha; that you can see, meaning that
 </p>
 
-<table id="eq-fov-cam">
+<table id="eq-fov-cam" class="eq-container">
 <tr>
   <td class="eqnrcell">(21.6)
   <td class="eqcell">
@@ -616,11 +613,11 @@ inverted vertical axis and the origin of screen-space in mind, we
 have
 </p>
 
-<table id="eq-p2s">
+<table id="eq-p2s" class="eq-container">
 <tr>
   <td class="eqnrcell">(21.7)
   <td class="eqcell">
-    <b>S</b>(1,&minus;1,1)·<b>x</b><sub>s</sub> =
+    <b>S</b>(1,&minus;1,1)&middot;<b>x</b><sub>s</sub> =
     <b>x</b><sub>p</sub> &minus; <b>a</b><sub>sp</sub>
 </table>
 
@@ -647,16 +644,16 @@ And that's basically it, phew. Since it took three pages to get here, I'll
 repeat the most important things. First, the main equations we need are:
 </p>
 
-<table id="eq-m7-main">
+<table id="eq-m7-main" class="eq-container">
 <col span=2 align="right">
 <tr>
   <td class="eqnrcell">(21.8a)
-  <td class="eqcell"> &lambda;<b>C</b> · <b>x</b><sub>p</sub>
+  <td class="eqcell"> &lambda;<b>C</b> &middot; <b>x</b><sub>p</sub>
   <td class="eqcell">=
   <td class="eqcell"> <b>x</b><sub>w</sub> &minus; <b>a</b><sub>cw</sub>
 <tr>
   <td class="eqnrcell">(21.8b)
-  <td class="eqcell"> <b>S</b>(1,-1,1) · <b>x</b><sub>s</sub>
+  <td class="eqcell"> <b>S</b>(1,-1,1) &middot; <b>x</b><sub>s</sub>
   <td class="eqcell">=
   <td class="eqcell"> (<b>x</b><sub>p</sub> &minus; <b>a</b><sub>sp</sub>)
 </table>
@@ -664,7 +661,7 @@ repeat the most important things. First, the main equations we need are:
 <p>where</p>
 
 <div class="lblock">
-<table cellpadding=0>
+<table>
 <tr><td width="8%"><b>x</b><sub>w</sub>
   <td>coordinates in world space;
 <tr><td><b>x</b><sub>p</sub>
@@ -681,7 +678,7 @@ repeat the most important things. First, the main equations we need are:
 <tr><td><b>C</b>
   <td>the camera matrix, as function of pitch &theta; and yaw &phi;:
     <b>C</b> =
-    <b>R</b><sub>y</sub>(&phi;)· <b>R</b><sub>x</sub>(&theta;);
+    <b>R</b><sub>y</sub>(&phi;) &middot; <b>R</b><sub>x</sub>(&theta;);
 <tr><td>&lambda;
   <td>the scaling factor. Its value can be determined by the
     boundary conditions.
@@ -759,25 +756,23 @@ is take the
 rearrange the terms to get
 </p>
 
-<table id="eq-horz-line">
+<table id="eq-horz-line" class="eq-container">
 <tr>
   <td class="eqnrcell">(21.9a)
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 cellspacing=0>
-  <col align="right">
-  <col align="center">
-  <col align="left">
-  <tr>
-    <td> &lambda; (<i>v</i><sub>y</sub> <i>y</i><sub>p,h</sub> &minus;
-      <i>w</i><sub>y</sub> D) 
-	<td> = 
-	<td>&minus;<i>a</i><sub>cw,y</sub>
-  <tr>
-    <td> <i>y</i><sub>p,h</sub>
-    <td>=
-    <td> (<i>w</i><sub>y</sub>D &minus;
-      <i>a</i><sub>cw,y</sub> / &lambda;) / <i>v</i><sub>y</sub>
-  </table>
+    <table class="eqtbl basic">
+    <tr>
+      <td> &lambda; (<i>v</i><sub>y</sub> <i>y</i><sub>p,h</sub> &minus;
+        <i>w</i><sub>y</sub> D) 
+    <td> = 
+    <td>&minus;<i>a</i><sub>cw,y</sub>
+    <tr>
+      <td> <i>y</i><sub>p,h</sub>
+      <td>=
+      <td> (<i>w</i><sub>y</sub>D &minus;
+        <i>a</i><sub>cw,y</sub> / &lambda;) / <i>v</i><sub>y</sub>
+    </table>
+  </td>
 </table>
 
 <p>
@@ -786,7 +781,7 @@ And if we were to take our horizon at infinity, them
 eq&nbsp;21.9 to
 </p>
 
-<table>
+<table class="eq-container">
 <tr>
   <td class="eqnrcell">(21.9b)
   <td class="eqcell">
@@ -807,16 +802,16 @@ eq&nbsp;21.9 to calculate the horizon,
 which will be something like
 </p>
 
-<table>
+<table class="eq-container">
 <tr>
   <td class="eqnrcell">(21.9c)
   <td class="eqcell">
     <i>y</i><sub>p,h</sub> 
-	  = <i>D/F</i> · (<i>F w</i><sub>y</sub> &minus;
+	  = <i>D/F</i> &middot; (<i>F w</i><sub>y</sub> &minus;
       <i>a</i><sub>cw,y</sub>) / <i>v</i><sub>y</sub>
 
 <!--  = <i>D</i>tan(&theta;) 
-    - <i>D/F</i> ·<i>a</i><sub>cw,y</sub>/cos &theta; -->
+    - <i>D/F</i> &middot;<i>a</i><sub>cw,y</sub>/cos &theta; -->
 </table>
 
 <p>
@@ -908,32 +903,30 @@ eq&nbsp;21.6. If all is right we should have
 &alpha;<sub>p</sub>&nbsp;=&nbsp;&alpha;<sub>c</sub>&nbsp;=&nbsp;&alpha;.
 </p>
 
-<table id="eq-fov">
+<table id="eq-fov" class="eq-container">
 <tr>
   <td class="eqnrcell">(21.10)
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 cellspacing=0>
-  <col align="right">
-  <col align="center">
-  <col align="left">
-  <tr>
-    <td> &alpha;
-    <td>=
-    <td> 2·arctan(&frac12;<i>W</i>/<i>D</i>)
-  <tr>
-    <td> &alpha;
-    <td>=
-    <td> <i>W</i>/<i>R</i>
-  <tr>
-    <td> <i>R</i>
-    <td>=
-    <td> &frac12;<i>W</i> / arctan(&frac12;<i>W</i>/<i>D</i>)
-  <tr>
-    <td> &nbsp;
-    <td>&asymp;
-    <td> <i>D</i> <big>/ (</big> 1 &minus; 
-	  (&frac12;<i>W</i>/<i>D</i>)<sup>2</sup>/3 <big>)</big>
-  </table>
+    <table class="eqtbl basic">
+    <tr>
+      <td> &alpha;
+      <td>=
+      <td> 2 arctan(&frac12;<i>W</i>/<i>D</i>)
+    <tr>
+      <td> &alpha;
+      <td>=
+      <td> <i>W</i>/<i>R</i>
+    <tr>
+      <td> <i>R</i>
+      <td>=
+      <td> &frac12;<i>W</i> / arctan(&frac12;<i>W</i>/<i>D</i>)
+    <tr>
+      <td> &nbsp;
+      <td>&asymp;
+      <td> <i>D</i> <big>/ (</big> 1 &minus; 
+      (&frac12;<i>W</i>/<i>D</i>)<sup>2</sup>/3 <big>)</big>
+    </table>
+  </td>
 </table>
 
 <p>
@@ -966,32 +959,30 @@ company <kbd>:P</kbd>
 So, we just define a perimeter value and with it backdrop map-width 
 ourselves. In this case I'm going to use <i>P</i>&nbsp;=&nbsp;1024, 
 which is a nice round number and for which we can use a 512 px wide 
-tile-map will effectively end up as a panorama with 180° rotational 
+tile-map will effectively end up as a panorama with 180&deg; rotational 
 symmetry. Taking into account the circle partitioning of 
 2&pi;&nbsp;&hArr;&nbsp;10000h, the scrolling value is simply 
-&phi;*<i>P</i>/10000h&nbsp;=&nbsp;&phi;/64. We'll have to offset this 
+&phi;&middot;<i>P</i>/10000h&nbsp;=&nbsp;&phi;/64. We'll have to offset this 
 by <i>L</i> as well because I want to map &phi;&nbsp;=&nbsp;0 to due 
 north. The final position of the backdrop is given in
 21.11.
 </p>
 
-<table id="eq-bd-pos">
+<table id="eq-bd-pos" class="eq-container">
 <tr>
   <td class="eqnrcell">(21.11)
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 cellspacing=0>
-  <col align="right">
-  <col align="center">
-  <col align="left">
-  <tr>
-    <td><i>dx</i>
-    <td>=
-    <td>&phi;/64 + <i>L</i>
-  <tr>
-    <td> <i>dy</i>
-    <td>=
-    <td> &minus;<i>y</i><sub>s,h</sub>
-  </table>
+    <table class="eqtbl basic">
+    <tr>
+      <td><i>dx</i>
+      <td>=
+      <td>&phi;/64 + <i>L</i>
+    <tr>
+      <td> <i>dy</i>
+      <td>=
+      <td> &minus;<i>y</i><sub>s,h</sub>
+    </table>
+  </td>
 </table>
 
 <!-- ============================================================== -->
@@ -1012,27 +1003,25 @@ don't want to see that. So instead, I'll give you the set of
 equations you need to solve, and hints on how to do that.
 </p>
 
-<table id="eq-m7-set">
+<table id="eq-m7-set" class="eq-container">
 <tr>
   <td class="eqnrcell">(21.12)
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 cellspacing=0>
-  <col align="right">
-  <col align="center">
-  <col align="left">
-  <tr>
-    <td> &lambda;<b>C</b> · <b>x</b><sub>p</sub>
-    <td>=
-    <td> <b>x</b><sub>w</sub> &minus; <b>a</b><sub>cw</sub>
-  <tr>
-    <td> <b>S</b>(1,&minus;1,1) · <b>x</b><sub>s</sub>
-    <td>=
-    <td> (<b>x</b><sub>p</sub> &minus; <b>a</b><sub>sp</sub>)
-  <tr>
-    <td> <b>P &middot; q</b>
-    <td>=
-    <td> <b>p &minus; dx</b>
-  </table>
+    <table class="eqtbl basic">
+    <tr>
+      <td> &lambda;<b>C</b> &middot; <b>x</b><sub>p</sub>
+      <td>=
+      <td> <b>x</b><sub>w</sub> &minus; <b>a</b><sub>cw</sub>
+    <tr>
+      <td> <b>S</b>(1,&minus;1,1) &middot; <b>x</b><sub>s</sub>
+      <td>=
+      <td> (<b>x</b><sub>p</sub> &minus; <b>a</b><sub>sp</sub>)
+    <tr>
+      <td> <b>P &middot; q</b>
+      <td>=
+      <td> <b>p &minus; dx</b>
+    </table>
+  </td>
 </table>
 
 <p>
@@ -1057,7 +1046,7 @@ eventually you will end up with an expression that can best be
 summed up by:
 </p>
 
-<table id="eq-m7-ofs">
+<table id="eq-m7-ofs" class="eq-container">
 <tr>
   <td class="eqnrcell">(21.13)
   <td class="eqcell">
@@ -1069,12 +1058,12 @@ summed up by:
 <p>where</p>
 
 <div class="lblock">
-<table>
-<col align="right">
-<tr><td><b>dx'</b> <td>= (<i>dx</i>, 0, <i>dy</i>)
-<tr><td><b>b</b>   <td>= (<i>L</i>, 
-  <i>T&minus;y</i><sub>s</sub>, &minus;<i>D</i>)
-</table>
+  <table class="eqtbl basic">
+  <col align="right">
+  <tr><td><b>dx'</b> <td>= <td> (<i>dx</i>, 0, <i>dy</i>)
+  <tr><td><b>b</b>   <td>= <td> (<i>L</i>, 
+    <i>T&minus;y</i><sub>s</sub>, &minus;<i>D</i>)
+  </table>
 </div>
 
 <p>
@@ -1092,28 +1081,41 @@ when I prefer the conciseness of eq&nbsp;21.13
 myself.
 </p>
 
-<table id="eq-m7-sum">
+<table id="eq-m7-sum" class="eq-container">
 <col span=2 align="right">
 <tr>
-  <td rowspan=5 class="eqnrcell">(21.14)
-  <td> &lambda;
-  <td>= <i>a</i><sub>cw,y</sub> / 
-    ( (<i>y</i><sub>s</sub>&minus;<i>T</i>)<i>v</i><sub>y</sub> +
-	 <i>Dw</i><sub>y</sub> )
-<tr><td><i>p</i><sub>a</sub>
-  <td>= &lambda; <i>u</i><sub>x</sub>
-<tr><td><i>p</i><sub>c</sub>
-  <td>= &lambda; <i>u</i><sub>z</sub>
-<tr><td><i>dx</i>
-  <td>= <i>a</i><sub>cw,x</sub> + &lambda;
-    ( <i>Lu</i><sub>x</sub> +
-     (<i>T&minus;y</i><sub>s</sub>)<i>v</i><sub>x</sub> &minus;
-	 <i>Dw</i><sub>x</sub> )
-<tr><td><i>dy</i>
-  <td>= <i>a</i><sub>cw,z</sub> + &lambda;
-    ( <i>Lu</i><sub>z</sub> +
-     (<i>T&minus;y</i><sub>s</sub>)<i>v</i><sub>z</sub> &minus;
-	 <i>Dw</i><sub>z</sub> )
+  <td class="eqnrcell">(21.14)
+  <td>
+    <table class="eqtbl basic">
+    <tr>
+      <td> &lambda;
+      <td>= 
+      <td><i>a</i><sub>cw,y</sub> / 
+        ( (<i>y</i><sub>s</sub>&minus;<i>T</i>)<i>v</i><sub>y</sub> +
+      <i>Dw</i><sub>y</sub> )
+    <tr>
+      <td><i>p</i><sub>a</sub>
+      <td>=
+      <td>&lambda; <i>u</i><sub>x</sub>
+    <tr>
+      <td><i>p</i><sub>c</sub>
+      <td>=
+      <td>&lambda; <i>u</i><sub>z</sub>
+    <tr><td><i>dx</i>
+      <td>=
+      <td><i>a</i><sub>cw,x</sub> + &lambda;
+        ( <i>Lu</i><sub>x</sub> +
+        (<i>T&minus;y</i><sub>s</sub>)<i>v</i><sub>x</sub> &minus;
+      <i>Dw</i><sub>x</sub> )
+    <tr>
+      <td><i>dy</i>
+      <td>=
+      <td><i>a</i><sub>cw,z</sub> + &lambda;
+        ( <i>Lu</i><sub>z</sub> +
+        (<i>T&minus;y</i><sub>s</sub>)<i>v</i><sub>z</sub> &minus;
+      <i>Dw</i><sub>z</sub> )
+      </table>
+   </td>
 </table>
 
 <p>
@@ -1150,7 +1152,7 @@ The fundamental equation for this is the following differential
 equation:
 </p>
 
-<table>
+<table class="eq-container">
 <tr>
   <td class="fill">&nbsp;
   <td class="eqcell">
@@ -1178,7 +1180,7 @@ well enough.
 
 <div class="cblock">
 <table class="bdr" id="img-fog"
-  border=0 cellpadding=2 cellspacing=2>
+  cellspacing=2>
 <tr>
 <td> <img src="../img/mode7/fog_off.png" alt="fog off"> </td>
 <td> <img src="../img/mode7/fog_on.png" alt="fog on"> </td>
@@ -1264,9 +1266,7 @@ what I call object <b>normalization</b>: applying an extra scaling for
 objects so that they don't grow too big for their clipping rectangle.
 </p>
 
-<table id="img-m7-obj"
-  class="bdr" style="width:512px; margin:10px auto;"
-  border=0 cellpadding=2 cellspacing=0>
+<table id="img-m7-obj" class="bdr" style="width:512px; margin:10px auto;">
 <tr>
   <td><img src="../img/mode7/obj_back.png" alt="normal view"></td>
   <td><img src="../img/mode7/obj_down.png" alt="looking down"></td>
@@ -1302,25 +1302,23 @@ inverse is simply its transpose:
 That leads us to the following equations:
 </p>
 
-<table id="eq-obj-w2s">
+<table id="eq-obj-w2s" class="eq-container">
 <tr>
   <td class="eqnrcell">(21.15)
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 cellspacing=0>
-  <col align="right">
-  <col align="center">
-  <col align="left">
-  <tr>
-    <td><b>x</b><sub>p</sub>
-    <td>=
-    <td> <b>C</b><sup>T</sup> &middot; 
-	  (<b>x</b><sub>w</sub> &minus; <b>a</b><sub>cw</sub>) / &lambda;
-  <tr>
-    <td> <b>x</b><sub>s</sub>
-    <td>=
-    <td> <b>S</b>(1,&minus;1,1) &middot; 
-	  (<b>x</b><sub>p</sub> &minus; <b>a</b><sub>sp</sub>)
-  </table>
+    <table class="eqtbl basic">
+    <tr>
+      <td><b>x</b><sub>p</sub>
+      <td>=
+      <td> <b>C</b><sup>T</sup> &middot; 
+      (<b>x</b><sub>w</sub> &minus; <b>a</b><sub>cw</sub>) / &lambda;
+    <tr>
+      <td> <b>x</b><sub>s</sub>
+      <td>=
+      <td> <b>S</b>(1, &minus;1, 1) &middot; 
+      (<b>x</b><sub>p</sub> &minus; <b>a</b><sub>sp</sub>)
+    </table>
+  </td>
 </table>
 
 <p>
@@ -1331,27 +1329,25 @@ let the distance between camera and sprite be
 <b>r</b>&nbsp;=&nbsp;<b>x</b><sub>w</sub>&nbsp;&minus;&nbsp;<b>a</b><sub>cw</sub>; 
 using <b>C</b>&nbsp;=&nbsp;[<b>u&nbsp;v&nbsp;w</b>], we find
 
-<table>
+<table class="eq-container">
 <tr>
   <td class="eqfill">&nbsp;
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 cellspacing=0>
-  <col align="right">
-  <col align="center">
-  <col align="left">
-  <tr>
-    <td>&lambda;
-    <td>=
-    <td>&minus;<b>w</b>·<b>r</b> / <i>D</i>
-  <tr>
-    <td><i>x</i><sub>p</sub>
-    <td>= 
-    <td><b>u</b>·<b>r</b> / &lambda;
-  <tr>
-    <td><i>y</i><sub>p</sub>
-    <td>= 
-    <td><b>v</b>·<b>r</b> / &lambda;
-  </table>
+    <table class="eqtbl basic">
+    <tr>
+      <td>&lambda;
+      <td>=
+      <td>&minus;<b>w</b>&middot;<b>r</b> / <i>D</i>
+    <tr>
+      <td><i>x</i><sub>p</sub>
+      <td>= 
+      <td><b>u</b>&middot;<b>r</b> / &lambda;
+    <tr>
+      <td><i>y</i><sub>p</sub>
+      <td>= 
+      <td><b>v</b>&middot;<b>r</b> / &lambda;
+    </table>
+  </td>
 </table>
 
 <div class="cpt_fr" style="width:88px;">
@@ -1381,23 +1377,19 @@ is &frac12; for normal affine objects and 1 for double-size affine
 objects.
 </p>
 
-<table id="eq-anchor">
+<table id="eq-anchor" class="eq-container">
 <tr>
   <td class="eqnrcell">(21.16)
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 cellspacing=0>
-  <col align="right">
-  <col align="center">
-  <col align="left">
-  <tbody valign="middle">
-  <tr>
-    <td> <b>x</b>
-    <td>=
-    <td> <b>q</b><sub>0</sub> &minus; <i>m</i><b>s</b> &minus; 
-	  <b>P</b><sup>&minus;1</sup>·
-	  (<b>p</b><sub>0</sub> &minus; &frac12;<b>s</b>)
-  </tbody>
-  </table>
+    <table class="eqtbl basic">
+    <tr>
+      <td> <b>x</b>
+      <td>=
+      <td> <b>q</b><sub>0</sub> &minus; <i>m</i><b>s</b> &minus; 
+      <b>P</b><sup>&minus;1</sup> &middot; 
+      (<b>p</b><sub>0</sub> &minus; &frac12;<b>s</b>)
+    </table>
+  </td>
 </table>
 
 
@@ -1456,16 +1448,15 @@ fully visible).
 It's actually easier to do the view volume checks in 3D camera 
 space instead of 2D projection space. The object rectangle can 
 easily be calculated from 
-<b>x</b><sub>c</sub>&nbsp;=&nbsp;<b>C</b><sup>T</sup>·<b>r</b>, 
+<b>x</b><sub>c</sub>&nbsp;=&nbsp;<b>C</b><sup>T</sup>&middot;<b>r</b>, 
 the anchor <b>p</b><sub>0</sub> and the size <b>s</b>. The viewport 
 will have to be scaled by &lambda;, and this gives us the 
 following rests to perform:
 </p>
 
 <div class="lblock">
-<table id="tbl-culltest"
-  border=1 cellpadding=2 cellspacing=0>
-<caption align="bottom">
+<table id="tbl-culltest" class="border-std">
+<caption>
   <b>Table 21.1</b>:
   Object rect and culling tests in camera space. Note the signs!
 </caption>
@@ -1475,7 +1466,7 @@ following rests to perform:
 </tr>
 <tr>
   <th> Depth </th>
-  <td> <i>d</i> = -<i>z</i><sub>c</sub> = <b>w</b>·<b>r</b> </td>
+  <td> <i>d</i> = -<i>z</i><sub>c</sub> = <b>w</b>&middot;<b>r</b> </td>
   <td> <i>N</i> &le; <i>d</i> 
     &amp;&amp; <i>d</i> &lt; <i>F</i> </td>
 </tr>
@@ -1540,14 +1531,11 @@ closely, you'll see that
 In other words:
 </p>
 
-<table id="eq-psi">
+<table id="eq-psi" class="eq-container">
 <tr>
   <td class="eqnrcell">(21.17) </td>
   <td class="eqcell">
-  <table class="eqtbl" cellpadding=2 cellspacing=0>
-  <col align="right">
-  <col align="center">
-  <col align="left">
+  <table class="eqtbl basic">
   <tr>
     <td>&psi;
     <td>=
@@ -1559,6 +1547,7 @@ In other words:
     <td>&phi;<sub>o</sub> &minus; &phi;<sub>c</sub> 
     &minus; arctan(<i>x</i><sub>c</sub> / &minus;<i>z</i><sub>c</sub>) 
   </table>
+  </td>
 </table>
 
 <p>
@@ -1576,7 +1565,7 @@ circle into equal parts each 2&pi;/<i>N</i> radians wide. To get the
 slice that &psi; is in, we merely have to divide by the angle of each 
 slice: 
 <i>i</i>&nbsp;=&nbsp;&psi;/(2&pi;/<i>N</i>)<!--
--->&nbsp;=&nbsp;<i>N</i>·&psi;/(2&pi;).
+-->&nbsp;=&nbsp;<i>N</i>&middot;&psi;/(2&pi;).
 If you have defined your circle in power-of-two divisions (which we 
 have) then this part is ridiculously easy: just use a right-shift. 
 Once you have the frame-index, the rest should be easy. Mostly. There 
@@ -1604,9 +1593,7 @@ disconcerting. In the picture on the right, everything looks okay
 again, because steps were taken to ensure the correct object order.
 </p>
 
-<table id="img-obj-sort"
-  class="bdr" style="width:512px; margin:10px auto;"
-  border=0 cellpadding=2 cellspacing=2>
+<table id="img-obj-sort" class="bdr" style="width:512px; margin:10px auto;">
 <tr>
   <td><img src="../img/mode7/order_dflt.png" alt="default order"></td>
   <td><img src="../img/mode7/order_nosort.png" alt="non-sorted"></td>
@@ -1719,9 +1706,7 @@ I'd like to hear it.
 </p>
 
 <div class="cblock">
-<table id="img-obj-norm"
-  class="bdr" width=512
-  border=0 cellpadding=4 cellspacing=0>
+<table id="img-obj-norm" class="bdr" width=512>
 <tr>
   <td><img src="../img/mode7/norm_1x.png" alt="norm 1x"></td>
   <td><img src="../img/mode7/norm_2x.png" alt="norm 2x"></td>
@@ -2071,13 +2056,13 @@ feel free to skip it and go onto the code.
 </p>
 <p>
 Remember that the camera matrix is 
-<b>C</b>&nbsp;=&nbsp;<b>R</b><sub>y</sub>(&phi;)·<b>R</b><sub>x</sub>(&theta;);
+<b>C</b>&nbsp;=&nbsp;<b>R</b><sub>y</sub>(&phi;)&middot;<b>R</b><sub>x</sub>(&theta;);
 and that &lambda; and <b>dx</b> are calculated via 
 eq&nbsp;21.13: 
 <b>dx</b>&prime;&nbsp;=&nbsp;<b>a</b><sub>cw</sub> + 
-&lambda;·<b>C</b>·<b>b</b>. 
+&lambda;&middot;<b>C</b>&middot;<b>b</b>. 
 You can break up <b>C</b> can combine it with <b>b</b> to form 
-<b>b</b>&prime;&nbsp;=&nbsp;<b>R</b><sub>x</sub>(&theta;)·<b>b</b>. 
+<b>b</b>&prime;&nbsp;=&nbsp;<b>R</b><sub>x</sub>(&theta;)&middot;<b>b</b>. 
 This new vector takes care of the pitch entirely &ndash; it's as if 
 we only had a rotation around the vertical axis, i.e., the case 
 discussed in the previous chapter. With this pre-rotation, the code 
@@ -2192,7 +2177,7 @@ With a good deal of trigonometry, you could rewrite the formula for
 &lambda; to
 </p>
 
-<table id="eq-lambda-alt">
+<table id="eq-lambda-alt" class="eq-container">
 <tr><td class="eqnrcell">(21.18)
   <td class="eqcell">
 <!-- <img src="../img/mode7/lam_trig.png" alt=""> -->
@@ -2429,7 +2414,7 @@ outside the view volume.
 The first step is convert to the convert the world-position of the 
 sprite to a vector in the camera space, using the first part of 
 eq&nbsp;21.15: 
-<b>x</b><sub>c</sub>&nbsp;=&nbsp;<b>C</b><sup>T</sup>·<b>r</b>, 
+<b>x</b><sub>c</sub>&nbsp;=&nbsp;<b>C</b><sup>T</sup>&middot;<b>r</b>, 
 with 
 <b>r</b> being the position of the sprite relative to the camera: 
 <b>r</b>&nbsp;=&nbsp;<b>x</b><sub>w</sub>&minus;<b>a</b><sub>cw</sub>. 
@@ -2601,7 +2586,7 @@ angles 0&deg; through 90&deg;, the remaining four for
 90&deg;-180&deg;. The reason behind this is that most of the time 
 you'll see the karts from the back, so it pays to have more frames 
 for those. Now, in the theory we could calculate the animation frame 
-quite nicely, namely <i>N</i>·&psi;/2<sup>16</sup>. However, that 
+quite nicely, namely <i>N</i>&middot;&psi;/2<sup>16</sup>. However, that 
 relied on having <i>N</i> equal slices, which we don't have anymore.
 Or do we?
 </p>
@@ -2625,8 +2610,8 @@ problems in one go.
 </p>
 
 <div class="cblock">
-<table cellspacing=4>
-<tr valign="top">
+<table class="frame-group">
+<tr>
 <td>
 <div class="cpt" style="width:392px;">
   <img src="../img/mode7/toad_frames.png" id="img-obj-frames" 
@@ -2818,7 +2803,7 @@ forward along &minus;<b>w</b>. A general movement could be written as
 <i>x</i>, <i>y</i> and <i>z</i> are used as <i>multipliers</i>
 for the direction vectors, and the final displacement in global 
 space is <b>dx</b> = 
-<i>x</i>·<b>u</b> + <i>y</i>·<b>v</b> + <i>z</i>·<b>w</b>. 
+<i>x</i>&thinsp;&middot;<b>u</b> + <i>y</i>&thinsp;&middot;<b>v</b> + <i>z</i>&thinsp;&middot;<b>w</b>. 
 </p>
 <p>
 And where matrices come in. Those three multipliers 
@@ -2827,7 +2812,7 @@ can be written a vector
 is the distance vector in <i>local</i> space. The three directions 
 formed a matrix <b>C</b>, The definition of <b>dx</b> given above is 
 nothing else than the long way of writing down
-<b>dx</b>&nbsp;=&nbsp;<b>C</b>·<b>r</b>. The matrix multiplication 
+<b>dx</b>&nbsp;=&nbsp;<b>C</b>&middot;<b>r</b>. The matrix multiplication 
 is just shorthand for &ldquo;scale the vectors of <b>C</b> by 
 the elements of <b>r</b> and add them all up&rdquo;.
 Note that this procedure would work for any object, in any 
@@ -2852,9 +2837,8 @@ Experiment with them and see what you like.
 </p>
 
 <div class="cblock">
-<table id="tbl-motion"
-  border=1 cellpadding=2 cellspacing=0>
-<caption align="bottom">
+<table id="tbl-motion" class="border-std">
+<caption>
   <b>Table 21.2</b>: 
   Movement methods and their associated transformations to world-space.
   New position of an object is given by 
@@ -2865,17 +2849,17 @@ Experiment with them and see what you like.
 <tr>
   <td>Global frame</td> 
   <td><code>m7_translate_global()</code></td>
-  <td><b>dx</b> = <b>I</b> · <b>r</b> = <b>r</b>
+  <td><b>dx</b> = <b>I</b>&middot;<b>r</b> = <b>r</b>
 </tr>
 <tr>
   <td>Local (camera) frame</td> 
   <td><code>m7_translate_local()</code></td>
-  <td><b>dx</b> = <b>C</b>(&theta;, &phi;) · <b>r</b>
+  <td><b>dx</b> = <b>C</b>(&theta;, &phi;)&middot;<b>r</b>
 </tr>
 <tr>
   <td>Level: local but parallel to ground</td> 
   <td><code>m7_translate_level()</code></td>
-  <td><b>dx</b> = <b>R</b><sub>y</sub>(&phi;) · <b>r</b>
+  <td><b>dx</b> = <b>R</b><sub>y</sub>(&phi;)&middot;<b>r</b>
 </tr>
 </tbody>
 </table>
@@ -2940,7 +2924,7 @@ from, <i>Z</i> and presumably the sprite position,
 <b>x</b><sub>w</sub>. What you need to do is: move the camera to 
 the sprite's position, then take <i>Z</i> steps back. In other 
 words 
-<b>a</b><sub>cw</sub>&nbsp;=&nbsp;<b>x</b><sub>w</sub>+<b>C</b>·(0, 0, <i>Z</i>),
+<b>a</b><sub>cw</sub>&nbsp;=&nbsp;<b>x</b><sub>w</sub>+<b>C</b>&middot;(0, 0, <i>Z</i>),
 which boils down to 
 <b>a</b><sub>cw</sub>&nbsp;=&nbsp;<b>x</b><sub>w</sub>+<i>Z</i><b>w</b>, 
 </p>
@@ -3004,7 +2988,7 @@ Get all Tonc files <a href="http://www.coranac.com/projects/#tonc" target="_blan
 </table>
 <!-- [[/footer]] -->
 
+</div> <!-- main-container -->
 </body>
 </html>
-
 

@@ -1,7 +1,7 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+  <meta charset="utf-8">
   <meta name="generator" content="Context">
   <meta name="Author" content="Cearn">
   <meta name="Created" content="20031223">
@@ -9,9 +9,11 @@
 
   <title>Tonc: Timers</title>
   <link rel="stylesheet" type="text/css" href="tonc.css">
-  <script type="text/javascript" src="tonc.js"></script>
+  <script src="tonc.js"></script>
 </head>
 <body onload="main();">
+<div class="main-container">
+
 
 <!--567890123456789012345678901234567890123456789012345678901234567-->
 
@@ -96,9 +98,8 @@ on that later. It should be noted that the screen refreshes every
 </p>
 
 <div class="lblock">
-<table id="tbl-tmr-freq" 
-  border=1 cellpadding=2 cellspacing=0>
-<caption align="bottom">
+<table id="tbl-tmr-freq" class="border-std">
+<caption>
   <b>Table 15.1</b>: Timer frequencies
 </caption>
 <col span=4 align="right">
@@ -120,15 +121,15 @@ found in table 15.2.
 </p>
 
 <div class="lblock">
-<table id="tbl-tmr-reg">
-<caption align="bottom">
+<table id="tbl-tmr-reg" class="border-std">
+<caption>
   <b>Table 15.2</b>: Timer register addresses
 </caption>
 <tr><th>reg<th>function<th>address
 <tr><td><code>REG_TMxD</code><td>data
-	<td><code>0400:0100h  + 04h</code>·x
+	<td><code>0400:0100h  + 04h</code>&middot;x
 <tr><td><code>REG_TMxCNT</code><td>control
-	<td><code>0400:0102h + 04h</code>·x
+	<td><code>0400:0102h + 04h</code>&middot;x
 </table>
 </div>
 
@@ -136,8 +137,7 @@ found in table 15.2.
   REG_TMxCNT</h3>
 
 <div class="reg">
-<table class="reg" id="tbl-reg-tmxcnt"
-  border=1 frame=void cellpadding=4 cellspacing=0>
+<table id="tbl-reg-tmxcnt" class="reg border-std">
 <caption class="reg">
   REG_TMxCNT @ <code>0400:0102</code> + 4<i>x</i>
 </caption>
@@ -152,12 +152,8 @@ found in table 15.2.
   <td class="rclr2">Fr
 </table>
 
-<table>
-  <col class="bits" width=40>
-  <col class="bf" width="8%">
-  <col class="def" width="12%">
-<tr align="left"><th>bits<th>name<th>define<th>description
-<tbody valign="top">
+<table class="reg-desc">
+<tr><th>bits<th>name<th>define<th>description
 <tr class="bg0">
   <td>0-1<td class="rclr2">Fr
   <td>TM_FREQ_y
@@ -182,7 +178,6 @@ found in table 15.2.
   <td> 7 <td class="rclr0">En
   <td>TM_ENABLE
   <td>Enable the timer.
-</tbody>
 </table>
 </div>
 
@@ -360,7 +355,7 @@ This was a rather simple use of timers. Of course, I could have just
 as easily used the VBlank to keep track of the seconds, which is how 
 it's usually done anyway. The hardware timers are usually reserved 
 for timed DMA's, which are used in 
-<a href="http://deku.gbadev.org" >sound mixers</a>, not for game timers. 
+<a href="http://deku.gbadev.org">sound mixers</a>, not for game timers. 
 There is one other use that comes to mind, though, namely
 profiling: examining how fast your functions are. One of the 
 <a href="text.htm#ssec-demo-se2">text system demos</a> uses that 
@@ -391,7 +386,7 @@ Get all Tonc files <a href="http://www.coranac.com/projects/#tonc" target="_blan
 </table>
 <!-- [[/footer]] -->
 
+</div> <!-- main-container -->
 </body>
 </html>
-
 

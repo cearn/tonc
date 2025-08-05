@@ -1,7 +1,7 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+  <meta charset="utf-8">
   <meta name="generator" content="Context">
   <meta name="Author" content="Cearn">
   <meta name="Created" content="20050519">
@@ -9,9 +9,11 @@
 
   <title>Tonc: Text Systems</title>
   <link rel="stylesheet" type="text/css" href="tonc.css">
-  <script type="text/javascript" src="tonc.js"></script>
+  <script src="tonc.js"></script>
 </head>
 <body onload="main();">
+<div class="main-container">
+
 
 <!--567890123456789012345678901234567890123456789012345678901234567-->
 
@@ -437,14 +439,12 @@ got in front of you.
 
 <h4>Bitpacking</h4>
 
-<div class="cpt_fr" style="width:200px;">
-<table id="tbl-endian"
-  border=1 cellpadding=2 cellspacing=0>
-<caption align="bottom">
+<div class="cpt_fr">
+<table id="tbl-endian" class="border-std align-c">
+<caption>
   <b>Table 19.1</b>: Big endian vs little 
   endian interpretation of byte-sequence 01h, 02h, 03h, 04h
 </caption>
-<tbody align="center">
 <tr>
   <th>big u32     <td colspan=4> 0x01020304
 <tr>
@@ -455,7 +455,6 @@ got in front of you.
   <th>little u16  <td colspan=2> 0x0201 <td colspan=2> 0x0403
 <tr>
   <th>little u32  <td colspan=4> 0x04030201
-</tbody>
 </table>
 </div>
 
@@ -521,10 +520,9 @@ forget about that and think of bits in memory to walk through from 0 to
 
 <!-- frame -->
 <div class="cblock">
-<div class="cpt" style="width:512px;">
+<div class="cpt" style="width:48em;">
 
-<table id="img-fontpack"
-  border=0 cellpadding=4 cellspacing=0>
+<table id="img-fontpack" border=0 cellpadding=4>
   <tbody align="center">
   <tr>
     <th>pixels
@@ -538,7 +536,7 @@ forget about that and think of bits in memory to walk through from 0 to
     <td>
     <img src="../img/font_pack.png" alt="pixels" width=133>
     <td> <!-- bits -->
-    <table class="reg" cellpadding=1 cellspacing=0>
+    <table class="reg-like cp-1">
       <tr>
         <td class="bdrLL">&nbsp;
         <th> 7 <th> 6 <th> 5 <th> 4 <th> 3 <th> 2 <th> 1 <th> 0
@@ -563,9 +561,7 @@ forget about that and think of bits in memory to walk through from 0 to
         <td> 0 <td> 0 <td> 0 <td> 0 <td> 0 <td> 0 <td> 0 <td> 0
     </table>
     <td> <!-- bytes -->
-    <table cellpadding=1 cellspacing=0>
-      <tr>
-        <th colspan=3>&nbsp;
+    <table class="cp-1">
       <tr>
         <td class="bdrLL" rowspan=4>&nbsp;
           <td> 0x7E
@@ -582,9 +578,7 @@ forget about that and think of bits in memory to walk through from 0 to
       <tr><td> 0x00
     </table>
     <td> <!-- words -->
-    <table cellpadding=1 cellspacing=0>
-      <tr>
-        <th colspan=3>&nbsp;
+    <table class="cp-1">
       <tr>
         <td class="bdrLL">&nbsp;
           <td> 0x1E06067E
@@ -651,7 +645,6 @@ and initialize the lut. This can be done with
 </p>
 
 <pre class="proglist">
-
 u8 txt_lut[<span class="num">256</span>];
 
 <span class="cmt">// Basc initializer for text state</span>
@@ -917,7 +910,7 @@ by that length and the height of the characters
 all goes according to plan, but in the end that's all it does. The same 
 goes for the clear routines of the other text-types, so I'm not going 
 to show those.
-</p><br>
+</p>
 
 <pre class="proglist" id="cd-bm16-clrs">
 <span class="keyw">void</span> bm16_clrs(u16 *dst, <span 
@@ -1416,13 +1409,13 @@ class="num">112</span>, str, CLR_WHITE);
 Controls:
 </p>
 
-<table>
-<tbody valign="top">
-<tr><th>D-pad<td>Moves cursor.
-<tr><th>Start<td>Toggles string clearing.
-<tr><th>L, R<td>Decrease or increase mode.
-</tbody>
+<div class="lblock">
+<table class="controls-container">
+  <tr><th>D-pad<td>Moves cursor.
+  <tr><th>Start<td>Toggles string clearing.
+  <tr><th>L, R<td>Decrease or increase mode.
 </table>
+</div>
 
 <p>
 Many things here should be either self explanatory or fairly 
@@ -1733,7 +1726,7 @@ vx= k;
 <span class="keyw">if</span>(x>xmax)  <span 
 class="cmt">// collision</span>
 {
-    <span class="keyw">if</span>(vx*vx > Q2)
+    <span class="keyw">if</span>(vx*vx> Q2)
     {   vx= -Sqrt(vx*vx-Q2); x= <span 
 class="num">2</span>*xmax-x; }
     <span class="keyw">else</span>
@@ -1954,7 +1947,7 @@ class="num">0xE000</span>|TID_FONT3);
 
 
 <div class="lblock">
-<table id="img-txt-se1">
+<table id="img-txt-se1" class="frame-group">
 <tr>
 <td>
   <div class="cpt" style="width:240px">
@@ -2100,8 +2093,8 @@ We've seen the same thing with the object text.
 <div class="cpt_fr" style="width:200px;">
 <center>
 <table id="tbl-bupshade"
-    cellpadding=2 cellspacing=0 bgcolor=#E0E0E0>
-<caption align="bottom">
+    bgcolor=#E0E0E0>
+<caption>
   <b>Table 19.2</b>: 
   bit-unpacking with with base <code>0xEE</code>.
 </caption>
@@ -2429,25 +2422,27 @@ class="num">16</span>)|REG_TM2D;
 </pre>
 
 <div class="lblock">
-<table id="img-txt-se2">
+<table id="img-txt-se2" class="frame-group">
 <tr>
-<td>
-  <div class="cpt" style="width:240px">
-  <img src="../img/demo/txt_se2_vba.png" alt="txt_se2 on vba"><br>
-  <b>Fig 19.6a</b>: <tt>txt_se2</tt> on VBA.
-  </div>
-<td>
-  <div class="cpt" style="width:240px">
-  <img src="../img/demo/txt_se2_nocash.png" alt="txt_se2 on no$gba"><br>
-  <b>Fig 19.6b</b>: <tt>txt_se2</tt> on no$gba.
-  </div>
+  <td>
+    <div class="cpt" style="width:240px">
+    <img src="../img/demo/txt_se2_vba.png" alt="txt_se2 on vba"><br>
+    <b>Fig 19.6a</b>: <tt>txt_se2</tt> on VBA.
+    </div>
+  </td>
+  <td>
+    <div class="cpt" style="width:240px">
+    <img src="../img/demo/txt_se2_nocash.png" alt="txt_se2 on no$gba"><br>
+    <b>Fig 19.6b</b>: <tt>txt_se2</tt> on no$gba.
+    </div>
+  </td>
+</tr>
 </table>
 </div>
 
 <div class="lblock">
-<table id="tbl-txt-se2"
-  border=1 cellpadding=2 cellspacing=0>
-<caption align="bottom">
+<table id="tbl-txt-se2" class="border-std">
+<caption>
   <b>Table 19.3</b>: timing results for hardware, 
   vba and no$gba.
 </caption>
@@ -2650,7 +2645,7 @@ Get all Tonc files <a href="http://www.coranac.com/projects/#tonc" target="_blan
 </table>
 <!-- [[/footer]] -->
 
+</div> <!-- main-container -->
 </body>
 </html>
-
 

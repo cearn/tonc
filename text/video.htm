@@ -1,7 +1,7 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+  <meta charset="utf-8">
   <meta name="generator" content="Context">
   <meta name="Author" content="Cearn">
   <meta name="Created" content="20030901">
@@ -9,9 +9,11 @@
 
   <title>Tonc: Graphics introduction</title>
   <link rel="stylesheet" type="text/css" href="tonc.css">
-  <script type="text/javascript" src="tonc.js"></script>
+  <script src="tonc.js"></script>
 </head>
 <body onload="main();">
+<div class="main-container">
+
 
 <!--567890123456789012345678901234567890123456789012345678901234567-->
 
@@ -32,12 +34,12 @@
 
 <!-- [[toc]] -->
 <ul>
-  <li><a href="#sec-intro">General introduction</a>.
-  <li><a href="#sec-blanks">Draw and blank periods</a>.
-  <li><a href="#sec-colors">Colors and palettes</a>.
-  <li><a href="#sec-vid-types">Bitmaps, backgrounds and sprites</a>.
-  <li><a href="#sec-vid-regs">Display registers</a>.
-  <li><a href="#sec-vsync1">Vsyncing part I, the busy-wait loop</a>.
+  <li><a href="#sec-intro">General introduction</a>
+  <li><a href="#sec-blanks">Draw and blank periods</a>
+  <li><a href="#sec-colors">Colors and palettes</a>
+  <li><a href="#sec-vid-types">Bitmaps, backgrounds and sprites</a>
+  <li><a href="#sec-vid-regs">Display registers</a>
+  <li><a href="#sec-vsync1">Vsyncing part I, the busy-wait loop</a>
 </ul>
 <!-- [[/toc]] -->
 
@@ -94,7 +96,7 @@ cycles per scanline. You can find a summary of timing details in
 table 4.1.
 </p><br>
 
-<table width=80%>
+<table class="frame-group" width=80%>
 <tr align="center">
   <td>
   <div class="cpt" style="width:192px;">
@@ -103,9 +105,8 @@ table 4.1.
   </div>
 
   <td>
-	<table id="tbl-disp-timing" 
-	  border=1 cellspacing=0 cellpadding=2>
-	<caption align="bottom">
+	<table id="tbl-disp-timing" class="border-std">
+	<caption>
 	  <b>Table 4.1</b>: Display timing details
 	</caption>
 	<col>
@@ -253,8 +254,7 @@ been explained in the
 </p>
 
 <div class="reg">
-<table class="reg" id="tbl-reg-dispcnt"
-  border=1 frame=void cellPadding=4 cellSpacing=0>
+<table id="tbl-reg-dispcnt" class="reg border-std">
 <caption class="reg">
   REG_DISPCNT @ <code>0400:0000h</code>
 </caption>
@@ -278,12 +278,8 @@ been explained in the
 	<td class="rclr0">Mode
 </table>
 
-<table>
-  <col class="bits" width=40>
-  <col class="bf" width="8%">
-  <col class="def" width="12%">
-<tr align="left"><th>bits<th>name<th>define<th>description
-<tbody valign="top">
+<table class="reg-desc">
+<tr><th>bits<th>name<th>define<th>description
 <tr class="bg0">
   <td>0-2 <td class="rclr0">Mode
   <td>DCNT_MODEx. <i>DCNT_MODE#</i>
@@ -328,7 +324,6 @@ been explained in the
   <td>Enables the use of windows 0, 1 and Object window, respectively.
     Windows can be used to mask out certain areas (like the 
     lamp did in Zelda:LTTP).
-</tbody>
 </table>
 </div>
 
@@ -354,8 +349,7 @@ know how that works, don't you?
 </p>
 
 <div class="reg">
-<table class="reg" id="tbl-reg-dispstat"
-  border=1 frame=void cellPadding=4 cellSpacing=0>
+<table id="tbl-reg-dispstat" class="reg border-std">
 <caption class="reg">
   REG_DISPSTAT @ <code>0400:0004h</code>
 </caption>
@@ -373,12 +367,8 @@ know how that works, don't you?
   <td class="rclr0">VbS
 </table>
 
-<table>
-  <col class="bits" width=40>
-  <col class="bf" width="8%">
-  <col class="def" width="15%">
-<tr align="left"><th>bits<th>name<th>define<th>description
-<tbody valign="top">
+<table class="reg-desc">
+<tr><th>bits<th>name<th>define<th>description
 <tr class="bg0">
   <td>0<td class="rclr0">VbS
   <td>DSTAT_IN_VBL
@@ -412,13 +402,11 @@ know how that works, don't you?
   <td><i>DSTAT_VCT#</i>
   <td>VCount trigger value. If the current scanline is at this value, 
     bit 2 is set and an interrupt is fired if requested.
-</tbody>
 </table>
 </div><br>
 
 <div class="reg">
-<table class="reg" id="tbl-reg-vcount"
-  border=1 frame=void cellPadding=4 cellSpacing=0>
+<table id="tbl-reg-vcount" class="reg border-std">
 <caption class="reg">
   REG_VCOUNT @ <code>0400:0006h</code> (read-only)
 </caption>
@@ -430,15 +418,11 @@ know how that works, don't you?
   <td class="rclr0">Vc
 </table>
 
-<table>
-  <col class="bits" width=40>
-  <col class="bf" width="8%">
-<tr align="left"><th>bits<th>name<th>description
-<tbody valign="top">
+<table class="reg-desc">
+<tr><th>bits<th>name<th>description
 <tr class="bg0">
   <td>0-7 <td class="rclr0">Vc
   <td>Vertical count. Range is [0,227]
-</tbody>
 </table>
 </div>
 
@@ -546,7 +530,7 @@ Get all Tonc files <a href="http://www.coranac.com/projects/#tonc" target="_blan
 </table>
 <!-- [[/footer]] -->
 
+</div> <!-- main-container -->
 </body>
 </html>
-
 

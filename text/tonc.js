@@ -7,19 +7,20 @@
 
 // Resolve MSIE CSS2 dumbness
 if(navigator.appName.indexOf('Microsoft') >= 0)
-	document.write('<'+'link rel="stylesheet" type="text/css" href="ie.css" />');
+	document('<'+'link rel="stylesheet" type="text/css" href="ie.css" />');
 
 
 function main()
 {
 	id2title();
+	deprecationNotice();
 }
 
 //! Add an appropriate title-attr to main tags with ids.
 function id2title()
 {
-	var ii, jj, tags, id;
-	var tagnames= ["div", "h1", "h2", "h3", "img", "pre", "table"];
+	let ii, jj, tags, id;
+	const tagnames= ["div", "h1", "h2", "h3", "img", "pre", "table"];
 
 	for(ii in tagnames)
 	{
@@ -32,3 +33,16 @@ function id2title()
 	}
 }
 
+function deprecationNotice()
+{
+	const url = "https://gbadev.net/tonc/";
+
+	let banner = document.createElement("div");
+	banner.className = "banner-deprecation";
+	banner.innerHTML = `<span>
+	  NOTICE: Tonc is no longer actively maintained here. 
+		For an up-to-date version, go to <a href="${url}">${url}</a>
+		</span>`;
+
+		document.body.insertBefore(banner, document.body.firstChild);
+}
