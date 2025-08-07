@@ -6,6 +6,14 @@ import json
 from bs4 import BeautifulSoup
 
 class AutoReffer:
+	class FileInfo:
+		"""
+		Analysis results for a single source file.
+		"""
+		def __init__(self):
+			self.labels = {}	# id:label map
+			self.sections = {}	# id:sec-string map
+
 	def __init__(self, config_path):
 		self.config_path = config_path
 		# config
@@ -19,10 +27,9 @@ class AutoReffer:
 		self.ch_type = None
 
 		# results
-		self.id_map = {}		# fname -> { id : label }
-		self.sections = {}		# fname -> { sec_id : sec_title }
+		self.results = {}		# fname:FileInfo map
 
-		self._setup_prefix_rules()
+		self._init_reftype_rules()
 		self._load_config()
 
 	# --- Chapter Helpers ---
@@ -70,40 +77,46 @@ class AutoReffer:
 		elif self.ch_type == "lower":
 			self.current_ch = chr(ord(self.current_ch) + 1)
 
-	# --- Prefix Rules ---
-	def _update_none(self, key):
+	def _load_config(self):
+		with open(self.config_path, "r") as f:
+			config = json.load(f)["autoref"]
+
+		self.files = config["files"]
+		self.srcdir = config["srcdir"]
+		self.dstdir = config["dstdir"]
+
+	# --- Reftype stuf ---
+	#{{
+	def _init_reftype_rules(self):
+		"""
+		Formatting and updating rules for the reftypes.
+		"""
+		self.prefix_.rules = {
+			"ch":   {"fmt": "{ch}.",              "update": self._reftype_update_none},
+			"sec":  {"fmt": "{ch}.{sec}.",        "update": self._reftype_update_sec},
+			"ssec": {"fmt": "{ch}.{sec}.{ssec}.", "update": self._reftype_update_ssec},
+			"eq":   {"fmt": "{ch}.{eq}",          "update": self._reftype_update_simple("eq")},
+			"img":  {"fmt": "{ch}.{img}",         "update": self._reftype_update_simple("img")},
+			"tbl":  {"fmt": "{ch}.{tbl}",         "update": self._reftype_update_simple("tbl")},
+			"cd":   {"fmt": "{ch}.{cd}",          "update": self._reftype_update_simple("cd")},
+		}
+
+	def _reftype_update_none(self, key):
 		pass
 
-	def _update_simple(self, key):
+	def _reftype_update_simple(self, key):
 		def updater(counters):
 			counters[key] += 1
 		return updater
 
-	def _update_sec(self, counters):
+	def _reftype_update_sec(self, counters):
 		counters["sec"] += 1
 		counters["ssec"] = 0
 
-	def _update_ssec(self, counters):
+	def _reftype_update_ssec(self, counters):
 		counters["ssec"] += 1
+	#}}
 
-	def _setup_prefix_rules(self):
-		self.prefix_rules = {
-			"ch":   {"fmt": "{ch}.",              "update": self._update_none},
-			"sec":  {"fmt": "{ch}.{sec}.",        "update": self._update_sec},
-			"ssec": {"fmt": "{ch}.{sec}.{ssec}.", "update": self._update_ssec},
-			"eq":   {"fmt": "{ch}.{eq}",          "update": self._update_simple("eq")},
-			"img":  {"fmt": "{ch}.{img}",         "update": self._update_simple("img")},
-			"tbl":  {"fmt": "{ch}.{tbl}",         "update": self._update_simple("tbl")},
-			"cd":   {"fmt": "{ch}.{cd}",          "update": self._update_simple("cd")},
-		}
-
-	# --- Config Loading ---
-	def _load_config(self):
-		with open(self.config_path, "r") as f:
-			config = json.load(f)["autoref"]
-		self.files = config["files"]
-		self.srcdir = config["srcdir"]
-		self.dstdir = config["dstdir"]
 
 	def _single_run(self, fname, counters):
 		"""
@@ -124,11 +137,13 @@ class AutoReffer:
 
 		# Find ids & labels
 		soup = BeautifulSoup(content, "html.parser")
-		self.id_map[fname] = self._single_find_labels(soup, counters)
+		results = self._single_find_info(soup, counters)
+		self.results[fname] = results
+
 		# Replace refs 
-		content = self._single_update_refs(content, self.id_map[fname])
+		content = self._single_update_refs(content, results.labels)
 		# Update TOC
-		content = self._single_update_toc(content, self.id_map[fname])
+		content = self._single_update_toc(content, results.sections)
 
 		# --- Save ---
 		path = os.path.join(self.dstdir, fname)
@@ -137,8 +152,14 @@ class AutoReffer:
 
 		pass
 
-	def _single_find_labels(self, soup:BeautifulSoup, counters:dict):
-		labels = {}
+	def _single_find_info(self, soup:BeautifulSoup, counters:dict):
+		"""
+		Collects info for later processing.
+		@returns FileInfo object 
+		"""
+		finfo = self.FileInfo();				# results
+		rex = re.compile(r'\[\[ref:(.+?)\]\]') 	# for cleaning the title
+
 		# --- Find autonum IDs ---
 		for tag in soup.find_all(id=True):
 			id = tag["id"]
@@ -151,13 +172,17 @@ class AutoReffer:
 			rule = self.prefix_rules[prefix]
 			rule["update"](counters)
 			label = rule["fmt"].format(**counters)
-			labels[id] = label
+			finfo.labels[id] = label
 
-			print(f"{id} -> {label}")
-		return labels
-	
-	def _single_find_sections(self, soup:BeautifulSoup):
-		pass
+			if prefix == "sec":
+				title = rex.sub("", tag.text)
+				title = title.strip().replace('\n', '')
+				finfo.sections[id] = title
+				print(f"{id} -> {label} ({title})")
+			else:
+				print(f"{id} -> {label}")
+
+		return finfo
 
 	def _single_update_refs(self, content:str, labels:dict):
 		rex = re.compile(r'<em>\[\[ref:(.+?)\]\]</em>')
@@ -171,21 +196,20 @@ class AutoReffer:
 				return match.group(0)
 		return rex.sub(repl, content)
 	
-	def _single_update_toc(self, content, labels:dict):
-		return content
-	
+	def _single_update_toc(self, content, sections:dict):
 		# Dammit, I need both the ID and text for this, but also without the ref. 
 		# Need to think about this more.
-		secs = { k:v for k,v in labels.items() if k.startswith('sec') }
-		if len(secs): return content
+		if len(sections) == 0: return content
 
-		# find full <h2 id=""></h2> things.
-
-
+		toc = '\n'.join([ f'  <li><a href="#{k}">{v}</a></li>' for k,v in sections.items()])
+		toc = f"""
+<ul>
+{toc}
+</ul>
+"""
 		rex = re.compile(r'(?<=<!-- \[\[toc\]\] -->)(.*?)(?=<!-- \[\[/toc\]\] -->)', flags=re.DOTALL)
-		match = rex.findall(content)
+		content = rex.sub(toc, content)
 
-		pprint(match)
 		return content
 
 	# --- Main Runner ---
@@ -209,7 +233,6 @@ class AutoReffer:
 			counters['ch'] = self.current_ch
 			self._single_run(entry["fname"], counters)
 
-			# [TODO] replace refs
 
 if (__name__ == "__main__"):
 	processor = AutoReffer("config.json")
