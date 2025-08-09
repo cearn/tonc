@@ -3,9 +3,88 @@ import os
 from pprint import pprint
 import re
 import json
+import roman
 from bs4 import BeautifulSoup
 
 class AutoReffer:
+	class RefType:
+		def __init__(self, group:dict, name:str, format:str, 
+			resets:list[str] = [], style:str = 'n', value:int = 0):
+			"""
+			Constructs a new RefType object. Starts counting at 1, or dflt if that's set.
+			@param group	Dict of str->RefTypes that this object belongs to.
+			@param name		Name of RefType.
+			@param format	Formats string for RefType. E.g.: "{ch}.{eq}"
+			@param resets	RefTypes that should be reset to 0 when this is updated.
+			@param style	Style for the string of this RefType. Options:
+							- 'n': numeric.
+							- 'A': Uppercase letters.
+							- 'a': Lowercasse letters.
+							- 'I': Uppercase Roman numerals.
+							- 'i': Lowercase Roman numerals.
+			@param value	The initial value.
+			@note	The value is updated when a new item is found. So if @a value = 0, 
+					the first item will actually be 1.
+			"""
+			self._group = group
+			self._name = name
+			self._format = format
+			self._resets = resets
+
+			self._numstyle = style
+			self._value = value
+			self._svalue = ""
+			
+		def __str__(self):
+			return self._svalue
+			
+		def update(self):
+			self._group[self._name].inc()
+			[ self._group[k].set(0) for k in self._resets]
+			
+		def label(self) -> str:
+			return self._format.format(**self._group)
+			# [TODO]
+			pass
+
+		def inc(self):
+			self.set(self._value+1)
+		
+		def set(self, value: int, bnext:bool = False):
+			"""
+			@param value 	Value to use now.
+			@param bnext	Use the value for the _next_ item found. Usually, the value is 
+							incremented then. So if @a value = 2, the next item will actually 
+							be 3, whiuch may not be what you want. Use `bnext = True` to 
+							correct for this.
+			"""
+			if bnext == True:
+				value -= 1
+			self._value = value
+			self._cache_str()
+			
+		def get(self) -> int:
+			return self._value
+		
+		def set_style(self, numstyle:str):
+			self._numstyle = numstyle
+			self._cache_str()
+
+		def _cache_str(self):
+			style = self._numstyle
+			v = self._value
+
+			if   style == 'n': svalue = str(v)
+			elif style == 'A': svalue = chr(ord('A') + v-1)
+			elif style == 'a': svalue = chr(ord('a') + v-1)
+			elif style == 'R': svalue = roman.toRoman(v)
+			elif style == 'r': svalue = roman.toRoman(v).lower()
+			else: 
+				print(f'WARNING: unknown style for `{self._name}`: "{style}"')
+				svalue = str(v)
+
+			self._svalue = svalue
+
 	class FileInfo:
 		"""
 		Analysis results for a single source file.
@@ -14,10 +93,10 @@ class AutoReffer:
 			self.labels = {}	# id:label map
 			self.sections = {}	# id:sec-string map
 
+
 	def __init__(self, config_path):
 		self.config_path = config_path
 		# config
-		self.prefix_rules = {}
 		self.srcdir = ""
 		self.dstdir = ""
 		self.files = []
@@ -25,13 +104,18 @@ class AutoReffer:
 		# internals
 		self.current_ch = None
 		self.ch_type = None
+		self._counters = {}
+
+		self._reftypes:dict[str, AutoReffer.RefType] = {}
 
 		# results
 		self.results = {}		# fname:FileInfo map
 
-		self._init_reftype_rules()
+		self._init_reftypes()
 		self._load_config()
 
+	# [REFACTOR]
+	#{{
 	# --- Chapter Helpers ---
 	def _roman_to_int(self, roman):
 		roman = roman.lower()
@@ -76,6 +160,7 @@ class AutoReffer:
 			self.current_ch = chr(ord(self.current_ch) + 1)
 		elif self.ch_type == "lower":
 			self.current_ch = chr(ord(self.current_ch) + 1)
+	#}}
 
 	def _load_config(self):
 		with open(self.config_path, "r") as f:
@@ -85,40 +170,47 @@ class AutoReffer:
 		self.srcdir = config["srcdir"]
 		self.dstdir = config["dstdir"]
 
-	# --- Reftype stuf ---
-	#{{
-	def _init_reftype_rules(self):
+	def _ch_update(self, groups, chstyle:str):
+		pass
+
+	def _init_reftypes(self):
 		"""
 		Formatting and updating rules for the reftypes.
 		"""
-		self.prefix_.rules = {
-			"ch":   {"fmt": "{ch}.",              "update": self._reftype_update_none},
-			"sec":  {"fmt": "{ch}.{sec}.",        "update": self._reftype_update_sec},
-			"ssec": {"fmt": "{ch}.{sec}.{ssec}.", "update": self._reftype_update_ssec},
-			"eq":   {"fmt": "{ch}.{eq}",          "update": self._reftype_update_simple("eq")},
-			"img":  {"fmt": "{ch}.{img}",         "update": self._reftype_update_simple("img")},
-			"tbl":  {"fmt": "{ch}.{tbl}",         "update": self._reftype_update_simple("tbl")},
-			"cd":   {"fmt": "{ch}.{cd}",          "update": self._reftype_update_simple("cd")},
-		}
 
-	def _reftype_update_none(self, key):
-		pass
+		reftypes = {}
+		reftypes['ch']  = self.RefType(reftypes, 'ch',   '{ch}.')
+		reftypes['sec'] = self.RefType(reftypes, 'sec',  '{ch}.{sec}.', resets= ['ssec'])
+		reftypes['ssec'] = self.RefType(reftypes, 'ssec', '{ch}.{sec}.{ssec}.')
+		reftypes['eq'] =  self.RefType(reftypes, 'eq',   '{ch}.{eq}')
+		reftypes['img']=  self.RefType(reftypes, 'img',  '{ch}.{img}')
+		reftypes['tbl']=  self.RefType(reftypes, 'tbl',  '{ch}.{tbl}')
+		reftypes['cd']=   self.RefType(reftypes, 'cd',   '{ch}.{cd}')
+		self._reftypes = reftypes
 
-	def _reftype_update_simple(self, key):
-		def updater(counters):
-			counters[key] += 1
-		return updater
+	# --- Main Runner ---
+	def run(self):
+		for entry in self.files:
+			if entry.get("ignore"):
+				continue
 
-	def _reftype_update_sec(self, counters):
-		counters["sec"] += 1
-		counters["ssec"] = 0
+			# [TODO] Resetting everything here is a hack. Ideally, we can just
+			# reset everything on a new 'ch'. We have functionality for that now.
+			ch = self._reftypes['ch']
+			self._init_reftypes()
 
-	def _reftype_update_ssec(self, counters):
-		counters["ssec"] += 1
-	#}}
+			if 'ch' in entry and len(entry['ch'])>0:
+				style = entry['ch'][:1]
+				value = entry['ch'][1:]
+				value = int(value) if value != '' else 1
+				ch.set(int(value), True)
+				ch.set_style(style)
 
+			self._reftypes['ch'] = ch
 
-	def _single_run(self, fname, counters):
+			self._single_run(entry["fname"])
+
+	def _single_run(self, fname):
 		"""
 		Processes a single file. 
 		- Gathers the IDs and their labels.
@@ -131,13 +223,13 @@ class AutoReffer:
 			print(f"[!] Skipping missing file: {fname}")
 			return
 
-		print(f"\n--- {fname} (ch={self.current_ch}) ---")
+		print(f"\n--- {fname} (ch={self._reftypes['ch']}) ---")
 		with open(path, "r", encoding="utf-8") as fin:
 			content = fin.read()
 
 		# Find ids & labels
 		soup = BeautifulSoup(content, "html.parser")
-		results = self._single_find_info(soup, counters)
+		results = self._single_find_info(soup)
 		self.results[fname] = results
 
 		# Replace refs 
@@ -152,30 +244,36 @@ class AutoReffer:
 
 		pass
 
-	def _single_find_info(self, soup:BeautifulSoup, counters:dict):
+	def _single_find_info(self, soup:BeautifulSoup):
 		"""
 		Collects info for later processing.
 		@returns FileInfo object 
 		"""
 		finfo = self.FileInfo();				# results
-		rex = re.compile(r'\[\[ref:(.+?)\]\]') 	# for cleaning the title
+		rex = re.compile(r'<em>\[\[ref:(.+?)\]\]</em>') 	# for cleaning the title
 
 		# --- Find autonum IDs ---
 		for tag in soup.find_all(id=True):
 			id = tag["id"]
 			if "-" not in id:
 				continue
-			prefix, _ = id.split("-", 1)
-			if prefix not in self.prefix_rules:
+			reftype, _ = id.split("-", 1)
+			if reftype not in self._reftypes:
 				continue
 
-			rule = self.prefix_rules[prefix]
-			rule["update"](counters)
-			label = rule["fmt"].format(**counters)
+			rule = self._reftypes[reftype]
+			rule.update()
+			label = rule.label()
 			finfo.labels[id] = label
 
-			if prefix == "sec":
-				title = rex.sub("", tag.text)
+
+			if reftype == "sec":
+				# Track sections for ToC
+				# Note: BS4 converts htmlentities, so we have to convert them back.
+				# This has to be done in a convoluted way. This one 'works', but 
+				# returns numeric ones. For named ones, see `html.entities`?
+				title = tag.decode_contents().encode('ascii', 'xmlcharrefreplace').decode('ascii')
+				title = rex.sub("", title)
 				title = title.strip().replace('\n', '')
 				finfo.sections[id] = title
 				print(f"{id} -> {label} ({title})")
@@ -211,27 +309,6 @@ class AutoReffer:
 		content = rex.sub(toc, content)
 
 		return content
-
-	# --- Main Runner ---
-	def run(self):
-		for entry in self.files:
-			if entry.get("ignore"):
-				continue
-
-			# Chapter number management
-			if "ch" in entry:
-				self.current_ch = entry["ch"]
-				self.ch_type = self._detect_ch_type(self.current_ch)
-			elif self.current_ch:
-				self._increment_ch()
-			else:
-				self.current_ch = 1
-				self.ch_type = "number"
-
-			# Reset counters for this file
-			counters = {k: 0 for k in self.prefix_rules}
-			counters['ch'] = self.current_ch
-			self._single_run(entry["fname"], counters)
 
 
 if (__name__ == "__main__"):
