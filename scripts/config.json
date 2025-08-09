@@ -2,9 +2,6 @@
 	"autoref": {
 		"srcdir": "../prehtml",
 		"dstdir": "../text",
-		"files2": [
-			{ "fname": "bitmaps.htm", "ch": "n5" }
-		],
 		"files": [
 			{ "fname": "portal.htm", "ignore": true },
 			{ "fname": "toc.htm", "ch": "r" },

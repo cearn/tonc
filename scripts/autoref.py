@@ -1,10 +1,11 @@
 
 import os
-from pprint import pprint
 import re
 import json
 import roman
 from bs4 import BeautifulSoup
+
+from pprint import pprint
 
 class AutoReffer:
 	class RefType:
@@ -44,8 +45,6 @@ class AutoReffer:
 			
 		def label(self) -> str:
 			return self._format.format(**self._group)
-			# [TODO]
-			pass
 
 		def inc(self):
 			self.set(self._value+1)
@@ -55,7 +54,7 @@ class AutoReffer:
 			@param value 	Value to use now.
 			@param bnext	Use the value for the _next_ item found. Usually, the value is 
 							incremented then. So if @a value = 2, the next item will actually 
-							be 3, whiuch may not be what you want. Use `bnext = True` to 
+							be 3, which may not be what you want. Use `bnext = True` to 
 							correct for this.
 			"""
 			if bnext == True:
@@ -97,81 +96,24 @@ class AutoReffer:
 	def __init__(self, config_path):
 		self.config_path = config_path
 		# config
-		self.srcdir = ""
-		self.dstdir = ""
-		self.files = []
+		self.srcdir:str = ""
+		self.dstdir:str = ""
+		self.files:list[str] = []
 
-		# internals
-		self.current_ch = None
-		self.ch_type = None
-		self._counters = {}
-
+		#internals
 		self._reftypes:dict[str, AutoReffer.RefType] = {}
+		self.results:dict[str,AutoReffer.FileInfo] = {}
 
-		# results
-		self.results = {}		# fname:FileInfo map
-
-		self._init_reftypes()
 		self._load_config()
-
-	# [REFACTOR]
-	#{{
-	# --- Chapter Helpers ---
-	def _roman_to_int(self, roman):
-		roman = roman.lower()
-		val = {'i': 1, 'v': 5, 'x': 10, 'l': 50,
-			'c': 100, 'd': 500, 'm': 1000}
-
-		total = 0
-		prev = 0
-		for ch in reversed(roman):
-			curr = val[ch]
-			total += curr if curr >= prev else -curr
-			prev = curr
-		return total
-
-	def _int_to_roman(self, num):
-		val = [
-			(1000, "m"), (900, "cm"), (500, "d"),
-			(400, "cd"), (100, "c"), (90, "xc"),
-			(50, "l"), (40, "xl"), (10, "x"),
-			(9, "ix"), (5, "v"), (4, "iv"), (1, "i")
-		]
-
-		result = ""
-		for (v, symbol) in val:
-			while num >= v:
-				result += symbol
-				num -= v
-		return result.lower()
-
-	def _detect_ch_type(self, ch):
-		if ch == "i":		return "roman"
-		elif ch.isupper():	return "upper"
-		elif ch.islower():	return "lower"
-		else:				return "number"
-
-	def _increment_ch(self):
-		if self.ch_type == "number":
-			self.current_ch = str(int(self.current_ch) + 1)
-		elif self.ch_type == "roman":
-			self.current_ch = self._int_to_roman(self._roman_to_int(self.current_ch) + 1)
-		elif self.ch_type == "upper":
-			self.current_ch = chr(ord(self.current_ch) + 1)
-		elif self.ch_type == "lower":
-			self.current_ch = chr(ord(self.current_ch) + 1)
-	#}}
+		self._init_reftypes()
 
 	def _load_config(self):
-		with open(self.config_path, "r") as f:
+		with open(self.config_path, 'r') as f:
 			config = json.load(f)["autoref"]
 
-		self.files = config["files"]
-		self.srcdir = config["srcdir"]
-		self.dstdir = config["dstdir"]
-
-	def _ch_update(self, groups, chstyle:str):
-		pass
+		self.srcdir = config['srcdir']
+		self.dstdir = config['dstdir']
+		self.files = config['files']
 
 	def _init_reftypes(self):
 		"""
@@ -180,7 +122,7 @@ class AutoReffer:
 
 		reftypes = {}
 		reftypes['ch']  = self.RefType(reftypes, 'ch',   '{ch}.')
-		reftypes['sec'] = self.RefType(reftypes, 'sec',  '{ch}.{sec}.', resets= ['ssec'])
+		reftypes['sec'] = self.RefType(reftypes, 'sec',  '{ch}.{sec}.', resets = ['ssec'])
 		reftypes['ssec'] = self.RefType(reftypes, 'ssec', '{ch}.{sec}.{ssec}.')
 		reftypes['eq'] =  self.RefType(reftypes, 'eq',   '{ch}.{eq}')
 		reftypes['img']=  self.RefType(reftypes, 'img',  '{ch}.{img}')
@@ -191,7 +133,7 @@ class AutoReffer:
 	# --- Main Runner ---
 	def run(self):
 		for entry in self.files:
-			if entry.get("ignore"):
+			if entry.get('ignore'):
 				continue
 
 			# [TODO] Resetting everything here is a hack. Ideally, we can just
@@ -199,16 +141,16 @@ class AutoReffer:
 			ch = self._reftypes['ch']
 			self._init_reftypes()
 
-			if 'ch' in entry and len(entry['ch'])>0:
+			if 'ch' in entry and len(entry['ch']) > 0:
 				style = entry['ch'][:1]
 				value = entry['ch'][1:]
-				value = int(value) if value != '' else 1
+				value = int(value) if len(value) > 0 else 1
 				ch.set(int(value), True)
 				ch.set_style(style)
 
 			self._reftypes['ch'] = ch
 
-			self._single_run(entry["fname"])
+			self._single_run(entry['fname'])
 
 	def _single_run(self, fname):
 		"""
@@ -224,7 +166,7 @@ class AutoReffer:
 			return
 
 		print(f"\n--- {fname} (ch={self._reftypes['ch']}) ---")
-		with open(path, "r", encoding="utf-8") as fin:
+		with open(path, 'r', encoding='utf-8') as fin:
 			content = fin.read()
 
 		# Find ids & labels
@@ -239,12 +181,12 @@ class AutoReffer:
 
 		# --- Save ---
 		path = os.path.join(self.dstdir, fname)
-		with open(path, "w", encoding="utf-8") as fout:
+		with open(path, 'w', encoding='utf-8') as fout:
 			fout.write(content)
 
 		pass
 
-	def _single_find_info(self, soup:BeautifulSoup):
+	def _single_find_info(self, soup:BeautifulSoup) -> FileInfo:
 		"""
 		Collects info for later processing.
 		@returns FileInfo object 
@@ -254,10 +196,10 @@ class AutoReffer:
 
 		# --- Find autonum IDs ---
 		for tag in soup.find_all(id=True):
-			id = tag["id"]
+			id = tag['id']
 			if "-" not in id:
 				continue
-			reftype, _ = id.split("-", 1)
+			reftype, _ = id.split('-', 1)
 			if reftype not in self._reftypes:
 				continue
 
@@ -266,8 +208,7 @@ class AutoReffer:
 			label = rule.label()
 			finfo.labels[id] = label
 
-
-			if reftype == "sec":
+			if reftype == 'sec':
 				# Track sections for ToC
 				# Note: BS4 converts htmlentities, so we have to convert them back.
 				# This has to be done in a convoluted way. This one 'works', but 
@@ -314,4 +255,3 @@ class AutoReffer:
 if (__name__ == "__main__"):
 	processor = AutoReffer("config.json")
 	processor.run()
- 
