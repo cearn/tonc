@@ -27,22 +27,26 @@ body, table {
 th.page			{	visibility:hidden;	}
 
 
-h1, h2, h3, h4, h5	{	page-break-after: avoid;	}
-h1	{ font-size: 200%;	color: blue; text-indent: 32px;	}
-h2	{ margin: 1.0em 1em 0.2em; font-size: 130%; color:green;		}
-h3  { margin: 1.0em 1em 0.2em; font-size: 115%; color: #000060;	}
-h4	{ margin: 1.0em 1em 0.2em; font-size: 105%;					}
-h5	{ margin: 0.2em 1em 0.2em; font-size: 100%;					}
+h1, h2, h3, h4, h5	{ page-break-after: avoid; }
+h1	{ font-size: 200%;	color: blue; text-indent: 32px; }
+h2	{ margin: 1.0em 1em 0.2em; font-size: 130%; color: #007000; }
+h3  { margin: 1.0em 1em 0.2em; font-size: 115%; color: #000060; }
+h4	{ margin: 1.0em 1em 0.2em; font-size: 105%; }
+h5	{ margin: 0.2em 1em 0.2em; font-size: 100%; }
 
-h2+h3	{ margin-top: 0.2em;		}
-h2+h4	{ margin-top: 0.2em;		}
-h3+h4	{ margin-top: 0.2em;		}
+h2+h3	{ margin-top: 0.2em; }
+h2+h4	{ margin-top: 0.2em; }
+h3+h4	{ margin-top: 0.2em; }
 
 
-p		{ margin-top: 0.2em; margin-bottom: 0.2em; }
+p {
+	margin-top: 0.2em; 
+	margin-bottom: 0.2em;
+}
 p+p		{ text-indent: 1.2em; }
 p.ni	{ text-indent: 0; }
 
+p.dent	{ text-indent:1.5em; }
 
 sup { 
 	position: relative;
@@ -85,13 +89,13 @@ li.upgr	{ list-style-image:url(../img/main/bul_upgr.png); }
 
 /* === divisions === */
 .sm		{ margin-top: 0; margin-bottom: 0; }
-.mini	{ font-size: 85%;	}
-.keyw	{ color: #0000D0;	}
-.cmt	{ color: #007000;	}
-.str	{ color: #800080;	}
-.num	{ color: #C000C0;	}
-.rem	{ color:red;		}
-.ack	{ font-weight:bold; color:red;	}
+.mini	{ font-size: 85%; }
+.keyw	{ color: #0000D0; }
+.cmt	{ color: #007000; }
+.str	{ color: #800080; }
+.num	{ color: #C000C0; }
+.rem	{ color: red; }
+.ack	{ font-weight: bold; color: red; }
 
 .marge	{ margin: 0.5em;		}
 
@@ -106,8 +110,11 @@ div.note {
 	box-shadow: 2px 2px 4px #808080;
 }
 
-div.nh, div.nhgood, div.nhbad, div.nhcare
-{ font-size: 115%; font-weight:bold; margin: 0.1em 0.5em 0.2em; }
+div.nh, div.nhgood, div.nhbad, div.nhcare {
+	margin: 0.1em 0.5em 0.2em; 
+	font-size: 115%; 
+	font-weight:bold; 
+}
 div.nhgood	{ color:green;		}
 div.nhbad	{ color:red;		}
 div.nhcare	{ color: #C06000;	}
@@ -123,8 +130,8 @@ div.cpt, div.cpt_fl, div.cpt_fr {
 	page-break-inside: avoid;
 }
 
-div.cpt_fl	{ float:left;	}
-div.cpt_fr	{ float:right;	}
+div.cpt_fl	{ float: left; }
+div.cpt_fr	{ float: right; }
 
 /* Margins inside tables work differently. */
 td div.cpt, td div.dpt_fl, td div.cpt_fr {
@@ -150,11 +157,11 @@ div.cblock div.cpt	{ margin: 0.5em auto; }
 
 /* The all important code listing styles */
 .proglist {
-	border: #C0C0C0 solid 1px;
 	width: 92%; 
 	margin: 0.6em auto;
 	padding: 8px;
 	background: #E0E0E0;
+	border: #C0C0C0 solid 1px;
 	border-radius: 4px;
 	box-shadow: 2px 2px 4px #C0C0C0;
 	font: 500 90% monospace; 
@@ -175,6 +182,7 @@ table.cp-8 { th, td { padding: 8px !important; } }
 /* border=1 equivalent */
 table.border-std {
 	border: 1px outset;
+	>thead>tr { >th, >td { border: 1px inset black; } }
 	>tbody>tr { >th, >td { border: 1px inset; } }
 }
 
@@ -310,10 +318,10 @@ tr.bg0, tr.bg1
 	border: #C0C0C0 solid 2px;
 /*	opacity: 0.75; filter:alpha(opacity=0);	*/
 }
-tr.bg0		{	background-color: #E0E0E0;			}
-tr.bg1		{	background-color: #C0C0C0;			}
-tr.bg0 td	{	border-bottom: #C0C0C0 1px solid;	}
-tr.bg1 td	{	border-bottom: #E0E0E0 1px solid;	}
+tr.bg0		{ background-color: #E0E0E0; }
+tr.bg1		{ background-color: #C0C0C0; }
+tr.bg0 td	{ border-bottom: 1px solid #C0C0C0; }
+tr.bg1 td	{ border-bottom: 1px solid #E0E0E0; }
 
 
 /* read only, write only */
@@ -333,7 +341,10 @@ tr.bg1 td	{	border-bottom: #E0E0E0 1px solid;	}
 .rclr9	{ color:gray;		}
 
 /* --- 'equation tables' --- */
-.eqtbl		{ font-size: 100%;	page-break-inside:avoid;		}
+.eqtbl {
+	font-size: 100%;
+	page-break-inside:avoid;
+}
 
 /* basic A = B equation */
 .eqtbl.basic {
@@ -346,12 +357,18 @@ tr.bg1 td	{	border-bottom: #E0E0E0 1px solid;	}
 	text-align: center;
 }
 
-.eqcell		{ padding: 0.5em 0;	font-size: 115%;					}
+.eqcell {
+	padding: 0.5em 0;
+	font-size: 115%;
+	vertical-align: middle;
+}
+
 .eqnrcell {
-	padding-right: 8px; 
-	min-width: 2.5em; 
-	text-align: left; 
+	padding-right: 8px;
+	min-width: 2.5em;
+	text-align: left;
 	font-weight:bold;
+	vertical-align: middle;
 }
 
 /* --- header/footer cells --- */
@@ -364,19 +381,19 @@ td.hdr_r	{ width: 40%; text-align:right;	}
 
 /* (Table) border styles */
 .bdr
-{ border: 1px black solid;		}
+{ border: 1px solid black; }
 .bdrTL, .bdrTR, 
 .bdrLL, .bdrRR, 
 .bdrBL, .bdrBR { padding: 0; }
 
 .bdrT, .bdrTL, .bdrTR, .bdrLL, .bdrRR
-{ border-top: 1px black solid;		}
+{ border-top: 1px solid black; }
 .bdrL, .bdrTL, .bdrBL, .bdrLL
-{ border-left: 1px black solid;		}
+{ border-left: 1px solid black; }
 .bdrR, .bdrTR, .bdrBR, .bdrRR
-{ border-right: 1px black solid;		}
+{ border-right: 1px solid black; }
 .bdrB, .bdrBL, .bdrBR, .bdrLL, .bdrRR
-{ border-bottom: 1px black solid;	}
+{ border-bottom: 1px solid black; }
 
 /* ------------------------------------------------------------------------------------------
 	BANNERS
