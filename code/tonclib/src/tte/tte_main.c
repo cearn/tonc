@@ -156,7 +156,7 @@ void tte_init_base(const TFont *font, fnDrawg drawProc, fnErase eraseProc)
 	tc->cattr[TTE_SPECIAL]= 0;
 	
 	tc->marginRight= SCREEN_WIDTH;
-	tc->marginBottom= SCREEN_HEIGHT;	
+	tc->marginBottom= SCREEN_HEIGHT;
 }
 
 
@@ -384,12 +384,12 @@ char *tte_cmd_default(const char *str)
 				case 'i':
 					tc->cattr[TTE_INK]= strtol(curr, &next, 0);
 					break;
-				case 's':		
+				case 's':
 					tc->cattr[TTE_SHADOW]= strtol(curr, &next, 0);
 					break;
 				case 'p':
 					tc->cattr[TTE_PAPER]= strtol(curr, &next, 0);
-					break;				
+					break;
 				case 'x':
 					tc->cattr[TTE_SPECIAL]= strtol(curr, &next, 0);
 					break;
@@ -442,7 +442,7 @@ char *tte_cmd_default(const char *str)
 				//# erase character / backspace.
 				}
 			}
-			break;	
+			break;
 		
 		// --- Margins ---
 		case 'm':
@@ -486,7 +486,7 @@ char *tte_cmd_default(const char *str)
 						break;
 
 					tc->marginBottom= strtol(curr+1, &next, 0);
-					break;				
+					break;
 				}
 			}
 			break;
@@ -519,7 +519,7 @@ char *tte_cmd_default(const char *str)
 		if(curr[0] == '\0')
 			return curr;
 		else if(curr[0] == '}')
-			return curr+1;	
+			return curr+1;
 	}
 }
 
@@ -643,7 +643,7 @@ int	tte_write(const char *text)
 	return str - text;
 }
 
-//! Erase a porttion of the screen (ignores margins)
+//! Erase a portion of the screen (ignores margins)
 void tte_erase_rect(int left, int top, int right, int bottom)
 {
 	TTC *tc= tte_get_context();
@@ -711,7 +711,7 @@ POINT16 tte_get_text_size(const char *str)
 			if(x > width)
 				width= x;
 			x= 0;
-			break;			
+			break;
 
 		// --- Special char ---
 		case '\\':
@@ -726,13 +726,13 @@ POINT16 tte_get_text_size(const char *str)
 			charW= tc->font->cellW;
 			if(x+charW > tc->marginRight)
 			{
-				height += charH;		
+				height += charH;
 				if(x>width)
 					width= x;
-				x=0;			
+				x=0;
 			}
 			else
-				x += tte_get_glyph_width(tte_get_glyph_id(ch));	
+				x += tte_get_glyph_width(tte_get_glyph_id(ch));
 		}
 	}
 
@@ -753,6 +753,5 @@ void tte_set_margins(int left, int top, int right, int bottom)
 	tc->marginRight = right;
 	tc->marginBottom= bottom;
 }
-
 
 // EOF
