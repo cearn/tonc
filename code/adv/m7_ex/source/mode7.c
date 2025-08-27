@@ -108,12 +108,8 @@ void m7_translate_global(M7_CAM *cam, const VECTOR *dir)
 //! Update sky-bg position
 void m7_update_sky(const M7_LEVEL *level)
 {
-	REG_BG2HOFS= (level->camera->phi>>6)+M7_LEFT;
+	REG_BG2HOFS= (level->camera->phi>>5)+M7_LEFT;
 	REG_BG2VOFS= -m7_horizon_line(level)-1;
 }
-
-
-
-
 
 // EOF

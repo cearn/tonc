@@ -70,7 +70,7 @@ IWRAM_CODE void m7_prep_affines(M7_LEVEL *level)
 		bga->pa= lcf>>4;				// .8f
 		bga->pc= lsf>>4;				// .8f
 
-		// lambda·Rx·b
+		// lambda*Rx*b
 		zb= (ii-M7_TOP)*st - M7_D*ct;	// .8f
 		bga->dx= xc + (lcf>>4)*M7_LEFT - (lsf*zb>>12);	// .8f
 		bga->dy= zc + (lsf>>4)*M7_LEFT + (lcf*zb>>12);	// .8f
