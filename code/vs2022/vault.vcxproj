@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>17.0</VCProjectVersion>
+    <ProjectGuid>{838CD683-F696-4952-8872-CC6A51F88588}</ProjectGuid>
+    <Keyword>MakeFileProj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>17.0.36414.14</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>.\</OutDir>
+    <IntDir>.\</IntDir>
+    <NMakeBuildCommandLine>NMAKE /f vault.mak</NMakeBuildCommandLine>
+    <NMakeReBuildCommandLine>NMAKE /f vault.mak /a</NMakeReBuildCommandLine>
+    <NMakeCleanCommandLine />
+    <NMakeOutput>vault.exe</NMakeOutput>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>.\</OutDir>
+    <IntDir>.\</IntDir>
+    <NMakeBuildCommandLine>NMAKE /f vault.mak</NMakeBuildCommandLine>
+    <NMakeReBuildCommandLine>NMAKE /f vault.mak /a</NMakeReBuildCommandLine>
+    <NMakeCleanCommandLine />
+    <NMakeOutput>vault.exe</NMakeOutput>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <None Include="..\..\..\..\..\devkitPro\devkitARM\base_rules" />
+    <None Include="..\..\..\..\..\devkitPro\devkitARM\gba_rules" />
+    <None Include="..\..\..\..\..\devkitPro\examples\gba\template\Makefile">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </None>
+    <None Include="..\..\..\..\..\devkitPro\libgba\src\ArcTan.s" />
+    <None Include="..\..\..\..\..\devkitPro\libgba\src\Div.s" />
+    <None Include="..\..\..\..\..\devkitPro\libgba\src\DivArm.s" />
+    <None Include="..\..\..\..\..\devkitPro\libgba\src\division.s" />
+    <None Include="..\..\..\..\..\devkitPro\libgba\src\InterruptDispatcher.s" />
+    <None Include="..\..\..\..\..\devkitPro\libgba\src\MultiBoot.s" />
+    <None Include="..\..\..\..\..\devkitPro\libgba\src\Reset.s" />
+    <None Include="..\..\..\..\..\devkitPro\libgba\src\Sound.s" />
+    <None Include="..\..\..\..\..\devkitPro\libgba\src\Sqrt.s" />
+    <None Include="..\..\..\..\..\man\as-2.17.chm" />
+    <None Include="..\..\..\..\..\man\bashref-2.05b.chm" />
+    <None Include="..\..\..\..\..\man\binutils-2.15.chm" />
+    <None Include="..\..\..\..\..\man\cpp-3.3.2.chm" />
+    <None Include="..\..\..\..\..\man\gcc-4.1.2.chm" />
+    <None Include="..\..\..\..\..\man\ld-2.17.chm" />
+    <None Include="..\..\..\..\..\man\make-3.81.chm" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\..\..\devkitPro\libgba\include\BoyScout.h" />
+    <ClInclude Include="..\..\..\..\..\devkitPro\libgba\include\erapi.h" />
+    <ClInclude Include="..\..\..\..\..\devkitPro\libgba\include\fade.h" />
+    <ClInclude Include="..\..\..\..\..\devkitPro\libgba\include\fat.h" />
+    <ClInclude Include="..\..\..\..\..\devkitPro\libgba\include\gba.h" />
+    <ClInclude Include="..\..\..\..\..\devkitPro\libgba\include\gba_affine.h" />
+    <ClInclude Include="..\..\..\..\..\devkitPro\libgba\include\gba_base.h" />
+    <ClInclude Include="..\..\..\..\..\devkitPro\libgba\include\gba_compression.h" />
+    <ClInclude Include="..\..\..\..\..\devkitPro\libgba\include\gba_console.h" />
+    <ClInclude Include="..\..\..\..\..\devkitPro\libgba\include\gba_dma.h" />
+    <ClInclude Include="..\..\..\..\..\devkitPro\libgba\include\gba_input.h" />
+    <ClInclude Include="..\..\..\..\..\devkitPro\libgba\include\gba_interrupt.h" />
+    <ClInclude Include="..\..\..\..\..\devkitPro\libgba\include\gba_multiboot.h" />
+    <ClInclude Include="..\..\..\..\..\devkitPro\libgba\include\gba_sio.h" />
+    <ClInclude Include="..\..\..\..\..\devkitPro\libgba\include\gba_sound.h" />
+    <ClInclude Include="..\..\..\..\..\devkitPro\libgba\include\gba_sprites.h" />
+    <ClInclude Include="..\..\..\..\..\devkitPro\libgba\include\gba_systemcalls.h" />
+    <ClInclude Include="..\..\..\..\..\devkitPro\libgba\include\gba_timers.h" />
+    <ClInclude Include="..\..\..\..\..\devkitPro\libgba\include\gba_types.h" />
+    <ClInclude Include="..\..\..\..\..\devkitPro\libgba\include\gba_video.h" />
+    <ClInclude Include="..\..\..\..\..\devkitPro\libgba\include\mappy.h" />
+    <ClInclude Include="..\..\..\..\..\devkitPro\libgba\include\mbv2.h" />
+    <ClInclude Include="..\..\..\..\..\devkitPro\libgba\include\pcx.h" />
+    <ClInclude Include="..\..\..\..\..\devkitPro\libgba\include\xcomms.h" />
+    <ClInclude Include="..\..\..\..\..\devkitPro\libgba\include\xcomms_cmd.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\..\..\devkitPro\libgba\src\AffineSet.c" />
+    <ClCompile Include="..\..\..\..\..\devkitPro\libgba\src\Compression.c" />
+    <ClCompile Include="..\..\..\..\..\devkitPro\libgba\src\console.c" />
+    <ClCompile Include="..\..\..\..\..\devkitPro\libgba\src\CpuSet.c" />
+    <ClCompile Include="..\..\..\..\..\devkitPro\libgba\src\fade.c" />
+    <ClCompile Include="..\..\..\..\..\devkitPro\libgba\src\input.c" />
+    <ClCompile Include="..\..\..\..\..\devkitPro\libgba\src\interrupt.c" />
+    <ClCompile Include="..\..\..\..\..\devkitPro\libgba\src\IntrWait.c" />
+    <ClCompile Include="..\..\..\..\..\devkitPro\libgba\src\mappy_print.c" />
+    <ClCompile Include="..\..\..\..\..\devkitPro\libgba\src\mb2print.c" />
+    <ClCompile Include="..\..\..\..\..\devkitPro\libgba\src\mbv2.c" />
+    <ClCompile Include="..\..\..\..\..\devkitPro\libgba\src\pcx.c" />
+    <ClCompile Include="..\..\..\..\..\devkitPro\libgba\src\xcomms.c" />
+    <ClCompile Include="..\..\..\..\..\devkitPro\libgba\src\xcomms_print.c" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

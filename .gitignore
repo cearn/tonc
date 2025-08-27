@@ -6,8 +6,11 @@
 *.chm
 *.elf
 *.gba
+*.vcxproj.filters
+*.vcxproj.user
 
 # Folders
+**/.vs/
 **/.svn
 **/build
 code/tonclib/doc/

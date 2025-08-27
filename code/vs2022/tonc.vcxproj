@@ -1,0 +1,457 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Build All|Win32">
+      <Configuration>Build All</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Build libtonc|Win32">
+      <Configuration>Build libtonc</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Build Single|Win32">
+      <Configuration>Build Single</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Clean All|Win32">
+      <Configuration>Clean All</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Clean Single|Win32">
+      <Configuration>Clean Single</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>17.0</VCProjectVersion>
+    <ProjectGuid>{1CC0315B-905D-4115-A584-84C1CEFC806E}</ProjectGuid>
+    <RootNamespace>tonc</RootNamespace>
+    <Keyword>MakeFileProj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Build All|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Build libtonc|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Clean All|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Build Single|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Clean Single|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Build All|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Build libtonc|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Clean All|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Build Single|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Clean Single|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>17.0.36414.14</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Clean Single|Win32'">
+    <OutDir>.\</OutDir>
+    <IntDir>.\</IntDir>
+    <NMakeBuildCommandLine>make clean  -C ../</NMakeBuildCommandLine>
+    <NMakeReBuildCommandLine>make clean  -C ../ /a</NMakeReBuildCommandLine>
+    <NMakeCleanCommandLine />
+    <NMakeOutput>tonc.exe</NMakeOutput>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Build Single|Win32'">
+    <OutDir>.\</OutDir>
+    <IntDir>.\</IntDir>
+    <NMakeBuildCommandLine>make -C ../ IDE=msvc</NMakeBuildCommandLine>
+    <NMakeReBuildCommandLine>make -C ../ IDE=msvc /a</NMakeReBuildCommandLine>
+    <NMakeCleanCommandLine>make -C ../ clean</NMakeCleanCommandLine>
+    <NMakeOutput>tonc.exe</NMakeOutput>
+    <NMakeIncludeSearchPath>$(ProjectDir)..\tonclib\include;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Clean All|Win32'">
+    <OutDir>.\</OutDir>
+    <IntDir>.\</IntDir>
+    <NMakeBuildCommandLine>make clean_all  -C ../</NMakeBuildCommandLine>
+    <NMakeReBuildCommandLine>make clean_all  -C ../ /a</NMakeReBuildCommandLine>
+    <NMakeCleanCommandLine />
+    <NMakeOutput>tonc.exe</NMakeOutput>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Build libtonc|Win32'">
+    <OutDir>.\</OutDir>
+    <IntDir>.\</IntDir>
+    <NMakeBuildCommandLine>make libtonc  -C ../</NMakeBuildCommandLine>
+    <NMakeReBuildCommandLine>make libtonc  -C ../ /a</NMakeReBuildCommandLine>
+    <NMakeCleanCommandLine />
+    <NMakeOutput>tonc.exe</NMakeOutput>
+    <NMakeIncludeSearchPath>$(ProjectDir)..\tonclib\;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Build All|Win32'">
+    <OutDir>.\</OutDir>
+    <IntDir>.\</IntDir>
+    <NMakeBuildCommandLine>make build_all  -C ../</NMakeBuildCommandLine>
+    <NMakeReBuildCommandLine>make build_all  -C ../ /a</NMakeReBuildCommandLine>
+    <NMakeCleanCommandLine />
+    <NMakeOutput>tonc.exe</NMakeOutput>
+    <NMakeIncludeSearchPath>$(ProjectDir)..\tonclib\include;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <None Include="..\..\prehtml\affbg.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\prehtml\affine.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\prehtml\affobj.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\prehtml\asm.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\prehtml\base.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\prehtml\bitmaps.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\prehtml\dma.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\prehtml\edmake.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\prehtml\first.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\prehtml\fixed.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\prehtml\gfx.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\prehtml\hardware.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\prehtml\interrupts.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\prehtml\intro.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\prehtml\keys.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\prehtml\lab.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\prehtml\log.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\prehtml\makefile.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\prehtml\matrix.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\prehtml\mode7.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\prehtml\mode7ex.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\prehtml\numbers.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\prehtml\objbg.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\prehtml\portal.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\prehtml\refs.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\prehtml\regbg.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\prehtml\regobj.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\prehtml\setup.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\prehtml\sndsqr.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\prehtml\swi.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\prehtml\text.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\prehtml\timers.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\prehtml\toc.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\prehtml\tonc.css" />
+    <None Include="..\..\prehtml\tonc.js" />
+    <None Include="..\..\prehtml\tte.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\prehtml\video.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\adv\m7_demo\gfxmake" />
+    <None Include="..\adv\m7_demo\m7_demo.gba" />
+    <None Include="..\adv\m7_demo\Makefile" />
+    <None Include="..\adv\m7_ex\gfxmake" />
+    <None Include="..\adv\m7_ex\m7_ex.gba" />
+    <None Include="..\adv\m7_ex\Makefile" />
+    <None Include="..\adv\tte_demo\build\tte_demo.map" />
+    <None Include="..\adv\tte_demo\gfxmake" />
+    <None Include="..\adv\tte_demo\gfx\dungeon01.grit" />
+    <None Include="..\adv\tte_demo\gfx\menu_gfx.grit" />
+    <None Include="..\adv\tte_demo\Makefile" />
+    <None Include="..\adv\tte_demo\tte_demo.gba" />
+    <None Include="..\adv\txt_bm\Makefile" />
+    <None Include="..\adv\txt_bm\txt_bm.gba" />
+    <None Include="..\adv\txt_obj\Makefile" />
+    <None Include="..\adv\txt_obj\txt_obj.gba" />
+    <None Include="..\adv\txt_se1\Makefile" />
+    <None Include="..\adv\txt_se1\txt_se1.gba" />
+    <None Include="..\adv\txt_se2\Makefile" />
+    <None Include="..\adv\txt_se2\txt_se2.gba" />
+    <None Include="..\basic\bm_modes\bm_modes.gba" />
+    <None Include="..\basic\bm_modes\Makefile" />
+    <None Include="..\basic\brin_demo\brin_demo.gba" />
+    <None Include="..\basic\brin_demo\Makefile" />
+    <None Include="..\basic\cbb_demo\cbb_demo.gba" />
+    <None Include="..\basic\cbb_demo\Makefile" />
+    <None Include="..\basic\first\first.bat" />
+    <None Include="..\basic\first\first.gba" />
+    <None Include="..\basic\first\Makefile" />
+    <None Include="..\basic\first\makefile.mak" />
+    <None Include="..\basic\first\makefile2.mak" />
+    <None Include="..\basic\hello\hello.gba" />
+    <None Include="..\basic\hello\Makefile" />
+    <None Include="..\basic\key_demo\key_demo.gba" />
+    <None Include="..\basic\key_demo\Makefile" />
+    <None Include="..\basic\m3_demo\m3_demo.gba" />
+    <None Include="..\basic\m3_demo\Makefile" />
+    <None Include="..\basic\obj_demo\Makefile" />
+    <None Include="..\basic\obj_demo\obj_demo.gba" />
+    <None Include="..\basic\pageflip\Makefile" />
+    <None Include="..\basic\pageflip\pageflip.gba" />
+    <None Include="..\basic\sbb_reg\Makefile" />
+    <None Include="..\basic\sbb_reg\sbb_reg.gba" />
+    <None Include="..\basic\second\Makefile" />
+    <None Include="..\basic\second\second.gba" />
+    <None Include="..\ext\bld_demo\bld_demo.gba" />
+    <None Include="..\ext\bld_demo\Makefile" />
+    <None Include="..\ext\dma_demo\dma_demo.gba" />
+    <None Include="..\ext\dma_demo\Makefile" />
+    <None Include="..\ext\irq_demo\irq_demo.gba" />
+    <None Include="..\ext\irq_demo\Makefile" />
+    <None Include="..\ext\mos_demo\Makefile" />
+    <None Include="..\ext\mos_demo\mos_demo.gba" />
+    <None Include="..\ext\oacombo\Makefile" />
+    <None Include="..\ext\oacombo\oacombo.gba" />
+    <None Include="..\ext\oacombo\oe_rs_ex.s" />
+    <None Include="..\ext\obj_aff\Makefile" />
+    <None Include="..\ext\obj_aff\obj_aff.gba" />
+    <None Include="..\ext\sbb_aff\Makefile" />
+    <None Include="..\ext\sbb_aff\sbb_aff.gba" />
+    <None Include="..\ext\snd1_demo\Makefile" />
+    <None Include="..\ext\snd1_demo\snd1_demo.gba" />
+    <None Include="..\ext\swi_demo\Makefile" />
+    <None Include="..\ext\swi_demo\swi_demo.gba" />
+    <None Include="..\ext\swi_vsync\Makefile" />
+    <None Include="..\ext\swi_vsync\swi_vsync.gba" />
+    <None Include="..\ext\tmr_demo\Makefile" />
+    <None Include="..\ext\tmr_demo\tmr_demo.gba" />
+    <None Include="..\ext\win_demo\Makefile" />
+    <None Include="..\ext\win_demo\win_demo.gba" />
+    <None Include="..\lab\bigmap\bigmap.gba" />
+    <None Include="..\lab\bigmap\kakariko.s" />
+    <None Include="..\lab\bigmap\link_gfx.s" />
+    <None Include="..\lab\bigmap\Makefile" />
+    <None Include="..\lab\octtest\Makefile" />
+    <None Include="..\lab\octtest\octants.s" />
+    <None Include="..\lab\octtest\octtest.gba" />
+    <None Include="..\lab\prio_demo\id_sort_shell2.s" />
+    <None Include="..\lab\prio_demo\Makefile" />
+    <None Include="..\lab\prio_demo\prio_demo.gba" />
+    <None Include="..\lab\template\Makefile" />
+    <None Include="..\lab\template\template.gba" />
+    <None Include="..\Makefile" />
+    <None Include="..\tonc.mak" />
+    <None Include="..\tonc_rules" />
+    <None Include="tonc.bsc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\..\bin\tonc-bin.txt" />
+    <Text Include="..\..\summary.txt" />
+    <Text Include="..\..\text\tonc-text.txt" />
+    <Text Include="..\..\tonc.txt" />
+    <Text Include="..\tonc-code.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\adv\m7_demo\source\m7_demo.c" />
+    <ClCompile Include="..\adv\m7_demo\source\m7_isrs.iwram.c" />
+    <ClCompile Include="..\adv\m7_ex\source\m7_ex.c" />
+    <ClCompile Include="..\adv\m7_ex\source\mode7.c" />
+    <ClCompile Include="..\adv\m7_ex\source\mode7.iwram.c" />
+    <ClCompile Include="..\adv\tte_demo\source\main.c" />
+    <ClCompile Include="..\adv\tte_demo\source\menu.c" />
+    <ClCompile Include="..\adv\tte_demo\source\slideshow.c" />
+    <ClCompile Include="..\adv\tte_demo\source\tte_profile.c" />
+    <ClCompile Include="..\adv\txt_bm\txt_bm.c" />
+    <ClCompile Include="..\adv\txt_obj\txt_obj.c" />
+    <ClCompile Include="..\adv\txt_se1\border.c" />
+    <ClCompile Include="..\adv\txt_se1\txt_se1.c" />
+    <ClCompile Include="..\adv\txt_se2\txt_se2.c" />
+    <ClCompile Include="..\basic\bm_modes\bm_modes.c" />
+    <ClCompile Include="..\basic\bm_modes\modes.c" />
+    <ClCompile Include="..\basic\bm_modes\toolbox.c" />
+    <ClCompile Include="..\basic\brin_demo\brin.c" />
+    <ClCompile Include="..\basic\brin_demo\brin_demo.c" />
+    <ClCompile Include="..\basic\brin_demo\toolbox.c" />
+    <ClCompile Include="..\basic\cbb_demo\cbb_demo.c" />
+    <ClCompile Include="..\basic\cbb_demo\cbb_ids.c" />
+    <ClCompile Include="..\basic\first\first.c" />
+    <ClCompile Include="..\basic\hello\hello.c" />
+    <ClCompile Include="..\basic\key_demo\gba_pic.c" />
+    <ClCompile Include="..\basic\key_demo\key_demo.c" />
+    <ClCompile Include="..\basic\key_demo\toolbox.c" />
+    <ClCompile Include="..\basic\m3_demo\m3_demo.c" />
+    <ClCompile Include="..\basic\m3_demo\toolbox.c" />
+    <ClCompile Include="..\basic\obj_demo\metr.c" />
+    <ClCompile Include="..\basic\obj_demo\obj_demo.c" />
+    <ClCompile Include="..\basic\obj_demo\toolbox.c" />
+    <ClCompile Include="..\basic\pageflip\pageflip.c" />
+    <ClCompile Include="..\basic\pageflip\page_pic.c" />
+    <ClCompile Include="..\basic\pageflip\toolbox.c" />
+    <ClCompile Include="..\basic\sbb_reg\sbb_reg.c" />
+    <ClCompile Include="..\basic\sbb_reg\toolbox.c" />
+    <ClCompile Include="..\basic\second\second.c" />
+    <ClCompile Include="..\ext\bld_demo\bld_demo.c" />
+    <ClCompile Include="..\ext\bld_demo\metr.c" />
+    <ClCompile Include="..\ext\dma_demo\brin.c" />
+    <ClCompile Include="..\ext\dma_demo\dma_demo.c" />
+    <ClCompile Include="..\ext\irq_demo\irq_demo.c" />
+    <ClCompile Include="..\ext\irq_demo\isr.iwram.c" />
+    <ClCompile Include="..\ext\mos_demo\metr.c" />
+    <ClCompile Include="..\ext\mos_demo\mos_demo.c" />
+    <ClCompile Include="..\ext\oacombo\oacombo.c" />
+    <ClCompile Include="..\ext\oacombo\oac_gfx.c" />
+    <ClCompile Include="..\ext\obj_aff\metr.c" />
+    <ClCompile Include="..\ext\obj_aff\obj_aff.c" />
+    <ClCompile Include="..\ext\sbb_aff\nums.c" />
+    <ClCompile Include="..\ext\sbb_aff\sbb_aff.c" />
+    <ClCompile Include="..\ext\snd1_demo\snd1_demo.c" />
+    <ClCompile Include="..\ext\swi_demo\swi_demo.c" />
+    <ClCompile Include="..\ext\swi_vsync\metr.c" />
+    <ClCompile Include="..\ext\swi_vsync\swi_vsync.c" />
+    <ClCompile Include="..\ext\tmr_demo\berk.c" />
+    <ClCompile Include="..\ext\tmr_demo\tmr_demo.c" />
+    <ClCompile Include="..\ext\win_demo\rocket.c" />
+    <ClCompile Include="..\ext\win_demo\win_demo.c" />
+    <ClCompile Include="..\lab\bigmap\bigmap.c" />
+    <ClCompile Include="..\lab\bigmap\link.c" />
+    <ClCompile Include="..\lab\octtest\octtest.c" />
+    <ClCompile Include="..\lab\prio_demo\prio.iwram.c" />
+    <ClCompile Include="..\lab\prio_demo\prio_bg.c" />
+    <ClCompile Include="..\lab\prio_demo\prio_demo.c" />
+    <ClCompile Include="..\lab\prio_demo\prio_gfx.c" />
+    <ClCompile Include="..\lab\template\source\main.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\adv\m7_demo\source\m7_demo.h" />
+    <ClInclude Include="..\adv\m7_ex\build\all_gfx.h" />
+    <ClInclude Include="..\adv\m7_ex\source\mode7.h" />
+    <ClInclude Include="..\adv\tte_demo\fonts\cyber16.h" />
+    <ClInclude Include="..\adv\tte_demo\fonts\fonts.h" />
+    <ClInclude Include="..\adv\tte_demo\fonts\mssans9.h" />
+    <ClInclude Include="..\adv\tte_demo\fonts\tahoma9.h" />
+    <ClInclude Include="..\adv\tte_demo\fonts\verdana11.h" />
+    <ClInclude Include="..\adv\tte_demo\include\menu.h" />
+    <ClInclude Include="..\adv\txt_se1\border.h" />
+    <ClInclude Include="..\basic\bm_modes\modes.h" />
+    <ClInclude Include="..\basic\bm_modes\toolbox.h" />
+    <ClInclude Include="..\basic\brin_demo\brin.h" />
+    <ClInclude Include="..\basic\brin_demo\input.h" />
+    <ClInclude Include="..\basic\brin_demo\toolbox.h" />
+    <ClInclude Include="..\basic\cbb_demo\cbb_ids.h" />
+    <ClInclude Include="..\basic\cbb_demo\toolbox.h" />
+    <ClInclude Include="..\basic\key_demo\gba_pic.h" />
+    <ClInclude Include="..\basic\key_demo\input.h" />
+    <ClInclude Include="..\basic\key_demo\toolbox.h" />
+    <ClInclude Include="..\basic\m3_demo\toolbox.h" />
+    <ClInclude Include="..\basic\obj_demo\input.h" />
+    <ClInclude Include="..\basic\obj_demo\memdef.h" />
+    <ClInclude Include="..\basic\obj_demo\memmap.h" />
+    <ClInclude Include="..\basic\obj_demo\metr.h" />
+    <ClInclude Include="..\basic\obj_demo\toolbox.h" />
+    <ClInclude Include="..\basic\obj_demo\types.h" />
+    <ClInclude Include="..\basic\pageflip\page_pic.h" />
+    <ClInclude Include="..\basic\pageflip\toolbox.h" />
+    <ClInclude Include="..\basic\sbb_reg\input.h" />
+    <ClInclude Include="..\basic\sbb_reg\toolbox.h" />
+    <ClInclude Include="..\basic\second\toolbox.h" />
+    <ClInclude Include="..\ext\bld_demo\metr.h" />
+    <ClInclude Include="..\ext\dma_demo\brin.h" />
+    <ClInclude Include="..\ext\mos_demo\metr.h" />
+    <ClInclude Include="..\ext\oacombo\oac_gfx.h" />
+    <ClInclude Include="..\ext\obj_aff\metr.h" />
+    <ClInclude Include="..\ext\sbb_aff\nums.h" />
+    <ClInclude Include="..\ext\swi_vsync\metr.h" />
+    <ClInclude Include="..\ext\tmr_demo\berk.h" />
+    <ClInclude Include="..\ext\win_demo\rocket.h" />
+    <ClInclude Include="..\lab\bigmap\kakariko.h" />
+    <ClInclude Include="..\lab\bigmap\link.h" />
+    <ClInclude Include="..\lab\bigmap\link_gfx.h" />
+    <ClInclude Include="..\lab\octtest\octants.h" />
+    <ClInclude Include="..\lab\prio_demo\prio_bg.h" />
+    <ClInclude Include="..\lab\prio_demo\prio_gfx.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\adv\txt_se1\border.png" />
+    <Image Include="..\ext\win_demo\rocket.png" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

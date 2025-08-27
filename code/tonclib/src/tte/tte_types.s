@@ -107,12 +107,11 @@ extern TVwf *gp_tte_sys;
 #define TTC_savedX		52
 #define TTC_savedY		54
 		
-#define TTC_cmdProc		56
-#define TTC_drawgProc	60
-#define TTC_eraseProc	64
-#define TTC_fontTable	68
-#define TTC_stringTable	72
-#define TTC_end			76
+#define TTC_drawgProc	56
+#define TTC_eraseProc	60
+#define TTC_fontTable	64
+#define TTC_stringTable	68
+#define TTC_end			72
 
 	.extern	gp_tte_sys
 
