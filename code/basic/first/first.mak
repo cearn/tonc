@@ -4,7 +4,7 @@
 # a minimal makefile (and I do mean minimal, look to the others
 # for real-life use)
 
-PATH   := $(DEVKITARM)/bin:$(PATH)
+export PATH	:=	$(DEVKITARM)/bin:$(DEVKITPRO)/tools/bin:$(PATH)
 
 first.gba : first.c
 	arm-none-eabi-gcc -mthumb -mthumb-interwork -c first.c

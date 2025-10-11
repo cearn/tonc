@@ -83,11 +83,11 @@ void vp_set_pos(VIEWPORT *vp, FIXED x, FIXED y);
 
 // --- VIEWPORT ---
 
-INLINE void vp_center(VIEWPORT *vp, int x, int y)
+INLINE void vp_center(VIEWPORT *vp, FIXED x, FIXED y)
 {	vp_set_pos(vp, x - vp->xpage/2, y - vp->ypage/2);	}
 
 
-void vp_set_pos(VIEWPORT *vp, int x, int y)
+void vp_set_pos(VIEWPORT *vp, FIXED x, FIXED y)
 {
 	vp->x= clamp(x, vp->xmin, vp->xmax - vp->xpage);
 	vp->y= clamp(y, vp->ymin, vp->ymax - vp->ypage);

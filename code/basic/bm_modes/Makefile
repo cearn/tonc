@@ -1,11 +1,11 @@
 #
-# Makefile for bitmap modes demonstration
+# Makefile for bitmap modes demonstration.
 #
 # NOTE: for educational purposes only. For real work, use 
 # devkitPro's templates ( $(DEVKITPRO)/examples/gba/template )
 # or libtonc's templates ( $(TONCCODE)/lab/template )
 
-PATH := $(DEVKITARM)/bin:$(PATH)
+export PATH	:=	$(DEVKITARM)/bin:$(DEVKITPRO)/tools/bin:$(PATH)
 
 # --- Project details -------------------------------------------------
 

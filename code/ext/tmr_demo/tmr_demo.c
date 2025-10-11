@@ -23,7 +23,7 @@ void tmr_test()
 	// cascade into tm3
 	REG_TM3CNT= TM_ENABLE | TM_CASCADE;
 
-	u32 sec= -1;
+	uint sec= -1;
 
 	while(1)
 	{

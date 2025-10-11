@@ -137,7 +137,7 @@ void sbb_aff()
 		obj_set_pos(obj_cross, asx.scr_x-3, (asx.scr_y-3));
 		obj_set_pos(obj_disp, (bgaff.dx>>8)-3, (bgaff.dy>>8)-3);
 
-		tte_printf("#{es;P}p0\t: (%d, %d)\nq0\t: (%d, %d)\ndx\t: (%d, %d)", 
+		tte_printf("#{es;P}p0\t: (%ld, %ld)\nq0\t: (%d, %d)\ndx\t: (%ld, %ld)", 
 			asx.tex_x>>8, asx.tex_y>>8, asx.scr_x, asx.scr_y, 
 			bgaff.dx>>8, bgaff.dy>>8);
 	}	

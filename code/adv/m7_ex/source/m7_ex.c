@@ -45,8 +45,8 @@ M7_SPRITE m7_sprites[SPR_COUNT];
 
 M7_LEVEL m7_level;
 
-u32 g_state= STATE_MOVE_LEVEL | STATE_FOG;
-u32 g_menu_sel= MENU_EXIT;
+uint g_state= STATE_MOVE_LEVEL | STATE_FOG;
+uint g_menu_sel= MENU_EXIT;
 
 u8 sort_ids[SPR_COUNT];
 int sort_keys[SPR_COUNT];
@@ -380,7 +380,7 @@ void input_menu()
 {
 	extern u8 *__text_start;
 
-	u32 sel= g_menu_sel, opt;
+	uint sel= g_menu_sel, opt;
 	const char *const move_str[3]= {"local ", "level ", "global"};
 
 	if(key_hit(KEY_START|KEY_B))

@@ -20,7 +20,7 @@ void test_blend()
 	int mode=0;
 	// eva, evb and ey are .4 fixeds
 	// eva is full, evb and ey are empty
-	u32 eva=0x80, evb= 0, ey=0;
+	uint eva=0x80, evb= 0, ey=0;
 
 	REG_BLDCNT= BLD_BUILD(
 		BLD_OBJ | BLD_BG1,	// Top
