@@ -65,7 +65,7 @@ void tte_init_chr4c(int bgnr, u16 bgcnt, u16 se0, u32 cattrs, u32 clrs,
 	tc->cattr[TTE_INK]= ink;
 	tc->cattr[TTE_SHADOW]= shadow;
 	tc->cattr[TTE_PAPER]= paper;
-	//tc->cattr[TTE_SPECIAL]= 0;
+	tc->cattr[TTE_SPECIAL] = 0;
 
 	srf->palData= pal_bg_bank[se0>>12];
 	srf->palData[ink]= clrs&0xFFFF;
