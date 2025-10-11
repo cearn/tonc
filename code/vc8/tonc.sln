@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "tonc", "tonc.vcproj", "{1CC0315B-905D-4115-A584-84C1CEFC806E}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "tonclib", "..\tonclib\tonclib.vcproj", "{1F11FFF7-7BCD-42D3-A581-9C4C0A4885C7}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libtonc", "..\libtonc\libtonc.vcproj", "{1F11FFF7-7BCD-42D3-A581-9C4C0A4885C7}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "vault", "vault.vcproj", "{838CD683-F696-4952-8872-CC6A51F88588}"
 EndProject

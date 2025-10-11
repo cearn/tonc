@@ -13,7 +13,7 @@
 **/.vs/
 **/.svn
 **/build
-code/tonclib/doc/
+code/libtonc/doc/
 bak/
 bin/
 extra/

@@ -1,5 +1,5 @@
 #
-# Makefile for tonclib.
+# Makefile for libtonc.
 #
 
 #---------------------------------------------------------------------------------
@@ -21,12 +21,14 @@ DATADIRS	:=	data
 
 DATESTRING	:=	$(shell date +%Y)$(shell date +%m)$(shell date +%d)
 
-ARCH		:= -mthumb -mthumb-interwork
+ARCH		:=	-mthumb -mthumb-interwork
 RARCH		:= -mthumb-interwork -mthumb
 IARCH		:= -mthumb-interwork -marm
 
 bTEMPS		:= 0	# Save gcc temporaries (.i and .s files)
 bDEBUG2		:= 0	# Generate debug info (bDEBUG2? Not a full DEBUG flag. Yet)
+
+VERSION		:=	1.4.3
 
 #---------------------------------------------------------------------------------
 # Options for code generation
@@ -86,7 +88,7 @@ export DEPSDIR	:=	$(CURDIR)/build
 $(BUILD):
 	@[ -d lib ] || mkdir -p lib
 	@[ -d $@ ] || mkdir -p $@
-	@make --no-print-directory -C $(BUILD) -f $(CURDIR)/Makefile
+	@$(MAKE) --no-print-directory -C $(BUILD) -f $(CURDIR)/Makefile
 
 docs:
 	doxygen libtonc.dox
@@ -94,6 +96,17 @@ docs:
 clean:
 	@echo clean ...
 	@rm -fr $(BUILD)
+
+install:
+	@mkdir -p $(DESTDIR)$(DEVKITPRO)/libtonc/lib
+	@cp -rv include $(DESTDIR)$(DEVKITPRO)/libtonc/include
+	@cp -v lib/libtonc.a $(DESTDIR)$(DEVKITPRO)/libtonc/lib/
+
+#-------------------------------------------------------------------------------
+dist:
+#-------------------------------------------------------------------------------
+	@tar -cvjf libtonc-src-$(VERSION).tar.bz2 asm src include \
+		Makefile todo.txt libtonc.dox base.c base.h
 
 #---------------------------------------------------------------------------------
 

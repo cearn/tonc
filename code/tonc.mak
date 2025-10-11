@@ -6,7 +6,7 @@
 
 export CROSS	:= arm-none-eabi-
 
-LIBTONC		:= tonclib
+LIBTONC		:= libtonc
 GRPDIRS		:= basic ext adv lab
 BINDIR		:= ../bin
 
@@ -34,13 +34,13 @@ endif
 
 endif	# /$(IDE)
 
-.PHONY : build clean build_all clean_all 
+.PHONY : build clean build_all clean_all libtonc
 
 # === Build Single ====================================================
 
 build:
 	$(MAKE) -C $(DEMODIR) $(ERRFIX)
-	
+
 
 # === Clean Single ====================================================
 
@@ -70,4 +70,3 @@ clean_all:
 
 libtonc:
 	@$(MAKE) -C $(LIBTONC)
-	

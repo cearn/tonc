@@ -41,7 +41,7 @@ BUILD		:= build
 SRCDIRS		:= source
 DATADIRS	:= data
 INCDIRS		:= include
-LIBDIRS		:= $(TONCCODE)/tonclib
+LIBDIRS		:= $(TONCCODE)/libtonc
 
 # --- switches ---
 

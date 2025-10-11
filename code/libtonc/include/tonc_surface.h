@@ -17,7 +17,7 @@
 
 /*! \defgroup	grpSurface	Surface functions
 	\ingroup	grpVideo
-	Tonclib's Surface system provides the basic functionality for 
+	Libtonc's Surface system provides the basic functionality for 
 	drawing onto graphic surfaces of different types. This includes 
 	- <b>bmp16</b>: 16bpp bitmap surfaces
 	- <b>bmp8</b>: 8bpp bitmap surfaces.

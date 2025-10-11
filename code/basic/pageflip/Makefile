@@ -5,7 +5,7 @@
 #
 # NOTE: for educational purposes only. For real work, use 
 # devkitPro's templates ( $(DEVKITPRO)/examples/gba/template )
-# or tonclib's templates ( $(TONCCODE)/lab/template )
+# or libtonc's templates ( $(TONCCODE)/lab/template )
 
 PATH := $(DEVKITARM)/bin:$(PATH)
 

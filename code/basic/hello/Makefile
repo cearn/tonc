@@ -1,20 +1,20 @@
 #
 # hello.mak
 #
-# tilemap text via tonclib
+# tilemap text via libtonc
 #
 # NOTE: for educational purposes only. For real work, use 
 # devkitPro's templates ( $(DEVKITPRO)/examples/gba/template )
-# or tonclib's templates ( $(TONCCODE)/lab/template )
+# or libtonc's templates ( $(TONCCODE)/lab/template )
 
-PATH := $(DEVKITARM)/bin:$(PATH)
+PATH := $(DEVKITARM)/bin:$(DEVKITPRO)/tools/bin:$(PATH)
 
 # --- Project details -------------------------------------------------
 
 PROJ    := hello
 TITLE   := $(PROJ)
 
-LIBTONC	:= ../../tonclib
+LIBTONC	:= ../../libtonc
 
 INCLUDE  := -I$(LIBTONC)/include
 LIBPATHS := -L$(LIBTONC)/lib

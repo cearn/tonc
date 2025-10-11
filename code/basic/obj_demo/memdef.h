@@ -7,7 +7,7 @@
 //
 // === NOTES ===
 // * This is a _small_ set of typedefs, #defines and inlines that can 
-//   be found in tonclib, and might not represent the 
+//   be found in libtonc, and might not represent the 
 //   final forms.
 // * '0'-defines are prefixed with '_', to indicate their zero-ness
 //   and presents a safety from things like doing `if(x&0)'

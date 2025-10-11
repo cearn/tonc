@@ -6,7 +6,7 @@
 //! \date 20070131 - 20070131
 //
 // === NOTES ===
-// * Many names have changed in tonclib 1.3, which would break 
+// * Many names have changed in libtonc 1.3, which would break 
 //   old code so hard. To make things a little easier, here is 
 //   a list of redefines for compatibility. 
 //   Note that the system is not perfect, but it will have to do.
@@ -14,7 +14,7 @@
 #ifndef TONC_LEGACY
 #define TONC_LEGACY
 
-#define TONC_DROPPED(x)		[[x has been removed from tonclib. Sorry.]]
+#define TONC_DROPPED(x)		[[x has been removed from libtonc. Sorry.]]
 
 
 // --------------------------------------------------------------------

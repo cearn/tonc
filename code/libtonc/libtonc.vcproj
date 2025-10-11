@@ -2,7 +2,7 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="9.00"
-	Name="tonclib"
+	Name="libtonc"
 	ProjectGUID="{1F11FFF7-7BCD-42D3-A581-9C4C0A4885C7}"
 	Keyword="MakeFileProj"
 	TargetFrameworkVersion="131072"
@@ -51,7 +51,7 @@
 				CleanCommandLine="make 2&gt;&amp;1 clean | sed -e &apos;s/\(\w\+\):\([0-9]\+\):/\1(\2):/&apos;"
 				Output="libtonc.a"
 				PreprocessorDefinitions=""
-				IncludeSearchPath="$(ProjectDir)..\tonclib\include"
+				IncludeSearchPath="$(ProjectDir)..\libtonc\include"
 				ForcedIncludes=""
 				AssemblySearchPath=""
 				ForcedUsingAssemblies=""
@@ -437,7 +437,7 @@
 			>
 		</File>
 		<File
-			RelativePath="tonclib.txt"
+			RelativePath="libtonc.txt"
 			>
 		</File>
 	</Files>

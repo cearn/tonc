@@ -96,7 +96,7 @@
     <NMakeReBuildCommandLine>make -C ../ IDE=msvc /a</NMakeReBuildCommandLine>
     <NMakeCleanCommandLine>make -C ../ clean</NMakeCleanCommandLine>
     <NMakeOutput>tonc.exe</NMakeOutput>
-    <NMakeIncludeSearchPath>$(ProjectDir)..\tonclib\include;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
+    <NMakeIncludeSearchPath>$(ProjectDir)..\libtonc\include;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Clean All|Win32'">
     <OutDir>.\</OutDir>
@@ -113,7 +113,7 @@
     <NMakeReBuildCommandLine>make libtonc  -C ../ /a</NMakeReBuildCommandLine>
     <NMakeCleanCommandLine />
     <NMakeOutput>tonc.exe</NMakeOutput>
-    <NMakeIncludeSearchPath>$(ProjectDir)..\tonclib\;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
+    <NMakeIncludeSearchPath>$(ProjectDir)..\libtonc\;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Build All|Win32'">
     <OutDir>.\</OutDir>
@@ -122,7 +122,7 @@
     <NMakeReBuildCommandLine>make build_all  -C ../ /a</NMakeReBuildCommandLine>
     <NMakeCleanCommandLine />
     <NMakeOutput>tonc.exe</NMakeOutput>
-    <NMakeIncludeSearchPath>$(ProjectDir)..\tonclib\include;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
+    <NMakeIncludeSearchPath>$(ProjectDir)..\libtonc\include;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
   </PropertyGroup>
   <ItemDefinitionGroup>
   </ItemDefinitionGroup>
