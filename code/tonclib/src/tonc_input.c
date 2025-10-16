@@ -81,7 +81,18 @@ void key_wait_till_hit(u16 key)
 		key_poll();
 		if(key_hit(key))
 			return;
-	}	
+	}
+}
+
+void key_wait_till_clear(u32 key)
+{
+	while(1)
+	{
+		VBlankIntrWait();
+		key_poll();
+		if(key_released(key))
+			return;
+	}
 }
 
 // === Repeated keys functions ===

@@ -75,9 +75,6 @@ extern u16 __key_curr, __key_prev;
 // PROTOTYPES 
 // --------------------------------------------------------------------
 
-
-void key_wait_for_clear(u32 key);		// wait for keys to be up
-
 //! \name Basic synchonous keystates
 //\{
 void key_poll();
@@ -116,6 +113,7 @@ void key_repeat_limits(uint delay, uint repeat);
 //\}
 
 void key_wait_till_hit(u16 key);
+void key_wait_till_clear(u32 key);		// wait for keys to be up
 
 
 // --------------------------------------------------------------------
