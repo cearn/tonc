@@ -1,0 +1,288 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="source">
+      <UniqueIdentifier>{305cbb1d-2e9f-45e3-89c0-aeee6f384510}</UniqueIdentifier>
+      <Extensions>*.c</Extensions>
+    </Filter>
+    <Filter Include="source\tte">
+      <UniqueIdentifier>{4c51f244-9059-4e5b-8a99-db1ecb39b167}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\font">
+      <UniqueIdentifier>{222a423c-51ef-4f1a-b0ce-31763dbc55d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="asm">
+      <UniqueIdentifier>{6c4aca1a-b7b2-442b-a6fc-f6b331d364c2}</UniqueIdentifier>
+      <Extensions>*.S;*.s</Extensions>
+    </Filter>
+    <Filter Include="misc">
+      <UniqueIdentifier>{2dd14048-6bf2-4f2b-8e1b-e7e2369365dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="pre13">
+      <UniqueIdentifier>{b00add7d-79c9-4585-b575-aaabe8e06110}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include">
+      <UniqueIdentifier>{be46a01c-ec69-428d-bdac-9e805478d59b}</UniqueIdentifier>
+      <Extensions>*.h</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\tonc_bg.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\tonc_bg_affine.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\tonc_bmp16.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\tonc_bmp8.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\tonc_color.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\tonc_core.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\tonc_input.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\tonc_irq.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\tonc_math.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\tonc_oam.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\tonc_obj_affine.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\tonc_sbmp16.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\tonc_sbmp8.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\tonc_schr4c.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\tonc_schr4r.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\tonc_surface.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\tonc_video.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\tte\ase_drawg.c">
+      <Filter>source\tte</Filter>
+    </ClCompile>
+    <ClCompile Include="src\tte\bmp16_drawg.c">
+      <Filter>source\tte</Filter>
+    </ClCompile>
+    <ClCompile Include="src\tte\bmp16_drawg_b1cs.c">
+      <Filter>source\tte</Filter>
+    </ClCompile>
+    <ClCompile Include="src\tte\bmp8_drawg.c">
+      <Filter>source\tte</Filter>
+    </ClCompile>
+    <ClCompile Include="src\tte\bmp8_drawg_b1cs.c">
+      <Filter>source\tte</Filter>
+    </ClCompile>
+    <ClCompile Include="src\tte\chr4c_drawg_b1cts.c">
+      <Filter>source\tte</Filter>
+    </ClCompile>
+    <ClCompile Include="src\tte\chr4c_drawg_b4cts.c">
+      <Filter>source\tte</Filter>
+    </ClCompile>
+    <ClCompile Include="src\tte\obj_drawg.c">
+      <Filter>source\tte</Filter>
+    </ClCompile>
+    <ClCompile Include="src\tte\se_drawg.c">
+      <Filter>source\tte</Filter>
+    </ClCompile>
+    <ClCompile Include="src\tte\tte_init_ase.c">
+      <Filter>source\tte</Filter>
+    </ClCompile>
+    <ClCompile Include="src\tte\tte_init_bmp.c">
+      <Filter>source\tte</Filter>
+    </ClCompile>
+    <ClCompile Include="src\tte\tte_init_chr4c.c">
+      <Filter>source\tte</Filter>
+    </ClCompile>
+    <ClCompile Include="src\tte\tte_init_obj.c">
+      <Filter>source\tte</Filter>
+    </ClCompile>
+    <ClCompile Include="src\tte\tte_init_se.c">
+      <Filter>source\tte</Filter>
+    </ClCompile>
+    <ClCompile Include="src\tte\tte_iohook.c">
+      <Filter>source\tte</Filter>
+    </ClCompile>
+    <ClCompile Include="src\tte\tte_main.c">
+      <Filter>source\tte</Filter>
+    </ClCompile>
+    <ClCompile Include="base.c">
+      <Filter>misc</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pre1.3\tonc_bitmap.c">
+      <Filter>pre13</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pre1.3\tonc_text.c">
+      <Filter>pre13</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pre1.3\tonc_text_bm.c">
+      <Filter>pre13</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pre1.3\tonc_text_map.c">
+      <Filter>pre13</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pre1.3\tonc_text_oam.c">
+      <Filter>pre13</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\tte\bmp8_drawg_b1cts_fast.s">
+      <Filter>source\tte</Filter>
+    </None>
+    <None Include="src\tte\chr4c_drawg_b1cts_fast.s">
+      <Filter>source\tte</Filter>
+    </None>
+    <None Include="src\tte\chr4c_drawg_b4cts_fast.s">
+      <Filter>source\tte</Filter>
+    </None>
+    <None Include="src\tte\tte_types.s">
+      <Filter>source\tte</Filter>
+    </None>
+    <None Include="src\font\sys8.s">
+      <Filter>source\font</Filter>
+    </None>
+    <None Include="src\font\verdana10.s">
+      <Filter>source\font</Filter>
+    </None>
+    <None Include="src\font\verdana9.s">
+      <Filter>source\font</Filter>
+    </None>
+    <None Include="asm\clr_blend_fast.s">
+      <Filter>asm</Filter>
+    </None>
+    <None Include="asm\clr_fade_fast.s">
+      <Filter>asm</Filter>
+    </None>
+    <None Include="asm\div_lut.s">
+      <Filter>asm</Filter>
+    </None>
+    <None Include="asm\sin_lut.s">
+      <Filter>asm</Filter>
+    </None>
+    <None Include="asm\tonc_bios.s">
+      <Filter>asm</Filter>
+    </None>
+    <None Include="asm\tonc_bios_ex.s">
+      <Filter>asm</Filter>
+    </None>
+    <None Include="asm\tonc_isr_master.s">
+      <Filter>asm</Filter>
+    </None>
+    <None Include="asm\tonc_isr_nest.s">
+      <Filter>asm</Filter>
+    </None>
+    <None Include="asm\tonc_memcpy.s">
+      <Filter>asm</Filter>
+    </None>
+    <None Include="asm\tonc_memset.s">
+      <Filter>asm</Filter>
+    </None>
+    <None Include="asm\tonc_nocash.s">
+      <Filter>asm</Filter>
+    </None>
+    <None Include="src\pre1.3\toncfont.s">
+      <Filter>pre13</Filter>
+    </None>
+    <None Include="libtonc.chm" />
+    <None Include="libtonc.dox" />
+    <None Include="build\libtonc.map" />
+    <None Include="Makefile" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="src\font\sys8.png">
+      <Filter>source\font</Filter>
+    </Image>
+    <Image Include="src\font\verdana10.png">
+      <Filter>source\font</Filter>
+    </Image>
+    <Image Include="src\font\verdana9.png">
+      <Filter>source\font</Filter>
+    </Image>
+    <Image Include="src\font\verdana9_b4.png">
+      <Filter>source\font</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\tonc_asminc.h">
+      <Filter>asm</Filter>
+    </ClInclude>
+    <ClInclude Include="base.h">
+      <Filter>misc</Filter>
+    </ClInclude>
+    <ClInclude Include="include\tonc_legacy.h">
+      <Filter>misc</Filter>
+    </ClInclude>
+    <ClInclude Include="include\tonc_libgba.h">
+      <Filter>misc</Filter>
+    </ClInclude>
+    <ClInclude Include="include\tonc_text.h">
+      <Filter>pre13</Filter>
+    </ClInclude>
+    <ClInclude Include="include\tonc.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\tonc_bios.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\tonc_core.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\tonc_input.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\tonc_irq.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\tonc_math.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\tonc_memdef.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\tonc_memmap.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\tonc_nocash.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\tonc_oam.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\tonc_surface.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\tonc_tte.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\tonc_types.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\tonc_video.h">
+      <Filter>include</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="todo.txt" />
+    <Text Include="libtonc.txt" />
+  </ItemGroup>
+</Project>

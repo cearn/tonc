@@ -60,9 +60,9 @@ void init_main()
 	memcpy32(pal_bg_mem, borderPal, borderPalLen/4);
 
 	// overwrite /\ [] `% ^_ to use border tiles
-	//  / ^ \ 
-	//  [ # ] 
-	//  ` _ '  
+	// '  / ^ \  '
+	// '  [ # ]  '
+	// '  ` _ '  '
 	const u8 bdr_lut[9]= "/^\\[#]`_\'";
 	for(ii=0; ii<9; ii++)
 		gptxt->chars[bdr_lut[ii]]= TID_FRAME0+ii;

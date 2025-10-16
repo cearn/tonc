@@ -37,7 +37,7 @@ BUILD		:= build
 SRCDIRS		:= .
 DATADIRS	:= data
 INCDIRS		:= .
-LIBDIRS		:= $(TONCCODE)/tonclib
+LIBDIRS		:= $(TONCCODE)/libtonc
 
 
 # --- switches ---

@@ -22,7 +22,7 @@ proj=$(basename $projdir)
 
 # Full path of the library itself, in platform-specific format.
 # Yeah, it's ugly, but apparently the only way to get it right.
-libtonc=e:/dev/gba/proj/tonc/code/tonclib
+libtonc=e:/dev/gba/proj/tonc/code/libtonc
 
 # Replacement list, space separated.
 sedlist="PROJNAME=$proj LIBTONC=$libtonc"

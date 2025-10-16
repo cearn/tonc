@@ -43,7 +43,7 @@ void hbl_grad_direct()
 #define CPU_MODE_MASK	(0x1F<< 0)
 
 
-// This is mostly what tonclib's isr_master_nest does, but
+// This is mostly what libtonc's isr_master_nest does, but
 // you really need asm for the full functionality
 IWRAM_CODE void isr_master_nest_c()
 {

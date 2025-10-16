@@ -55,7 +55,7 @@ int main()
 	init_main();
 
 	int x=12, y=8;	// Coords, relative to center.of screen
-	u32 state= 0, oct_curr= 0, oct_prev= 0;
+	uint state= 0, oct_curr= 0, oct_prev= 0;
 	OBJ_ATTR *dot= &oam_mem[0];
 
 	AFF_SRC_EX asx= { 128<<8, 128<<8, 120, 80, 256, 256, 0};

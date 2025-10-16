@@ -1,0 +1,28 @@
+
+* next
+
+- 2025-10-11. Code. Updated tonclib to current DevkitPro libtonc. This includes:
+  - Minor fixes to certain functions
+  - Using the (u)int(8|16|32)_t for base types now. This unfortunately means s32/u32 are `long int` instead of basic `int` now, which results in many type problems. But it is better this way. Honest.
+  - Rename `tonclib` to `libtonc`. 't is a shame, but that's how libraries are generally named in the GCC universe.
+  - Fixing PATH defines in makefiles, since `gbafix` is elsewhere.
+
+- 2025-08-10. Text. Fixed so many things in the text itself.
+  - Added deprecation banner.
+  - Converted to utf8.
+  - Better font and font size. When I started 800x600 was the Big Thing. That's ... no longer the case.
+  - Fixed column alignment on tables. `<col>` hasn't worked for that in ages, probably.
+  - Converted autonum script to python.
+  
+- 2025-07-27. Code. 
+  - Removed Programmer's Notepad and ancient VS project files.
+  - m7_ex. Fixed `border` grit file (was missing a palette-size param) and changed the horizon scrolling multiplier.
+  - libtonc. `tte_types.s` had a `TTC_cmdProc` that doesn't actually exist O_O;;
+  - libtonc. Better `chr4c_drawg_b1cts()`
+  
+
+- 2025-10-16. Code.
+  - nocash hook fixes.
+
+
+

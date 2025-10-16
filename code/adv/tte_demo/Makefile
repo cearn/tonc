@@ -45,7 +45,7 @@ BUILD		:= build
 SRCDIRS		:= source fonts
 DATADIRS	:= data
 INCDIRS		:= include fonts
-LIBDIRS		:= $(TONCCODE)/tonclib
+LIBDIRS		:= $(TONCCODE)/libtonc
 
 
 # --- switches ---

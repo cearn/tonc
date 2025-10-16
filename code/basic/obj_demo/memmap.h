@@ -7,7 +7,7 @@
 // 
 // === NOTES ===
 // * This is a _small_ set of typedefs, #defines and inlines that can 
-//   be found in tonclib, and might not represent the 
+//   be found in libtonc, and might not represent the 
 //   final forms.
 
 #ifndef __MEMMAP__

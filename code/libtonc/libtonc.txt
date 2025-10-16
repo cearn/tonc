@@ -12,14 +12,14 @@
    ||                                         ii     b           ||
    ||                                                            ||
    ||============================================================||
-   ||                        tonclib                             ||
+   ||                        libtonc                             ||
    ||              part of TONC: GBA Programming in rot 13       ||
    ||                          v a0                              ||
    ||                  20050316-20091221, J Vijn                 ||
     \\___________________________________________________________//
 
 
-A revamped tonclib. It's actually changed quite a bit since the 
+A revamped libtonc. It's actually changed quite a bit since the 
 first incarnations. I've renamed a good deal of the defines, 
 structures and functions, added some text functions and tried to 
 make things a little bit faster. 

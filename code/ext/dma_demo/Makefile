@@ -5,17 +5,17 @@
 #
 # NOTE: for educational purposes only. For real work, use 
 # devkitPro's templates ( $(DEVKITPRO)/examples/gba/template )
-# or tonclib's templates ( $(TONCCODE)/lab/template )
+# or libtonc's templates ( $(TONCCODE)/lab/template )
 
 
-PATH := $(DEVKITARM)/bin:$(PATH)
+export PATH	:=	$(DEVKITARM)/bin:$(DEVKITPRO)/tools/bin:$(PATH)
 
 # --- Project details -------------------------------------------------
 
 PROJ    := dma_demo
 TITLE   := $(PROJ)
 
-LIBTONC	:= ../../tonclib
+LIBTONC	:= ../../libtonc
 
 INCLUDE  := -I$(LIBTONC)/include
 LIBPATHS := -L$(LIBTONC)/lib
@@ -129,7 +129,7 @@ depends:
 # --- Build Lib -------------------------------------------------------
 
 buildlib : 
-	$(MAKE) -C $(UDIR) -f tonclib.mak	buildlib
+	$(MAKE) -C $(UDIR) -f libtonc.mak	buildlib
 
 # --- Clean -----------------------------------------------------------
 
