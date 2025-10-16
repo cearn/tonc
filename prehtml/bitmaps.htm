@@ -2238,14 +2238,22 @@ might save you a few hours of debugging.
 
 <h3 id="ssec-data-demo"><em>[[ref:ssec-data-demo]]</em>
   Data interpretation demo</h3>
+
+<div class="cpt_fr" style="width:240px">
+  <img src="../img/demo/bm_modes_3.png" alt="mode3 screen">
+  <b>Fig <em>[[ref:img-bm-modes-org]]</em></b>: original image for <tt>bm_modes</tt>.
+</div>
+
 <p>
-The <tt>bm_modes</tt> is an example of how the same data can result 
+The <tt>bm_modes</tt> demo is an example of how the same data can result 
 in different results depending on interpretation (in this case, modes 3, 
 4 and 5). In the code below, I make <i>one</i> copy into VRAM, and 
-switch between the modes using Left and Right. The results can be seen 
-in figs <em>[[ref:img-bm-modes]]</em>a-c. 
+switch between the modes using Left and Right. 
 </p>
+
 <p>
+The original bitmap (see Fig <em>[[ref:img-bm-modes-org]]</em>) was exported 
+as 16bpp for use in mode 3.
 I've arranged the data of the bitmap in such a way that the name of 
 the current mode can be read clearly, as well as indicated the mode's 
 boundaries in memory. Because the data intended for the other modes 
@@ -2322,6 +2330,27 @@ class="num">5</span>)
 }
 </pre>
 
+<p>
+If you run the demo and fiddle with the dpad a bit, you'll see tha &hellip;
+</p>
+<div id="img-bm-modes-black" class="lblock" style="width:240px">
+  <img src="../img/demo/bm_modes_black.png" alt="bm_modes actual screenshot">
+  <b>Fig <em>[[ref:img-bm-modes-black]]</em>a</b>: running <tt>bm_modes</tt>.
+</div>
+
+<p>
+&hellip; oh. Oh, well this is awkward.
+</p>
+
+<h3 id="ssec-data-demo-b"><em>[[ref:ssec-data-demo-b]]</em>
+  Data interpretation demo, revisited</h3>
+
+<p>
+Yeeeeaaahh. So when you run the project for the code above, you just get a black screen. At least, 
+when you use the <i>current</i> compiler (devkitArm v??, 2025-10-16). When I originally wrote this (in 2006, 
+for devkitArm 27 or so) it was fine. So what happened?
+</p>
+
 <div class="cblock">
 <table id="img-bm-modes">
 <tr>
@@ -2346,7 +2375,6 @@ class="num">5</span>)
 </tr>
 </table>
 </div>
-
 
 <h2 id="sec-conc">Conclusions</h2>
 <p>
