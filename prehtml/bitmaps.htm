@@ -2158,7 +2158,152 @@ alignment or cast to other datatypes.
 </p>
 </div>
 
-<h3 id="ssec-data-memcpy"><em>[[ref:ssec-data-memcpy]]</em>
+<hr><hr>
+
+<p>UPDATE:</p>
+<ul>
+  <li>New memcpy section</li>
+  <li>New data demo</li>
+  <li>Keep old demo, with explanation</li>
+  <li>Move sizeof() up</li>
+</ul>
+
+<h3 id="ssec-data-memcpy-new"><em>[[ref:ssec-data-memcpy-new]]</em>
+  Copying and memcpy (UPDATED!)
+</h3>
+<p>
+  Now, you'd think something as elementary as copying data would be easy, right? Yeah, about that &hellip;
+</p><br>
+
+<p>
+There are many different ways of copying data. The easiest would be just a loop and copy 
+elements one by one. This is easy and slow. There's also ye olde <code>memcpy()</code>, the 
+workhorse of C when it comes to copying. The GBA also some platform-specific things for copying
+and setting data: there a hardware feature called <a href= "dma.htm">Direct Memory Access</a> 
+(DMA), and <a href="swi.htm">BIOS functions</a> <code>CpuSet</code> and <code>CpuFastSet</code>. 
+Each of these of these has its own strengths and weaknesses and conditions you have to consider, 
+and all can be affected by misalignment and the no-byte-write rule. I discuss some of them in the
+<a href="text.htm#ssec-demo-se2">txt_se2</a> demo, where we'll profile some of them.
+</p><br>
+
+<p>
+Now, originally, I had chosen to use <code>memcpy</code> in the first couple of demos. This was 
+done for a number of reason. The main one was that it is part of the standard C library, 
+meaning that C programmers should already be familiar with it. Secondly, it is somewhat 
+optimized (see the <tt>txt_se2</tt> demo for details). There were some reasons against it, 
+but it was worth the risk.
+</p><br>
+<p>
+I don't think it's worth the risk anymore, as we'll see later.
+</p><br>
+
+<p>
+So, sigh, to keep things self-contained yet simple, let's roll our own copier. Below is a C 
+implementation of a 'fast' copy routine in C that I call <code>memcpy32()</code>. It copies in 
+8-word blocks while it can (or that is the intent anyway), and does a simple loop over the 
+remainder. Note: it's technically intended for word-copies, but you can use it for anything 
+if source, destination, and size are all word-aligned.
+</p>
+<p>It's reasonably quick, but not the fastest. Tonclib includes an optimized assembly version
+that does the same thing but better, but those are in assembly so I thought I 
+wouldn't lay them on you so soon. Highly recommended for later though. If you want a sneak peak, 
+have a look at the <a href="asm.htm#sec-cpy">ARM assembly chapter</a>.
+</p>
+
+<pre class="proglist" id="cd-memcpy32-c">
+<span class="keyw">typedef</span> <span class="keyw">struct</span> BLOCK { u32 data[<span 
+class="num">8</span>]; } BLOCK;
+
+<span class="cmt">/// A fast word-copier in C: copies in 32-byte blocks when it can, then the remainer in words.
+/// @param dst      Destination pointer. Must be word-aligned.
+/// @param src      Source pointer. Must be word-aligned.
+/// @param wdcount  Amount of words (not bytes) to copy.</span>
+<span class="keyw">void</span> memcpy32(<span 
+class="keyw">void</span> *dst, <span 
+class="keyw">const</span> <span 
+class="keyw">void</span> *src, uint wdcount) IWRAM_CODE
+{
+    uint blkN= wdcount/<span class="num">8</span>, wdN= wdcount&amp;<span class="num">7</span>;
+    u32 *dstw= (u32*)dst, *srcw= (u32*)src;
+    <span class="keyw">if</span>(blkN)
+    {
+        <span class="cmt">// 8-word copies</span>
+        BLOCK *dst2= (BLOCK*)dst, *src2= (BLOCK*)src;
+        <span class="keyw">while</span>(blkN--)
+            *dst2++ = *src2++;
+        dstw= (u32*)dst2;  srcw= (u32*)src2;
+    }
+
+    <span class="cmt">// Residual words</span>
+    <span class="keyw">while</span>(wdN--)
+        *dstw++ = *srcw++;
+}
+</pre>
+
+<p>
+On a related subject, there is also <code>memset()</code> for memory fills. Be careful 
+with that one, because that will <i>only</i> work with bytes. Tonclib also includes 
+16- and 32-bit versions of this routine, but also in assembly. 
+</p><br>
+
+<p>
+Okay, that was the long and boring &ndash;yet necessary&ndash; 
+section on data. Congratulations if you've managed to stay awake till
+this point, especially if you've actually understood all of it. 
+It's okay if you didn't though, in most cases you won't run into the 
+problems discussed here. But just remember this section for if you do 
+run into trouble when copying and you can't find it in the code; it 
+might save you a few hours of debugging.
+</p>
+
+<h2 id="">
+  Demo time</h2>
+  
+
+<h3 id="">
+  New old demo</h3>
+
+<h3 id="ssec-demo-data-old">
+  When memcpy() goes bad</h3>
+
+<p>
+  So the old demo of this is exactly the same, except using <code>memcpy()</code>. The demo 
+compiles and runs just fine, only the output is wrong. 
+</p>
+<p>Can you guess what happens now? If you thought the graphics would all be garbled because it 
+tries to do byte-writes &hellip; good guess, but no. Functionally, <code>memcpy()</code> works 
+just fine. So what happens now, then? The screen stays black, because the calls don't happen at 
+all.
+</p>
+<p>Yeah &hellip;</p>
+<br>
+
+<p>
+This was a bit of a surprise when I found that out. It's not that the copies go bad: <i>they 
+have been removed by the compiler!</i> It doesn't happen all the time, though; it seems to 
+occur only if you call it directly inside <code>main()</code>.
+</p>
+<p>
+My guess is that they've been optimized out. Part of the optimizer's job is to eliminate dead 
+code: code that doesn't actually do anything. In this case, we're writing to some area in 
+memory (VRAM), but we never read from them later. So this appears irrelevant to the program, 
+and can be removed. Now, <i>we</i> know VRAM means something to the hardware, but the 
+compiler doesn't. It's just an address like any other.
+</p>
+<p>
+So can't we do something about it? I'm not sure. You might think <code>volatile</code> would 
+help, but <code>memcpy()</code> has <code>restrict</code> on its arguments, which doesn't 
+play nice with <code>volatile</code>.
+</p><br>
+
+<p>
+I'm still not 100% sure what's going on and how to fix it. But for now: don't use 
+<code>memcpy()</code> for memory-mapped addresses.
+</p>
+
+<hr><hr>
+
+<h3 id="ssec-data-memcpy-old"><em>[[ref:ssec-data-memcpy]]</em>
   Copying, memcpy() and sizeof</h3>
 <p>
 There are many different ways of copying data on this platform. Arrays, 
@@ -2235,6 +2380,8 @@ problems discussed here. But just remember this section for if you do
 run into trouble when copying and you can't find it in the code; it 
 might save you a few hours of debugging.
 </p>
+
+<hr><hr>
 
 <h3 id="ssec-data-demo"><em>[[ref:ssec-data-demo]]</em>
   Data interpretation demo</h3>
@@ -2341,6 +2488,8 @@ If you run the demo and fiddle with the dpad a bit, you'll see tha &hellip;
 <p>
 &hellip; oh. Oh, well this is awkward.
 </p>
+
+
 
 <h3 id="ssec-data-demo-b"><em>[[ref:ssec-data-demo-b]]</em>
   Data interpretation demo, revisited</h3>

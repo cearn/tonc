@@ -8,15 +8,22 @@
 #include "toolbox.h"
 #include "modes.h"
 
+
+// static inline 
+void init()
+{
+	// Copy the data and palette to the right
+	// addresses
+	memcpy(vid_mem, modesBitmap, modesBitmapLen);
+	memcpy(pal_bg_mem, modesPal, modesPalLen);
+}
+
 int main()
 {
 	int mode= 3;
 	REG_DISPCNT= mode | DCNT_BG2;
 
-	// Copy the data and palette to the right
-	// addresses
-	memcpy(vid_mem, modesBitmap, modesBitmapLen);
-	memcpy(pal_bg_mem, modesPal, modesPalLen);
+	init();
 
 	while(1)
 	{
