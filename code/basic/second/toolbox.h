@@ -2,35 +2,42 @@
 // 
 // Tools header for second.c
 // 
-// (20060211-20060922, cearn)
+// (20060211-20251227, cearn)
 //
 // === NOTES ===
 // * This is a _small_ set of typedefs, #defines and inlines that can 
-//   be found in libtonc, and might not represent the 
-//   final forms.
+//   be found in libtonc, and might not represent the final forms.
 
 
 #ifndef TOOLBOX_H
 #define TOOLBOX_H
 
-// === (from tonc_types.h) ============================================
+#include <stdint.h>
 
-typedef unsigned char	u8;
-typedef unsigned short	u16;
-typedef unsigned int	u32;
+// === (tonc_types.h) ==========================================================================
+
+typedef int8_t  s8;
+typedef int16_t s16;
+typedef int32_t s32;
+typedef int64_t s64;
+
+typedef uint8_t  u8,  uchar,  byte;
+typedef uint16_t u16, ushort, hword;
+typedef uint32_t u32, uint,   word;
+typedef uint64_t u64;
 
 typedef u16 COLOR;
 
 #define INLINE static inline
 
-// === (from tonc_memmap.h) ===========================================
+// === (from tonc_memmap.h) ====================================================================
 
 #define MEM_IO		0x04000000
 #define MEM_VRAM	0x06000000
 
 #define REG_DISPCNT		*((u32*)(MEM_IO+0x0000))
 
-// === (from tonc_memdef.h) =======================================----
+// === (from tonc_memdef.h) ====================================================================
 
 // --- REG_DISPCNT defines ---
 #define DCNT_MODE0		0x0000
@@ -47,7 +54,7 @@ typedef u16 COLOR;
 #define DCNT_OBJ		0x1000
 
 
-// === (from tonc_video.h) ============================================
+// === (from tonc_video.h) =====================================================================
 
 #define SCREEN_WIDTH	240
 #define SCREEN_HEIGHT	160
@@ -72,4 +79,3 @@ INLINE COLOR RGB15(u32 red, u32 green, u32 blue)
 
 #endif // TOOLBOX_H
 
-// EOF

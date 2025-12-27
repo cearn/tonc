@@ -3,16 +3,15 @@
 // 
 // Tools source for sbb_reg
 // 
-// (20060922-20060922, cearn)
+// (20060922-20251227, cearn)
 //
 // === NOTES ===
 // * This is a _small_ set of typedefs, #defines and inlines that can 
-//   be found in libtonc, and might not represent the 
-//   final forms.
+//   be found in libtonc, and might not represent the final forms.
 
 #include "toolbox.h"
 
-// === (tonc_core.c) ==================================================
+// === (tonc_core.c) ===========================================================================
 
 u16 __key_curr= 0, __key_prev= 0;
 

@@ -962,7 +962,6 @@ class="keyw">const</span> OBJ_ATTR *src, uint count)
         *dstw++ = *srcw++;
     }
 <span class="keyw">#endif</span>
-
 }
 </pre>
 
@@ -1089,17 +1088,15 @@ class="cmt">// <b>(6)</b> Update OAM (only one now)</span>
     <span 
 class="cmt">// <b>(1)</b> Places the tiles of a 4bpp boxed metroid sprite </span>
     <span class="cmt">//   into LOW obj memory (cbb == 4)</span>
-    memcpy(&amp;tile_mem[<span class="num">4</span>][<span 
-class="num">0</span>], metr_boxTiles, metr_boxTilesLen);
-    memcpy(pal_obj_mem, metrPal, metrPalLen);
+    memcpy32(&amp;tile_mem[<span class="num">4</span>][<span 
+class="num">0</span>], metr_boxTiles, metr_boxTilesLen/<span class="num">4</span>);
+    memcpy32(pal_obj_mem, metrPal, metrPalLen/<span class="num">4</span>);
 
     <span class="cmt">// <b>(2)</b> Initialize all sprites</span>
     oam_init(obj_buffer, <span class="num">128</span>);
     REG_DISPCNT= DCNT_OBJ | DCNT_OBJ_1D;
 
     obj_test();
-
-    <span class="keyw">while</span>(<span class="num">1</span>);
 
     <span class="keyw">return</span> <span class="num">0</span>;
 }

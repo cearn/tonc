@@ -543,8 +543,8 @@ class="num">27</span>,<span class="num">27</span>,<span class="num">29</span>)
     COLOR clr;
     <span class="keyw">int</span> frame=<span class="num">0</span>;
 
-    memcpy(vid_mem, gba_picBitmap, gba_picBitmapLen);
-    memcpy(pal_bg_mem, gba_picPal, gba_picPalLen);
+    memcpy32(vid_mem, gba_picBitmap, gba_picBitmapLen/<span class="num">4</span>);
+    memcpy32(pal_bg_mem, gba_picPal, gba_picPalLen/<span class="num">4</span>);
 
     REG_DISPCNT= DCNT_MODE4 | DCNT_BG2;
 

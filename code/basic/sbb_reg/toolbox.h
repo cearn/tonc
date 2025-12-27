@@ -3,18 +3,19 @@
 // 
 // Tools header for sbb_reg
 // 
-// (20060211-20060924, cearn)
+// (20060211-20251227, cearn)
 //
 // === NOTES ===
 // * This is a _small_ set of typedefs, #defines and inlines that can 
-//   be found in libtonc, and might not represent the 
-//   final forms.
+//   be found in libtonc, and might not represent the final forms.
 
 
 #ifndef TOOLBOX_H
 #define TOOLBOX_H
 
-// === (tonc_types.h) ============================================
+#include <stdint.h>
+
+// === (tonc_types.h) ==========================================================================
 
 // alignment
 #define ALIGN(_n)	__attribute__((aligned(_n)))
@@ -22,26 +23,26 @@
 
 // --- primary typedefs ---
 
-typedef unsigned char  u8,  byte;
-typedef unsigned short u16, hword;
-typedef unsigned int   u32, word;
-typedef unsigned long long u64;
+typedef int8_t  s8;
+typedef int16_t s16;
+typedef int32_t s32;
+typedef int64_t s64;
 
-typedef signed char  s8;
-typedef signed short s16; 
-typedef signed int   s32;
-typedef signed long long s64;
+typedef uint8_t  u8,  uchar,  byte;
+typedef uint16_t u16, ushort, hword;
+typedef uint32_t u32, uint,   word;
+typedef uint64_t u64;
 
 // and volatiles for registers 'n stuff
-typedef volatile u8  vu8;
-typedef volatile u16 vu16;
-typedef volatile u32 vu32;
-typedef volatile u64 vu64;
-
 typedef volatile s8  vs8;
 typedef volatile s16 vs16;
 typedef volatile s32 vs32;
 typedef volatile s64 vs64;
+
+typedef volatile u8  vu8;
+typedef volatile u16 vu16;
+typedef volatile u32 vu32;
+typedef volatile u64 vu64;
 
 // --- secondary typedefs ---
 
@@ -63,7 +64,7 @@ typedef TILE8		CHARBLOCK8[256];
 #define INLINE static inline
 
 
-// === (tonc_memmap.h) ===========================================
+// === (tonc_memmap.h) =========================================================================
 
 #define MEM_IO		0x04000000
 #define MEM_PAL		0x05000000		// no 8bit write !!
@@ -99,7 +100,7 @@ typedef TILE8		CHARBLOCK8[256];
 #define se_mem			((SCREENBLOCK*)MEM_VRAM)
 
 
-// --- registers ------------------------------------------------------
+// --- registers -------------------------------------------------------------------------------
 
 #define REG_BASE	MEM_IO
 
@@ -127,7 +128,7 @@ typedef TILE8		CHARBLOCK8[256];
 // --- keys ---
 #define REG_KEYINPUT		*(vu16*)(REG_BASE+0x0130)	// Key status
 
-// === (tonc_memdef.h) =======================================----
+// === (tonc_memdef.h) =========================================================================
 
 // --- REG_DISPCNT ---
 
@@ -220,7 +221,7 @@ typedef TILE8		CHARBLOCK8[256];
 
 #define KEY_MASK		0x03FF
 
-// --- Reg screen entries ----------------------------------------------
+// --- Reg screen entries ----------------------------------------------------------------------
 
 #define SE_HFLIP			0x0400	//!< Horizontal flip
 #define SE_VFLIP			0x0800	//!< Vertical flip
@@ -242,7 +243,7 @@ typedef TILE8		CHARBLOCK8[256];
 ( ((id)&0x03FF) | (((hflip)&1)<<10) | (((vflip)&1)<<11) | ((pbank)<<12) )
 
 
-// === (tonc_core.h) =============================================
+// === (tonc_core.h) ===========================================================================
 
 // tribool: 1 if {plus} on, -1 if {minus} on, 0 if {plus}=={minus}
 INLINE int bit_tribool(u32 x, int plus, int minus);
@@ -250,7 +251,7 @@ INLINE int bit_tribool(u32 x, int plus, int minus);
 extern u16 __key_curr, __key_prev;
 
 
-// === (tonc_video.h) ============================================
+// === (tonc_video.h) ==========================================================================
 
 // --- sizes ---
 #define SCREEN_WIDTH	240
@@ -279,9 +280,9 @@ INLINE COLOR RGB15(u32 red, u32 green, u32 blue);
 INLINE void vid_vsync();
 
 
-// === INLINES ========================================================
+// === INLINES =================================================================================
 
-// --- (tonc_core.h) --------------------------------------------------
+// --- (tonc_core.h) ---------------------------------------------------------------------------
 
 //! Gives a tribool (-1, 0, or +1) depending on the state of some bits.
 /*! Looks at the \a plus and \a minus bits of \a flags, and subtracts 
@@ -296,7 +297,7 @@ INLINE int bit_tribool(u32 flags, int plus, int minus)
 {	return ((flags>>plus)&1) - ((flags>>minus)&1);	}
 
 
-// --- (tonc_video.h) -------------------------------------------------
+// --- (tonc_video.h) --------------------------------------------------------------------------
 
 //! Wait for next VBlank
 INLINE void vid_vsync()
@@ -310,7 +311,4 @@ INLINE COLOR RGB15(u32 red, u32 green, u32 blue)
 {	return red | (green<<5) | (blue<<10);	}
 
 
-
-
 #endif // TOOLBOX_H
-

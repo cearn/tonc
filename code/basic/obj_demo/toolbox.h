@@ -3,12 +3,11 @@
 // 
 // Tools header for obj_demo
 // 
-// (20060211-20060924, cearn)
+// (20060211-20251227, cearn)
 //
 // === NOTES ===
 // * This is a _small_ set of typedefs, #defines and inlines that can 
-//   be found in libtonc, and might not represent the 
-//   final forms.
+//   be found in libtonc, and might not represent the final forms.
 
 
 #ifndef TOOLBOX_H
@@ -19,7 +18,7 @@
 #include "memdef.h"		// (tonc_memdef.h)
 #include "input.h"		// (tonc_input.h)
 
-// === (tonc_core.h) ==================================================
+// === (tonc_core.h) ===========================================================================
 
 // tribool: 1 if {plus} on, -1 if {minus} on, 0 if {plus}=={minus}
 INLINE int bit_tribool(u32 x, int plus, int minus);
@@ -28,8 +27,12 @@ INLINE int bit_tribool(u32 x, int plus, int minus);
 extern COLOR *vid_page;
 extern u16 __key_curr, __key_prev;
 
+/// Copies @a wdcount words from @a src to @a dst. @src and @dst are expected to be
+/// word-aligned. Relatively fast and VRAM-safe.
+void memcpy32(void *dst, const void* src, uint wcount);
 
-// === (tonc_video.h) =================================================
+
+// === (tonc_video.h) ==========================================================================
 
 // --- sizes ---
 #define SCREEN_WIDTH	240
@@ -71,9 +74,9 @@ INLINE void obj_unhide(OBJ_ATTR *obj, u16 mode);
 void obj_copy(OBJ_ATTR *dst, const OBJ_ATTR *src, u32 count);
 
 
-// === INLINES ========================================================
+// === INLINES =================================================================================
 
-// --- (tonc_core.h) --------------------------------------------------
+// --- (tonc_core.h) ---------------------------------------------------------------------------
 
 // --- Simple bit macros ---
 #define BIT(n)					( 1<<(n) )
@@ -107,7 +110,7 @@ INLINE int bit_tribool(u32 flags, int plus, int minus)
 {	return ((flags>>plus)&1) - ((flags>>minus)&1);	}
 
 
-// --- (tonc_video.h) -------------------------------------------------
+// --- (tonc_video.h) --------------------------------------------------------------------------
 
 //! Wait for next VBlank
 INLINE void vid_vsync()
@@ -122,7 +125,6 @@ INLINE COLOR RGB15(u32 red, u32 green, u32 blue)
 
 
 // --- Objects ---
-
 
 //! Set the attributes of an object.
 INLINE OBJ_ATTR *obj_set_attr(OBJ_ATTR *obj, u16 a0, u16 a1, u16 a2)

@@ -3,7 +3,7 @@
 //
 // demonstating key states (and minor palette animation)
 //
-// (20030927 - 20060922, cearn)
+// (20030927 - 20251227, cearn)
 
 #include <string.h>
 
@@ -23,8 +23,8 @@ int main()
 	COLOR clr;
 	int frame=0;
 
-	memcpy(vid_mem, gba_picBitmap, gba_picBitmapLen);
-	memcpy(pal_bg_mem, gba_picPal, gba_picPalLen);
+	memcpy32(vid_mem, gba_picBitmap, gba_picBitmapLen/4);
+	memcpy32(pal_bg_mem, gba_picPal, gba_picPalLen/4);
 
 	REG_DISPCNT= DCNT_MODE4 | DCNT_BG2;
 

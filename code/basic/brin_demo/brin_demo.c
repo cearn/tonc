@@ -2,22 +2,23 @@
 // brin_demo.c
 // Essential tilemap loading: the start of brinstar from metroid 1
 //
-// (20060221 - 20070216, cearn)
+// (20060221 - 20251227, cearn)
 
 #include <string.h>
 
 #include "toolbox.h"
 #include "input.h"
+
 #include "brin.h"
 
 int main()
 {
 	// Load palette
-	memcpy(pal_bg_mem, brinPal, brinPalLen);
+	memcpy32(pal_bg_mem, brinPal, brinPalLen/4);
 	// Load tiles into CBB 0
-	memcpy(&tile_mem[0][0], brinTiles, brinTilesLen);
+	memcpy32(&tile_mem[0][0], brinTiles, brinTilesLen/4);
 	// Load map into SBB 30
-	memcpy(&se_mem[30][0], brinMap, brinMapLen);
+	memcpy32(&se_mem[30][0], brinMap, brinMapLen/4);
 
 	// set up BG0 for a 4bpp 64x32t map, using
 	//   using charblock 0 and screenblock 31

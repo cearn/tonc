@@ -14,7 +14,7 @@
 
 
 //! Fill the mode 3 background with color \a clr.
-void m3_fill(COLOR clr)	
+void m3_fill(COLOR clr)
 {	
 	int ii;
 	u32 *dst= (u32*)vid_mem;

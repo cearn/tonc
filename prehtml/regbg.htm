@@ -1051,13 +1051,13 @@ class="str">&quot;brin.h&quot;
 <span class="keyw">int</span> main()
 {
     <span class="cmt">// Load palette</span>
-    memcpy(pal_bg_mem, brinPal, brinPalLen);
+    memcpy32(pal_bg_mem, brinPal, brinPalLen/<span class="num">4</span>);
     <span class="cmt">// Load tiles into CBB 0</span>
-    memcpy(&amp;tile_mem[<span class="num">0</span>][<span 
-class="num">0</span>], brinTiles, brinTilesLen);
+    memcpy32(&amp;tile_mem[<span class="num">0</span>][<span 
+class="num">0</span>], brinTiles, brinTilesLen/<span class="num">4</span>);
     <span class="cmt">// Load map into SBB 30</span>
-    memcpy(&amp;se_mem[<span class="num">30</span>][<span 
-class="num">0</span>], brinMap, brinMapLen);
+    memcpy32(&amp;se_mem[<span class="num">30</span>][<span 
+class="num">0</span>], brinMap, brinMapLen/<span class="num">4</span>);
 
     <span class="cmt">// set up BG0 for a 4bpp 64x32t map, using</span>
     <span class="cmt">//   using charblock 0 and screenblock 31</span>
@@ -1577,7 +1577,10 @@ be wary of the code that produced it.
   Bonus demo: the 'text' in text bg and 
   introducing tonclib</h3>
 <p>
-Woo, bonus demo! This example will serve a number of purposes.
+Woo, bonus demo! 
+</p>
+<p>
+  This example will serve a number of purposes.
 The first is to introduce <tt>tonclib</tt>, a library of 
 code to make life on the GBA a bit easier. In past demos, I've 
 been using <tt>toolbox.h/c</tt> to store useful macros and 

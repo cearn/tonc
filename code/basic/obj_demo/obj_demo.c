@@ -2,10 +2,11 @@
 // obj_demo.c
 // testing various sprite related things
 //
-// (20031003 - 20060924, Cearn)
+// (20031003 - 20251227, cearn)
 
 #include <string.h>
 #include "toolbox.h"
+
 #include "metr.h"
 
 OBJ_ATTR obj_buffer[128];
@@ -26,11 +27,10 @@ void obj_test()
 	OBJ_ATTR *metr= &obj_buffer[0];
 	obj_set_attr(metr, 
 		ATTR0_SQUARE,				// Square, regular sprite
-		ATTR1_SIZE_64,					// 64x64p, 
-		ATTR2_PALBANK(pb) | tid);		// palbank 0, tile 0
+		ATTR1_SIZE_64,				// 64x64p, 
+		ATTR2_PALBANK(pb) | tid);	// palbank 0, tile 0
 
-	// position sprite (redundant here; the _real_ position
-	// is set further down
+	// position sprite (redundant here; the _real_ position is set further down
 	obj_set_pos(metr, x, y);
 
 	while(1)
@@ -70,17 +70,14 @@ void obj_test()
 
 int main()
 {
-	// Places the glyphs of a 4bpp boxed metroid sprite 
-	//   into LOW obj memory (cbb == 4)
-	memcpy(&tile_mem[4][0], metrTiles, metrTilesLen);
-	memcpy(pal_obj_mem, metrPal, metrPalLen);
+	// Places the glyphs of a 4bpp boxed metroid sprite into LOW obj memory (cbb == 4)
+	memcpy32(&tile_mem[4][0], metrTiles, metrTilesLen/4);
+	memcpy32(pal_obj_mem, metrPal, metrPalLen/4);
 
 	oam_init(obj_buffer, 128);
 	REG_DISPCNT= DCNT_OBJ | DCNT_OBJ_1D;
 
 	obj_test();
-
-	while(1);
 
 	return 0;
 }
