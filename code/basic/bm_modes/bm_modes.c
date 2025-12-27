@@ -2,28 +2,26 @@
 // bm_modes.c
 // Combined demo of modes 3, 4 and 5
 //
-// (20031002 - 20060922, cearn)
+// (20031002 - 20251227, cearn)
 
 #include <string.h>
 #include "toolbox.h"
+
 #include "modes.h"
-
-
-// static inline 
-void init()
-{
-	// Copy the data and palette to the right
-	// addresses
-	memcpy(vid_mem, modesBitmap, modesBitmapLen);
-	memcpy(pal_bg_mem, modesPal, modesPalLen);
-}
 
 int main()
 {
 	int mode= 3;
 	REG_DISPCNT= mode | DCNT_BG2;
 
-	init();
+	// Set this to 0 for the original demo.
+#if 1
+	memcpy32(vid_mem, modesBitmap, modesBitmapLen/4);
+	memcpy32(pal_bg_mem, modesPal, modesPalLen/4);
+#else
+	memcpy(vid_mem, modesBitmap, modesBitmapLen);
+	memcpy(pal_bg_mem, modesPal, modesPalLen);
+#endif
 
 	while(1)
 	{

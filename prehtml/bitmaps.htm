@@ -600,7 +600,7 @@ map VRAM as an array of bytes. This would be fine if it weren't for
 the rather annoying fact that VRAM does not allow 
 byte-writes! Now, because this is a very important point, let 
 me repeat that: <b><span class="rem">You cannot write to VRAM in 
-byte-sized chunks!!!</span></b>. Byte-reads are ok, but writes have 
+byte-sized chunks!!!</span></b> Byte-reads are ok, but writes have 
 to be done in 16-bit or 32-bit bit chunks. If you <i>do</i> write 
 in bytes to VRAM, the halfword you're accessing will end up with that 
 byte in both its bytes: you're setting two pixels at once. 
@@ -1922,7 +1922,7 @@ Potential problems during compilation or linking:
 </ul>
 
 <h3 id="ssec-data-align"><em>[[ref:ssec-data-align]]</em>
-  Data alignment</h3>
+  Data alignment and size</h3>
 <p>
 Data alignment is about the &lsquo;natural&rsquo; memory addresses of 
 variables. It is often beneficial to have a variable of a certain 
@@ -2063,11 +2063,7 @@ mis-aligned and have to be put together byte for byte (the compiler
 does this for you). This is very much slower than the non-packed 
 version, so only use this attribute if you have no other choice.
 
-
-
-
-What 
-happens with mis-aligned (half)words then I can't tell you though, but 
+What happens with mis-aligned (half)words then I can't tell you though, but 
 I'm sure it's not pretty.
 </p>
 
@@ -2158,17 +2154,32 @@ alignment or cast to other datatypes.
 </p>
 </div>
 
+<h4 id="sssec-data-sizeof">sizeof</h4>
+<p>
+The last thing I want to discuss is the <code>sizeof()</code> operator. In other tutorials 
+you will see this being used to find the size in bytes of arrays, which is then used in 
+<code>memcpy()</code>. It's a nice procedure but will not always work.
+</p>
+<p>
+First, <code>sizeof()</code> actually gives the size of the <i>variable</i>, which need not 
+always be the array itself. For example, if you use it on a pointer to the array, it'll give 
+the size of the pointer and <i>not</i> of the array. The compiler never complains, but you 
+might when hardly anything is copied. 
+</p>
+<p>
+Secondly, <code>sizeof()</code> is an <i>operator</i>, not a function. It's not even really 
+<code>sizeof(x)</code>, but <code>sizeof x</code>: the parenthesis are optional. The 
+<code>sizeof</code> operator is resolved at compile-time, so it needs to be able to find the 
+size at that time as well. To do this, either the declaration (in the header) should indicate 
+the size, or the array definition (in the source file) should be visible.
+</p><br>
+<p>
+Bottom line: you can use <code>sizeof()</code>, just pay attention to what you use it on.
+</p>
+
 <hr><hr>
 
-<p>UPDATE:</p>
-<ul>
-  <li>New memcpy section</li>
-  <li>New data demo</li>
-  <li>Keep old demo, with explanation</li>
-  <li>Move sizeof() up</li>
-</ul>
-
-<h3 id="ssec-data-memcpy-new"><em>[[ref:ssec-data-memcpy-new]]</em>
+<h3 id="ssec-data-memcpy"><em>[[ref:ssec-data-memcpy]]</em>
   Copying and memcpy (UPDATED!)
 </h3>
 <p>
@@ -2187,11 +2198,10 @@ and all can be affected by misalignment and the no-byte-write rule. I discuss so
 </p><br>
 
 <p>
-Now, originally, I had chosen to use <code>memcpy</code> in the first couple of demos. This was 
-done for a number of reason. The main one was that it is part of the standard C library, 
-meaning that C programmers should already be familiar with it. Secondly, it is somewhat 
-optimized (see the <tt>txt_se2</tt> demo for details). There were some reasons against it, 
-but it was worth the risk.
+Now, originally, I had chosen to use <code>memcpy</code> in the first couple of demos. The main reason 
+was that it is part of the standard C library, meaning that C programmers should already be familiar 
+with it. Secondly, it is somewhat optimized (see the <tt>txt_se2</tt> demo for details). There were 
+some reasons against it (primarily the potential for non-aligned copies), but it was worth the risk.
 </p><br>
 <p>
 I don't think it's worth the risk anymore, as we'll see later.
@@ -2256,27 +2266,151 @@ run into trouble when copying and you can't find it in the code; it
 might save you a few hours of debugging.
 </p>
 
-<h2 id="">
-  Demo time</h2>
+<h2 id="sec-data-demo"><em>[[ref:sec-data-demo]]</em>
+   Data interpretation demo</h2>
   
 
-<h3 id="">
-  New old demo</h3>
+<h3 id="ssec-data-demo-v2"><em>[[ref:ssec-data-demo-v2]]</em>
+  <code>bm_modes</code>: it's easy as 3, 4, 5</h3>
 
-<h3 id="ssec-demo-data-old">
+<div class="cpt_fr" style="width:240px">
+  <img src="../img/demo/bm_modes_3.png" alt="mode3 screen">
+  <b>Fig <em>[[ref:img-bm-modes-org]]</em></b>: original image for <tt>bm_modes</tt>.
+</div>
+
+<p>
+The <tt>bm_modes</tt> demo is an example of how the same data can result 
+in different results depending on interpretation (in this case, modes 3, 
+4 and 5). In the code below, I make <i>one</i> copy into VRAM, and 
+switch between the modes using Left and Right. 
+</p>
+
+<p>
+The original bitmap (see Fig <em>[[ref:img-bm-modes-org]]</em>) was exported 
+as 16bpp for use in mode 3.
+I've arranged the data of the bitmap in such a way that the name of 
+the current mode can be read clearly, as well as indicated the mode's 
+boundaries in memory. Because the data intended for the other modes 
+is still present, but not interpreted as intended, that part of the 
+bitmap will look a little shitty. And that's partly the point of the 
+demo: when filling VRAM, you need to know how the GBA will use the 
+data in it, and make sure it'll be used. If the bitmap ends up being 
+all garbled, this is the likely suspect; check the bitdepth, 
+dimensions and format (linear, tiled, compressed, etc) and if 
+something conflicts, fix it.
+</p>
+<p>
+Now, sometimes this is not as easy as it sounds. The general 
+procedure for graphics is to create it on the PC, then use an exporter 
+tool to convert it to a raw binary format, then copy it to VRAM. If 
+the exporter has been given the wrong options, or if it can't handle 
+the image in the first place, you'll get garbage. This can happen 
+with some of the older tools. In some cases, it's the bitmap editor 
+that is the culprit. For paletted images, a lot depends on the 
+exact layout of the palette, and therefore it is <b>vital</b> that 
+you have a bitmap editor that allows total control over the palette, 
+and leaves it intact when saving. MS-Paint for example does neither. 
+Even very expensive photo editing tools don't, so be careful.
+</p>
+<p>
+For this image, I used &lt;plug&gt;my own bitmap editor 
+<a href="http://www.coranac.com/projects/#usenti" target="_blank">Usenti</a>&lt;/plug&gt;, 
+which not only has some nice palette control options, and tiling 
+functions, but a built-in GBA graphics exporter as well. To make the 
+background be the same color in all modes, the two bytes of the 
+16bit background color of modes 3 and 5 had to serve as palette 
+entries for mode 4, both using that 16bit color again. In this case, 
+the color is <code>0x080F</code>, sort of a brownish color. The bytes 
+are 8 and 15, so that's the palette entries where the color goes too. 
+Normally you don't have to worry about switching bitdepths mid-game, 
+but knowing how to read data like this is a useful debugging skill.
+</p>
+
+<pre class="proglist">
+<span class="keyw">#include</span> <span class="str">&lt;string.h&gt;</span>
+<span class="keyw">#include</span> <span class="str">&quot;toolbox.h&quot;</span>
+<span class="keyw">#include</span> <span class="str">&quot;modes.h&quot;</span>
+
+<span class="keyw">int</span> main()
+{
+    <span class="keyw">int</span> mode= <span class="num">3</span>;
+    REG_DISPCNT= mode | DCNT_BG2;
+
+    <span class="cmt">// Copy the data and palette to the right addresses</span>
+    memcpy32(vid_mem, modesBitmap, modesBitmapLen/<span class="num">4</span>);
+    memcpy32(pal_bg_mem, modesPal, modesPalLen/<span class="num">4</span>);
+
+    <span class="keyw">while</span>(<span class="num">1</span>)
+    {
+        <span class="cmt">// Wait till VBlank before doing anything</span>
+        vid_vsync();
+
+        <span class="cmt">// Check keys for mode change</span>
+        key_poll();
+        <span class="keyw">if</span>(key_hit(KEY_LEFT) &amp;&amp; mode&gt;<span 
+class="num">3</span>)
+            mode--;
+        <span class="keyw">else</span> <span 
+class="keyw">if</span>(key_hit(KEY_RIGHT) &amp;&amp; mode&lt;<span 
+class="num">5</span>)
+            mode++;
+
+        <span class="cmt">// Change the mode</span>
+        REG_DISPCNT= mode | DCNT_BG2;
+    }
+
+    <span class="keyw">return</span> <span class="num">0</span>;
+}
+</pre>
+
+<p>
+The demo isn't too exciting, but it is instructive. First, we'll copy the bitmap graphics and 
+palette to VRAM using our new <code>memcpy32()</code> function (note the division by 4 to go 
+from bytes to word-count). After that, you can switch between the different video modes with 
+Left and Right. The results can be seen in Fig&nbsp;<em>[[ref:img-bm-modes-org]]</em>a-c below.
+</p>
+
+<div class="cblock">
+<table id="img-bm-modes">
+<tr>
+  <td>
+    <div class="cpt" style="width:240px">
+    <img src="../img/demo/bm_modes_3.png" alt="mode3 screen">
+    <b>Fig <em>[[ref:img-bm-modes]]</em>a</b>: <tt>bm_modes</tt> in mode 3.
+    </div>
+  </td>
+  <td>
+    <div class="cpt" style="width:240px">
+    <img src="../img/demo/bm_modes_4.png" alt="mode4 screen">
+    <b>Fig <em>[[ref:img-bm-modes]]</em>b</b>: <tt>bm_modes</tt> in mode 4.
+    </div>
+  </td>
+  <td>
+    <div class="cpt" style="width:240px">
+    <img src="../img/demo/bm_modes_5.png" alt="mode5 screen">
+    <b>Fig <em>[[ref:img-bm-modes]]</em>c</b>: <tt>bm_modes</tt> in mode 5.
+    </div>
+  </td>
+</tr>
+</table>
+</div>
+
+<h3 id="ssec-demo-data-old"><em>[[ref:ssec-data-old]]</em>
   When memcpy() goes bad</h3>
 
 <p>
-  So the old demo of this is exactly the same, except using <code>memcpy()</code>. The demo 
-compiles and runs just fine, only the output is wrong. 
+The above is actually the <i>second</i> version of the <code>bm_modes</code> demo. The 
+original version was exactly the same, except for using <code>memcpy()</code> for the copies. 
+The demo compiles and runs just fine, only the output is wrong. 
 </p>
-<p>Can you guess what happens now? If you thought the graphics would all be garbled because it 
-tries to do byte-writes &hellip; good guess, but no. Functionally, <code>memcpy()</code> works 
-just fine. So what happens now, then? The screen stays black, because the calls don't happen at 
-all.
-</p>
-<p>Yeah &hellip;</p>
-<br>
+<p>
+  Can you guess what happens when you use <code>memcpy()</code>? If you thought the graphics 
+would all be garbled because it tries to do byte-writes &hellip; good guess, but no. Functionally, 
+<code>memcpy()</code> works just fine. So what happens now, then? The screen stays black, 
+because the calls don't happen at all.
+</p><br>
+
+<p>Yeah &hellip;</p><br>
 
 <p>
 This was a bit of a surprise when I found that out. It's not that the copies go bad: <i>they 
@@ -2299,6 +2433,14 @@ play nice with <code>volatile</code>.
 <p>
 I'm still not 100% sure what's going on and how to fix it. But for now: don't use 
 <code>memcpy()</code> for memory-mapped addresses.
+</p><br>
+
+<p>
+If you want to have some fun, modify the code back to using <code>memcpy()</code> and fool 
+around with it a bit: change optimization levels, move the calls to a separate function, mark 
+VRAM and the palette as volatile -- just see when things go bad exactly. Note: the 
+<tt>-save-temps</tt> compiler flag will give you the the assembly that the compiler generates. 
+This can help you in your analysis.
 </p>
 
 <hr><hr>
@@ -2380,8 +2522,6 @@ problems discussed here. But just remember this section for if you do
 run into trouble when copying and you can't find it in the code; it 
 might save you a few hours of debugging.
 </p>
-
-<hr><hr>
 
 <h3 id="ssec-data-demo"><em>[[ref:ssec-data-demo]]</em>
   Data interpretation demo</h3>
@@ -2489,8 +2629,6 @@ If you run the demo and fiddle with the dpad a bit, you'll see tha &hellip;
 &hellip; oh. Oh, well this is awkward.
 </p>
 
-
-
 <h3 id="ssec-data-demo-b"><em>[[ref:ssec-data-demo-b]]</em>
   Data interpretation demo, revisited</h3>
 
@@ -2524,6 +2662,8 @@ for devkitArm 27 or so) it was fine. So what happened?
 </tr>
 </table>
 </div>
+
+<hr><hr>
 
 <h2 id="sec-conc">Conclusions</h2>
 <p>
