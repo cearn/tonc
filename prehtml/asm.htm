@@ -3881,67 +3881,64 @@ adjust the pointers so that the residuals copy correctly. Note that
 number of bytes, and that <code>src</code> and <code>dst</code> are 
 assumed to be word-aligned.
 </p>
+
 <p>
-The assembly version &ndash;surprise, surprise&ndash; does exactly 
-the same thing, only much more efficient than GCC will make it. There 
-is little I can add about what it does because all things have been 
-covered already, but there are a few things about <i>how</i> it does 
-them that deserve a little more attention.
+When compiled under <tt>-O2</tt>, you get the following:
 </p>
+
+<pre class="proglist">
+    .text
+    .section    .iwram,"ax",%progbits
+    .arm
+    .align  2
+    .global memcpy32
+    .type   memcpy32, %function
+memcpy32_c_iwram:
+    <span class="keyw">push</span>    {r4-r9, lr}
+    <span class="keyw">lsrs</span>    r8, r2, #<span class="num">3</span>
+    <span class="keyw">mov</span>     r5, r0
+    <span class="keyw">mov</span>     r4, r1
+    <span class="keyw">movne</span>   r6, #<span class="num">0</span>
+    <span class="keyw">and</span>     r7, r2, #<span class="num">7</span>
+    <span class="keyw">bne</span>     .L3
+.L2:
+    <span class="keyw">cmp</span>     r7, #<span class="num">0</span>
+    <span class="keyw">subne</span>   r0, r5, #<span class="num">4</span>
+    <span class="keyw">addne</span>   r2, r4, r7, lsl #<span class="num">2</span>
+    <span class="keyw">beq</span>     .L1
+.L7:
+        <span class="cmt">@ tail</span>
+        <span class="keyw">ldr</span>     r3, [r4], #<span class="num">4</span>
+        <span class="keyw">cmp</span>     r4, r2
+        <span class="keyw">str</span>     r3, [r0, #<span class="num">4</span>]!
+        <span class="keyw">bne</span>     .L7
+.L1:
+    <span class="keyw">pop</span>     {r4-r9, lr}
+    <span class="keyw">bx</span>      lr
+.L3:
+        <span class="cmt">@ Main loop</span>
+        <span class="keyw">add</span>     lr, r4, r6, lsl #<span class="num">5</span>
+        <span class="keyw">ldmia</span>   lr!, {r0-r3}
+        <span class="keyw">add</span>     ip, r5, r6, lsl #<span class="num">5</span>
+        <span class="keyw">stmia</span>   ip!, {r0,-r3}
+        <span class="keyw">add</span>     r6, r6, #<span class="num">1</span>
+        <span class="keyw">ldm</span>     lr, {r0-r3}
+        <span class="keyw">cmp</span>     r8, r6
+        <span class="keyw">stm</span>     ip, {r0-r3}
+        <span class="keyw">bne</span>     .L3
+    <span class="keyw">sub</span>     r3, r8, #<span class="num">1</span>
+    <span class="keyw">add</span>     r4, r4, #<span class="num">32</span>
+    <span class="keyw">add</span>     r0, r5, #<span class="num">32</span>
+    <span class="keyw">add</span>     r4, r4, r3, lsl #<span class="num">5</span>
+    <span class="keyw">add</span>     r5, r0, r3, lsl #<span class="num">5</span>
+    <span class="keyw">b</span>       .L2
+    .size   memcpy32, .-memcpy32
+</pre>
+
 <p>
-First, note the general program flow. The <code>movs</code> gives 
-the number of blocks to copy, and if that's zero then we jump 
-immediately to the residuals, <code>.Lres_cpy32</code>. What happens 
-there also interesting: the three instructions after decrementing the 
-word-count (in <code>r12</code>) all carry the <code>cs</code> flag.
-This means that if <code>r12</code> is (unsigned) lower than one, 
-(i.e., <code>r12</code>==0) these instructions are ignored. This is 
-exactly what we want, but usually there is a separate check for 
-zero-ness before the body of the loop and these extra instructions 
-cost space and time. With clever use of conditionals, we can spare 
-those.
-</p> 
-<p>
-The main loop doesn't use these conditionals, nor, it would 
-seem, a zero-check. The check here is actually done at that
-<code>movs</code> lines as well: if it doesn't jump, we can be sure 
-there are blocks to copy, so another check is unnecessary. Also note 
-that the non-scratch registers <code>r4-r10</code> are only stacked 
-when we're sure they'll actually be used. GCC normally stacks at the 
-beginning and end of functions, but there is no reason not to delay 
-it until it's actually necessary.
-</p>
-<p>
-Lastly, a few words on non-assembly matters. First, the general 
-layout: I use one indent for everything except labels, and
-sometimes more for what in higher languages would be loops or 
-if-blocks. Neither is required, but I find that it makes reading 
-easier. I also make sure that the instruction parameters are all 
-in line, which works best if you reserve 8 spaces for the mnemonic 
-itself. How you set the indents is a matter of personal preference 
-and a subject of many holy wars, so I'm not touching that one here 
-<kbd>:P</kbd>
-</p>
-<p>
-Another point is comments. Comments are even more important in 
-assembly than in C, but don't overdo it! Overcommenting just drowns 
-out the comments that are actually useful and maybe even the code as
-well. Comment on blocks and what each register is and maybe on 
-important tests/branches, but do you really have to say that
-&lsquo;<code>subs r2, r2, #1</code>&rsquo; decrements a loop variable? 
-No, I didn't think so either. It might also help to give the intended 
-declaration of the function if you want to use it in C. 
-</p>
-<p>
-Also, 
-it's a good idea to always add section, alignment and code-set before 
-a function-label. Yes, these things aren't strictly necessary, but 
-what if some yutz decides to add a function in the middle of the 
-file which screws up these things for functions that follow it? Lastly, 
-try to distinguish between symbol-labels and branch-labels. GCC's 
-take on this is starting the latter with 
-&lsquo;<code>.L</code>&rsquo;, which is as good of a convention as 
-any.
+It does the job, but in a somewhat convoluted way. The main loop especially is just silly: it 
+splits the copies in to two 4&times; blocks, and doesn't even follow the same procedure for
+both. So let's improve on this.
 </p>
 
 <pre class="proglist">
@@ -3982,6 +3979,80 @@ class="cmt">@ r2=block count</span>
         <span class="keyw">bcs</span>     .Lres_cpy32
     <span class="keyw">bx</span>  lr
 </pre>
+
+<p>
+Notice how much simpler it is. Each loop is just 4 instructions long, and both loads 
+and stores make use of incrementing registers. For some reason, GCC doesn't do this and wastes 
+many instructions on setting up looping indices. Which is interesting, as the original C code 
+doesn't have those, and if you directly translate the C expressions to assembly, you'll get 
+better code, but oh well.
+</p><br>
+
+There is little I can add about what it does because all things have been 
+covered already, but there are a few things about <i>how</i> it does 
+them that deserve a little more attention.
+</p><br>
+
+<p>
+First, I delay the stack work. If you don't need block-copies, you don't need to involve the 
+stack at all, making things faster overall. I'm also using <code>r12</code>, which is a 
+scratch register just like <code>r0-r3</code>.
+</p>
+<p>
+Then there's the general program flow. The <code>movs</code> gives 
+the number of blocks to copy, and if that's zero then we jump 
+immediately to the residuals, <code>.Lres_cpy32</code>. What happens 
+there also interesting: the three instructions after decrementing the 
+word-count (in <code>r12</code>) all carry the <code>cs</code> flag.
+This means that if <code>r12</code> is (unsigned) lower than one, 
+(i.e., <code>r12</code>==0) these instructions are ignored. This is 
+exactly what we want, but usually there is a separate check for 
+zero-ness before the body of the loop and these extra instructions 
+cost space and time. With clever use of conditionals, we can spare 
+those.
+</p>
+<p>
+The main loop doesn't use these conditionals, nor, it would 
+seem, a zero-check. The check here is actually done at that
+<code>movs</code> lines as well: if it doesn't jump, we can be sure 
+there are blocks to copy, so another check is unnecessary. Also note 
+that the non-scratch registers <code>r4-r10</code> are only stacked 
+when we're sure they'll actually be used. GCC normally stacks at the 
+beginning and end of functions, but there is no reason not to delay 
+it until it's actually necessary.
+</p>
+<p>
+Lastly, a few words on non-assembly matters. For the general 
+layout: I use one indent for everything except labels, and
+sometimes more for what in higher languages would be loops or 
+if-blocks. Neither is required, but I find that it makes reading 
+easier. I also make sure that the instruction parameters are all 
+in line, which works best if you reserve 8 spaces for the mnemonic 
+itself. How you set the indents is a matter of personal preference 
+and a subject of many holy wars, so I'm not touching that one here 
+<kbd>:P</kbd>
+</p>
+<p>
+Another point is comments. Comments are even more important in 
+assembly than in C, but don't overdo it! Overcommenting just drowns 
+out the comments that are actually useful and maybe even the code as
+well. Comment on blocks and what each register is and maybe on 
+important tests/branches, but do you really have to say that
+&lsquo;<code>subs r2, r2, #1</code>&rsquo; decrements a loop variable? 
+No, I didn't think so either. It might also help to give the intended 
+declaration of the function if you want to use it in C. 
+</p>
+<p>
+Also, 
+it's a good idea to always add section, alignment and code-set before 
+a function-label. Yes, these things aren't strictly necessary, but 
+what if some yutz decides to add a function in the middle of the 
+file which screws up these things for functions that follow it? Lastly, 
+try to distinguish between symbol-labels and branch-labels. GCC's 
+take on this is starting the latter with 
+&lsquo;<code>.L</code>&rsquo;, which is as good of a convention as 
+any.
+</p>
 
 <h3 id="ssec-cpy-16"><em>[[ref:ssec-cpy-16]]</em>
   memcpy16()</h3>
