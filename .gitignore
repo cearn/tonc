@@ -17,3 +17,4 @@ code/libtonc/doc/
 bak/
 bin/
 extra/
+out/**

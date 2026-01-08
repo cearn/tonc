@@ -1,0 +1,1798 @@
+//
+// YAGBAT : Yet Another GBA tutorial
+//    eeerrrrnnngggg!! Sorry, not anymore.
+//
+// TONC: GameBoy Advance Programming
+//        ( in rot13 )
+//
+
+
+//34567890123456789012345678901234567890123456789012345678901234567890
+OK, so there's a myriad of tutorials on GBA programming already, but 
+even the primary tut, PERN, has a number of irritating errors, so
+I'm gonna roll my own.
+
+
+For gfx text: verdana, 12 bold ?
+
+// === FORUM THREADS: ===
+-  418	FAQ
+- 5751	word rant
+- DMA vs CpuFastSet
+- headers
+- extern
+- 68589	Explanation of fixed source & DMA/CpuFastSet
+
+// --- FIXMES ---------------------------------------------------------
+
+* [20250827] Fixed `m7_ex` border.grit and tweaks to horizon.
+* [20250827] `tte_types.s` had a `TTC_cmdProc` that doesn't actually exist O_O;;
+* ![202508xx] Better `chr4c_drawg_b1cts()`
+* [20250810] CSS issues. So much alignment was broken because I was using 
+  `<col>` in ways that _should_ work, but the comite decided was against 
+  the rules. And there wasn't a way to do it properly in CSS. (Still isn't, 
+  but it's manageable now).
+* [20250720] Better horizon panning for `m7_ex`. Still need to fix the text
+  and why it shifts a bit when you look closely.
+* [20250716] Removed the Programmer's notepad stuff.
+* [20250716] Making things compile again.
+
+
+TODO:
+- Fix text for makefile and code changes (DKP-related)
+- Fix toolbox for using memcpy, & maybe make a note of it.
+- move tte_types.s to include. Rename as well.
+- 
+
+
+// --------------------------------------------------------------------
+// Post-1.4 changes
+// --------------------------------------------------------------------
+
+20081023, crazak p:
+* hardware.htm: memory endings were flawed.
+
+// === v1.3 changes ===
+
+--- Incomplete: ---
+
+- dma3_cpy uses byte-size for input. Should do that for memfoo# too?
+
+- intro.htm: sizes and cluster links differently.
+
+Spelling:
+- -ize vs -ise (hmm, nm perhaps :\ )
+- Hyphens for
+  - Xbit
+  - screen/charblock
+  - scanline
+  - bitdepth, bitflag
+
+Page-breaks:
+- notes
+- images?
+- reg-tables?
+NOTE: page-break-inside doesn't seem to work :(
+
++ Switch to ROM-boot, as everyone can be expected to have a MM card nowadays?
+
+* Text to use chr4_b4 in all cases
+/ bigmap.mb.gba		link bounds-checks. Rename structs
+- bld_demo.mb.gba	text, metr (arrange VRAM too)
+/ dma_demo.mb.gba	pic
+/ hello.mb.gba		pic/desc
+/ irq_demo.mb.gba	pic
+/ m3_demo.mb.gba	bmp16
+/ m7_demo.mb.gba	pic, (bg)
+- mos_demo.mb.gba	text, metr	# PONDER: order of affine/scroll/mosaic?
+/ oacombo.mb.gba	pic		(better pics for theory)
+/ obj_aff.mb.gba	pic, metr
+- obj_demo.mb.gba	metr
+- octtest.mb.gba	
++ pageflip.mb.gba
+/ prio_demo.mb.gba	pic
+/ sbb_aff.mb.gba	pic
+- sbb_reg.mb.gba	(numtiles)
+- snd1_demo.mb.gba	text. A note font would be interesting
+/ swi_demo.mb.gba	pic
+- swi_vsync.mb.gba	metr
+/ tmr_demo.mb.gba	pic (oh does this look nice now)
+- txt_bm.mb.gba		legacy text
+- txt_obj.mb.gba	legacy text
+- txt_se1.mb.gba	legacy text
+- txt_se2.mb.gba	legacy text
+- win_demo.mb.gba	gfx
+
+Change code/desc in html too, of course.
+
+	txt_init_chr4_b4_dflt(0, BG_CBB(2)|BG_SBB(28));
+	txt_init_con();
+	txt_set_margins(8, 8, 232, 40);
+
+I have a feeling that I need to review the strchr(',') in the commands >_>
+
+* Text:
+/ asm.htm need more. 
+- Maybe makefile.htm.
++ setup.htm
+/ new text
+
+* Potential extra demos:
+- saving (->lab)
+- multiplayer
+- animation
+- grit / gbfs (20080324: mode7 demos and tte_demo use grit)
+- FAT
+
+
+// 20080324
+Changes: 
++ I can haz tonc_libgba.h : a list of the libgba stuff.
++ switched the default dispatcher to non auto-nest.
++ Switched to some libgba names for some items. More to come later.
++ uint type and high-usage of it.
++ 8/16bpp surface functions. 4bpp to come later.
+
+// 20071120, tu
+* Structure of new set-up page:
++ Introduction:
+  + Note options:
+    + DKP
+    + HAM/HEL
+    + DragonBasic
+    + Catapult
+  + Focus on DKP
++ DKP
+  + Address
+  + DKP vs DKA
+  - Note diff between updater and revision
+  + Dir structure + contents
+  + Building GBA projects
+    + Cart vs Multiboot builds.
+    + Use GBA example for initial testing.
+    - Difference between tonc and DKP makefiles + building
+	+ Potential problems.
+
++ In-depth: command-line tools
+  + how the command line works: PATHs and flags
+  + Required flags
+  + via cmdline
+  + via batchfiles
+  + via makefiles
+  + Prefer makefiles over batchfiles.
+
+
+// 20070813, mo
+
+New text page:
+NOTE: use demos from currect vwf.gba.
+TODO: tighten initializers.
++ rename colors. color parameters? attributes? Attributes!
++ tte_putc
++ use #{ ... } instead of \\{ } ? (from Ruby)
+
+* Intro
+
+	tte_set_color(TTE_INK, 1234);
+	tte_set_color_attr(TTE_INK, 1);
+	tte_set_cattr(TTE_INK, 1);
+* Basic design
+	/ Goal
+		- Text rendering for most/all graphics types under one roof
+		- Custom fonts (width, size, bpp)
+		- Callback-based rendering and erasing of text
+		- A modicum of scripting support for positioning, colors, fonts.
+		- Support for stdio routines (printf et al).
+
+	- TTC : Text context
+		+ canvas control
+			+ surface
+			+ cursor
+			+ margin
+		- text control
+			- font
+			- charlut
+			+ color attributes (cattr ?)
+		+ callbacks
+			+ plot
+			+ erase
+		- miscy
+
+	- TFont : font description
+		+ members
+		+ charW/H vs cellW/H
+		- glyph formats: bmp, tiled, tile-strips
+		- renderers
+			- identical interface
+			- bit conversion
+			- coloring
+			- transparency.
+		
+	- Example of use
+	+ tte_write structure
+
+	- Making fonts?
+		
+* Tilemapped text
+	- sys8 font
+		- glyph data
+		- charOffset / charCount
+		- charW/H
+		- cellW/H
+		- other fields
+	+ color use	
+	+ tte_init_se( ... )
+	- se_drawg
+	+ se_drawg_s
+
+	- ase_drawg
+	+ ase_drawg_s
+
+	+ Demo : se4 from vwf.gba
+	+ Demo : ase from vwf.gba
+
+* Bitmapped text
+	- reqs for vwf : width table (and height?)
+	- verdana9 example.
+	- 16bpp writer
+	- 1->16 : bmp16_drawg
+	- 1->8 : bmp8_drawg
+	- Demo : 16bpp text with wrapping and text changes.
+	? PONDER: asm version too?
+
+* Obj text
+	- Differences in surface use.
+	- Diffs in color-table use.
+	- Demo : flying text example. (TODO: pause with key)
+
+* chr4 text
+	- chr text: preparing a map and a tile surface.
+	- 1->4bpp, cts
+	- 1->4bpp asm!!!
+	- 4->4bpp, cts
+	- Demo : write into dialog box (+ erase)
+
+
+* Scripting
+	? PONDER: earlier
+	- color changes
+	- position changes
+	- font changes.
+
+* Expansion options
+	- JIS
+	- timed text
+	- events.
+
+
+// 20070404, fr
+Added key repeat functions, woo!
+
+
+Making a single copy:
+
+Having text after </body> is apparently not done, so we have to do 
+something else.
+* Print DOCTYPE and <html>
+* Create title
+* print <body>
+* For each file
+  * get body text and insert
+* print </body></html>
+
+
+
+// 2006-11-17, fr
+
+// 
+
+# Goggloids:
+#  -fno-loop-optimize2
+#  -fno-tree-store-copy-prop
+#  -fno-rerun-loop-opt
+#  -fno-tree-sra Nope
+# one less mov in main copier
+#  -fno-tree-store-copy-prop		\
+#  -fno-rerun-loop-opt				\
+#  -fno-modulo-sched				\
+#  -fno-tree-copyrename \
+#  -fno-tree-dce \
+#  -fno-tree-dominator-opts \
+#  -fno-tree-dse -ftree-fre \
+#  -fno-tree-loop-im  \
+#  -fno-tree-loop-ivcanon \
+#  -fno-tree-lrs -ftree-pre \
+#  -fno-tree-salias \
+#  -fno-tree-sink \
+#  -fno-tree-sra \
+#  -fno-tree-store-ccp \
+#  -fno-tree-ter\
+#  -fno-tree-vect-loop-version \
+#  -fno-tree-vrp\
+#  -fno-loop=optimize
+# -fno-sched-interblock			\
+# -fno-sched-spec				\
+# -fno-sched-stalled-insns-dep	\
+# -fno-show-column				\
+# Removed too much
+#  -fsplit-ivs-in-unroller	\
+#  -fno-trapping-math		\
+#  -fno-tree-ccp			\
+#  -fno-tree-ch			\
+#  -fno-tree-copy-prop		\
+#  -fno-tree-fre			\
+#  -fno-tree-pre			\
+#  -fno-unit-at-a-time		\
+#  -ftree-loop-linear
+
+#-ftree-loop-optimize No memcpy (but still bad movs). No unroll
+#-fno-tree-ch : Does something with loop order
+#-fno-tree-ccp :removes some movs, but not enough
+
+NOOPT := \
+#-fno-loop-optimize2				\
+#-fno-tree-loop-optimize			\
+#-fno-rerun-cse-after-loop		\
+#  -fno-tree-vect-loop-version \
+#-fno-tree-ch			\
+#-fno-tree-ccp			\
+
+<p>
+For another example, let's review the <code>max(a, b)</code> code I 
+had earlier and compare it to the equivalent C code.
+</p>
+
+<pre class=proglist>
+<span class=cmt>// r2= max(r0, r1) in C</span>
+<span class=keyw>if</span>(r0 >= r1)
+    r2= r0;
+<span class=keyw>else</span>
+    r2= r1;
+...
+</pre>
+
+<pre class=proglist>
+<span class=cmt>@ r2= max(r0, r1) in ARM, no conditionals</span>
+
+    <span class=keyw>cmp</span>     r0, r1
+    <span class=keyw>bge</span> .Lamax
+    <span class=keyw>mov</span>     r2, <b>r1</b>  <span 
+class=cmt>@ else r2= r1</span>
+    <span class=keyw>b</span>   .Lrest
+.Lamax:
+    <span class=keyw>mov</span>     r2, <b>r0</b>  <span 
+class=cmt>@ r0&gt;=r1 : r2= r0</span>
+.Lrest:
+    ...
+</pre>
+
+<pre class=proglist>
+<span class=cmt>@ r2= max(r0, r1) in ARM, with conditionals</span>
+    <span class=keyw>cmp</span>     r0, r1
+    <span class=keyw>movge</span>   r2, r0  <span 
+class=cmt>@ r0&gt;=r1 : r2= r0</span>
+    <span class=keyw>movlt</span>   r2, r1  <span 
+class=cmt>@ else : r2= r1</span>
+    ...
+</pre>
+
+<p>
+That the code with conditionals is cleaner should be obvious, but 
+there is something else I want you to see, somehing about the 
+order of the if-else blocks. In all cases I'm using a 
+&lsquo;greater-then or equal&rsquo;. In the version with 
+conditionals order of the branches is essentially the same as in the
+C code, but in the branched version the <code>else</code> statements 
+go first! The issue here is that a branch <i>skips</i> code, so 
+the parts after it is the <code>else</code> clause and the code 
+it jumps to the <code>if</code> clause. It seems so obvious, yes, 
+but since the order is reversed with respect to every other language
+it's easy to switch them by mistake. There is a way to mimic the 
+order of clauses though: invert the conditions. That was the version 
+I presented earlier.
+</p><br>
+
+// 20061206, we
+Both mode 7 chapters are finished now, as is text. Still need to 
+spell-check though.
+So what's left?
+* legacy.h
+* asm.htm and intro.htm, maybe toncmake.htm. Hardware.htm?
+* Maybe bigmap in lab, but only if I have enough time.
+* Better/more documentation for tonclib?
+
+
+// 20061113, mo
+Ok, I got it now. Original uses M7_D=256 and M7O_NORM=2. As for 
+why the floor was so distored: lcf/lsf should be .12 fixeds. 
+After that everything's shiny.
+
+Now the only question is whether I should use the SMK settings 
+or not :\ It looks the part that's true, but I'm not too fond of the 
+telelens.
+
+Oh, and still to do: menu/text and more random obj placement. 
+Selectable cameras might also be interesting.
+
+And then the rewrite. Theory is much the same, but code is very 
+different now.
+
+* Still need to clean up API
+* Remove animation from obj-placement. Refactor to function that 
+  uses lut parameter?
+
+* New intro
+* New screenies (still need traffic light at start?
+* Horizon is the same I think
+* Horz code is in hbl as well. Makes things easier.
+* Backdrop is a little different too. Text talks about bullets.
+* Floor affines: not incremental, but unpacking C to components 
+  (thank sgeos?)
+* Redef of sprite anchor, following theory from affobj.htm.
+  Which sprite to use for showing?
+* Sprite culling remains the same.
+* Re-norm: technically same, but different constants.
+* Sorting: point to lab.htm
+* Implementation: the lot.
+  New:
+  - More IWRAM
+  - New structs
+  - Fogging implementation ^_^
+  - Sprite animation
+  - Note on precision for floor
+  - New, simpler sky/floor switch
+  - Scanline-correct affine copying.
+* Closing notes: 
+  - Note on shadows
+  - note on choice of focus/norming ?
+
+
+
+Also: REMOVE the period after sentences in tocs. They look stupid.
+
+// 2006-11-11, 15:08, sa
+On new mode7ex demo: Bowser Castle I
+* Original uses different algorithm
+* Sprite animation does not match uniform rotation :(
+It's fairly close though. I need a 32x lut for the animations, 
+some entries will just be double.
+
+Thwomps:
+384, 32
+384, 48
+384, 64
+384, 80
+160, 864
+248, 856
+216, 880
+176, 920
+440, 760
+456, 760
+472, 760
+488, 760
+692, 968
+720, 952
+684, 928
+720, 904
+
+// 2006-10-20 21:28:03, fr
+It seems that DKP r19 does not align files to word boundaries anymore.
+Damn.
+
+// 20061018, th
+CARP >_<
+Like I thought, the 'nested' master-isr doesn't do nests at all. 
+In fast, it almost actively forbids them. However, simply enabling 
+REG_IME again doesn't help because apparently the stacks will 
+screw up afterwards and give rise to erroneous lr's or something. 
+Buggers. Basically, nested irq's are evil.
+
+// 20060912, tu
+Huh. Well ain't that just dandy. It seems that VBlankIntrWait 
+also enables REG_IME, meaning that when you try to turn the damn 
+things off and call VBlankIntrWait somewhere inbetween, well ...
+
+In other words, don't assume fucking anything.
+
+On a lighter note, it seems my isr-dispatcher works fine ^_^.
+
+// 20060715, sa
+On setup.htm:
+* Add alternatives for PN
+* Add CreateProcess problem note.
+* Since ldr= is moved up, it should be removed in asm.htm#sec-add.
+
+// 20060623, fr
+ARM asm: 
+* The 'r' in ldrsh and ldrsb are not required
+* ldr(s)(h|b) all have the same functionality, yay.
+* Unyay that: ldrh, ldrsh and ldrsb do NOT allow shifted offsets.
+* Contrary to popular belief (or my belief at any rate), 'push' and 
+  'pop' _are_ valid instructions. Just leave out the 'sp!' part.
+* 'adr' gets the address of a label ... as long as it's in range of 
+  pc of course.
+* ldr,=X forms work for all types.
+* In stm/ldm, 'FD'-likes have merely aliases for 'IA'-likes, but the 
+  aliases differ for load and store. Not surprising when you think 
+  about it.
+
+* THUMB code in iwram/ewram sections have to use "ax", otherwise 
+  the branch may fail (won't shift to THUMB). The "%progbits" thing 
+  doesn't seem necesasry though. The CODE_IN_xWRAM macros add 
+  "ax", %progbits themselves.
+* Omitting .thumb_func: switch to ARM state, then call
+* .extern is optional; identifiers are implicit. OH FUCK!!!
+
+// comparable C-version of memcpy32
+typedef struct BLOCK { u32 data[8]; } BLOCK;
+
+void memcpy32(void *dst, const void *src, u32 wdcount) CODE_IN_IWRAM
+{
+	u32 blkN= wdcount/8, wdN= wdcount&7;
+	if(blkN)
+	{
+		BLOCK *dst2= (BLOCK*)dst, src2= (BLOCK*)src;
+		while(blkN--)
+			*dst2++ = *src2++;
+		src= src2;	dst= dst2;
+	}
+	while(wdN--)
+		*dst++ = *src++;
+}
+
+// comparable C-version of memcpy32
+void memcpy32(void *dst, const void *src, u32 hwcount)
+{
+	u16 *dst2= (u16*)dst, *src2= (u16*)src;
+	// Fast-copy if and only if:
+	// enough halfwords and equal src/dst alignment
+	if( (hwcount>5) && !(((u32)dst^(u32)src)&2) )
+	{
+		if( ((u32)src)&1 )	// align to words
+		{
+			*dst2++= *src++;
+			hwcount--;
+		}
+		memcpy32(dst2, src2, hwcount/2);
+		src2 += hwcount&~1;	
+		dst2 += hwcount&~1;
+		hwcount &= 1;
+	}
+	while(hwcount--)
+		*dst2++ = *src2++;
+}
+
+// 20060510, we
+const char *str[]= {...};
+
+The strings are in ROM, but the array `str' _isn't_! For that 
+you need const char * const.
+
+
+// 20060423, 17:32, su
+oe_rs_ex() * 7, + calls and all
+asm: 5081
+GCC: 7950
+asm wins by 37%!
+
+// 18-4-2006, 16:53, tu
+A gamma of 0.66 looks pretty good for vba screenshots.
+
+// 08-04-2006, 11:44, sa
+Getting around no$gba error reports:
+
+crt0.s:
+When copying to EWRAM for multiboot, you shouldn't use 
+the full ewram length, as the source (ROM) will generally 
+be much shorter
+[code]
+@ old
+/*
+	mov	r3, #0x40
+	lsl	r3, #12				@ r3 = 0x40000
+	lsl	r2, r3, #7			@ r2 = 0x2000000
+	mov	r6, r2				@ r6 = 0x2000000
+	lsl	r1, r2, #2			@ r1 = 0x8000000
+
+	bl	CopyMem
+*/
+@ new
+	mov	r2, #2
+	lsl	r2, r2, #24			@ r2= 0x02000000
+	ldr	r3, =__ewram_end
+	sub	r3, r2				@ r3= binary size (variable)
+	lsl	r1, r2, #2			@ r1= 0x08000000
+	mov	r6, r2				@ r6= 0x02000000
+	bl	CopyMem
+[/code]
+
+interrupts:
+Do not use the 0300:8000 <=> 0400:0000 mirroring shortcut for 
+REG_IFBIOS, REG_RESET_DST, and REG_INTMAIN, or anywhere else that 
+you may have used it. Dispatcher:
+
+[code]
+@ old:
+/*
+	ldrh	r2, [r3, #-8]
+	orr		r2, r2, r1
+	strh	r2, [r3, #-8]
+*/
+@ new
+	ldr		r0, =0x03007FF8
+	ldrh	r2, [r0]
+	orr		r2, r2, r1
+	strh	r2, [r0]
+[/code]
+
+Now everything gives 0 errors. Everything, except:
+- m7_demo (14k/s)
+- m7_ex (14k/s)
+- snd1_demo (180/s)
+- swi_vsync (180/s)
+- txt_bm  (180/s)
+- txt_oe  (180/s)
+- txt_se1 (180/s)
+- txt_se2 (180/s)
+
+All caused by VBlankIntrWait()
+
+There's something screwy with bld_Demo too. But I think that's 
+GCC's problem.
+
+// 29-10-2004 12:48:24, fr
+New tonc design. Order of appearance isn't set yet, so this is just the 
+subjects. They're not even confined to files yet.
+* prologue
+  - entrance
+  - introduction
+  - toc
+  - tonc notation
+  - essential stuff
+    - docs
+      - gbatek, CowBite, Pern
+      ? gbaasm, pern, belogic, deku's sound
+    - 'tools'
+      - emu: VBA, no$gba
+      ? emu: mappy
+      - devkit: devkitARM
+      ? devkit: HAM, DragonBasic, Catapult
+    - brain
+    - Math/programming requirements
+  - devkits
+    - dkARM (+DKA)
+    - HAM
+    - DragonBasic
+  - compiling
+    - batch files
+    - makefiles
+* mini-tonc, for getting aquainted with the system (and I shall call it
+  "mini-tonc", *puts pinky to corner of mouth*)
+  - memory system
+  - first demo
+    - batch file
+    - makefile
+    - code (magic + named; description)
+  - basic video
+    - REG_DISPCNT, REG_VCOUNT
+    - video modes
+    - video types
+  - basic keys (REG_P1)
+  - graphic converters (+ making one?)
+  - testing your code
+    - emu
+    - multiboot
+    - flash card
+  - general notes on GBA programming
+  - DEMO: mode3 box movement
+    - REG_DISPCNT, REG_VCOUNT, REG_P1
+    - video memory
+
+* tonc, the real stuff (most of mini-tonc will be in here too)
+
+Demos:
+- regular bgs
+  - mini-text
+  / map-blocks
+  / tile-access
+- bitmap
+  - sanity
+    Inverted red/green "L". Minimal demo
+    Both magic numbers and named constants
+  - moving pixel
+    Pixels, because they're so small. Introduction to keys
+  / mode changes
+    Flip between mode 3/4/5)
+  / page flipping
+  ? primitive drawing
+
+// 20060302, 17:33, th
+More demo changes, going to use text systems after all:
++ bld_demo
+- dma_demo ?
+- int_demo ? (would have to switch to tilemodes; better not)
++ m7_demo
++ mos_demo
++ obj_aff ! Oh yes. Oh, very yes
+- sbb_aff ? (maybe; not sure it'd help)
+- snd1_demo
++ tmr_demo
+- win_demo ?
+
+// 20060110, 21:02, tu
+Demo changes:
+
+blend_demo	-> bld_demo
+bm_demo		-> bm_modes
+cbb_demo	-> cbb
+mode7c		-> m7_demo
+mode7d		-> m7_ex
+objaff_demo	-> obj_aff
+page_demo	-> pageflip
+map_block1	-> sbb_reg
+map_block2	-> sbb_aff
+dma_memcpy	-> memcpy
+
+Probably do something about s-tiles and d-tiles.
+
+
+// 20051214, 19:46, tu
+The devkitPro updater does:
+- install msys, dkARM, dkPSP, dkPPC, + some libraries
+- make dir variables for ARM, PSP, msys/bin
+- but _not_ dkarm/bin, you still have to add that yourself
+
+That said, the DEVKITARM sysvar gives access to gba_rules, 
+which includes libgba and base_rules, which adds dkarm/bin to 
+the path
+
+// 6-7-2004, 14:52, tu
+Right, a text system. What do I need.
+
+- char LUT
+- position data (x,y)
+- margin rectangle (l,t,r,b)
+- escape characters: 
+  '\a'	07	Bell (alert)		(not for a while :( )
+  '\b'	08	Backspace			(yup. but ith erase?)
+  '\t'	09	Horizontal tab		(yup. 4 or variable?)
+  '\n'	0a	New line			(yup. but == CrLf?)
+  '\v'	0b	Vertical tab		(== newline. for now)
+  '\f'	0c	Formfeed			(maybe)
+  '\r'	0d	Carriage return		(yup)
+ 
+- caret (cursor is something else, remember? ) This should be a 
+  sprite, not a tile since the position can overlap with a character.
+- background to work with.
+- alignment? Would be very nice, wouldn't it?
+
+// 3-6-2004, 20:38, th
+On mode7d sprite badness. As far as I can see, the main problem is 
+that sx*64 sprites, when scaled can grow up to 128 long. This means 
+that they can wrap around vertically. It seems that VBA does something 
+else than GBA, though. On VBA, the starting position is 
+[VBA code]
+	if(y>160)
+		y -= 256;
+[/code]
+Meaning that y=160 -> -96. For a 2x 32x64 sprite, that means that 
+the bottom 32 pixels will show. On hardware, though, it seems that 
+when y=128 (i.e., when ymax=256) the sprite jumps, and that
+[GBA code?]
+	if(y+field_height > 256)
+		y -= 256;
+	// is this: y= -field_height + ((y+field_height) & 255)) ?
+[/code]
+
+mode7d.o(.iwram+0x14): In function `m7_vc_horizon':
+: relocation truncated to fit: R_ARM_THM_PC22 int_enable_ex
+CRAP!
+
+
+// 21-5-2004, 17:32, fr
+On interrupt acknowledgement. Once you're inside the interrupt 
+loop, setting the bits in REG_IF acknowledges the interrupt has 
+been handled, and then the bit is CLEARED! single_ints.s also sets 
+the thing so it's actually not even necessary to do it in your 
+isr too. It MUST be written to somewhere, though, otherwise
+
+IntrMain	isr		result
+-			-		crap
+-			|		ok
+-			&~		crap
+|			-		ok
+|			|		ok
+|			&~		ok
+
+
+// 06-05-2004 23:45:51, th
+I have _got_ to create my own auto-referencing system for html, 
+all those numbered references are bound to get out of synch sooner 
+or later. 'f course I could edit the things in OpenOffice or switch 
+to LaTeX, but conversions to html aren't as nice as I'd like (though 
+I do have to say that OO does a far better job than Word, omg!). 
+The only problem is that I'm not exactly sure how to proceed.
+
+// 8-4-2004, th
+"mode7d.o(.text+0x420): relocation truncated to fit: R_ARM_PC24 m7_init_bga_ex"
+
+...
+
+Say what ?!?
+
+// 20:13, 7-4-2004, we
+Making my bg/obj affine functions converge
+4 types:
+(1) Copy/paste oa_foo to bga_foo. Eeewl.
+(2) Using oa_foo and bga_foo wrapper macros; these will call _aff_foo 
+  functions, which put the data where it belongs with offsets. 
+  Doubles the function length somehow. Eeeewl.
+(3) Using oa_foo and bga_foo wrapper _functions_! With the real code 
+  in an _aff_foo macro, which form the body of the wrappers. Not 
+  pretty, and still doubles the total code, but each function is 
+  still short and typing is reduced. 
+(4) As 2, but with all real code in asm. In time I'll use that one.
+
+bga_rotate:
+	push	{r4, lr}
+	mov	r3, r1
+	ldr	r2, .L41
+	add	r3, r3, #128
+	ldr	r4, .L41+4
+	and	r3, r3, r2
+	lsl	r3, r3, #1
+	lsl	r1, r1, #1
+	ldrh	r2, [r4, r3]
+	ldrh	r3, [r4, r1]
+	strh	r3, [r0, #4]
+	neg	r3, r3
+	strh	r2, [r0]
+	strh	r3, [r0, #2]
+	strh	r2, [r0, #6]
+	pop	{r4}
+	pop	{r0}
+	bx	r0
+
+
+
+normal oa_rotscale
+
+oa_rotscale:
+	push	{r4, r5, r6, r7, lr}
+	mov	r4, r1
+	ldr	r5, .L20
+	add	r4, r4, #128
+	ldr	r6, .L20+4
+	and	r4, r4, r5
+	lsl	r4, r4, #1
+	ldrsh	r5, [r6, r4]
+	mov	r4, r2
+	mul	r4, r4, r5
+	lsl	r1, r1, #1
+	asr	r4, r4, #8
+	strh	r4, [r0, #6]
+	ldrsh	r1, [r6, r1]
+	mul	r2, r2, r1
+	neg	r2, r2
+	asr	r2, r2, #8
+	strh	r2, [r0, #14]
+	mov	r2, r3
+	mul	r2, r2, r1
+	mul	r3, r3, r5
+	asr	r2, r2, #8
+	asr	r3, r3, #8
+	strh	r2, [r0, #22]
+	strh	r3, [r0, #30]
+	pop	{r4, r5, r6, r7}
+	pop	{r0}
+	bx	r0
+45-17 lines= 28
+
+
+// oa_rotscale2:
+oa_rotscale2:
+	push	{r4, r5, r6, lr}
+	ldrh	r4, [r1, #4]
+	ldr	r2, .L29
+	mov	r3, r4
+	add	r3, r3, #128
+	ldr	r5, .L29+4
+	and	r3, r3, r2
+	lsl	r3, r3, #1
+	ldrsh	r6, [r5, r3]
+	mov	r3, #0
+	ldrsh	r2, [r1, r3]
+	mov	r3, r2
+	mul	r3, r3, r6
+	lsl	r4, r4, #1
+	asr	r3, r3, #8
+	strh	r3, [r0, #6]
+	ldrsh	r4, [r5, r4]
+	mov	r3, r2
+	mul	r3, r3, r4
+	neg	r3, r3
+	asr	r3, r3, #8
+	strh	r3, [r0, #14]
+	mov	r3, #2
+	ldrsh	r2, [r1, r3]
+	mov	r3, r2
+	mul	r3, r3, r4
+	asr	r3, r3, #8
+	strh	r3, [r0, #22]
+	mov	r3, r2
+	mul	r3, r3, r6
+	asr	r3, r3, #8
+	strh	r3, [r0, #30]
+	pop	{r4, r5, r6}
+	pop	{r0}
+	bx	r0
+86-50 lines= 26
+
+aff_rotscale:
+	push	{r4, r5, r6, lr}
+	ldrh	r3, [r1, #4]
+	ldr	r5, .L32
+	add	r3, r3, #128
+	ldr	r4, .L32+4
+	and	r3, r3, r5
+	lsl	r3, r3, #1
+	ldrsh	r2, [r4, r3]
+	mov	r6, #0
+	ldrsh	r3, [r1, r6]
+	mul	r3, r3, r2
+	asr	r3, r3, #8
+	strh	r3, [r0]
+	ldrh	r3, [r1, #4]
+	lsl	r3, r3, #1
+	ldrsh	r2, [r4, r3]
+	mov	r6, #0
+	ldrsh	r3, [r1, r6]
+	mul	r3, r3, r2
+	neg	r3, r3
+	add	r0, r0, #8
+	asr	r3, r3, #8
+	strh	r3, [r0]
+	ldrh	r3, [r1, #4]
+	lsl	r3, r3, #1
+	ldrsh	r2, [r4, r3]
+	mov	r6, #2
+	ldrsh	r3, [r1, r6]
+	mul	r3, r3, r2
+	add	r0, r0, #8
+	asr	r3, r3, #8
+	strh	r3, [r0]
+	ldrh	r3, [r1, #4]
+	add	r3, r3, #128
+	and	r3, r3, r5
+	lsl	r3, r3, #1
+	ldrsh	r2, [r4, r3]
+	mov	r6, #2
+	ldrsh	r3, [r1, r6]
+	mul	r3, r3, r2
+	asr	r3, r3, #8
+	strh	r3, [r0, #8]
+	pop	{r4, r5, r6}
+	pop	{r0}
+	bx	r0
+134-88= 50
+
+// 22:46, 19-3-2004, fr
+sine: _sinLUT[SIN_SIZE]
+
+#define SIN(x)	_sinLUT[x]
+#define COS(x)	_sinLUT[(x+(SIN_SIZE>>2)) & (SIN_SIZE-1)]
+
+// 22:44 13-03-2004, sa
+It's done. TONC's ready. For the moment at least.
+
+affbg.htm		4
+affine.htm		4
+affobj.htm		3
+bitmaps.htm		4
+dma.htm			3
+first.htm		2
+fixed.htm		2
+gfx.htm			5
+hardware.htm	2
+index.htm		1
+interrupts.htm	5
+keys.htm		2
+log.htm			1
+luts.htm		3
+mode7.htm		8
+objbg.htm		4
+refs.htm		2
+regbg.htm		6
+regobj.htm		6
+setup.htm		7
+swi.htm			5
+timers.htm		1
+toc.htm			3
+toncmake.htm	4
+tonctonc.htm	3
+video.htm		3
+93 pages. Without code . Omg.
+
+// 23:21 10-03-2004, we
+And there goes the Great Tile renaming. glyph->tile ; tile -> tegel.
+
+// 11:41 10-03-2004, we
+To set up VC for DKA r5b3
+
+--- Part 1: setting up devkit advance ---
+First unzip the 6 DKA files. KEEP THE DIRECTORY STRUCTURE INTACT! But 
+chaing the root's name is OK. For example c:\dka5b3. Define this is 
+as DKADIR for now.
+
+In principle, this should be enough. If you have an earlier DKa installed 
+you may encounter some problems because it'll try to use that one instead. 
+In my case, DKA r4 had GCC_EXEC_PREFIX set in autoexec.bat. I had to 
+remove it first before I could get it to work.
+
+--- Part 2: setting up VC ---
+2a: make sure VC can see the DKA directories. Open the 
+  [Tools/Options] dialog and go to the [Directories] tab. Select the 
+  [Executable files] list (from the [Show Directories for] box). Then 
+  add the following 3 directories: 
+  - DKADIR
+  - DKADIR\bin
+  - DKADIR\tools
+  The last one may not be required, but you never know. you can probably 
+  add these directories to autoexec.bat as well, but haven't tested this 
+  myself.
+2b: Create a makefile project
+  Click [File/New] and select [makefile] project from the list. After giving 
+  it a name (FOO in my case) and clicking OK you will be asked to go to the 
+  [Project settings] dialog. Do this. 
+2c: Project settings
+  In the [Project settings] dialog the first thing you'll find is the 
+  [Build command line] edit box. This should read something like 
+  "NMAKE /f FOO.mak" Change it to "make -f FOO.mak". Why? Because we won't be 
+  using the standard VC maketool (NMAKE), but the GNU maketool (make). Why? 
+  Because it's included in the DKA and makes things more portable and is 
+  more powerful and better documented as well. Why? Because ... just because, 
+  OK?
+  Don't worry about the other settings, as they won't be used anywhere.
+2d: Create a makefile.
+  The thing about a makefile project is that it does _not_ create the actual 
+  makefile for you as well, you have to do that yourself. Simply create 
+  a file called FOO.mak and set-up your stuff in there.
+
+--- Part 3: setting up a makefile ---
+Uhm, I'm gonna save this for later, since this depends entirely on your 
+project. From experience I know that you can learn how they work just from 
+examining existing makefiles. The rest you can learn from the tools' manuals. 
+I think I've got my makefiles set up for easy reading, but then that's just my 
+opinion.
+
+// 23:06, 8-3-2004, mo
+Converted to DKA r5b3 in just an hour or so. Hmm, that's wasn't nearly 
+as hard as I thought.
+OK, one more thing: if GCC_EXEC_PREFIX is still set (due to dka r4), 
+you're gonna have issues. Remove it from autoexec.bat.
+
+// 11:51 24-02-2004, tu
+After discussing with Zhila on this subject I think I know what to 
+do to about the tile thing.
+
+(Paletted) bitmap:
+                  .-->  palette (p[v])  --.                      
+                  |                       V
+bitmap (x,y) -> pixel value (v)    ->    color (c)
+
+Tile-map:
+                       .------------> palette (p[v]) -------.                      
+                       |                  ^                 V                       
+tile-map (x,y) -> map-tile (v)   -> tile-set (t[v])  -> colors (c)
+
+Bitmap:
+pixel -> color-set -> color
+Tilemap (old):
+     tile       ->    tile-set   ->  tile
+(screen block)     (char block)      (bg)
+
+Tilemap (new)
+    tegel       ->   tile-set    ->  tile
+(map block)        (tile-block)      (bg)
+
+Yeah, that'd work. Rename "glyph"->tile and the old "tile" (in map) to 
+"tegel".
+
+Also, I need a diagram to explain the differences between obj and bg tile 
+counting.
+
+// 20:34, 17-2-2004, tu
+I had a plan for the sprite/tile/affinity rewrite, but I'll be 
+damned if I could remember what. Oh, right there it is:
+
+= Sprites, tiles and glyphs
+  - Sprite and tilemap overview, simularities & differences
+  - glyphs
+  - glyph-blocks
+  - regular vs affine
+= regular sprites
+  - OBJ in VRAM
+  - sprite control: OAM
+  - OBJINFO structure (introduce OBJAFF too for interlace)
+  - object flags
+  - demo
+
+= regular tiles
+  - intro (in overview?)
+  - background ingredients
+  - bg control
+  - BGINFO structure
+  - regular tile-format and VRAM map-layout
+    - tile-glyph subtleties
+  - demo(s)
+
+= Affine matrix (theory)
+  - 2d transformations
+  - example transformations
+  - affine matrix P
+    - point of views
+    - "I am Cearn's Brain"
+	- "I am Cearn's GBA"
+	- resolution
+
+= Affine matrix (practice) (or should theory& practice form 
+  one page?)
+  - affine sprites
+    - OBJ_AFF_FLAG and OBJAFF struct (again)
+	- clipping artifact
+	- demo
+  - affine backgrounds
+    - video modes & registers (again)
+	- tile and map format
+    - affine specifics for backgrounds
+	- map_block2 demo
+
+
+// 13:09 7-2-2004, sa
+Went through all the make demoes again to incorporate the new 
+OBJ stuff and THUMB code. I have _got_ to get this automated.
+Still have to update the text, though *sigh*
+
+// 11:02 01-02-2004, su
+obj_aff_demo
+- ARM code: 31.1kb
+- THUMB code: 23.2kb
+25% size reduction, wow. Better switch then.
+
+// 15:14, 30-01-2004, fr
+New names for object and bg transform stuff: 
+OBJ_INFO | obi
+OBJ_AFF  | obaf
+BG_AFF   | bgaf
+Well ... not perfect, but it'll do.
+
+-22:04
+well, the utility files have been changed to OBJINFO/OBJAFF, now the 
+demos :(
+
+// 23:41, 14-01-2004, we
+No, I do need to redo OTM completely, along with portions of sprites 
+and tiles. 
+And I need more appendices. On, like BIOS calls and gotchas. Methinks 
+a gotcha section would be of great use.
+
+// 18:23, 07-01-2004, we
+Windowing is done as well. Only sound and I'm done, weehee! Well, ok, 
+so I need to redo OTM a bit, but that's mostly renaming.
+
+// 23:26 06-01-2004, tu
+Finally dated all the stuff. Kinda hard since I copied over just about 
+everything. good thing I have so many pictures.
+
+// 11:08 31-12-2003, we
+TONC size:
+bitmaps: 	4
+dma:		4
+first:		4
+fixed:		2
+gfx:		5
+hardware:	2
+index:		1
+interrupts:	4
+intro:		2
+keys:		2
+mode7:		8
+otm:		5
+sprites:	6
+swi:		5
+tiles:		8
+timers:		3
+video:		3 +
+--------------------
+total:		68
+And that's without code, yikes!
+
+// 14:24, 29-12-2003, mo
+An "affine transformation" is defined as a transformation that 
+"preserves parallelism of lines, but not lengths and angles". 
+(Foley, CGP&P) (line preserving, (Angel, ICG))
+_This_ is what the matrix should be called.
+
+// 22:17, 09-12-2003, tu
+Hmmm, how about TONC, which is GBA P(rogramming) in rot13. Has the 
+added benefit of providing an acronym which aptly portrays the 
+programming definition (i.e., "A pastime similar to banging one's head 
+against a wall, but with fewer opportunities for reward.").
+
+// 16:10, 05-12-2003, fr
+FYI, FZero uses 13/32 as its highest magnification, meaning y= 40h. 
+At that height the standard mode7 looks OK. But my mode still looks 
+nicer. Well on the left anyway; the right part still looks bad.
+
+// 18:48, 04-12-2003, th
+The Tutorial Formerly Known As Yagbat? TFKAY, naaah, unpronounceable.
+YAGBAT
+
+bereft of name: isshenna
+title-less: intellen
+acidcv
+wyezyr
+
+gatic GameBoyAdvance tutorial In C
+Even More GBA Tutorials naah.
+GATWA: Gameboy Advance Tutorial Without an Acronym: could work
+Hitchhiker's Guide to GBA programming HGGP: maybe
+Panda 
+(just read a fantastic joke about a panda in the Volkskrant:
+	A panda goes into a bar. He orders a sandwich, then suddenly takes 
+	out a gun, starts shooting up the place and departs. 
+	The shocked bartender asks him: "What the hell was that about?", 
+	to which the panda replies: "Look it up." and tosses him a 
+	handbook. It reads: "Panda: a large mammal resembling a bear and found 
+	predominantly in China. Eats, shoots and leaves.".
+Moral: interpunction matters. As every programmer should know.
+So the name "Panda" has number of things going for it. It's 
+pronounceable, is not a YABA and has an clever joke as its origin. 
+OK, so it doesn't have anything to do with the subject at hand, but I'm 
+afraid that's not really an option.
+
+
+// 21:00 26-11-2003, we
+Finally figured out what was bugging me about Pern's mode7. Or, rather, 
+I figured out why it was buggin me. The translation back after the 
+transformation is fixed at ys=180, but it shouldn't. It should be 
+something like 160-REG_VCOUNT. this is the One True Perspective 
+correction. Or at as true an one can get on the GBA. 
+And since I now know how the whole thing's done, I can finally 
+start working on my tutorial.
+
+// 23:40 25-11-2003, tu
+Yee-haw! The first Mode7 thingy works :) Thank you, Dovoto, for 
+showing the code, thank my brain for understanding it and taking the 
+bugs out. OK, so now all that's left is writing a tutor for it.
+
+
+// 14:47, 20-11-2003, th
+Arrgghhh! The"yagbat" name is taken :( So now what am I supposed to 
+do? I mean, what else can I do with GBA, T(utorial), P(rogramming) 
+or C(oding)? The main problem is the "GB" combination, which screws 
+up everything. pebkac, ogbac, gbap, gbapic, see? Nothing!
+
+// 21:42 06-10-2003, mo
+Bugger! The rotation/scale stuff is all wrong. Well, not wrong, 
+exactly, but incomplete. The P-matrix is not limited to R&S 
+transformations, it can be _any_ linear transformation. Silly that I 
+never realized it. Basically, P= M^-1, where M is the transformation 
+you're trying to accomplish. And M is defined as 
+      
+   M := | ux vx |
+        | uy vy |
+
+, where u=(ux, uy) and v=(vx,vy) are the base vectors of the new 
+coordinate system.
+
+Transformable sprites should go into a completely separate page, it's 
+simply too much to do in one go. Not if I want to be thorough.
+
+Here's how it should work. 
+There are 3 ingredients to sprites: Glyphs, object attribute structures 
+(OAS) and object transform matrices (OTM). Glyphs go into glyph blocks, 
+which can be found in video memory. OAS and OTM are interlaced inside
+object attribute memory (OAM). 
+
+- Sprites introduction
+
+- Sprite images: Glyphs, glyphblocks and REG_DISPSTAT revisited
+
+- Sprite control: Object attributes and transform matrix 
+
+- Using sprites
+
+- Demo
+  D-pad: move
+  A: Hflip 
+  B: Vflip
+  Select: palette swap
+  Start: (toggle mapping mode?)
+  L: 
+  R: 
+
+
+- other stuff: 
+gl_addr()
+oam_init()
+oam_pos()
+oam buffering
+
+Available transforms are: Rotation R, Scale S, and shear H
+
+// --- 2025-08-01, fr ---
+I can't believe I'm stil doing this.
+
+Okay, converting the scripts from excel to python.
+
+autoref:
+- tag: `id="{type}-{key}"`
+- ref: `<em>[[ref:{type}-{id}}]]</em>`
+
+- reftypes: []
+- find all `id="((type)-key)" -> keys, in order.
+- assign key->number (what about nested nums?)
+- find all refs and replace with number. But not quite. Every type has its own generator.
+
+numbers.htm : 
+	right-align table 1.
+	right-align table 2.
+links:
+	pretty much all links are dead now.
+	
+Obsolete HTML:
+	tt
+	table.cellpadding
+	table.cellspacing
+		0 except:
+		portal: 8
+		regobj: 1
+		but also tables without spacing?
+	table.width
+	table.border
+	caption.align		-> caption-side / text-align
+	ybody.align
+	td.width
+	col.align
+
+Tables using default cellspacing:
+- header		// is fine
+- .reg>table	// but this should be table.reg ? No, that's the register itself. This is for the description.
+
+frames:
++ hardware: img-gba
++ first: img-efa
++ bitmaps: img-link-big
++ objbg: img-tile-use
++ objbg: img-bad-bpp
++ regobj: img-obj-map uses cellpadding for frame control instead of cellspacing
++ regbg: img-map
++ regbg: tbl-reg-size
++ regbg: img-brin
++ regbg: img-brin-demo
++ regbg: img-cbb-demo
++ regbg: img-hello
++ affine: eq-prs-bad	// is ok
++ affine: img-metr-rs
++ affine: eq before img-texmap. Spacing around `=` is bad.
++ affine: tbl-aff-def. This is weird? Right: equation tables
++ affobj: img-numline
++ affobj: img-obj-aff-rs
++ affbg: tbl-bg-types
++ gfx: img-win-dgrm
+- dma: tbl-dma-regs		// really needs more padding! Or just reformatting.
+- timers: tbl-tmr-reg	// ditto
++ interrupts: sec-demo, controls.		// Probably for others too
++ interrupts: img-irq-demo
++ swi: ssec-funs-list	// But better without spacing? Align headers.
++ swi ssec-demo.	// controls
++ sndsqr: sec-demo	// controls
++ text: img-txt-se1
++ text: img-txt-se2
++ mode7: img-m7-map
++ mode7: img-3dview
++ mode7: img-types
+- mode7ex: eq-mat-rot and others. `=` spacing
+- mode7ex: eq-m7-main legend, and farther down
+- mode7ex: eq-m7-sum
++ mode7ex: img-obj-frames
++ tte: img-cyber. Please realign!
++ asm: tbl-ins-data: realign
++ asm: tbl-cycles: realign
+- lab: img-prio-demo
+
+So there are three main cases:
+- multi-frames
+- equations
+- demo controls
+
+Should be able to make that work.
+
+td.eqcell for equations?
+
+- keys: img-key-demo: increase size
+- swi: ssec-funs-smpl: blank line inconsistencies
+- sndsqr: REG_SND1FREQ table too small?
+- mode7ex: img-pan?
+- tte: tbl-tte-brevs: why padding 4?
+- tte: img-verdane-b4: enlarge?
+- tte: ssec-misc-utf8: check code
+- tte: tbl-tte-profile: update
+- asm: special cases and questions
+- asm: tbl-carry
+- lab: eq-helix: middot space
+- numbers: tbl-pot: right-align
+- numbers: tbl-adder right border?
+- matrix: ssec-vec-props: `=` align
+
+Need some page-end margin
+
+New classes:
+- reg-desc
+- eq-container
+- controls-container
+- frame-group
+
+Fixing cellpadding:
+- text: font_pack has reg style but inline cellpadding. Fix?
+- regbg: tbl-reg-layout will have issues?
+
+reg-desc needs style-adjustments. Seems <col> doesn't work anymore. What's a decent modern monospace font
+
+
+eqtbl vs eq-container?
+
+eqtbl substyles:
+- r (matrix)
+- rcl
+- rcl, middle
+- rclcl
+- center
+- c3 (numbers)
+- middle
+- [none] (asm)
+
+- numbers#tbl-bitops-arith is weird
+
+// --- 2025-08-04, mo ---
+
+Found the CSS equivalent for standard borders, finally!
+
+table.border {
+	border: 1px outset;
+	th, td {
+		border: 1px inset;
+	}
+}
+
+TODO:
++ regobj: colorize obj/aff fields
+- I still have some tables with vertical borders. Need a proper style for that. Look for `rules=` stuff.
+- numbers: tbl-multiply examples. cblock blocks align-r. Ideally, cblock's text-align shouldn't cascade? None of the *blocks are necessary now anyway, probably.
+
+// --- 2025-08-05, tu ---
+Testing the TOC generator on bitmaps.htm. Looks like the `Conclusions` link has been wrong for 20 years >_<
+
+// --- 2025-08-08, fr ---
+Well carp. I'd like to make RefType into a type, but it also needs access to the other items 
+_and_ counters. Counters for the updating, and items for the labels. Or maybe it should just be
+something a simple model?
+
+Alt for updater: 
+def updater(counters, key:str, resets = None)
+	counters[key] +=1
+	[ counters[v] for v in resets ]
+
+Simple:
+[code]
+class RefType:
+	def __init__(self, numstyle:str = 'n')
+		self.value = 0
+		self.numstyle = numstyle
+		self.label = ""
+		
+	def __str__(self):
+		return self.label
+		
+	def inc(self):
+		self.value += 1
+		self.update_label()
+		
+	def reset(self):
+		self.value = 0
+		self._update_label()
+		
+	def _update_label(self):
+		style = self.numstyle;
+		x = self.value
+		if (...
+
+	def update(groups, key:str, resets:list[str] = []):
+		group[key].update()
+		[ groups[k].reset() for k in resets]
+		
+
+// outside:
+	reftypes = {
+		'ch':  { 'value':self.RefType(), fmt:"{ch}", resets: [] },
+		'sec': { 'value':self.RefType(), fmt:"{ch}.{sec}", resets: [] },
+	}
+	
+// Wait, I can't do fmt.format(**reftypes), as there are other members.
+[/code]
+
+Full-class:
+[code]
+class RefType:
+	def __init__(self, group:dict[RefType], name:str, format:str, resets:list[str] = [], numstyle:str = 'n', value:int = 0)
+		self._group = group
+		self._name = name
+		self._format = format
+		self._resets = resets
+
+		self.numstyle = numstyle
+		self._value = value
+		self._svalue = ""
+		
+	def __str__(self):
+		return self._svalue
+		
+	def update(groups, key:str, resets:list[str] = []):
+		self.group[key].update()
+		[ self.group[k].reset() for k in resets]
+
+	def inc(self):
+		set(self, self.value+1)
+		self._value += 1
+		self._cache_str()
+	
+	def set(self, value:int = 0)
+		self._value = value
+		self._cache_str()
+		
+	def get(self) -> int:
+		return self._value
+
+	def _cache_str(self):
+		style = self.numstyle;
+		x = self.svalue
+		if (...
+
+// outside:
+	
+	reftypes = {
+		'ch':  self.RefType(reftypes, 'ch',  '{ch}') },
+		'sec': self.RefType(reftypes, 'sec', '{ch}.{sec}', resets: ['ssec'] },
+	}
+	
+[/code]
+
+Oh bollox. BS4 also converts entities on element.text(). See affine.htm That's something for later.
+
+Ugh. typing's Self is python 3.11+
+
+// --- 2025-08-10, fr ---
+
+separate project for tte_profile.
+Testing with -O3. Oh wow, -O3 is _good!_ It's almost up to what I manually-assembled. The big 
+thing there is that it makes two versions: one 'normal' one and one specialized for in-tile 
+rendering saving the right-tile trhing altogether. Yeah, it makes sense to do that since you 
+can determine that beforehand. Very dependent on the font though, and verdana9 is very good for 
+it.
+So how do other fonts fare?
+
+- arial 9. Wide @, W.
+- berlin Sans FB Demi 9. Is okay for a mini-font.
+- bodoni 9. Eh
+- calibri 9. Just ugly.
+- calibri Light 9-11. A few wides
+- franklin gothic medium 9-10
+- leelawadee UI 10 looks nice, but very wide
+- microsoft sans serif 9. Some wide, but good. (not MS Sans Serif)
+- onyx 9. Microfont.
+- small fonts 7-8 for microfont!!
+- verdana 9. Heh. Also some wide.
+
+ !"#$%&'()*+,-./
+0123456789;:<=>?
+@ABCDEFGHIJKLMNO
+PQRSTUVWXYZ[\]^_
+`abcdefghijklmno
+pqrstuvwxyz{|}~
+
+ !"#$%&'()*+,-./
+0123456789;:<=>?
+@ABCDEFGHIJKLMNO
+PQRSTUVWXYZ[\]^_
+`abcdefghijklmno
+pqrstuvwxyz{|}~.
+€.‚ƒ„…†‡ˆ‰Š‹Œ.Ž.
+.‘’“”•–—˜™š›œ.žŸ
+ ¡¢£¤¥¦§¨©ª«¬.®¯
+°±²³´µ¶·¸¹º»¼½¾¿
+ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏ
+ÐÑÒÓÔÕÖ×ØÙÚÛÜÝÞß
+àáâãäåæçèéêëìíîï
+ðñòóôõö÷øùúûüýþÿ
+
+// --- 2025-08-20, we ---
+Meh, might have to change the font to Helvetica.
+
+
+// --- 2025-10-11, sa ---
+Running through the examples, and noticing that `bm_modes` doesn't work. It's something with 
+`memcpy`. At first I thought it was just a matter of byte-writes, but no. The entire call to 
+`memcpy` is optimized out at -O2! Now, toolbox.h doesn't use volatile for the addresses yet, 
+but by itself that doesn't help. But what does is volatile + `x_mem[0] = x_mem[0]`. It's stupid, 
+but it works. For suitable definitions of 'works'.
+
+// --- 2025-12-28, su ---
+Re: floating divs. There _us_ a way to not require an explicit size now!
+
+It goes something like this:
+[code]
+<figure style="float:{side}; border: 1px solid black;">
+  <div style="display:table;">
+    <img />
+	<figcaption style="display:table-caption; caption-side:bottom">
+	</figcaption>
+  </div>
+</figure>
+[/code]
+
+The key thing here are 'table' and 'table-caption'. That's what what keeps the box to fit to the 
+image but still makes the text wrap. Technically only the `table-caption` is necessary, but 
+that feels weird without a table.
+
+Unfortunately, I have 133 instances of `cpt_`, and I'm not sure if I can automate the 
+conversion. Then again: it _shouldn't_ be too hard, right?
+
+Content:
+- img
+- <center>
+- <table>
+
+// ---------------------------------------------------------------------------------------------
+// ???
+// ---------------------------------------------------------------------------------------------
+
+// === YAGBAT contents ===
+- intro to YAGBAT
+  - requisites (C/C++, math)
+  - used programs (usenti, MSVC + GCC, VBA)
+  - zips (usenti, yagbat-lib, example source+images)
+  - references
+- GBA hardware
+  - video
+    - screen modes
+    - sprites
+    - maps
+  - sound
+  - keys?
+  (-flash linker)
+- compiler
+  - using GCC
+  - using GCC the easy way
+    - make.bat
+    - setting up MSVC (makefiles)
+  - crt0.s + lnkscript
+  - your first program (vid_sanity)
+
+- video intro
+  - REG_DISPCNT & REG_DISPSTAT
+  - modes (0-6, sprites)
+  - color & palette
+  - terminology
+
+- keypad intermezzo
+  - REG_P1
+  - some functions (demo?)
+
+- bitmap mode
+  - vid_sanity
+  - gradient (shows color format)
+  - back-buffer
+  - mode5 size
+  - mode4 writes
+- sprites
+  - glyphs
+  - OAM
+    - sizes
+    - std/rot&scale (RS)
+    - flipping
+    - palette & sub-palette
+    - glyph-id
+  - demo w RS
+
+- Fixed point math
+
+- The truth about GBA's rotation and scaling
+  - R and S matrices
+    - definition
+    - an arbitrary RS op
+  - texture mapping
+  - The GBA's P-matrix
+
+- tiles & maps
+  - tilemaps
+  - registers
+  - RS maps
+  - GLYPH-block and map-block must stay separate
+
+- graphics FX
+  - mosaic
+  - blend
+  - windowing
+  (- mode 7)
+
+- interupts
+- DMA
+- timing (vblank + timers)
+
+(- sound)
+
+// === YAGBAT style ===
+- Black on lt-beige background, (� la Jargon file)
+- 'index' on left side (htmlhelp-style)
+- code in  <pre> block, in using "proglist" class
+  - lt-gray bg
+  - keywords in blue
+  - code in black
+  - preprocessor in green
+  - literals in magenta
+  - strings in purple
+- prev/next at top/bottom of page
+- pics in PNG, of course.
+- there will be NO Java
+- 'abstract' and index at top of page
+- related links?
+
+Utils (+ example) code in appendix, with links from appropriate files?
+
+// === Files ===
+
+- dma.htm
+- firstcode.htm
+- fixed.htm
+- gba_intro.htm
+- gfx.htm
+- hardware.htm
+- index.htm
+- interupts.htm
+- keys.htm
+- links.htm
+- mode7.htm
+- rotscale.htm
+(- side_index.htm)
+- timing.htm
+- vid_intro.htm
+- vid_bitmap.htm
+- vid_sprite.htm
+- vid_tile.htm
+- yagbat.css
+
+// === Examples ===
+- vid_sanity(): the "hello world" equivalent
+- dblbuf_demo(): mode4 buffer flipping.
+- keys_demo(): button testing
+- blend_demo()
+- mosaic_demo()
+- window_demo()
+- bitmap_demo(): shows bitmap modes; note garbage when switching
+- sprite_demo(): 2 metroid sprites; note garbage
+- tile_demo(): 2 metroid maps. Garbage again.
+- spr_norm_demo(): full test of normal 4bpp sprite (move/flip/pal-swap)
+- spr_trans_demo(): full test of transformable 4bpp sprite (rot/scale/shear?)
+- tile_norm_demo(): full test of 4bpp tile map (move/flip/pal-swap/)
+- tile_trans_demo(): transformable map (rot/scale/)
+- ani_demo(): animation demo; let something blow up
+- pal_ani_demo()
+- mode7_demo()
+- palmod_demo(): change palette at hblank
+- wavemap_demo(): make a tilemap squiggle
+- parallax_demo(): moving bg at variable speed; depth illusion
+
+
+
+EOF

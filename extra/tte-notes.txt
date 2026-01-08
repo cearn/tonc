@@ -1,0 +1,439 @@
+
+// --- 2025-07-25, fr ---
+Finally doing a proper chr4c_drawg_b1cts compare. 
+
+				t		size
+mesen:
+null			244		
+iwram, c		733		100h
+asm				629		180h
+
+
+What do we have:
+base - unpacked
+rom - iwram
+arm - thumb
+c - asm
+
+Technically 16, but not doing thumb iwram? would still be a good one though. I think 
+iwram+arm & rom+thumb is a decent split, but I still want asm+arm+rom too
+
+Feckit, made aal variants for C and 2 for asm. And the results are not too surprising, but still
+interesting. Also, I made a mistake and not using the inline chr4c plot at first. This makes a 
+_big_ difference for the iwram functions, and they'd have to jump back to rom for the innermost 
+loop. It's a 2x difference!
+
+
+
+*** Results ***
+**instr-type and mem-type**
+
+As expected: the order of speed is 
+1. arm/iwram
+2. thumb/iwram
+3. thumb/rom
+4. arm/rom
+
+The slower arm/rom is the effect of ROM's 16bit bus. In this particular instance, the ARM code is only ~1.2x longer, but that still causes a ~30% longer runtimes.
+
+The speedboost for going from ROM to IWRAM is ~2.7x for Thumb code and 4.2x for ARM. I kind of expected more, though: doesn't ROM usually have N/S=5/3 timing? Oh wait, S=3 so a factor of roughly 3 does track.
+
+**inlining**
+This was a bit a a fuckup on my part, but I forgot to use the inline version of <code>schr4_plot()</code>. For ROM code the effect is only ~10%, but it absolutely <i>wrecks</i> the IWRAM code, as it now has to jump back to ROM. In the inner loop. It's about twice as fast as when you inline it there.
+
+**base vs 8x**
+And then the big one: an <i>honest</i> comparison the base and 8x optimized versions (including C vs assembly). Overall the 8x version is about 45% faster in C, and 30% faster in assembly.
+
+At first this seems low. You're going from pixel-by-pixel to 8 pixels at a time, so surely it should also be up to 8 times faster, right? Wellllll ...
+
+The problem is when you handle 8 pixels at a time, you _have_ to handle 8 pixels at a time. In most cases, that'll  mean distributing them over a left-tile and a right-tile, each of which cost a LDR, a STR and two register-shifted ALU instructions. Even when you don't have to bo both times, the jump or conditionally skipped instructions add up. 
+
+In contrast, going pixel-by-pixel means that you can just skip empty pixels, andalso shortcircuit the loop once you run out of pixels. Glyphs are often sparse so you can often just race through a row anyway. Take a "h", for example:
+
+[code]
+
+*
+*
+*
+***
+*  *
+*  *
+*  *
+
+
+
+
+[/code]
+
+Most rows have one or two pixels. Pretty often you don't <i>have</i> to do more. Though it'll 
+heavily depend on the font, of course.
+
+This makes fully optimizing this a bit tricky. The results can depend heavily on the font and even the string used. And another, more subtle thing is that maybe you might thing that it'd be faster to work from the high bits (the rightmost pixels for the GBA) instead of the low bits. Now, this would eliminate some <code>cmp</code>s in the code, but since the source rows are <i>left</i>-aligned, it might end up slower overall. It's silly things like this that makes optimizing hard.
+
+And at this stage, optimizing single instructions barely matters anyway, as drawing a character now takes 380-700 cycles, and the character overhead (see <code>null_drawg</code>) is already 244. Optimizing that will probably have greater results.
+
+
+**C vs assembly**
+And finally, is hand-assembled code still faster than compiled code? Yes. Definitely, yes. Not orders of magnitude, but it can still be 20-50% faster. And smaller too, which is nice for IWRAM. The main thing here seems to be that the compiler still doesn't do register allocations well. This means more stack-use, and inefficient use of registers as well. In the 8x version, it also does a really weird thing when looking to skip empty rows of pixels. This can be done before unpacking the source byte (and the C-code does this), but for some reason the check and branch are put <i>after</i> the unpacking, wasting several cycles for empty rows. 
+
+**Conclusions**
+
+Overall, the <i>code</i> speed of drawing a glyph was improved by ~85% by the unpacking algorithm and manual assembly. But the real difference is still the 200% speedup by just putting it in IWRAM. The Makefile rules are set-up such this can be done simply by using the <tt>iwram.c</tt> extension, so I guess start with that. But still, ARM assembly is kinda nice and you should at least try to write your own routine in assembly too <tt>::)</tt>
+
+// --- 2025-07-21, mo ---
+Optimizing loads? Needed:
+- (charW), charH, cellH, cellSize
+
+suppose:
+	u8 charW		
+	u8 charH		-> r5
+	u8 cellW
+	u8 cellH		-> r6
+	u16 cellSize	-> r7
+	u16 pad
+
+ldmia	r7, {r3, r4}
+mov		r7, #255
+and		r5, r7, r3, lsr #8
+and		r6, r7, r3, lsr #24
+lsl		r4, #16
+lsr		r4, #16
+
+N+2S+I + 5S = N + 7S + 1
+
+ldrb	r5, [r7, charH]
+ldrb	r6, [r7, cellH]
+ldrh	r7, [r7, cellS]
+
+3N + 3S + 3I
+
+Most of the time you need 2 extra instrs per u8/16. 
+
+2x u16 vs u32/2:
+
+// 2N + 2S + 2I
+ldrh	r4, [r0]
+ldrh	r5, [r0, #2]
+
+// 1N + 3S + 1I. 
+ldr		r4, [r0]
+lsr		r5, r4, lsr #16
+bic		r4, r4, r5, lsl #16
+
+diff: N-S+I, but one instr extra.
+
+2x u8 vs u16/2
+// 2N + 2S + 2I
+ldrb	r4, [r0]
+ldrb	r5, [r0, #1]
+
+// 1N + 3S + 1I.
+ldr		r4, [r0]
+lsr		r5, r4, lsr #8
+bic		r4, r4, r5, lsl #8
+
+
+
+
+// --- 2025-07-20, su ---
+I think for the optimized chr4c base I need to run through the pixels backwards. That way I 
+shift to the top and use beq to exit and bmi for the pixel. But that also means I have to start
+on rtile? But how do the conditions work then? lshift = (x0+7)*4?
+
+// --- 2025-07-18, fr ---
+Improvements for chr4c_drawg_b1cts_fast:
+- render to right-tile first, so that `str r3, [r0]` becomes `str r3, [r0], #4`
+  Sigh. Can't I need a `dstL++` for empty rows too and unless I move that away too, 
+  this is not gonna happen. Unless I move that to above .Lyloop? Yeah, but than that has 
+  to be more complicated as well. Not sure it's worth it.
+- Instead of lr, test shifted px to see if render is needed for that tile. Can happen 
+  for both left/right. Costs 1 extra ins though. Or prep full-tile mask And rotate everything 
+  into position earlier? Not 100% sure ROR is better though: you'll still need to mask things 
+  out, which costs extra.
+  Does help, but not much. It's good for rtile, but because of how the fonts are arranged, 
+  you almost always have ltile pixels anyway, so that check does more harm than good. 
+
+How many registers used in y-loop?
+r0, r1, r2, r3, r4, r5, r6, r7, r8, r9, ip
+
+r10, r11 in strip-loop. lr not necessary? lr = 1<<rshift
+left tile:
+cmp		r4, lr
+ldrlt	r3, [r0]	// ... if px < (1<<rshift)
+
+x = 2
+7 ... 0		
+ 1000000	slimit
+hgfedcba
+  fedcba	left tile	cmp r4, slimit; ldrlt. Misses 0!
+hg			right tile	cmp r4, slimit; ldrge
+
+00FFFFFF	smask
+  fedcba	left tile	ands r3, r4, smask; ldrne
+hg			right tile	bics r3, r4, smask; ldrge
+
+Alt: ROR early?
+  |
+hg fedcba
+      |
+fedcba		left tile
+       hg	right tile
+
+Still need smask. Or maybe lmask (FFFFFF00) & rmask (000000FF) instead of lshift, rshift? Problem 
+is that I need to mask out px and ink. But need to mask ink anyway?
+
+r4 = px (RORed)
+r5 = inkmask (RORed)
+r8 = lmask
+r9 = rmask
+
+tst		r4, r8
+ldrne	r3, [r0]
+bicne	lr, r5, r8
+bicne	r3, lr
+bicne	lr, r4, r8
+orrne	r3, r3
+str		r3, [r0]
+
+The extra BICs are expensive :\ The thing with shifting is that you get free masking.
+
+Non-rotate:  
+lr = (1<<(rshift))-1
+
+
+
+
+schr4_plot, compiled to THUMB. 26i
+[asm]
+// r0	dst surface
+	+00	data
+	+04	pitch
+// r1	int x
+// r2	int y
+// r3	u32 clr
+$08003664:
+	PUSH	{R4,LR}				// pushing LR is not necessary
+	MOV 	R12, R3				// - (+1) Using high register: unnecessary
+	LSL 	R4, R0, #$00		// - (+1) Just load r0+4 here, not later.
+	MOV 	R3, #$07			// + (+1) ((x&7)*4) == ((x << 29) >> 27). Mask redundant.
+	LSR 	R0, R1, #$03		// |	x/8
+	AND 	R3, R1				// +
+	LDR 	R1, [R4, #$04]		// |	r1 = pitch
+	MUL 	R1, R0				// |	x/8*pitch
+	LSL 	R2, R2, #$02		// |	y*4
+	ADD 	R1, R1, R2			// |	- y*4+x/8*pitch. If data was loaded earlier, 
+	MOV 	R2, #$0F			// |	\ r2 would have been free for other stuff.
+	LDR 	R0, [R4, #$00]		// |	- r0 = data. Move up.
+	LSL 	R4, R2, #$00		// |	- (+1) save mask for later?
+	LSL 	R3, R3, #$02		// +	- shift = (x&7)*4
+	LSL 	R4, R3				// - r4 = 15<<shift
+	ADD 	R0, R0, R1			// - dst = data + y*4 + x/8*pitch
+	LDR 	R1, [R0, #$00]		// row = *dst
+	BIC 	R1, R4				// - row &= ~(mask<<shift)
+	MOV 	R4, R12				// - (+1) redundant register
+	AND 	R2, R4				// \
+	LSL 	R2, R3				// - row |= (clr&15)<<shift
+	ORR 	R1, R2				// /
+	STR 	R1, [R0, #$00]		// *dst = row
+	POP 	{R4}				
+	POP 	{R0}				// (+1) Not necessary if LR not pushed
+	BX 		R0
+[/asm]
+
+[code]
+// Original
+void schr4c_plot(const TSurface *dst, int x, int y, u32 clr)
+{
+	uint xx= x;
+	u32 *dstD= (u32*)(dst->data + xx/8*dst->pitch);
+	uint shift= xx%8*4;
+
+	dstD[y] = (dstD[y] &~ (15<<shift)) | (clr&15)<<shift;
+}
+[/code]
+
+Hand-assembled THUMB. 20i
+[asm]
+	push	{ r4 }
+	ldr		r4, [r0, #4]	@ load pitch
+	ldr		r0, [r0]		@ load data (last use of surface)
+	lsl		r2, #2
+	add		r0, r2			@ data + y*4; r2 now free
+	mov		r2, r1, lsr #3
+	mul		r2, r4			@ r4 free
+	add		r0, r2			@ dstL = data + y*4 + x/8*pitch
+	lsl		r1, #(32-3)		@ - (r1&7)*4
+	lsr		r1, #(32-3-2)	@ /
+	
+	ldr		r4, [r0]		@ row
+	mov		r2, #15			@ mask
+	and		r3, r2			@ clr& & mask
+	lsl		r3, r1			@ r3 = (clr&mask) << shift
+	lsl		r2, r1			@ r2 = mask<<shift
+	bic		r4, r2			@ - row = (row & ~(15<<shift)) | ((clr&15) << shift)
+	orr		r4, r1			@ /
+	str		r4, [r0]
+	
+	pop		{ r4 }
+	bx		lr
+[/asm]
+
+// --- 2025-07-16, we ---
+
+// --- 
+
+
+
+                              hgfe dcba
+0000 0000 0000 hgfe dcba 0000 hgfe dcba		p |= p<<12
+0000 00hg fedc ba00 00hg fedc ba00 0000		p<<6
+0000 00hg fedc xxfe dcxx fedc xxfe dcba		p |= p<<6
+0000 00h0 0000 00f0 0000 00d0 0000 00b0		q = p & 0x02020202
+0000 000g 0000 000e 0000 000c 0000 000a		p &= 0x01010101
+000h 000g 000f 000e 000d 000c 000b 000a		p = p | q
+
+
+
+        +         +         +         +
+
+
+                              xxxx dcba
+0000 0000 00xx xxdc 0000 0000 xxxx dcba		p |= p << 14
+000x xxxd c0xx xxdc 0xxx xdcb Axxx dcba		p |= p << 7
+0000 000d 0000 000c 0000 000b 0000 000a		p &= 0x00010001
+
+00:09	Phase 1
+02:35	Phase 2
+14:26	Phase 3
+
+
+offset = x&7
+for each row
+	chunk = ...
+	
+	ldr, mask/data, str
+	
+	data = chunk >> dshift
+	
+	for (ix=0; ix<w; ix += 8)
+		chunk = ...
+		
+		data |= chunk << ushift;
+		
+		mask = data *= 15;
+		row = data * ink;
+		
+		ldr, mask/data, str
+		
+		data = chunk >> dshift;
+	
+	if (remainder)
+		ldr, mask/data, str
+
+---
+
+chr4c, simple version
+
+dstL = ...
+raw = *srcL8++;
+shift = (ix&7)*4;	// 0, 4, 8, ..., 28
+for (; raw > 0; raw>>=1)
+{
+	if (raw&1)
+	{	
+		px = *dstL;
+		px &= ~(mask<<shift)
+		px |= ink<<shift;
+		*dstL = px;
+	}
+	if ( (shift += 4) >= 32)
+	{
+		shift = 0;
+		dstL += colOffset;
+	}
+}
+
+[asm]
+
+	ldrb	raw, [srcL], #1
+	cmp		raw, #0
+	beq		.LnextLine
+.Lline:
+	tst		raw, #1
+	beq		.Lnodraw
+	ldr		px, [dstL]
+	bic		px, #15, lsl shift
+	orr		px, ink, lsl shift
+	str		px, [dstL]
+.Lnodraw:
+	add		shift, shift, #4
+	cmp 	shift, #32			# [PONDER] reverse order?
+	movge	shift, #0
+	addge	dstL, colOffset
+	
+	movs	raw, lsr #1
+	bne		.Lline				# [PONDER] Move this up?
+.LnextLine:
+
+[/asm]
+
+*dstD = (dst->data + x/8*dst->pitch)
+shift = (x%8)*4;
+dstD[y] = (dstD[y] &~ 15<<shift) | (clr<<shift);
+
+r0	dstL
+r3	raw
+r4	ix
+r6	mask
+r7 	ink&15
+
+---
+
+Timings:
+LDR	1S + 1N + 1I
+STR	2N
+mul	1S + mI			m based on Op2 bytes
+mla	1S + (m+1)I
+
+data:	16S + 4I
+mul:	 1S	+ 1I
+br		 3S      + 1N
+ldr		ROM(N) + VRAM(2N) + 3S + 3I
+str		VRAM(2N) + 2N
+
+23s + 8i + 3N_code + N_rom + 4N_vram
+
+23 + 8 + 3 + 5 + 8 = 47. Still missing a few? Could be overhead.
+
+23i total.
+
+data-S	data-I	jmp-S		mem
+
+---
+
+bitmask -> index. 1<<[0, 14]
+
+mov 	r1, #0
+cmp		r0, (1<<8)
+addge	r1, #8
+movge	r0, lsr #8
+cmp		r0, (1<<4) 
+addge	r1, #4
+movge	r0, lsr #4
+cmp		r0, (1<<2)
+addge	r1, #2
+movge	r0, lsr #2
+
+//  [NOTE] if it's always a single bit, at this stage it's either 2 or 1. Could do r1 += (r0-1) ?
+movs	r0, lsl #()		// (into 32 and 31)
+addcs	r0, #1
+//addmi	r0, #1
+
+
+So I had the oddest job interview yesterday. 
+
+10-20 years ago, I wrote basically _the_ set of tutorials for GBA homebrew programming. One of the people there knows me from those documents. The first demo for that is plotting 3 pixels on the screen in a distinct pattern: one red, one green and one blue. After the interview, we were talking a bit and I noticed his shirt had 3 blocks on it in a distinct pattern: one red, one green and one blue.
+
+He had made a shirt of my tutorial's first demo.
+
+I think I may have a groupie >_>

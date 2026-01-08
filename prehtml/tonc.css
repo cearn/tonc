@@ -138,6 +138,20 @@ td div.cpt, td div.dpt_fl, td div.cpt_fr {
 	margin: 0;
 }
 
+figure {
+	margin: 0.5em;
+	padding: 4px;
+	border: 1px solid black;
+
+	figcaption {
+		font-size: 80%;
+		contain: inline-size;
+	}
+
+	&.cpt_fl { float: left; }
+	&.cpt_fr { float: right; }
+}
+
 /* --- table block styles --- */
 /* yes, table and caption forms are required */
 
