@@ -184,9 +184,13 @@ div.cblock div.cpt	{ margin: 0.5em auto; }
 
 /* === Table styles === */
 
+
 table {
 	border-spacing: 0;
-	th, td { padding: 2px 4px; }
+	th, td { 
+		padding: 2px 4px; 
+		vertical-align: top;
+	}
 }
 
 table.cp-1 { th, td { padding: 1px !important; } }

@@ -1653,6 +1653,12 @@ Content:
 - <center>
 - <table>
 
+// --- 2026-02-08, sa ---
+Re-figuring complete up to regbg.htm. Also upscaled some of the images, and they do look better 
+like this.
+
+Should table have `vertical-align:top` by default? See objbg for example. Yes.
+
 // ---------------------------------------------------------------------------------------------
 // ???
 // ---------------------------------------------------------------------------------------------
